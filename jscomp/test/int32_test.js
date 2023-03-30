@@ -1,11 +1,11 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var $$Array = require("../../lib/js/array.js");
-var Int32 = require("../../lib/js/int32.js");
-var Caml_float = require("../../lib/js/caml_float.js");
-var Pervasives = require("../../lib/js/pervasives.js");
-var Ext_array_test = require("./ext_array_test.js");
+let Mt = require("./mt.js");
+let $$Array = require("../../lib/js/array.js");
+let Int32 = require("../../lib/js/int32.js");
+let Caml_float = require("../../lib/js/caml_float.js");
+let Pervasives = require("../../lib/js/pervasives.js");
+let Ext_array_test = require("./ext_array_test.js");
 
 function f(x) {
   return [
@@ -15,11 +15,11 @@ function f(x) {
         ];
 }
 
-var shift_right_logical_tests_0 = $$Array.map((function (x) {
+let shift_right_logical_tests_0 = $$Array.map((function (x) {
         return (-1 >>> x) | 0;
       }), Ext_array_test.range(0, 31));
 
-var shift_right_logical_tests_1 = [
+let shift_right_logical_tests_1 = [
   -1,
   2147483647,
   1073741823,
@@ -54,16 +54,16 @@ var shift_right_logical_tests_1 = [
   1
 ];
 
-var shift_right_logical_tests = [
+let shift_right_logical_tests = [
   shift_right_logical_tests_0,
   shift_right_logical_tests_1
 ];
 
-var shift_right_tests_0 = $$Array.map((function (x) {
+let shift_right_tests_0 = $$Array.map((function (x) {
         return (Int32.min_int >> x);
       }), Ext_array_test.range(0, 31));
 
-var shift_right_tests_1 = [
+let shift_right_tests_1 = [
   -2147483648,
   -1073741824,
   -536870912,
@@ -98,16 +98,16 @@ var shift_right_tests_1 = [
   -1
 ];
 
-var shift_right_tests = [
+let shift_right_tests = [
   shift_right_tests_0,
   shift_right_tests_1
 ];
 
-var shift_left_tests_0 = $$Array.map((function (x) {
+let shift_left_tests_0 = $$Array.map((function (x) {
         return (1 << x);
       }), Ext_array_test.range(0, 31));
 
-var shift_left_tests_1 = [
+let shift_left_tests_1 = [
   1,
   2,
   4,
@@ -142,7 +142,7 @@ var shift_left_tests_1 = [
   -2147483648
 ];
 
-var shift_left_tests = [
+let shift_left_tests = [
   shift_left_tests_0,
   shift_left_tests_1
 ];
@@ -151,7 +151,7 @@ function $star$tilde(prim0, prim1) {
   return Math.imul(prim0, prim1);
 }
 
-var suites = {
+let suites = {
   contents: Pervasives.$at({
         hd: [
           "File \"int32_test.ml\", line 31, characters 2-9",
@@ -212,7 +212,7 @@ var suites = {
                         }), shift_left_tests_0, shift_left_tests_1)))))
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -226,7 +226,7 @@ eq("File \"int32_test.ml\", line 48, characters 5-12", Caml_float.int_float_of_b
 
 Mt.from_pair_suites("Int32_test", suites.contents);
 
-var test_div = 30;
+let test_div = 30;
 
 exports.f = f;
 exports.shift_right_logical_tests = shift_right_logical_tests;

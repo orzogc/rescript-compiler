@@ -1,6 +1,6 @@
 'use strict';
 
-var Caml_array = require("../../lib/js/caml_array.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
 function g(x) {
   return [
@@ -40,7 +40,7 @@ function aaaa(x) {
 }
 
 function f(x) {
-  for(var i = 0; i <= 10; ++i){
+  for(let i = 0; i <= 10; ++i){
     Caml_array.set(x, i, i);
   }
 }

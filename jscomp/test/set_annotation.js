@@ -1,6 +1,6 @@
 'use strict';
 
-var MyJSFile = require("MyJSFile");
+let MyJSFile = require("MyJSFile");
 
 MyJSFile.student1.name = "Mary";
 

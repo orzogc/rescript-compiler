@@ -1,18 +1,18 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Lazy = require("../../lib/js/lazy.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_module = require("../../lib/js/caml_module.js");
-var CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
-var Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
+let Mt = require("./mt.js");
+let Lazy = require("../../lib/js/lazy.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_module = require("../../lib/js/caml_module.js");
+let CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -20,13 +20,13 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var Xx = {
+let Xx = {
   f: (function (prim0, prim1) {
       return Caml_external_polyfill.resolve("hfiehi")(prim0, prim1);
     })
 };
 
-var Int3 = Caml_module.init_mod([
+let Int3 = Caml_module.init_mod([
       "recursive_module.ml",
       27,
       6
@@ -46,7 +46,7 @@ Caml_module.update_mod({
         ]]
     }, Int3, Int3);
 
-var Inta = Caml_module.init_mod([
+let Inta = Caml_module.init_mod([
       "recursive_module.ml",
       31,
       6
@@ -58,7 +58,7 @@ var Inta = Caml_module.init_mod([
         ]]
     });
 
-var Intb = Caml_module.init_mod([
+let Intb = Caml_module.init_mod([
       "recursive_module.ml",
       36,
       6
@@ -70,7 +70,7 @@ var Intb = Caml_module.init_mod([
         ]]
     });
 
-var a = {
+let a = {
   LAZY_DONE: false,
   VAL: (function () {
       return CamlinternalLazy.force(Intb.a);
@@ -87,7 +87,7 @@ Caml_module.update_mod({
       a: a
     });
 
-var a$1 = {
+let a$1 = {
   LAZY_DONE: false,
   VAL: (function () {
       return CamlinternalLazy.force(Inta.a) + 1 | 0;
@@ -104,13 +104,13 @@ Caml_module.update_mod({
       a: a$1
     });
 
-var tmp;
+let tmp;
 
 try {
   tmp = CamlinternalLazy.force(Intb.a);
 }
 catch (raw_exn){
-  var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+  let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
   if (exn.RE_EXN_ID === Lazy.Undefined) {
     tmp = -1;
   } else {
@@ -120,7 +120,7 @@ catch (raw_exn){
 
 eq("File \"recursive_module.ml\", line 41, characters 3-10", -1, tmp);
 
-var Inta$1 = Caml_module.init_mod([
+let Inta$1 = Caml_module.init_mod([
       "recursive_module.ml",
       48,
       8
@@ -132,7 +132,7 @@ var Inta$1 = Caml_module.init_mod([
         ]]
     });
 
-var Intb$1 = Caml_module.init_mod([
+let Intb$1 = Caml_module.init_mod([
       "recursive_module.ml",
       53,
       8
@@ -144,7 +144,7 @@ var Intb$1 = Caml_module.init_mod([
         ]]
     });
 
-var a$2 = {
+let a$2 = {
   LAZY_DONE: false,
   VAL: (function () {
       return CamlinternalLazy.force(Intb$1.a) + 1 | 0;
@@ -161,7 +161,7 @@ Caml_module.update_mod({
       a: a$2
     });
 
-var a$3 = {
+let a$3 = {
   LAZY_DONE: true,
   VAL: 2
 };
@@ -176,21 +176,21 @@ Caml_module.update_mod({
       a: a$3
     });
 
-var A = {
+let A = {
   Inta: Inta$1,
   Intb: Intb$1
 };
 
 eq("File \"recursive_module.ml\", line 58, characters 6-13", CamlinternalLazy.force(Inta$1.a), 3);
 
-var tmp$1;
+let tmp$1;
 
 try {
   Curry._1(Int3.u, 3);
   tmp$1 = 3;
 }
 catch (raw_exn$1){
-  var exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn$1);
+  let exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn$1);
   if (exn$1.RE_EXN_ID === "Undefined_recursive_module") {
     tmp$1 = 4;
   } else {
@@ -202,9 +202,9 @@ eq("File \"recursive_module.ml\", line 60, characters 6-13", 4, tmp$1);
 
 Mt.from_pair_suites("Recursive_module", suites.contents);
 
-var Int32;
+let Int32;
 
-var uuu = Xx.f;
+let uuu = Xx.f;
 
 exports.suites = suites;
 exports.test_id = test_id;

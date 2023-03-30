@@ -1,7 +1,7 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 console.log([
       "hello world",
@@ -12,14 +12,14 @@ console.log(1337);
 
 console.log("hello world");
 
-var arg_string = {
+let arg_string = {
   NAME: "String",
   VAL: "hi runtime"
 };
 
 console.log(arg_string.VAL);
 
-var arg_pair = {
+let arg_pair = {
   NAME: "Pair",
   VAL: [
     "hi",
@@ -39,7 +39,7 @@ console.log(3, "hi");
 
 console.log(4, undefined);
 
-var some_arg = {
+let some_arg = {
   NAME: "Bool",
   VAL: true
 };
@@ -96,7 +96,7 @@ function test00(param) {
         };
 }
 
-var none_arg;
+let none_arg;
 
 exports.arg_string = arg_string;
 exports.arg_pair = arg_pair;

@@ -1,6 +1,6 @@
 'use strict';
 
-var Caml_option = require("../../lib/js/caml_option.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 function some(x) {
   return Caml_option.some(x);
@@ -10,7 +10,7 @@ function some2(x) {
   return Caml_option.some(x);
 }
 
-var h = [
+let h = [
   3,
   2,
   2

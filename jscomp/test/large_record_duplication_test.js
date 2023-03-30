@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Mt = require("./mt.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -17,12 +17,12 @@ function eq(loc, x, y) {
 }
 
 function f0(x) {
-  var newrecord = Caml_obj.obj_dup(x);
+  let newrecord = Caml_obj.obj_dup(x);
   newrecord.x0 = 1;
   return newrecord;
 }
 
-var Small = /* @__PURE__ */Caml_exceptions.create("Large_record_duplication_test.Small");
+let Small = /* @__PURE__ */Caml_exceptions.create("Large_record_duplication_test.Small");
 
 function f_small(u) {
   if (u.RE_EXN_ID === Small) {
@@ -38,7 +38,7 @@ function f_small(u) {
   }
 }
 
-var h = {
+let h = {
   RE_EXN_ID: Small,
   x: 1,
   y: ""
@@ -56,7 +56,7 @@ eq("File \"large_record_duplication_test.ml\", line 74, characters 6-13", Caml_o
           y: ""
         }), false);
 
-var v1 = {
+let v1 = {
   TAG: "A0",
   x0: 9,
   x1: 9,
@@ -95,14 +95,14 @@ function f1(x) {
   if (typeof x !== "object") {
     return "A1";
   }
-  var newrecord = Caml_obj.obj_dup(x);
+  let newrecord = Caml_obj.obj_dup(x);
   newrecord.x0 = 1;
   return newrecord;
 }
 
 eq("File \"large_record_duplication_test.ml\", line 140, characters 6-13", get_x0(f1(v1)), 1);
 
-var v2 = {
+let v2 = {
   TAG: "A0",
   x0: 9,
   x1: 9,
@@ -140,20 +140,20 @@ function f2(x) {
   if (x.TAG !== "A0") {
     return x;
   }
-  var newrecord = Caml_obj.obj_dup(x);
+  let newrecord = Caml_obj.obj_dup(x);
   newrecord.x0 = 1;
   return newrecord;
 }
 
 eq("File \"large_record_duplication_test.ml\", line 205, characters 6-13", get_x0$1(f2(v2)), 1);
 
-var A0 = /* @__PURE__ */Caml_exceptions.create("Large_record_duplication_test.A0");
+let A0 = /* @__PURE__ */Caml_exceptions.create("Large_record_duplication_test.A0");
 
 function f3(x) {
   if (x.RE_EXN_ID !== A0) {
     return x;
   }
-  var newrecord = Caml_obj.obj_dup(x);
+  let newrecord = Caml_obj.obj_dup(x);
   newrecord.x0 = 1;
   return newrecord;
 }
@@ -165,7 +165,7 @@ function get_x0$2(x) {
   
 }
 
-var v3 = {
+let v3 = {
   RE_EXN_ID: A0,
   x0: 9,
   x1: 9,
@@ -202,7 +202,7 @@ eq("File \"large_record_duplication_test.ml\", line 273, characters 6-13", get_x
 
 Mt.from_pair_suites("Large_record_duplication_test", suites.contents);
 
-var v0 = {
+let v0 = {
   x0: 9,
   x1: 9,
   x2: 9,

@@ -1,9 +1,9 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
 function foo(n) {
   if (typeof n !== "object") {
@@ -19,7 +19,7 @@ function foo(n) {
     case "C" :
         return n._0 + n._1 | 0;
     case "D" :
-        var match = n._0;
+        let match = n._0;
         return match[0] + match[1] | 0;
     
   }
@@ -54,17 +54,17 @@ function switchNum(param) {
   }
 }
 
-var same = Caml_obj.equal;
+let same = Caml_obj.equal;
 
-var compare = Caml_obj.compare;
+let compare = Caml_obj.compare;
 
-var Path = {
+let Path = {
   same: same,
   compare: compare
 };
 
 function Make(M) {
-  var find = function (x) {
+  let find = function (x) {
     
   };
   return {
@@ -76,7 +76,7 @@ function find(x) {
   
 }
 
-var M = {
+let M = {
   find: find
 };
 
@@ -85,7 +85,7 @@ function rollback_path(subst, p) {
     return "try";
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === "Not_found") {
       switch (p.TAG) {
         case "Pdot" :
@@ -101,22 +101,22 @@ function rollback_path(subst, p) {
   }
 }
 
-var EA1 = /* @__PURE__ */Caml_exceptions.create("Variant.EA1");
+let EA1 = /* @__PURE__ */Caml_exceptions.create("Variant.EA1");
 
-var EA2 = /* @__PURE__ */Caml_exceptions.create("Variant.EA2");
+let EA2 = /* @__PURE__ */Caml_exceptions.create("Variant.EA2");
 
-var EB = /* @__PURE__ */Caml_exceptions.create("Variant.EB");
+let EB = /* @__PURE__ */Caml_exceptions.create("Variant.EB");
 
-var EC = /* @__PURE__ */Caml_exceptions.create("Variant.EC");
+let EC = /* @__PURE__ */Caml_exceptions.create("Variant.EC");
 
-var ED = /* @__PURE__ */Caml_exceptions.create("Variant.ED");
+let ED = /* @__PURE__ */Caml_exceptions.create("Variant.ED");
 
 function fooExn(f) {
   try {
     return Curry._1(f, undefined);
   }
   catch (raw_n){
-    var n = Caml_js_exceptions.internalToOCamlException(raw_n);
+    let n = Caml_js_exceptions.internalToOCamlException(raw_n);
     if (n.RE_EXN_ID === EA1) {
       return 1;
     }
@@ -130,29 +130,29 @@ function fooExn(f) {
       return n._1 + n._2 | 0;
     }
     if (n.RE_EXN_ID === ED) {
-      var match = n._1;
+      let match = n._1;
       return match[0] + match[1] | 0;
     }
     throw n;
   }
 }
 
-var a1 = "A1";
+let a1 = "A1";
 
-var a2 = "A2";
+let a2 = "A2";
 
-var b = {
+let b = {
   TAG: "B",
   _0: 34
 };
 
-var c = {
+let c = {
   TAG: "C",
   _0: 4,
   _1: 2
 };
 
-var d = {
+let d = {
   TAG: "D",
   _0: [
     4,

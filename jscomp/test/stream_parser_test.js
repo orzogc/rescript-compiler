@@ -1,22 +1,22 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
-var Queue = require("../../lib/js/queue.js");
-var Genlex = require("../../lib/js/genlex.js");
-var Stream = require("../../lib/js/stream.js");
-var Caml_int32 = require("../../lib/js/caml_int32.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
+let Queue = require("../../lib/js/queue.js");
+let Genlex = require("../../lib/js/genlex.js");
+let Stream = require("../../lib/js/stream.js");
+let Caml_int32 = require("../../lib/js/caml_int32.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var Parse_error = /* @__PURE__ */Caml_exceptions.create("Stream_parser_test.Parse_error");
+let Parse_error = /* @__PURE__ */Caml_exceptions.create("Stream_parser_test.Parse_error");
 
 function parse(token) {
-  var look_ahead = {
+  let look_ahead = {
     length: 0,
     first: "Nil",
     last: "Nil"
   };
-  var token$1 = function (param) {
+  let token$1 = function (param) {
     if (look_ahead.length !== 0) {
       return Queue.pop(look_ahead);
     }
@@ -30,13 +30,13 @@ function parse(token) {
             };
     }
   };
-  var parse_atom = function (param) {
-    var n = token$1(undefined);
+  let parse_atom = function (param) {
+    let n = token$1(undefined);
     switch (n.TAG) {
       case "Kwd" :
           if (n._0 === "(") {
-            var v = parse_expr_aux(parse_term_aux(parse_atom(undefined)));
-            var match = token$1(undefined);
+            let v = parse_expr_aux(parse_term_aux(parse_atom(undefined)));
+            let match = token$1(undefined);
             if (match.TAG === "Kwd") {
               if (match._0 === ")") {
                 return v;
@@ -70,8 +70,8 @@ function parse(token) {
             };
     }
   };
-  var parse_term_aux = function (e1) {
-    var e = token$1(undefined);
+  let parse_term_aux = function (e1) {
+    let e = token$1(undefined);
     if (e.TAG === "Kwd") {
       switch (e._0) {
         case "*" :
@@ -87,8 +87,8 @@ function parse(token) {
       return e1;
     }
   };
-  var parse_expr_aux = function (e1) {
-    var e = token$1(undefined);
+  let parse_expr_aux = function (e1) {
+    let e = token$1(undefined);
     if (e.TAG === "Kwd") {
       switch (e._0) {
         case "+" :
@@ -104,7 +104,7 @@ function parse(token) {
       return e1;
     }
   };
-  var r = parse_expr_aux(parse_term_aux(parse_atom(undefined)));
+  let r = parse_expr_aux(parse_term_aux(parse_atom(undefined)));
   return [
           r,
           Queue.fold((function (acc, x) {
@@ -116,7 +116,7 @@ function parse(token) {
         ];
 }
 
-var lexer = Genlex.make_lexer({
+let lexer = Genlex.make_lexer({
       hd: "(",
       tl: {
         hd: "*",
@@ -137,19 +137,19 @@ var lexer = Genlex.make_lexer({
     });
 
 function token(chars) {
-  var strm = lexer(chars);
+  let strm = lexer(chars);
   return function (param) {
     return Stream.next(strm);
   };
 }
 
 function l_parse(token) {
-  var look_ahead = {
+  let look_ahead = {
     length: 0,
     first: "Nil",
     last: "Nil"
   };
-  var token$1 = function (param) {
+  let token$1 = function (param) {
     if (look_ahead.length !== 0) {
       return Queue.pop(look_ahead);
     }
@@ -163,10 +163,10 @@ function l_parse(token) {
             };
     }
   };
-  var parse_f_aux = function (_a) {
+  let parse_f_aux = function (_a) {
     while(true) {
-      var a = _a;
-      var t = token$1(undefined);
+      let a = _a;
+      let t = token$1(undefined);
       if (t.TAG === "Kwd") {
         switch (t._0) {
           case "*" :
@@ -185,13 +185,13 @@ function l_parse(token) {
       }
     };
   };
-  var parse_f = function (param) {
-    var i = token$1(undefined);
+  let parse_f = function (param) {
+    let i = token$1(undefined);
     switch (i.TAG) {
       case "Kwd" :
           if (i._0 === "(") {
-            var v = parse_t_aux(parse_f_aux(parse_f(undefined)));
-            var t = token$1(undefined);
+            let v = parse_t_aux(parse_f_aux(parse_f(undefined)));
+            let t = token$1(undefined);
             if (t.TAG === "Kwd") {
               if (t._0 === ")") {
                 return v;
@@ -223,10 +223,10 @@ function l_parse(token) {
             };
     }
   };
-  var parse_t_aux = function (_a) {
+  let parse_t_aux = function (_a) {
     while(true) {
-      var a = _a;
-      var t = token$1(undefined);
+      let a = _a;
+      let t = token$1(undefined);
       if (t.TAG === "Kwd") {
         switch (t._0) {
           case "+" :
@@ -245,7 +245,7 @@ function l_parse(token) {
       }
     };
   };
-  var r = parse_t_aux(parse_f_aux(parse_f(undefined)));
+  let r = parse_t_aux(parse_f_aux(parse_f(undefined)));
   return [
           r,
           Queue.fold((function (acc, x) {
@@ -257,11 +257,11 @@ function l_parse(token) {
         ];
 }
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -282,7 +282,7 @@ function eq(loc, x, y) {
   };
 }
 
-var match = parse(token(Stream.of_string("1 + 2 + (3  - 2) * 3 * 3  - 2 a")));
+let match = parse(token(Stream.of_string("1 + 2 + (3  - 2) * 3 * 3  - 2 a")));
 
 eq("File \"stream_parser_test.ml\", line 132, characters 5-12", [
       match[0],

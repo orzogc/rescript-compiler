@@ -1,13 +1,13 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Belt_Array = require("../../lib/js/belt_Array.js");
-var Belt_Option = require("../../lib/js/belt_Option.js");
-var Caml_option = require("../../lib/js/caml_option.js");
-var TestUtils = require("react-dom/test-utils");
+let Curry = require("../../lib/js/curry.js");
+let Belt_Array = require("../../lib/js/belt_Array.js");
+let Belt_Option = require("../../lib/js/belt_Option.js");
+let Caml_option = require("../../lib/js/caml_option.js");
+let TestUtils = require("react-dom/test-utils");
 
 function act(func) {
-  var reactFunc = function (param) {
+  let reactFunc = function (param) {
     Curry._1(func, undefined);
   };
   TestUtils.act(reactFunc);
@@ -20,7 +20,7 @@ function actAsync(func) {
 }
 
 function changeWithValue(element, value) {
-  var $$event = {
+  let $$event = {
     target: {
       value: value
     }
@@ -29,7 +29,7 @@ function changeWithValue(element, value) {
 }
 
 function changeWithChecked(element, value) {
-  var $$event = {
+  let $$event = {
     target: {
       checked: value
     }
@@ -37,7 +37,7 @@ function changeWithChecked(element, value) {
   TestUtils.Simulate.change(element, $$event);
 }
 
-var Simulate = {
+let Simulate = {
   changeWithValue: changeWithValue,
   changeWithChecked: changeWithChecked
 };
@@ -62,7 +62,7 @@ function findBySelectorAndPartialTextContent(element, selector, content) {
               }));
 }
 
-var DOM = {
+let DOM = {
   findBySelector: findBySelector,
   findByAllSelector: findByAllSelector,
   findBySelectorAndTextContent: findBySelectorAndTextContent,
@@ -70,7 +70,7 @@ var DOM = {
 };
 
 function prepareContainer(container, param) {
-  var containerElement = document.createElement("div");
+  let containerElement = document.createElement("div");
   Belt_Option.map(document.body, (function (body) {
           return body.appendChild(containerElement);
         }));

@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -51,9 +51,9 @@ function f(x) {
   return x.test("a", "b").test("a", "b");
 }
 
-var v = new Make(1, 2, 3, 4);
+let v = new Make(1, 2, 3, 4);
 
-var u = v.sum();
+let u = v.sum();
 
 eq("File \"ffi_splice_test.ml\", line 61, characters 12-19", u, 10);
 

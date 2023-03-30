@@ -1,7 +1,7 @@
 
 
 
-var $$default = 3;
+let $$default = 3;
 
 export {
   $$default ,

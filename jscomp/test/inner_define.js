@@ -5,7 +5,7 @@ function add(x, y) {
   return x + y | 0;
 }
 
-var N = {
+let N = {
   add: add
 };
 
@@ -21,7 +21,7 @@ function f3(param, param$1, param$2) {
   
 }
 
-var N0 = {
+let N0 = {
   f1: f1,
   f2: f2,
   f3: f3
@@ -35,7 +35,7 @@ function f3$1(param, param$1, param$2) {
   
 }
 
-var N1 = {
+let N1 = {
   f2: f2$1,
   f3: f3$1
 };

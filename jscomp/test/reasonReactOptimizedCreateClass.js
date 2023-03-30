@@ -1,12 +1,12 @@
 'use strict';
 
-var React = require("react");
+let React = require("react");
 
 function _assign(prim0, prim1) {
   return Object.assign(prim0, prim1);
 }
 
-var emptyObject = {};
+let emptyObject = {};
 
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -49,7 +49,7 @@ var ReactPropTypeLocationNames;
 // }
 ;
 
-var factory = (function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
+let factory = (function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
   /**
    * Policies that describe methods in \`ReactClassInterface\`.
    */
@@ -880,9 +880,9 @@ var factory = (function factory(ReactComponent, isValidElement, ReactNoopUpdateQ
   return createClass;
 });
 
-var reactNoopUpdateQueue = new React.Component().updater;
+let reactNoopUpdateQueue = new React.Component().updater;
 
-var createClass = factory(React.Component, React.isValidElement, reactNoopUpdateQueue);
+let createClass = factory(React.Component, React.isValidElement, reactNoopUpdateQueue);
 
 exports._assign = _assign;
 exports.emptyObject = emptyObject;

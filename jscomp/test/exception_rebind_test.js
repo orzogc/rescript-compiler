@@ -1,39 +1,39 @@
 'use strict';
 
-var Exception_def = require("./exception_def.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Exception_def = require("./exception_def.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var E = /* @__PURE__ */Caml_exceptions.create("Exception_rebind_test.A.E");
+let E = /* @__PURE__ */Caml_exceptions.create("Exception_rebind_test.A.E");
 
-var A = {
+let A = {
   E: E
 };
 
-var B = {
+let B = {
   F: E
 };
 
-var A0 = /* @__PURE__ */Caml_exceptions.create("Exception_rebind_test.A0");
+let A0 = /* @__PURE__ */Caml_exceptions.create("Exception_rebind_test.A0");
 
-var H0 = "Invalid_argument";
+let H0 = "Invalid_argument";
 
-var u0 = {
+let u0 = {
   RE_EXN_ID: H0,
   _1: "x"
 };
 
-var u1 = {
+let u1 = {
   RE_EXN_ID: "Invalid_argument",
   _1: "x"
 };
 
-var u2 = {
+let u2 = {
   RE_EXN_ID: "Not_found"
 };
 
-var H = Exception_def.A;
+let H = Exception_def.A;
 
-var H1 = H0;
+let H1 = H0;
 
 exports.A = A;
 exports.B = B;

@@ -1,6 +1,6 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
 function peek_queue(param) {
   throw {
@@ -52,9 +52,9 @@ function format_pp_token(param, param$1) {
 
 function advance_loop(state) {
   while(true) {
-    var match = peek_queue(state.pp_queue);
-    var size = match.elem_size;
-    var size$1 = int_of_size(size);
+    let match = peek_queue(state.pp_queue);
+    let size = match.elem_size;
+    let size$1 = int_of_size(size);
     if (size$1 < 0 && (state.pp_right_total - state.pp_left_total | 0) < state.pp_space_left) {
       return ;
     }
@@ -65,7 +65,7 @@ function advance_loop(state) {
   };
 }
 
-var pp_infinity = 1000000010;
+let pp_infinity = 1000000010;
 
 exports.peek_queue = peek_queue;
 exports.int_of_size = int_of_size;

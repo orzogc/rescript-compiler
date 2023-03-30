@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_types = require("../../lib/js/js_types.js");
+let Mt = require("./mt.js");
+let Js_types = require("../../lib/js/js_types.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -30,7 +30,7 @@ function eq(loc, x, y) {
 
 eq("File \"gpr_1658_test.ml\", line 11, characters 7-14", null, null);
 
-var match = Js_types.classify(null);
+let match = Js_types.classify(null);
 
 if (typeof match !== "object" && match === "JSNull") {
   eq("File \"gpr_1658_test.ml\", line 14, characters 11-18", true, true);

@@ -1,10 +1,10 @@
 'use strict';
 
-var ReasonReact = require("./reasonReact.js");
+let ReasonReact = require("./reasonReact.js");
 
-var wrapReactForReasonReact = ReasonReact.wrapJsForReason;
+let wrapReactForReasonReact = ReasonReact.wrapJsForReason;
 
-var wrapReasonReactForReact = ReasonReact.wrapReasonForJs;
+let wrapReasonReactForReact = ReasonReact.wrapReasonForJs;
 
 exports.wrapReactForReasonReact = wrapReactForReasonReact;
 exports.wrapReasonReactForReact = wrapReasonReactForReact;

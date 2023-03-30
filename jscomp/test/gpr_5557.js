@@ -16,7 +16,7 @@ function isA(c) {
       };
 }
 
-var h = /* 'a' */97;
+let h = /* 'a' */97;
 
 exports.isA = isA;
 exports.h = h;

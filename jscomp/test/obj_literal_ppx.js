@@ -1,12 +1,12 @@
 'use strict';
 
 
-var a = {
+let a = {
   x: 3,
   y: [1]
 };
 
-var b = {
+let b = {
   x: 3,
   y: [1],
   z: 3,
@@ -19,9 +19,9 @@ function f(obj) {
   return obj.x + obj.y.length | 0;
 }
 
-var u = f(a);
+let u = f(a);
 
-var v = f(b);
+let v = f(b);
 
 exports.a = a;
 exports.b = b;

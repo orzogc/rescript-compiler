@@ -1,22 +1,22 @@
 'use strict';
 
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var Custom_inline = /* @__PURE__ */Caml_exceptions.create("Test_literal.Custom_inline");
+let Custom_inline = /* @__PURE__ */Caml_exceptions.create("Test_literal.Custom_inline");
 
-var v = {
+let v = {
   RE_EXN_ID: Custom_inline,
   _1: 1,
   _2: 2
 };
 
-var vv = [
+let vv = [
   1,
   2,
   3
 ];
 
-var long_v = [
+let long_v = [
   1,
   2,
   3,
@@ -25,7 +25,7 @@ var long_v = [
   6
 ];
 
-var long_int_v = [
+let long_int_v = [
   1,
   2,
   3,
@@ -34,9 +34,9 @@ var long_int_v = [
   6
 ];
 
-var short_int_v = [1];
+let short_int_v = [1];
 
-var empty = [];
+let empty = [];
 
 exports.Custom_inline = Custom_inline;
 exports.v = v;

@@ -1,6 +1,6 @@
 'use strict';
 
-var Pervasives = require("../../lib/js/pervasives.js");
+let Pervasives = require("../../lib/js/pervasives.js");
 
 function str(e) {
   switch (e.TAG) {

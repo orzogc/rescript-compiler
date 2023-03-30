@@ -1,9 +1,9 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Pervasives = require("../../lib/js/pervasives.js");
+let Mt = require("./mt.js");
+let Pervasives = require("../../lib/js/pervasives.js");
 
-var suites_0 = [
+let suites_0 = [
   "string_of_float_1",
   (function (param) {
       return {
@@ -14,7 +14,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "string_of_int",
     (function (param) {
@@ -40,7 +40,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

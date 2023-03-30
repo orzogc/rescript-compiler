@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -46,7 +46,7 @@ function f2(x) {
 }
 
 function f5(h, x) {
-  var u = Curry._1(h, 32);
+  let u = Curry._1(h, 32);
   if (u !== null) {
     return u + 1 | 0;
   } else {
@@ -55,8 +55,8 @@ function f5(h, x) {
 }
 
 function f4(h, x) {
-  var u = Curry._1(h, 32);
-  var v = 32 + x | 0;
+  let u = Curry._1(h, 32);
+  let v = 32 + x | 0;
   if (u !== null) {
     return u + 1 | 0;
   } else {
@@ -84,7 +84,7 @@ function f8(x) {
   }
 }
 
-var u = f8(undefined);
+let u = f8(undefined);
 
 function f9(x) {
   if (x === null) {
@@ -98,9 +98,9 @@ function f10(x) {
   return x === null;
 }
 
-var f11 = false;
+let f11 = false;
 
-var Test_null = {
+let Test_null = {
   f1: f1,
   f2: f2,
   f5: f5,
@@ -131,7 +131,7 @@ function f2$1(x) {
 }
 
 function f5$1(h, x) {
-  var u = Curry._1(h, 32);
+  let u = Curry._1(h, 32);
   if (u !== undefined) {
     return u + 1 | 0;
   } else {
@@ -140,8 +140,8 @@ function f5$1(h, x) {
 }
 
 function f4$1(h, x) {
-  var u = Curry._1(h, 32);
-  var v = 32 + x | 0;
+  let u = Curry._1(h, 32);
+  let v = 32 + x | 0;
   if (u !== undefined) {
     return u + 1 | 0;
   } else {
@@ -169,7 +169,7 @@ function f8$1(x) {
   }
 }
 
-var u$1 = f8$1(undefined);
+let u$1 = f8$1(undefined);
 
 function f9$1(x) {
   if (x === undefined) {
@@ -183,9 +183,9 @@ function f10$1(x) {
   return x === undefined;
 }
 
-var f11$1 = false;
+let f11$1 = false;
 
-var Test_def = {
+let Test_def = {
   f1: f1$1,
   f2: f2$1,
   f5: f5$1,
@@ -216,7 +216,7 @@ function f2$2(x) {
 }
 
 function f5$2(h, x) {
-  var u = Curry._1(h, 32);
+  let u = Curry._1(h, 32);
   if (u == null) {
     return 3;
   } else {
@@ -225,8 +225,8 @@ function f5$2(h, x) {
 }
 
 function f4$2(h, x) {
-  var u = Curry._1(h, 32);
-  var v = 32 + x | 0;
+  let u = Curry._1(h, 32);
+  let v = 32 + x | 0;
   if (u == null) {
     return 1 + v | 0;
   } else {
@@ -252,7 +252,7 @@ function f8$2(x) {
   }
 }
 
-var u$2 = f8$2(undefined);
+let u$2 = f8$2(undefined);
 
 function f9$2(x) {
   if (x == null) {
@@ -266,9 +266,9 @@ function f10$2(x) {
   return x == null;
 }
 
-var f11$2 = false;
+let f11$2 = false;
 
-var Test_null_def = {
+let Test_null_def = {
   f1: f1$2,
   f2: f2$2,
   f5: f5$2,

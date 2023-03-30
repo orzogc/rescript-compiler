@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -27,7 +27,7 @@ function eq(loc, x, y) {
   };
 }
 
-var u = 3;
+let u = 3;
 
 function nullary() {
   return 3;
@@ -37,7 +37,7 @@ function unary(a) {
   return a + 3 | 0;
 }
 
-var xx = 6;
+let xx = 6;
 
 eq("File \"ppx_apply_test.ml\", line 17, characters 5-12", u, 3);
 

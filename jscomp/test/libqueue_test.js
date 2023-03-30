@@ -1,10 +1,10 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
-var Queue = require("../../lib/js/queue.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
+let Queue = require("../../lib/js/queue.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
 function to_list(q) {
   return List.rev(Queue.fold((function (l, x) {
@@ -15,7 +15,7 @@ function to_list(q) {
                   }), /* [] */0, q));
 }
 
-var Q = {
+let Q = {
   Empty: Queue.Empty,
   create: Queue.create,
   add: Queue.add,
@@ -40,7 +40,7 @@ function does_raise(f, q) {
     return false;
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === Queue.Empty) {
       return true;
     }
@@ -48,7 +48,7 @@ function does_raise(f, q) {
   }
 }
 
-var q = {
+let q = {
   length: 0,
   first: "Nil",
   last: "Nil"
@@ -278,7 +278,7 @@ if (!does_raise(Queue.take, q)) {
       };
 }
 
-var q$1 = {
+let q$1 = {
   length: 0,
   first: "Nil",
   last: "Nil"
@@ -348,7 +348,7 @@ if (q$1.length !== 0) {
       };
 }
 
-var q$2 = {
+let q$2 = {
   length: 0,
   first: "Nil",
   last: "Nil"
@@ -492,13 +492,13 @@ if (!does_raise(Queue.peek, q$2)) {
       };
 }
 
-var q$3 = {
+let q$3 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-for(var i = 1; i <= 10; ++i){
+for(let i = 1; i <= 10; ++i){
   Queue.add(i, q$3);
 }
 
@@ -558,17 +558,17 @@ if (Queue.take(q$3) !== 42) {
       };
 }
 
-var q1 = {
+let q1 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-for(var i$1 = 1; i$1 <= 10; ++i$1){
+for(let i$1 = 1; i$1 <= 10; ++i$1){
   Queue.add(i$1, q1);
 }
 
-var q2 = Queue.copy(q1);
+let q2 = Queue.copy(q1);
 
 if (!Caml_obj.equal(to_list(q1), {
         hd: 1,
@@ -678,7 +678,7 @@ if (q2.length !== 10) {
       };
 }
 
-for(var i$2 = 1; i$2 <= 10; ++i$2){
+for(let i$2 = 1; i$2 <= 10; ++i$2){
   if (Queue.take(q1) !== i$2) {
     throw {
           RE_EXN_ID: "Assert_failure",
@@ -693,7 +693,7 @@ for(var i$2 = 1; i$2 <= 10; ++i$2){
   
 }
 
-for(var i$3 = 1; i$3 <= 10; ++i$3){
+for(let i$3 = 1; i$3 <= 10; ++i$3){
   if (Queue.take(q2) !== i$3) {
     throw {
           RE_EXN_ID: "Assert_failure",
@@ -708,7 +708,7 @@ for(var i$3 = 1; i$3 <= 10; ++i$3){
   
 }
 
-var q$4 = {
+let q$4 = {
   length: 0,
   first: "Nil",
   last: "Nil"
@@ -726,7 +726,7 @@ if (q$4.length !== 0) {
       };
 }
 
-for(var i$4 = 1; i$4 <= 10; ++i$4){
+for(let i$4 = 1; i$4 <= 10; ++i$4){
   Queue.add(i$4, q$4);
   if (q$4.length !== i$4) {
     throw {
@@ -753,7 +753,7 @@ for(var i$4 = 1; i$4 <= 10; ++i$4){
   
 }
 
-for(var i$5 = 10; i$5 >= 1; --i$5){
+for(let i$5 = 10; i$5 >= 1; --i$5){
   if (q$4.length !== i$5) {
     throw {
           RE_EXN_ID: "Assert_failure",
@@ -803,17 +803,17 @@ if (q$4.length !== 0) {
       };
 }
 
-var q$5 = {
+let q$5 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-for(var i$6 = 1; i$6 <= 10; ++i$6){
+for(let i$6 = 1; i$6 <= 10; ++i$6){
   Queue.add(i$6, q$5);
 }
 
-var i$7 = {
+let i$7 = {
   contents: 1
 };
 
@@ -832,13 +832,13 @@ Queue.iter((function (j) {
         i$7.contents = i$7.contents + 1 | 0;
       }), q$5);
 
-var q1$1 = {
+let q1$1 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-var q2$1 = {
+let q2$1 = {
   length: 0,
   first: "Nil",
   last: "Nil"
@@ -942,19 +942,19 @@ if (to_list(q2$1) !== /* [] */0) {
       };
 }
 
-var q1$2 = {
+let q1$2 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-var q2$2 = {
+let q2$2 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-for(var i$8 = 1; i$8 <= 4; ++i$8){
+for(let i$8 = 1; i$8 <= 4; ++i$8){
   Queue.add(i$8, q1$2);
 }
 
@@ -1080,19 +1080,19 @@ if (!Caml_obj.equal(to_list(q2$2), {
       };
 }
 
-var q1$3 = {
+let q1$3 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-var q2$3 = {
+let q2$3 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-for(var i$9 = 5; i$9 <= 8; ++i$9){
+for(let i$9 = 5; i$9 <= 8; ++i$9){
   Queue.add(i$9, q2$3);
 }
 
@@ -1218,23 +1218,23 @@ if (!Caml_obj.equal(to_list(q2$3), {
       };
 }
 
-var q1$4 = {
+let q1$4 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-var q2$4 = {
+let q2$4 = {
   length: 0,
   first: "Nil",
   last: "Nil"
 };
 
-for(var i$10 = 1; i$10 <= 4; ++i$10){
+for(let i$10 = 1; i$10 <= 4; ++i$10){
   Queue.add(i$10, q1$4);
 }
 
-for(var i$11 = 5; i$11 <= 8; ++i$11){
+for(let i$11 = 5; i$11 <= 8; ++i$11){
   Queue.add(i$11, q2$4);
 }
 

@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var String_set = require("./string_set.js");
+let Mt = require("./mt.js");
+let String_set = require("./string_set.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -28,9 +28,9 @@ function eq(loc, x, y) {
   };
 }
 
-var s = String_set.empty;
+let s = String_set.empty;
 
-for(var i = 0; i <= 99999; ++i){
+for(let i = 0; i <= 99999; ++i){
   s = String_set.add(String(i), s);
 }
 

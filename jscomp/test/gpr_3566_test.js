@@ -1,8 +1,8 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 function eq_A(x, y) {
   if (x.TAG === "A" && y.TAG === "A") {
@@ -14,12 +14,12 @@ function eq_A(x, y) {
 
 function Test($star) {
   console.log("no inline");
-  var u = {
+  let u = {
     TAG: "A",
     _0: 3
   };
-  var Block = {};
-  var b = eq_A({
+  let Block = {};
+  let b = eq_A({
         TAG: "A",
         _0: 3
       }, u);
@@ -33,8 +33,8 @@ function Test($star) {
 
 function Test2($star) {
   console.log("no inline");
-  var Block = {};
-  var b = eq_A({
+  let Block = {};
+  let b = eq_A({
         TAG: "A",
         _0: 3
       }, {
@@ -49,7 +49,7 @@ function Test2($star) {
 }
 
 function f(i, y) {
-  var x = {
+  let x = {
     TAG: "A",
     _0: i
   };
@@ -57,8 +57,8 @@ function f(i, y) {
 }
 
 function Test3($star) {
-  var f = Caml_obj.equal;
-  var Caml_obj$1 = {};
+  let f = Caml_obj.equal;
+  let Caml_obj$1 = {};
   return {
           f: f,
           Caml_obj: Caml_obj$1
@@ -66,8 +66,8 @@ function Test3($star) {
 }
 
 function Test4($star) {
-  var Caml_obj$1 = {};
-  var f = Caml_obj.equal;
+  let Caml_obj$1 = {};
+  let f = Caml_obj.equal;
   return {
           Caml_obj: Caml_obj$1,
           f: f
@@ -75,10 +75,10 @@ function Test4($star) {
 }
 
 function Test5($star) {
-  var f = function (x) {
+  let f = function (x) {
     return Caml_option.some(x);
   };
-  var Caml_option$1 = {};
+  let Caml_option$1 = {};
   return {
           f: f,
           Caml_option: Caml_option$1
@@ -86,8 +86,8 @@ function Test5($star) {
 }
 
 function Test6($star) {
-  var Caml_option$1 = {};
-  var f = function (x) {
+  let Caml_option$1 = {};
+  let f = function (x) {
     return Caml_option.some(x);
   };
   return {
@@ -97,15 +97,15 @@ function Test6($star) {
 }
 
 function Test7($star) {
-  var Caml_option = {};
+  let Caml_option = {};
   return {
           Caml_option: Caml_option
         };
 }
 
 function Test8($star) {
-  var Curry$1 = {};
-  var f = function (x) {
+  let Curry$1 = {};
+  let f = function (x) {
     return Curry._1(x, 1);
   };
   return {
@@ -115,10 +115,10 @@ function Test8($star) {
 }
 
 function Test9($star) {
-  var f = function (x) {
+  let f = function (x) {
     return Curry._1(x, 1);
   };
-  var Curry$1 = {};
+  let Curry$1 = {};
   return {
           f: f,
           Curry: Curry$1
@@ -126,13 +126,13 @@ function Test9($star) {
 }
 
 function Test10($star) {
-  var Curry = {};
+  let Curry = {};
   return {
           Curry: Curry
         };
 }
 
-var x = 3;
+let x = 3;
 
 exports.eq_A = eq_A;
 exports.Test = Test;

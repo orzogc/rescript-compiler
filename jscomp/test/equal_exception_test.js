@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Bytes = require("../../lib/js/bytes.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_bytes = require("../../lib/js/caml_bytes.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Bytes = require("../../lib/js/bytes.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_bytes = require("../../lib/js/caml_bytes.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var v = "gso";
+let v = "gso";
 
 function is_equal(param) {
   if (Caml_bytes.get(Bytes.make(3, /* 'a' */97), 0) !== /* 'a' */97) {
@@ -32,7 +32,7 @@ function is_equal(param) {
           Error: new Error()
         };
   }
-  var u = Bytes.make(3, /* 'a' */97);
+  let u = Bytes.make(3, /* 'a' */97);
   u[0] = /* 'b' */98;
   if (u[0] !== /* 'b' */98) {
     throw {
@@ -56,7 +56,7 @@ function is_exception(param) {
         };
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === "Not_found") {
       return ;
     }
@@ -65,8 +65,8 @@ function is_exception(param) {
 }
 
 function is_normal_exception(_x) {
-  var A = /* @__PURE__ */Caml_exceptions.create("A");
-  var v = {
+  let A = /* @__PURE__ */Caml_exceptions.create("A");
+  let v = {
     RE_EXN_ID: A,
     _1: 3
   };
@@ -74,7 +74,7 @@ function is_normal_exception(_x) {
     throw v;
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === A) {
       if (exn._1 === 3) {
         return ;
@@ -86,7 +86,7 @@ function is_normal_exception(_x) {
 }
 
 function is_arbitrary_exception(param) {
-  var A = /* @__PURE__ */Caml_exceptions.create("A");
+  let A = /* @__PURE__ */Caml_exceptions.create("A");
   try {
     throw {
           RE_EXN_ID: A,
@@ -98,12 +98,12 @@ function is_arbitrary_exception(param) {
   }
 }
 
-var suites_0 = [
+let suites_0 = [
   "is_equal",
   is_equal
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "is_exception",
     is_exception
@@ -123,12 +123,12 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };
 
-var e = {
+let e = {
   RE_EXN_ID: "Not_found"
 };
 
@@ -136,7 +136,7 @@ function eq(param) {
   return param.RE_EXN_ID === "Not_found";
 }
 
-var Not_found = /* @__PURE__ */Caml_exceptions.create("Equal_exception_test.Not_found");
+let Not_found = /* @__PURE__ */Caml_exceptions.create("Equal_exception_test.Not_found");
 
 if (Caml_obj.equal(e, {
         RE_EXN_ID: Not_found

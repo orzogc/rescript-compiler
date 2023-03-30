@@ -33,7 +33,7 @@ function ff(x) {
 }
 
 function test(x) {
-  var match;
+  let match;
   switch (x) {
     case "a" :
         match = "a";
@@ -64,13 +64,13 @@ function test(x) {
   }
 }
 
-var test_poly = "a";
+let test_poly = "a";
 
-var c = f("a");
+let c = f("a");
 
-var d = f("b");
+let d = f("b");
 
-var e = f("c");
+let e = f("c");
 
 exports.f = f;
 exports.ff = ff;

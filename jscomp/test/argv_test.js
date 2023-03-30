@@ -1,22 +1,22 @@
 'use strict';
 
-var Arg = require("../../lib/js/arg.js");
+let Arg = require("../../lib/js/arg.js");
 
 function anno_fun(arg) {
   
 }
 
-var usage_msg = "Usage:\n";
+let usage_msg = "Usage:\n";
 
-var compile = {
+let compile = {
   contents: false
 };
 
-var test = {
+let test = {
   contents: true
 };
 
-var arg_spec_0 = [
+let arg_spec_0 = [
   "-c",
   {
     TAG: "Set",
@@ -25,7 +25,7 @@ var arg_spec_0 = [
   " Compile"
 ];
 
-var arg_spec_1 = {
+let arg_spec_1 = {
   hd: [
     "-d",
     {
@@ -37,7 +37,7 @@ var arg_spec_1 = {
   tl: /* [] */0
 };
 
-var arg_spec = {
+let arg_spec = {
   hd: arg_spec_0,
   tl: arg_spec_1
 };

@@ -1,9 +1,9 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
 
-var v = {
+let v = {
   syntax: undefined,
   imports: 0,
   file_options: 0,
@@ -13,7 +13,7 @@ var v = {
   extends: 0
 };
 
-var u_v = {
+let u_v = {
   syntax: undefined,
   imports: 0,
   file_options: 0,
@@ -24,7 +24,7 @@ var u_v = {
 };
 
 function f(g, h) {
-  var init = Curry._1(g, h);
+  let init = Curry._1(g, h);
   return {
           syntax: init.syntax,
           imports: 0,
@@ -36,7 +36,7 @@ function f(g, h) {
         };
 }
 
-var suites_0 = [
+let suites_0 = [
   "eq_with",
   (function (param) {
       return {
@@ -47,14 +47,14 @@ var suites_0 = [
     })
 ];
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: /* [] */0
 };
 
 Mt.from_pair_suites("Record_with_test", suites);
 
-var uv = {
+let uv = {
   syntax: undefined,
   imports: 1,
   file_options: 0,

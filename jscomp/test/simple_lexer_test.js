@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
-var Lexing = require("../../lib/js/lexing.js");
-var Caml_bytes = require("../../lib/js/caml_bytes.js");
-var Caml_string = require("../../lib/js/caml_string.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
+let Lexing = require("../../lib/js/lexing.js");
+let Caml_bytes = require("../../lib/js/caml_bytes.js");
+let Caml_string = require("../../lib/js/caml_string.js");
 
-var __ocaml_lex_tables = {
+let __ocaml_lex_tables = {
   lex_base: "\0\0\xfd\xff\xfe\xff\0\0\0\0\x01\0\0\0\0\0\0\0\0\0\0\0\0\0\x04\0\x01\0\x04\0\x03\0\0\0\x06\0\0\0\xff\xff",
   lex_backtrk: "\xff\xff\xff\xff\xff\xff\x01\0\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
   lex_default: "\x02\0\0\0\0\0\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\0\0",
@@ -22,13 +22,13 @@ var __ocaml_lex_tables = {
 
 function __ocaml_lex_translate_rec(lexbuf, ___ocaml_lex_state) {
   while(true) {
-    var __ocaml_lex_state = ___ocaml_lex_state;
-    var __ocaml_lex_state$1 = Lexing.engine(__ocaml_lex_tables, __ocaml_lex_state, lexbuf);
+    let __ocaml_lex_state = ___ocaml_lex_state;
+    let __ocaml_lex_state$1 = Lexing.engine(__ocaml_lex_tables, __ocaml_lex_state, lexbuf);
     switch (__ocaml_lex_state$1) {
       case 0 :
           return "." + __ocaml_lex_translate_rec(lexbuf, 0);
       case 1 :
-          var c = Caml_bytes.get(lexbuf.lex_buffer, lexbuf.lex_start_pos);
+          let c = Caml_bytes.get(lexbuf.lex_buffer, lexbuf.lex_start_pos);
           return Caml_string.make(1, c) + __ocaml_lex_translate_rec(lexbuf, 0);
       case 2 :
           return "";
@@ -44,7 +44,7 @@ function translate(lexbuf) {
   return __ocaml_lex_translate_rec(lexbuf, 0);
 }
 
-var suites_0 = [
+let suites_0 = [
   "translate",
   (function (param) {
       return {
@@ -55,7 +55,7 @@ var suites_0 = [
     })
 ];
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: /* [] */0
 };

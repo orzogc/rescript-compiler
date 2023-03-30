@@ -1,10 +1,10 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_types = require("../../lib/js/js_types.js");
+let Mt = require("./mt.js");
+let Js_types = require("../../lib/js/js_types.js");
 
 function string_or_number(x) {
-  var ty = Js_types.classify(x);
+  let ty = Js_types.classify(x);
   if (typeof ty !== "object") {
     switch (ty) {
       case "JSFalse" :
@@ -30,7 +30,7 @@ function string_or_number(x) {
   }
 }
 
-var suites_0 = [
+let suites_0 = [
   "int_type",
   (function (param) {
       return {
@@ -41,7 +41,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "string_type",
     (function (param) {
@@ -181,7 +181,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

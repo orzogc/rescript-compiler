@@ -1,9 +1,9 @@
 'use strict';
 
-var Caml_option = require("../../lib/js/caml_option.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 function test(dom) {
-  var elem = dom.getElementById("haha");
+  let elem = dom.getElementById("haha");
   if (elem !== null) {
     console.log(elem);
     return 2;
@@ -13,7 +13,7 @@ function test(dom) {
 }
 
 function f_undefined(xs, i) {
-  var k = xs[i];
+  let k = xs[i];
   if (k !== undefined) {
     return k;
   }
@@ -29,7 +29,7 @@ function f_undefined(xs, i) {
 }
 
 function f_escaped_not(xs, i) {
-  var x = xs[i];
+  let x = xs[i];
   console.log("hei");
   if (x !== undefined) {
     return x;
@@ -39,7 +39,7 @@ function f_escaped_not(xs, i) {
 }
 
 function f_escaped_1(xs, i) {
-  var x = xs[i];
+  let x = xs[i];
   return function (param) {
     if (x !== undefined) {
       return x;
@@ -54,7 +54,7 @@ function f_escaped_2(xs, i) {
 }
 
 function f_null(xs, i) {
-  var k = xs[i];
+  let k = xs[i];
   if (k !== null) {
     return k;
   }
@@ -70,7 +70,7 @@ function f_null(xs, i) {
 }
 
 function f_null_undefined(xs, i) {
-  var k = xs[i];
+  let k = xs[i];
   if (!(k == null)) {
     return k;
   }

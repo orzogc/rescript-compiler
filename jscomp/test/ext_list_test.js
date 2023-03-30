@@ -1,19 +1,19 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var $$Array = require("../../lib/js/array.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_option = require("../../lib/js/caml_option.js");
-var Ext_string_test = require("./ext_string_test.js");
+let List = require("../../lib/js/list.js");
+let $$Array = require("../../lib/js/array.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_option = require("../../lib/js/caml_option.js");
+let Ext_string_test = require("./ext_string_test.js");
 
 function filter_map(f, _xs) {
   while(true) {
-    var xs = _xs;
+    let xs = _xs;
     if (!xs) {
       return /* [] */0;
     }
-    var ys = xs.tl;
-    var z = Curry._1(f, xs.hd);
+    let ys = xs.tl;
+    let z = Curry._1(f, xs.hd);
     if (z !== undefined) {
       return {
               hd: Caml_option.valFromOption(z),
@@ -26,18 +26,18 @@ function filter_map(f, _xs) {
 }
 
 function excludes(p, l) {
-  var excluded = {
+  let excluded = {
     contents: false
   };
-  var aux = function (_accu, _param) {
+  let aux = function (_accu, _param) {
     while(true) {
-      var param = _param;
-      var accu = _accu;
+      let param = _param;
+      let accu = _accu;
       if (!param) {
         return List.rev(accu);
       }
-      var l = param.tl;
-      var x = param.hd;
+      let l = param.tl;
+      let x = param.hd;
       if (Curry._1(p, x)) {
         excluded.contents = true;
         _param = l;
@@ -51,7 +51,7 @@ function excludes(p, l) {
       continue ;
     };
   };
-  var v = aux(/* [] */0, l);
+  let v = aux(/* [] */0, l);
   if (excluded.contents) {
     return [
             true,
@@ -66,18 +66,18 @@ function excludes(p, l) {
 }
 
 function exclude_with_fact(p, l) {
-  var excluded = {
+  let excluded = {
     contents: undefined
   };
-  var aux = function (_accu, _param) {
+  let aux = function (_accu, _param) {
     while(true) {
-      var param = _param;
-      var accu = _accu;
+      let param = _param;
+      let accu = _accu;
       if (!param) {
         return List.rev(accu);
       }
-      var l = param.tl;
-      var x = param.hd;
+      let l = param.tl;
+      let x = param.hd;
       if (Curry._1(p, x)) {
         excluded.contents = Caml_option.some(x);
         _param = l;
@@ -91,7 +91,7 @@ function exclude_with_fact(p, l) {
       continue ;
     };
   };
-  var v = aux(/* [] */0, l);
+  let v = aux(/* [] */0, l);
   return [
           excluded.contents,
           excluded.contents !== undefined ? v : l
@@ -99,21 +99,21 @@ function exclude_with_fact(p, l) {
 }
 
 function exclude_with_fact2(p1, p2, l) {
-  var excluded1 = {
+  let excluded1 = {
     contents: undefined
   };
-  var excluded2 = {
+  let excluded2 = {
     contents: undefined
   };
-  var aux = function (_accu, _param) {
+  let aux = function (_accu, _param) {
     while(true) {
-      var param = _param;
-      var accu = _accu;
+      let param = _param;
+      let accu = _accu;
       if (!param) {
         return List.rev(accu);
       }
-      var l = param.tl;
-      var x = param.hd;
+      let l = param.tl;
+      let x = param.hd;
       if (Curry._1(p1, x)) {
         excluded1.contents = Caml_option.some(x);
         _param = l;
@@ -132,7 +132,7 @@ function exclude_with_fact2(p1, p2, l) {
       continue ;
     };
   };
-  var v = aux(/* [] */0, l);
+  let v = aux(/* [] */0, l);
   return [
           excluded1.contents,
           excluded2.contents,
@@ -142,8 +142,8 @@ function exclude_with_fact2(p1, p2, l) {
 
 function same_length(_xs, _ys) {
   while(true) {
-    var ys = _ys;
-    var xs = _xs;
+    let ys = _ys;
+    let xs = _xs;
     if (!xs) {
       if (ys) {
         return false;
@@ -161,15 +161,15 @@ function same_length(_xs, _ys) {
 }
 
 function filter_mapi(f, xs) {
-  var aux = function (_i, _xs) {
+  let aux = function (_i, _xs) {
     while(true) {
-      var xs = _xs;
-      var i = _i;
+      let xs = _xs;
+      let i = _i;
       if (!xs) {
         return /* [] */0;
       }
-      var ys = xs.tl;
-      var z = Curry._2(f, i, xs.hd);
+      let ys = xs.tl;
+      let z = Curry._2(f, i, xs.hd);
       if (z !== undefined) {
         return {
                 hd: Caml_option.valFromOption(z),
@@ -186,13 +186,13 @@ function filter_mapi(f, xs) {
 
 function filter_map2(f, _xs, _ys) {
   while(true) {
-    var ys = _ys;
-    var xs = _xs;
+    let ys = _ys;
+    let xs = _xs;
     if (xs) {
       if (ys) {
-        var vs = ys.tl;
-        var us = xs.tl;
-        var z = Curry._2(f, xs.hd, ys.hd);
+        let vs = ys.tl;
+        let us = xs.tl;
+        let z = Curry._2(f, xs.hd, ys.hd);
         if (z !== undefined) {
           return {
                   hd: Caml_option.valFromOption(z),
@@ -221,16 +221,16 @@ function filter_map2(f, _xs, _ys) {
 }
 
 function filter_map2i(f, xs, ys) {
-  var aux = function (_i, _xs, _ys) {
+  let aux = function (_i, _xs, _ys) {
     while(true) {
-      var ys = _ys;
-      var xs = _xs;
-      var i = _i;
+      let ys = _ys;
+      let xs = _xs;
+      let i = _i;
       if (xs) {
         if (ys) {
-          var vs = ys.tl;
-          var us = xs.tl;
-          var z = Curry._3(f, i, xs.hd, ys.hd);
+          let vs = ys.tl;
+          let us = xs.tl;
+          let z = Curry._3(f, i, xs.hd, ys.hd);
           if (z !== undefined) {
             return {
                     hd: Caml_option.valFromOption(z),
@@ -263,8 +263,8 @@ function filter_map2i(f, xs, ys) {
 
 function rev_map_append(f, _l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (!l1) {
       return l2;
     }
@@ -278,13 +278,13 @@ function rev_map_append(f, _l1, _l2) {
 }
 
 function flat_map2(f, lx, ly) {
-  var _acc = /* [] */0;
-  var _lx = lx;
-  var _ly = ly;
+  let _acc = /* [] */0;
+  let _lx = lx;
+  let _ly = ly;
   while(true) {
-    var ly$1 = _ly;
-    var lx$1 = _lx;
-    var acc = _acc;
+    let ly$1 = _ly;
+    let lx$1 = _lx;
+    let acc = _acc;
     if (lx$1) {
       if (ly$1) {
         _ly = ly$1.tl;
@@ -311,8 +311,8 @@ function flat_map2(f, lx, ly) {
 
 function flat_map_aux(f, _acc, append, _lx) {
   while(true) {
-    var lx = _lx;
-    var acc = _acc;
+    let lx = _lx;
+    let acc = _acc;
     if (!lx) {
       return List.rev_append(acc, append);
     }
@@ -332,8 +332,8 @@ function flat_map_acc(f, append, lx) {
 
 function map2_last(f, l1, l2) {
   if (l1) {
-    var l1$1 = l1.tl;
-    var u = l1.hd;
+    let l1$1 = l1.tl;
+    let u = l1.hd;
     if (!l1$1) {
       if (l2) {
         if (!l2.tl) {
@@ -352,7 +352,7 @@ function map2_last(f, l1, l2) {
       }
     }
     if (l2) {
-      var r = Curry._3(f, false, u, l2.hd);
+      let r = Curry._3(f, false, u, l2.hd);
       return {
               hd: r,
               tl: map2_last(f, l1$1, l2.tl)
@@ -378,15 +378,15 @@ function map_last(f, l1) {
   if (!l1) {
     return /* [] */0;
   }
-  var l1$1 = l1.tl;
-  var u = l1.hd;
+  let l1$1 = l1.tl;
+  let u = l1.hd;
   if (!l1$1) {
     return {
             hd: Curry._2(f, true, u),
             tl: /* [] */0
           };
   }
-  var r = Curry._2(f, false, u);
+  let r = Curry._2(f, false, u);
   return {
           hd: r,
           tl: map_last(f, l1$1)
@@ -395,8 +395,8 @@ function map_last(f, l1) {
 
 function fold_right2_last(f, l1, l2, accu) {
   if (l1) {
-    var l1$1 = l1.tl;
-    var last1 = l1.hd;
+    let l1$1 = l1.tl;
+    let last1 = l1.hd;
     if (!l1$1) {
       if (l2) {
         if (!l2.tl) {
@@ -435,8 +435,8 @@ function init(n, f) {
 }
 
 function take(n, l) {
-  var arr = $$Array.of_list(l);
-  var arr_length = arr.length;
+  let arr = $$Array.of_list(l);
+  let arr_length = arr.length;
   if (arr_length < n) {
     throw {
           RE_EXN_ID: "Invalid_argument",
@@ -451,8 +451,8 @@ function take(n, l) {
 }
 
 function try_take(n, l) {
-  var arr = $$Array.of_list(l);
-  var arr_length = arr.length;
+  let arr = $$Array.of_list(l);
+  let arr_length = arr.length;
   if (arr_length <= n) {
     return [
             l,
@@ -470,8 +470,8 @@ function try_take(n, l) {
 
 function length_compare(_l, _n) {
   while(true) {
-    var n = _n;
-    var l = _l;
+    let n = _n;
+    let l = _l;
     if (n < 0) {
       return "Gt";
     }
@@ -490,8 +490,8 @@ function length_compare(_l, _n) {
 
 function length_larger_than_n(n, _xs, _ys) {
   while(true) {
-    var ys = _ys;
-    var xs = _xs;
+    let ys = _ys;
+    let xs = _xs;
     if (!ys) {
       return length_compare(xs, n) === "Eq";
     }
@@ -505,14 +505,14 @@ function length_larger_than_n(n, _xs, _ys) {
 }
 
 function exclude_tail(x) {
-  var _acc = /* [] */0;
-  var _x = x;
+  let _acc = /* [] */0;
+  let _x = x;
   while(true) {
-    var x$1 = _x;
-    var acc = _acc;
+    let x$1 = _x;
+    let acc = _acc;
     if (x$1) {
-      var ys = x$1.tl;
-      var x$2 = x$1.hd;
+      let ys = x$1.tl;
+      let x$2 = x$1.hd;
       if (!ys) {
         return [
                 x$2,
@@ -552,8 +552,8 @@ function aux(cmp, x, xss) {
             tl: /* [] */0
           };
   }
-  var ys = xss.tl;
-  var y = xss.hd;
+  let ys = xss.tl;
+  let y = xss.hd;
   if (Curry._2(cmp, x, List.hd(y))) {
     return {
             hd: {
@@ -576,8 +576,8 @@ function stable_group(cmp, lst) {
 
 function drop(_n, _h) {
   while(true) {
-    var h = _h;
-    var n = _n;
+    let h = _h;
+    let n = _n;
     if (n < 0) {
       throw {
             RE_EXN_ID: "Invalid_argument",
@@ -603,11 +603,11 @@ function drop(_n, _h) {
 
 function find_first_not(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return ;
     }
-    var a = param.hd;
+    let a = param.hd;
     if (!Curry._1(p, a)) {
       return Caml_option.some(a);
     }
@@ -618,11 +618,11 @@ function find_first_not(p, _param) {
 
 function for_all_opt(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return ;
     }
-    var v = Curry._1(p, param.hd);
+    let v = Curry._1(p, param.hd);
     if (v !== undefined) {
       return v;
     }
@@ -638,11 +638,11 @@ function fold(f, l, init) {
 }
 
 function rev_map_acc(acc, f, l) {
-  var _accu = acc;
-  var _param = l;
+  let _accu = acc;
+  let _param = l;
   while(true) {
-    var param = _param;
-    var accu = _accu;
+    let param = _param;
+    let accu = _accu;
     if (!param) {
       return accu;
     }
@@ -676,8 +676,8 @@ function rev_iter(f, xs) {
 
 function for_all2_no_exn(p, _l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (!l1) {
       if (l2) {
         return false;
@@ -699,11 +699,11 @@ function for_all2_no_exn(p, _l1, _l2) {
 
 function find_no_exn(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return ;
     }
-    var x = param.hd;
+    let x = param.hd;
     if (Curry._1(p, x)) {
       return Caml_option.some(x);
     }
@@ -714,11 +714,11 @@ function find_no_exn(p, _param) {
 
 function find_opt(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return ;
     }
-    var v = Curry._1(p, param.hd);
+    let v = Curry._1(p, param.hd);
     if (v !== undefined) {
       return v;
     }
@@ -728,20 +728,20 @@ function find_opt(p, _param) {
 }
 
 function split_map(f, xs) {
-  var _bs = /* [] */0;
-  var _cs = /* [] */0;
-  var _xs = xs;
+  let _bs = /* [] */0;
+  let _cs = /* [] */0;
+  let _xs = xs;
   while(true) {
-    var xs$1 = _xs;
-    var cs = _cs;
-    var bs = _bs;
+    let xs$1 = _xs;
+    let cs = _cs;
+    let bs = _bs;
     if (!xs$1) {
       return [
               List.rev(bs),
               List.rev(cs)
             ];
     }
-    var match = Curry._1(f, xs$1.hd);
+    let match = Curry._1(f, xs$1.hd);
     _xs = xs$1.tl;
     _cs = {
       hd: match[1],
@@ -756,7 +756,7 @@ function split_map(f, xs) {
 }
 
 function reduce_from_right(fn, lst) {
-  var match = List.rev(lst);
+  let match = List.rev(lst);
   if (match) {
     return List.fold_left((function (x, y) {
                   return Curry._2(fn, y, x);
@@ -787,7 +787,7 @@ function create_ref_empty(param) {
 }
 
 function ref_top(x) {
-  var match = x.contents;
+  let match = x.contents;
   if (match) {
     return match.hd;
   }
@@ -799,7 +799,7 @@ function ref_top(x) {
 }
 
 function ref_empty(x) {
-  var match = x.contents;
+  let match = x.contents;
   if (match) {
     return false;
   } else {
@@ -815,7 +815,7 @@ function ref_push(x, refs) {
 }
 
 function ref_pop(refs) {
-  var match = refs.contents;
+  let match = refs.contents;
   if (match) {
     refs.contents = match.tl;
     return match.hd;
@@ -828,14 +828,14 @@ function ref_pop(refs) {
 }
 
 function rev_except_last(xs) {
-  var _acc = /* [] */0;
-  var _xs = xs;
+  let _acc = /* [] */0;
+  let _xs = xs;
   while(true) {
-    var xs$1 = _xs;
-    var acc = _acc;
+    let xs$1 = _xs;
+    let acc = _acc;
     if (xs$1) {
-      var xs$2 = xs$1.tl;
-      var x = xs$1.hd;
+      let xs$2 = xs$1.tl;
+      let x = xs$1.hd;
       if (!xs$2) {
         return [
                 acc,
@@ -858,16 +858,16 @@ function rev_except_last(xs) {
 }
 
 function sort_via_array(cmp, lst) {
-  var arr = $$Array.of_list(lst);
+  let arr = $$Array.of_list(lst);
   $$Array.sort(cmp, arr);
   return $$Array.to_list(arr);
 }
 
 function last(_xs) {
   while(true) {
-    var xs = _xs;
+    let xs = _xs;
     if (xs) {
-      var tl = xs.tl;
+      let tl = xs.tl;
       if (!tl) {
         return xs.hd;
       }
@@ -884,9 +884,9 @@ function last(_xs) {
 
 function assoc_by_string(def, k, _lst) {
   while(true) {
-    var lst = _lst;
+    let lst = _lst;
     if (lst) {
-      var match = lst.hd;
+      let match = lst.hd;
       if (match[0] === k) {
         return match[1];
       }
@@ -910,9 +910,9 @@ function assoc_by_string(def, k, _lst) {
 
 function assoc_by_int(def, k, _lst) {
   while(true) {
-    var lst = _lst;
+    let lst = _lst;
     if (lst) {
-      var match = lst.hd;
+      let match = lst.hd;
       if (match[0] === k) {
         return match[1];
       }

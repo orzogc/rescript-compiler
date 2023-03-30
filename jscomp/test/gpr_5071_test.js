@@ -1,14 +1,14 @@
 'use strict';
 
 
-var Test = {};
+let Test = {};
 
-var u = {
+let u = {
   s: "hello"
 };
 
 function f(s, y) {
-  var tmp = {};
+  let tmp = {};
   if (s !== undefined) {
     tmp.s = s;
   }
@@ -24,7 +24,7 @@ function make(s) {
   }
 }
 
-var H = {
+let H = {
   make: make
 };
 

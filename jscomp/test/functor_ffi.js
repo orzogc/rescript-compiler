@@ -1,9 +1,9 @@
 'use strict';
 
-var Caml_option = require("../../lib/js/caml_option.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 function Make(S) {
-  var opt_get = function (f, i) {
+  let opt_get = function (f, i) {
     return Caml_option.undefined_to_opt(f[i]);
   };
   return {
@@ -15,7 +15,7 @@ function opt_get(f, i) {
   return Caml_option.undefined_to_opt(f[i]);
 }
 
-var Int_arr = {
+let Int_arr = {
   opt_get: opt_get
 };
 

@@ -1,7 +1,7 @@
 'use strict';
 
 
-var v = 0;
+let v = 0;
 
 v = v + 1 | 0;
 
@@ -11,7 +11,7 @@ function unuse_v(param) {
   return 35;
 }
 
-var h = unuse_v;
+let h = unuse_v;
 
 exports.h = h;
 /*  Not a pure module */

@@ -1,20 +1,20 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
 
 function Make(Ord) {
-  var height = function (param) {
+  let height = function (param) {
     if (typeof param !== "object") {
       return 0;
     } else {
       return param._3;
     }
   };
-  var create = function (l, v, r) {
-    var hl;
+  let create = function (l, v, r) {
+    let hl;
     hl = typeof l !== "object" ? 0 : l._3;
-    var hr;
+    let hr;
     hr = typeof r !== "object" ? 0 : r._3;
     return {
             TAG: "Node",
@@ -24,10 +24,10 @@ function Make(Ord) {
             _3: hl >= hr ? hl + 1 | 0 : hr + 1 | 0
           };
   };
-  var bal = function (l, v, r) {
-    var hl;
+  let bal = function (l, v, r) {
+    let hl;
     hl = typeof l !== "object" ? 0 : l._3;
-    var hr;
+    let hr;
     hr = typeof r !== "object" ? 0 : r._3;
     if (hl > (hr + 2 | 0)) {
       if (typeof l !== "object") {
@@ -37,9 +37,9 @@ function Make(Ord) {
               Error: new Error()
             };
       }
-      var lr = l._2;
-      var lv = l._1;
-      var ll = l._0;
+      let lr = l._2;
+      let lv = l._1;
+      let ll = l._0;
       if (height(ll) >= height(lr)) {
         return create(ll, lv, create(lr, v, r));
       }
@@ -68,9 +68,9 @@ function Make(Ord) {
             Error: new Error()
           };
     }
-    var rr = r._2;
-    var rv = r._1;
-    var rl = r._0;
+    let rr = r._2;
+    let rv = r._1;
+    let rl = r._0;
     if (height(rr) >= height(rl)) {
       return create(create(l, v, rl), rv, rr);
     }
@@ -83,7 +83,7 @@ function Make(Ord) {
           Error: new Error()
         };
   };
-  var add = function (x, t) {
+  let add = function (x, t) {
     if (typeof t !== "object") {
       return {
               TAG: "Node",
@@ -93,10 +93,10 @@ function Make(Ord) {
               _3: 1
             };
     }
-    var r = t._2;
-    var v = t._1;
-    var l = t._0;
-    var c = Curry._2(Ord.compare, x, v);
+    let r = t._2;
+    let v = t._1;
+    let l = t._0;
+    let c = Curry._2(Ord.compare, x, v);
     if (c === 0) {
       return t;
     } else if (c < 0) {
@@ -105,7 +105,7 @@ function Make(Ord) {
       return bal(l, v, add(x, r));
     }
   };
-  var singleton = function (x) {
+  let singleton = function (x) {
     return {
             TAG: "Node",
             _0: "Empty",
@@ -114,29 +114,29 @@ function Make(Ord) {
             _3: 1
           };
   };
-  var add_min_element = function (v, param) {
+  let add_min_element = function (v, param) {
     if (typeof param !== "object") {
       return singleton(v);
     } else {
       return bal(add_min_element(v, param._0), param._1, param._2);
     }
   };
-  var add_max_element = function (v, param) {
+  let add_max_element = function (v, param) {
     if (typeof param !== "object") {
       return singleton(v);
     } else {
       return bal(param._0, param._1, add_max_element(v, param._2));
     }
   };
-  var join = function (l, v, r) {
+  let join = function (l, v, r) {
     if (typeof l !== "object") {
       return add_min_element(v, r);
     }
-    var lh = l._3;
+    let lh = l._3;
     if (typeof r !== "object") {
       return add_max_element(v, l);
     }
-    var rh = r._3;
+    let rh = r._3;
     if (lh > (rh + 2 | 0)) {
       return bal(l._0, l._1, join(l._2, v, r));
     } else if (rh > (lh + 2 | 0)) {
@@ -145,16 +145,16 @@ function Make(Ord) {
       return create(l, v, r);
     }
   };
-  var min_elt = function (_param) {
+  let min_elt = function (_param) {
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         throw {
               RE_EXN_ID: "Not_found",
               Error: new Error()
             };
       }
-      var l = param._0;
+      let l = param._0;
       if (typeof l !== "object") {
         return param._1;
       }
@@ -162,16 +162,16 @@ function Make(Ord) {
       continue ;
     };
   };
-  var max_elt = function (_param) {
+  let max_elt = function (_param) {
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         throw {
               RE_EXN_ID: "Not_found",
               Error: new Error()
             };
       }
-      var r = param._2;
+      let r = param._2;
       if (typeof r !== "object") {
         return param._1;
       }
@@ -179,7 +179,7 @@ function Make(Ord) {
       continue ;
     };
   };
-  var remove_min_elt = function (param) {
+  let remove_min_elt = function (param) {
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Invalid_argument",
@@ -187,14 +187,14 @@ function Make(Ord) {
             Error: new Error()
           };
     }
-    var l = param._0;
+    let l = param._0;
     if (typeof l !== "object") {
       return param._2;
     } else {
       return bal(remove_min_elt(l), param._1, param._2);
     }
   };
-  var merge = function (t1, t2) {
+  let merge = function (t1, t2) {
     if (typeof t1 !== "object") {
       return t2;
     } else if (typeof t2 !== "object") {
@@ -203,7 +203,7 @@ function Make(Ord) {
       return bal(t1, min_elt(t2), remove_min_elt(t2));
     }
   };
-  var concat = function (t1, t2) {
+  let concat = function (t1, t2) {
     if (typeof t1 !== "object") {
       return t2;
     } else if (typeof t2 !== "object") {
@@ -212,7 +212,7 @@ function Make(Ord) {
       return join(t1, min_elt(t2), remove_min_elt(t2));
     }
   };
-  var split = function (x, param) {
+  let split = function (x, param) {
     if (typeof param !== "object") {
       return [
               "Empty",
@@ -220,10 +220,10 @@ function Make(Ord) {
               "Empty"
             ];
     }
-    var r = param._2;
-    var v = param._1;
-    var l = param._0;
-    var c = Curry._2(Ord.compare, x, v);
+    let r = param._2;
+    let v = param._1;
+    let l = param._0;
+    let c = Curry._2(Ord.compare, x, v);
     if (c === 0) {
       return [
               l,
@@ -232,34 +232,34 @@ function Make(Ord) {
             ];
     }
     if (c < 0) {
-      var match = split(x, l);
+      let match = split(x, l);
       return [
               match[0],
               match[1],
               join(match[2], v, r)
             ];
     }
-    var match$1 = split(x, r);
+    let match$1 = split(x, r);
     return [
             join(l, v, match$1[0]),
             match$1[1],
             match$1[2]
           ];
   };
-  var is_empty = function (param) {
+  let is_empty = function (param) {
     if (typeof param !== "object") {
       return true;
     } else {
       return false;
     }
   };
-  var mem = function (x, _param) {
+  let mem = function (x, _param) {
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         return false;
       }
-      var c = Curry._2(Ord.compare, x, param._1);
+      let c = Curry._2(Ord.compare, x, param._1);
       if (c === 0) {
         return true;
       }
@@ -267,14 +267,14 @@ function Make(Ord) {
       continue ;
     };
   };
-  var remove = function (x, param) {
+  let remove = function (x, param) {
     if (typeof param !== "object") {
       return "Empty";
     }
-    var r = param._2;
-    var v = param._1;
-    var l = param._0;
-    var c = Curry._2(Ord.compare, x, v);
+    let r = param._2;
+    let v = param._1;
+    let l = param._0;
+    let c = Curry._2(Ord.compare, x, v);
     if (c === 0) {
       return merge(l, r);
     } else if (c < 0) {
@@ -283,70 +283,70 @@ function Make(Ord) {
       return bal(l, v, remove(x, r));
     }
   };
-  var union = function (s1, s2) {
+  let union = function (s1, s2) {
     if (typeof s1 !== "object") {
       return s2;
     }
-    var h1 = s1._3;
-    var v1 = s1._1;
+    let h1 = s1._3;
+    let v1 = s1._1;
     if (typeof s2 !== "object") {
       return s1;
     }
-    var h2 = s2._3;
-    var v2 = s2._1;
+    let h2 = s2._3;
+    let v2 = s2._1;
     if (h1 >= h2) {
       if (h2 === 1) {
         return add(v2, s1);
       }
-      var match = split(v1, s2);
+      let match = split(v1, s2);
       return join(union(s1._0, match[0]), v1, union(s1._2, match[2]));
     }
     if (h1 === 1) {
       return add(v1, s2);
     }
-    var match$1 = split(v2, s1);
+    let match$1 = split(v2, s1);
     return join(union(match$1[0], s2._0), v2, union(match$1[2], s2._2));
   };
-  var inter = function (s1, s2) {
+  let inter = function (s1, s2) {
     if (typeof s1 !== "object") {
       return "Empty";
     }
     if (typeof s2 !== "object") {
       return "Empty";
     }
-    var r1 = s1._2;
-    var v1 = s1._1;
-    var l1 = s1._0;
-    var match = split(v1, s2);
-    var l2 = match[0];
+    let r1 = s1._2;
+    let v1 = s1._1;
+    let l1 = s1._0;
+    let match = split(v1, s2);
+    let l2 = match[0];
     if (match[1]) {
       return join(inter(l1, l2), v1, inter(r1, match[2]));
     } else {
       return concat(inter(l1, l2), inter(r1, match[2]));
     }
   };
-  var diff = function (s1, s2) {
+  let diff = function (s1, s2) {
     if (typeof s1 !== "object") {
       return "Empty";
     }
     if (typeof s2 !== "object") {
       return s1;
     }
-    var r1 = s1._2;
-    var v1 = s1._1;
-    var l1 = s1._0;
-    var match = split(v1, s2);
-    var l2 = match[0];
+    let r1 = s1._2;
+    let v1 = s1._1;
+    let l1 = s1._0;
+    let match = split(v1, s2);
+    let l2 = match[0];
     if (match[1]) {
       return concat(diff(l1, l2), diff(r1, match[2]));
     } else {
       return join(diff(l1, l2), v1, diff(r1, match[2]));
     }
   };
-  var cons_enum = function (_s, _e) {
+  let cons_enum = function (_s, _e) {
     while(true) {
-      var e = _e;
-      var s = _s;
+      let e = _e;
+      let s = _s;
       if (typeof s !== "object") {
         return e;
       }
@@ -360,10 +360,10 @@ function Make(Ord) {
       continue ;
     };
   };
-  var compare_aux = function (_e1, _e2) {
+  let compare_aux = function (_e1, _e2) {
     while(true) {
-      var e2 = _e2;
-      var e1 = _e1;
+      let e2 = _e2;
+      let e1 = _e1;
       if (typeof e1 !== "object") {
         if (typeof e2 !== "object") {
           return 0;
@@ -374,7 +374,7 @@ function Make(Ord) {
       if (typeof e2 !== "object") {
         return 1;
       }
-      var c = Curry._2(Ord.compare, e1._0, e2._0);
+      let c = Curry._2(Ord.compare, e1._0, e2._0);
       if (c !== 0) {
         return c;
       }
@@ -383,28 +383,28 @@ function Make(Ord) {
       continue ;
     };
   };
-  var compare = function (s1, s2) {
+  let compare = function (s1, s2) {
     return compare_aux(cons_enum(s1, "End"), cons_enum(s2, "End"));
   };
-  var equal = function (s1, s2) {
+  let equal = function (s1, s2) {
     return compare(s1, s2) === 0;
   };
-  var subset = function (_s1, _s2) {
+  let subset = function (_s1, _s2) {
     while(true) {
-      var s2 = _s2;
-      var s1 = _s1;
+      let s2 = _s2;
+      let s1 = _s1;
       if (typeof s1 !== "object") {
         return true;
       }
-      var r1 = s1._2;
-      var v1 = s1._1;
-      var l1 = s1._0;
+      let r1 = s1._2;
+      let v1 = s1._1;
+      let l1 = s1._0;
       if (typeof s2 !== "object") {
         return false;
       }
-      var r2 = s2._2;
-      var l2 = s2._0;
-      var c = Curry._2(Ord.compare, v1, s2._1);
+      let r2 = s2._2;
+      let l2 = s2._0;
+      let c = Curry._2(Ord.compare, v1, s2._1);
       if (c === 0) {
         if (!subset(l1, l2)) {
           return false;
@@ -439,9 +439,9 @@ function Make(Ord) {
       continue ;
     };
   };
-  var iter = function (f, _param) {
+  let iter = function (f, _param) {
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         return ;
       }
@@ -451,10 +451,10 @@ function Make(Ord) {
       continue ;
     };
   };
-  var fold = function (f, _s, _accu) {
+  let fold = function (f, _s, _accu) {
     while(true) {
-      var accu = _accu;
-      var s = _s;
+      let accu = _accu;
+      let s = _s;
       if (typeof s !== "object") {
         return accu;
       }
@@ -463,9 +463,9 @@ function Make(Ord) {
       continue ;
     };
   };
-  var for_all = function (p, _param) {
+  let for_all = function (p, _param) {
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         return true;
       }
@@ -479,9 +479,9 @@ function Make(Ord) {
       continue ;
     };
   };
-  var exists = function (p, _param) {
+  let exists = function (p, _param) {
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         return false;
       }
@@ -495,35 +495,35 @@ function Make(Ord) {
       continue ;
     };
   };
-  var filter = function (p, param) {
+  let filter = function (p, param) {
     if (typeof param !== "object") {
       return "Empty";
     }
-    var v = param._1;
-    var l$p = filter(p, param._0);
-    var pv = Curry._1(p, v);
-    var r$p = filter(p, param._2);
+    let v = param._1;
+    let l$p = filter(p, param._0);
+    let pv = Curry._1(p, v);
+    let r$p = filter(p, param._2);
     if (pv) {
       return join(l$p, v, r$p);
     } else {
       return concat(l$p, r$p);
     }
   };
-  var partition = function (p, param) {
+  let partition = function (p, param) {
     if (typeof param !== "object") {
       return [
               "Empty",
               "Empty"
             ];
     }
-    var v = param._1;
-    var match = partition(p, param._0);
-    var lf = match[1];
-    var lt = match[0];
-    var pv = Curry._1(p, v);
-    var match$1 = partition(p, param._2);
-    var rf = match$1[1];
-    var rt = match$1[0];
+    let v = param._1;
+    let match = partition(p, param._0);
+    let lf = match[1];
+    let lt = match[0];
+    let pv = Curry._1(p, v);
+    let match$1 = partition(p, param._2);
+    let rf = match$1[1];
+    let rt = match$1[0];
     if (pv) {
       return [
               join(lt, v, rt),
@@ -536,17 +536,17 @@ function Make(Ord) {
             ];
     }
   };
-  var cardinal = function (param) {
+  let cardinal = function (param) {
     if (typeof param !== "object") {
       return 0;
     } else {
       return (cardinal(param._0) + 1 | 0) + cardinal(param._2) | 0;
     }
   };
-  var elements_aux = function (_accu, _param) {
+  let elements_aux = function (_accu, _param) {
     while(true) {
-      var param = _param;
-      var accu = _accu;
+      let param = _param;
+      let accu = _accu;
       if (typeof param !== "object") {
         return accu;
       }
@@ -558,20 +558,20 @@ function Make(Ord) {
       continue ;
     };
   };
-  var elements = function (s) {
+  let elements = function (s) {
     return elements_aux(/* [] */0, s);
   };
-  var find = function (x, _param) {
+  let find = function (x, _param) {
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         throw {
               RE_EXN_ID: "Not_found",
               Error: new Error()
             };
       }
-      var v = param._1;
-      var c = Curry._2(Ord.compare, x, v);
+      let v = param._1;
+      let c = Curry._2(Ord.compare, x, v);
       if (c === 0) {
         return v;
       }
@@ -579,8 +579,8 @@ function Make(Ord) {
       continue ;
     };
   };
-  var of_sorted_list = function (l) {
-    var sub = function (n, l) {
+  let of_sorted_list = function (l) {
+    let sub = function (n, l) {
       switch (n) {
         case 0 :
             return [
@@ -603,7 +603,7 @@ function Make(Ord) {
             break;
         case 2 :
             if (l) {
-              var match = l.tl;
+              let match = l.tl;
               if (match) {
                 return [
                         {
@@ -627,9 +627,9 @@ function Make(Ord) {
             break;
         case 3 :
             if (l) {
-              var match$1 = l.tl;
+              let match$1 = l.tl;
               if (match$1) {
-                var match$2 = match$1.tl;
+                let match$2 = match$1.tl;
                 if (match$2) {
                   return [
                           {
@@ -662,11 +662,11 @@ function Make(Ord) {
         default:
           
       }
-      var nl = n / 2 | 0;
-      var match$3 = sub(nl, l);
-      var l$1 = match$3[1];
+      let nl = n / 2 | 0;
+      let match$3 = sub(nl, l);
+      let l$1 = match$3[1];
       if (l$1) {
-        var match$4 = sub((n - nl | 0) - 1 | 0, l$1.tl);
+        let match$4 = sub((n - nl | 0) - 1 | 0, l$1.tl);
         return [
                 create(match$3[0], l$1.hd, match$4[0]),
                 match$4[1]
@@ -684,27 +684,27 @@ function Make(Ord) {
     };
     return sub(List.length(l), l)[0];
   };
-  var of_list = function (l) {
+  let of_list = function (l) {
     if (!l) {
       return "Empty";
     }
-    var match = l.tl;
-    var x0 = l.hd;
+    let match = l.tl;
+    let x0 = l.hd;
     if (!match) {
       return singleton(x0);
     }
-    var match$1 = match.tl;
-    var x1 = match.hd;
+    let match$1 = match.tl;
+    let x1 = match.hd;
     if (!match$1) {
       return add(x1, singleton(x0));
     }
-    var match$2 = match$1.tl;
-    var x2 = match$1.hd;
+    let match$2 = match$1.tl;
+    let x2 = match$1.hd;
     if (!match$2) {
       return add(x2, add(x1, singleton(x0)));
     }
-    var match$3 = match$2.tl;
-    var x3 = match$2.hd;
+    let match$3 = match$2.tl;
+    let x3 = match$2.hd;
     if (match$3) {
       if (match$3.tl) {
         return of_sorted_list(List.sort_uniq(Ord.compare, l));
@@ -758,7 +758,7 @@ function Make(Ord) {
         };
 }
 
-var N = {
+let N = {
   a: 3
 };
 

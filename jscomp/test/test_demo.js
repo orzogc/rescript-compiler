@@ -1,7 +1,7 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
 
 function fib(n) {
   if (n === 2 || n === 1) {
@@ -32,8 +32,8 @@ function map(f, param) {
 }
 
 function sum(n) {
-  var v = 0;
-  for(var i = 0; i <= n; ++i){
+  let v = 0;
+  for(let i = 0; i <= n; ++i){
     v = v + i | 0;
   }
   return v;
@@ -44,32 +44,32 @@ function f(x, y, z) {
 }
 
 function g(x, y) {
-  var u = x + y | 0;
+  let u = x + y | 0;
   return function (z) {
     return u + z | 0;
   };
 }
 
 function g1(x, y) {
-  var u = x + y | 0;
+  let u = x + y | 0;
   return function (xx, yy) {
     return (xx + yy | 0) + u | 0;
   };
 }
 
-var u = 8;
+let u = 8;
 
-var x = u + 6 | 0;
+let x = u + 6 | 0;
 
-var u$1 = 7;
+let u$1 = 7;
 
 function v(param) {
   return (6 + param | 0) + u$1 | 0;
 }
 
-var nil = "Nil";
+let nil = "Nil";
 
-var len = List.length;
+let len = List.length;
 
 exports.fib = fib;
 exports.nil = nil;

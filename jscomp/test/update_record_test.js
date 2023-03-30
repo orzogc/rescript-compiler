@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Mt = require("./mt.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -33,7 +33,7 @@ function eq(loc, x, y) {
 }
 
 function f(x) {
-  var y = Caml_obj.obj_dup(x);
+  let y = Caml_obj.obj_dup(x);
   return {
           a0: 1,
           a1: y.a1,
@@ -53,7 +53,7 @@ eq("File \"update_record_test.ml\", line 30, characters 5-12", 1, f({
           a5: 0
         }).a0);
 
-var val0 = {
+let val0 = {
   "invalid_js_id'": 3,
   x: 2
 };
@@ -65,7 +65,7 @@ function fff(x) {
         };
 }
 
-var val1 = fff(val0);
+let val1 = fff(val0);
 
 eq("File \"update_record_test.ml\", line 42, characters 5-12", 3, 3);
 

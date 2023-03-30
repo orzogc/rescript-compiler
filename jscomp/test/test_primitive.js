@@ -1,8 +1,8 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Caml_array = require("../../lib/js/caml_array.js");
-var CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_array = require("../../lib/js/caml_array.js");
+let CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
 
 function a4(prim) {
   return [
@@ -30,18 +30,18 @@ function a6(prim) {
         ];
 }
 
-var test_float = 3;
+let test_float = 3;
 
-var test_abs = Math.abs(3.0);
+let test_abs = Math.abs(3.0);
 
-var v = [
+let v = [
   1.0,
   2.0
 ];
 
-var xxx = "a";
+let xxx = "a";
 
-var a = /* 'a' */97;
+let a = /* 'a' */97;
 
 function u(b) {
   if (b) {
@@ -58,7 +58,7 @@ function f2(h, b, param) {
 
 Caml_array.set(v, 1, 3.0);
 
-var unboxed_x = {
+let unboxed_x = {
   u: 0,
   v: 0
 };
@@ -71,26 +71,26 @@ function f(x) {
   return x.length;
 }
 
-var is_lazy_force = CamlinternalLazy.force;
+let is_lazy_force = CamlinternalLazy.force;
 
 function fib(n) {
   if (n === 0 || n === 1) {
     return 1;
   }
-  var fib1 = fib(n - 1 | 0);
-  var fib2 = fib(n - 2 | 0);
+  let fib1 = fib(n - 1 | 0);
+  let fib2 = fib(n - 2 | 0);
   return (fib1 + fib2 | 0) + 3 | 0;
 }
 
-var a0 = "File \"test_primitive.ml\", line 26, characters 9-16";
+let a0 = "File \"test_primitive.ml\", line 26, characters 9-16";
 
-var a1 = "Test_primitive";
+let a1 = "Test_primitive";
 
-var a2 = 28;
+let a2 = 28;
 
-var a3 = "Test_primitive";
+let a3 = "Test_primitive";
 
-var xx = [
+let xx = [
   0,
   0
 ];

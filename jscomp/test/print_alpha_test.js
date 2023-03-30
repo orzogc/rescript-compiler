@@ -1,7 +1,7 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
 
 function f(h, param) {
   console.log(3);

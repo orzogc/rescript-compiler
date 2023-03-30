@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var List = require("../../lib/js/list.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Mt = require("./mt.js");
+let List = require("../../lib/js/list.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -16,14 +16,14 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var rec_cell = {};
+let rec_cell = {};
 
 rec_cell.content = 3;
 
 rec_cell.next = rec_cell;
 
 function f0(x) {
-  var rec_cell = {};
+  let rec_cell = {};
   Caml_obj.update_dummy(rec_cell, {
         content: Math.imul(x, x) - 6 | 0,
         next: rec_cell
@@ -39,14 +39,14 @@ eq("File \"recursive_records_test.ml\", line 29, characters 5-12", a0(rec_cell),
 
 eq("File \"recursive_records_test.ml\", line 30, characters 5-12", a0(f0(3)), 9);
 
-var rec_cell2 = {};
+let rec_cell2 = {};
 
 rec_cell2.content = 3;
 
 rec_cell2.next = rec_cell2;
 
 function f2(x) {
-  var rec_cell2 = {};
+  let rec_cell2 = {};
   Caml_obj.update_dummy(rec_cell2, {
         TAG: "Cons",
         content: Math.imul(x, x) - 6 | 0,
@@ -80,18 +80,18 @@ function tl_exn(x) {
 
 eq("File \"recursive_records_test.ml\", line 56, characters 6-13", (hd(rec_cell2) + hd(tl_exn(rec_cell2)) | 0) + hd(tl_exn(tl_exn(rec_cell2))) | 0, 9);
 
-var rec_cell2$1 = f2(3);
+let rec_cell2$1 = f2(3);
 
 eq("File \"recursive_records_test.ml\", line 60, characters 5-12", (hd(rec_cell2$1) + hd(tl_exn(rec_cell2$1)) | 0) + hd(tl_exn(tl_exn(rec_cell2$1))) | 0, 9);
 
-var rec_cell3 = {};
+let rec_cell3 = {};
 
 rec_cell3.hd = 3;
 
 rec_cell3.tl = rec_cell3;
 
 function f3(x) {
-  var rec_cell3 = {};
+  let rec_cell3 = {};
   Caml_obj.update_dummy(rec_cell3, {
         hd: Math.imul(x, x) - 6 | 0,
         tl: rec_cell3
@@ -101,7 +101,7 @@ function f3(x) {
 
 eq("File \"recursive_records_test.ml\", line 74, characters 5-12", (List.hd(rec_cell3) + List.hd(List.tl(rec_cell3)) | 0) + List.hd(List.tl(List.tl(rec_cell3))) | 0, 9);
 
-var rec_cell3$1 = f3(3);
+let rec_cell3$1 = f3(3);
 
 eq("File \"recursive_records_test.ml\", line 77, characters 5-12", (List.hd(rec_cell3$1) + List.hd(List.tl(rec_cell3$1)) | 0) + List.hd(List.tl(List.tl(rec_cell3$1))) | 0, 9);
 

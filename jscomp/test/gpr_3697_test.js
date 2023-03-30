@@ -1,6 +1,6 @@
 'use strict';
 
-var CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
+let CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
 
 function fix(param) {
   return {
@@ -16,7 +16,7 @@ function fix(param) {
 
 function unfixLeak(_f) {
   while(true) {
-    var f = _f;
+    let f = _f;
     _f = CamlinternalLazy.force(f._0);
     continue ;
   };
@@ -24,7 +24,7 @@ function unfixLeak(_f) {
 
 function unfix(p) {
   while(true) {
-    var match = p.contents;
+    let match = p.contents;
     p.contents = CamlinternalLazy.force(match._0);
   };
 }

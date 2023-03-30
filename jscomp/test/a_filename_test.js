@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var $$Array = require("../../lib/js/array.js");
-var Ext_filename_test = require("./ext_filename_test.js");
+let Mt = require("./mt.js");
+let $$Array = require("../../lib/js/array.js");
+let Ext_filename_test = require("./ext_filename_test.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 

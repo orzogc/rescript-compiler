@@ -1,15 +1,15 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Lazy = require("../../lib/js/lazy.js");
-var CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Lazy = require("../../lib/js/lazy.js");
+let CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var u = {
+let u = {
   contents: 3
 };
 
-var v = {
+let v = {
   LAZY_DONE: false,
   VAL: (function () {
       u.contents = 32;
@@ -17,9 +17,9 @@ var v = {
 };
 
 function lazy_test(param) {
-  var h = u.contents;
+  let h = u.contents;
   CamlinternalLazy.force(v);
-  var g = u.contents;
+  let g = u.contents;
   return [
           h,
           g
@@ -28,12 +28,12 @@ function lazy_test(param) {
 
 function f(param) {
   CamlinternalLazy.force(param[0]);
-  var match = param[2].contents;
+  let match = param[2].contents;
   if (match === undefined) {
     return 0;
   }
   CamlinternalLazy.force(param[1]);
-  var x = param[2].contents;
+  let x = param[2].contents;
   if (x !== undefined) {
     return 1;
   }
@@ -48,25 +48,25 @@ function f(param) {
       };
 }
 
-var s = {
+let s = {
   contents: undefined
 };
 
-var set_true = {
+let set_true = {
   LAZY_DONE: false,
   VAL: (function () {
       s.contents = 1;
     })
 };
 
-var set_false = {
+let set_false = {
   LAZY_DONE: false,
   VAL: (function () {
       s.contents = undefined;
     })
 };
 
-var h;
+let h;
 
 try {
   h = f([
@@ -76,7 +76,7 @@ try {
       ]);
 }
 catch (raw_exn){
-  var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+  let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
   if (exn.RE_EXN_ID === "Match_failure") {
     h = 2;
   } else {
@@ -84,11 +84,11 @@ catch (raw_exn){
   }
 }
 
-var u_v = {
+let u_v = {
   contents: 0
 };
 
-var u$1 = {
+let u$1 = {
   LAZY_DONE: false,
   VAL: (function () {
       u_v.contents = 2;
@@ -97,30 +97,30 @@ var u$1 = {
 
 CamlinternalLazy.force(u$1);
 
-var exotic = CamlinternalLazy.force;
+let exotic = CamlinternalLazy.force;
 
-var l_from_fun = {
+let l_from_fun = {
   LAZY_DONE: false,
   VAL: (function () {
       return 3;
     })
 };
 
-var forward_test = {
+let forward_test = {
   LAZY_DONE: false,
   VAL: (function () {
-      var u = 3;
+      let u = 3;
       u = u + 1 | 0;
       return u;
     })
 };
 
-var f005 = {
+let f005 = {
   LAZY_DONE: true,
   VAL: 6
 };
 
-var f006 = {
+let f006 = {
   LAZY_DONE: false,
   VAL: (function () {
       return function (param) {
@@ -129,7 +129,7 @@ var f006 = {
     })
 };
 
-var f007 = {
+let f007 = {
   LAZY_DONE: false,
   VAL: (function () {
       throw {
@@ -139,7 +139,7 @@ var f007 = {
     })
 };
 
-var f008 = {
+let f008 = {
   LAZY_DONE: false,
   VAL: (function () {
       console.log("hi");
@@ -157,29 +157,29 @@ function a2(x) {
         };
 }
 
-var a3 = {
+let a3 = {
   LAZY_DONE: true,
   VAL: 3
 };
 
-var a4 = {
+let a4 = {
   LAZY_DONE: true,
   VAL: 3
 };
 
-var a5 = {
+let a5 = {
   LAZY_DONE: true,
   VAL: undefined
 };
 
-var a6 = {
+let a6 = {
   LAZY_DONE: true,
   VAL: undefined
 };
 
-var a7 = CamlinternalLazy.force(a5);
+let a7 = CamlinternalLazy.force(a5);
 
-var a8 = CamlinternalLazy.force(a6);
+let a8 = CamlinternalLazy.force(a6);
 
 Mt.from_pair_suites("Lazy_test", {
       hd: [

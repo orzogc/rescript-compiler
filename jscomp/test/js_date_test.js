@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Mt = require("./mt.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
 function date(param) {
   return new Date("1976-03-08T12:34:56.789+01:23");
 }
 
-var suites_0 = [
+let suites_0 = [
   "valueOf",
   (function (param) {
       return {
@@ -18,7 +18,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "make",
     (function (param) {
@@ -85,7 +85,7 @@ var suites_1 = {
               hd: [
                 "makeWithYM",
                 (function (param) {
-                    var d = new Date(1984, 4);
+                    let d = new Date(1984, 4);
                     return {
                             TAG: "Eq",
                             _0: [
@@ -103,7 +103,7 @@ var suites_1 = {
                 hd: [
                   "makeWithYMD",
                   (function (param) {
-                      var d = new Date(1984, 4, 6);
+                      let d = new Date(1984, 4, 6);
                       return {
                               TAG: "Eq",
                               _0: [
@@ -123,7 +123,7 @@ var suites_1 = {
                   hd: [
                     "makeWithYMDH",
                     (function (param) {
-                        var d = new Date(1984, 4, 6, 3);
+                        let d = new Date(1984, 4, 6, 3);
                         return {
                                 TAG: "Eq",
                                 _0: [
@@ -145,7 +145,7 @@ var suites_1 = {
                     hd: [
                       "makeWithYMDHM",
                       (function (param) {
-                          var d = new Date(1984, 4, 6, 3, 59);
+                          let d = new Date(1984, 4, 6, 3, 59);
                           return {
                                   TAG: "Eq",
                                   _0: [
@@ -169,7 +169,7 @@ var suites_1 = {
                       hd: [
                         "makeWithYMDHMS",
                         (function (param) {
-                            var d = new Date(1984, 4, 6, 3, 59, 27);
+                            let d = new Date(1984, 4, 6, 3, 59, 27);
                             return {
                                     TAG: "Eq",
                                     _0: [
@@ -195,8 +195,8 @@ var suites_1 = {
                         hd: [
                           "utcWithYM",
                           (function (param) {
-                              var d = Date.UTC(1984, 4);
-                              var d$1 = new Date(d);
+                              let d = Date.UTC(1984, 4);
+                              let d$1 = new Date(d);
                               return {
                                       TAG: "Eq",
                                       _0: [
@@ -214,8 +214,8 @@ var suites_1 = {
                           hd: [
                             "utcWithYMD",
                             (function (param) {
-                                var d = Date.UTC(1984, 4, 6);
-                                var d$1 = new Date(d);
+                                let d = Date.UTC(1984, 4, 6);
+                                let d$1 = new Date(d);
                                 return {
                                         TAG: "Eq",
                                         _0: [
@@ -235,8 +235,8 @@ var suites_1 = {
                             hd: [
                               "utcWithYMDH",
                               (function (param) {
-                                  var d = Date.UTC(1984, 4, 6, 3);
-                                  var d$1 = new Date(d);
+                                  let d = Date.UTC(1984, 4, 6, 3);
+                                  let d$1 = new Date(d);
                                   return {
                                           TAG: "Eq",
                                           _0: [
@@ -258,8 +258,8 @@ var suites_1 = {
                               hd: [
                                 "utcWithYMDHM",
                                 (function (param) {
-                                    var d = Date.UTC(1984, 4, 6, 3, 59);
-                                    var d$1 = new Date(d);
+                                    let d = Date.UTC(1984, 4, 6, 3, 59);
+                                    let d$1 = new Date(d);
                                     return {
                                             TAG: "Eq",
                                             _0: [
@@ -283,8 +283,8 @@ var suites_1 = {
                                 hd: [
                                   "utcWithYMDHMS",
                                   (function (param) {
-                                      var d = Date.UTC(1984, 4, 6, 3, 59, 27);
-                                      var d$1 = new Date(d);
+                                      let d = Date.UTC(1984, 4, 6, 3, 59, 27);
+                                      let d$1 = new Date(d);
                                       return {
                                               TAG: "Eq",
                                               _0: [
@@ -453,7 +453,7 @@ var suites_1 = {
                                                             hd: [
                                                               "setDate",
                                                               (function (param) {
-                                                                  var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                  let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                   d.setDate(12);
                                                                   return {
                                                                           TAG: "Eq",
@@ -466,7 +466,7 @@ var suites_1 = {
                                                               hd: [
                                                                 "setFullYear",
                                                                 (function (param) {
-                                                                    var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                    let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                     d.setFullYear(1986);
                                                                     return {
                                                                             TAG: "Eq",
@@ -479,7 +479,7 @@ var suites_1 = {
                                                                 hd: [
                                                                   "setFullYearM",
                                                                   (function (param) {
-                                                                      var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                      let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                       d.setFullYear(1986, 7);
                                                                       return {
                                                                               TAG: "Eq",
@@ -498,7 +498,7 @@ var suites_1 = {
                                                                   hd: [
                                                                     "setFullYearMD",
                                                                     (function (param) {
-                                                                        var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                        let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                         d.setFullYear(1986, 7, 23);
                                                                         return {
                                                                                 TAG: "Eq",
@@ -519,7 +519,7 @@ var suites_1 = {
                                                                     hd: [
                                                                       "setHours",
                                                                       (function (param) {
-                                                                          var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                          let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                           d.setHours(22);
                                                                           return {
                                                                                   TAG: "Eq",
@@ -532,7 +532,7 @@ var suites_1 = {
                                                                       hd: [
                                                                         "setHoursM",
                                                                         (function (param) {
-                                                                            var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                            let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                             d.setHours(22, 48);
                                                                             return {
                                                                                     TAG: "Eq",
@@ -551,7 +551,7 @@ var suites_1 = {
                                                                         hd: [
                                                                           "setHoursMS",
                                                                           (function (param) {
-                                                                              var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                              let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                               d.setHours(22, 48, 54);
                                                                               return {
                                                                                       TAG: "Eq",
@@ -572,7 +572,7 @@ var suites_1 = {
                                                                           hd: [
                                                                             "setMilliseconds",
                                                                             (function (param) {
-                                                                                var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                 d.setMilliseconds(543);
                                                                                 return {
                                                                                         TAG: "Eq",
@@ -585,7 +585,7 @@ var suites_1 = {
                                                                             hd: [
                                                                               "setMinutes",
                                                                               (function (param) {
-                                                                                  var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                  let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                   d.setMinutes(18);
                                                                                   return {
                                                                                           TAG: "Eq",
@@ -598,7 +598,7 @@ var suites_1 = {
                                                                               hd: [
                                                                                 "setMinutesS",
                                                                                 (function (param) {
-                                                                                    var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                    let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                     d.setMinutes(18, 42);
                                                                                     return {
                                                                                             TAG: "Eq",
@@ -617,7 +617,7 @@ var suites_1 = {
                                                                                 hd: [
                                                                                   "setMinutesSMs",
                                                                                   (function (param) {
-                                                                                      var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                      let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                       d.setMinutes(18, 42, 311);
                                                                                       return {
                                                                                               TAG: "Eq",
@@ -638,7 +638,7 @@ var suites_1 = {
                                                                                   hd: [
                                                                                     "setMonth",
                                                                                     (function (param) {
-                                                                                        var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                        let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                         d.setMonth(10);
                                                                                         return {
                                                                                                 TAG: "Eq",
@@ -651,7 +651,7 @@ var suites_1 = {
                                                                                     hd: [
                                                                                       "setMonthD",
                                                                                       (function (param) {
-                                                                                          var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                          let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                           d.setMonth(10, 14);
                                                                                           return {
                                                                                                   TAG: "Eq",
@@ -670,7 +670,7 @@ var suites_1 = {
                                                                                       hd: [
                                                                                         "setSeconds",
                                                                                         (function (param) {
-                                                                                            var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                            let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                             d.setSeconds(36);
                                                                                             return {
                                                                                                     TAG: "Eq",
@@ -683,7 +683,7 @@ var suites_1 = {
                                                                                         hd: [
                                                                                           "setSecondsMs",
                                                                                           (function (param) {
-                                                                                              var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                              let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                               d.setSeconds(36, 420);
                                                                                               return {
                                                                                                       TAG: "Eq",
@@ -702,7 +702,7 @@ var suites_1 = {
                                                                                           hd: [
                                                                                             "setUTCDate",
                                                                                             (function (param) {
-                                                                                                var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                 d.setUTCDate(12);
                                                                                                 return {
                                                                                                         TAG: "Eq",
@@ -715,7 +715,7 @@ var suites_1 = {
                                                                                             hd: [
                                                                                               "setUTCFullYear",
                                                                                               (function (param) {
-                                                                                                  var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                  let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                   d.setUTCFullYear(1986);
                                                                                                   return {
                                                                                                           TAG: "Eq",
@@ -728,7 +728,7 @@ var suites_1 = {
                                                                                               hd: [
                                                                                                 "setUTCFullYearM",
                                                                                                 (function (param) {
-                                                                                                    var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                    let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                     d.setUTCFullYear(1986, 7);
                                                                                                     return {
                                                                                                             TAG: "Eq",
@@ -747,7 +747,7 @@ var suites_1 = {
                                                                                                 hd: [
                                                                                                   "setUTCFullYearMD",
                                                                                                   (function (param) {
-                                                                                                      var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                      let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                       d.setUTCFullYear(1986, 7, 23);
                                                                                                       return {
                                                                                                               TAG: "Eq",
@@ -768,7 +768,7 @@ var suites_1 = {
                                                                                                   hd: [
                                                                                                     "setUTCHours",
                                                                                                     (function (param) {
-                                                                                                        var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                        let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                         d.setUTCHours(22);
                                                                                                         return {
                                                                                                                 TAG: "Eq",
@@ -781,7 +781,7 @@ var suites_1 = {
                                                                                                     hd: [
                                                                                                       "setUTCHoursM",
                                                                                                       (function (param) {
-                                                                                                          var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                          let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                           d.setUTCHours(22, 48);
                                                                                                           return {
                                                                                                                   TAG: "Eq",
@@ -800,7 +800,7 @@ var suites_1 = {
                                                                                                       hd: [
                                                                                                         "setUTCHoursMS",
                                                                                                         (function (param) {
-                                                                                                            var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                            let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                             d.setUTCHours(22, 48, 54);
                                                                                                             return {
                                                                                                                     TAG: "Eq",
@@ -821,7 +821,7 @@ var suites_1 = {
                                                                                                         hd: [
                                                                                                           "setUTCMilliseconds",
                                                                                                           (function (param) {
-                                                                                                              var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                              let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                               d.setUTCMilliseconds(543);
                                                                                                               return {
                                                                                                                       TAG: "Eq",
@@ -834,7 +834,7 @@ var suites_1 = {
                                                                                                           hd: [
                                                                                                             "setUTCMinutes",
                                                                                                             (function (param) {
-                                                                                                                var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                                let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                                 d.setUTCMinutes(18);
                                                                                                                 return {
                                                                                                                         TAG: "Eq",
@@ -847,7 +847,7 @@ var suites_1 = {
                                                                                                             hd: [
                                                                                                               "setUTCMinutesS",
                                                                                                               (function (param) {
-                                                                                                                  var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                                  let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                                   d.setUTCMinutes(18, 42);
                                                                                                                   return {
                                                                                                                           TAG: "Eq",
@@ -866,7 +866,7 @@ var suites_1 = {
                                                                                                               hd: [
                                                                                                                 "setUTCMinutesSMs",
                                                                                                                 (function (param) {
-                                                                                                                    var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                                    let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                                     d.setUTCMinutes(18, 42, 311);
                                                                                                                     return {
                                                                                                                             TAG: "Eq",
@@ -887,7 +887,7 @@ var suites_1 = {
                                                                                                                 hd: [
                                                                                                                   "setUTCMonth",
                                                                                                                   (function (param) {
-                                                                                                                      var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                                      let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                                       d.setUTCMonth(10);
                                                                                                                       return {
                                                                                                                               TAG: "Eq",
@@ -900,7 +900,7 @@ var suites_1 = {
                                                                                                                   hd: [
                                                                                                                     "setUTCMonthD",
                                                                                                                     (function (param) {
-                                                                                                                        var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                                        let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                                         d.setUTCMonth(10, 14);
                                                                                                                         return {
                                                                                                                                 TAG: "Eq",
@@ -919,7 +919,7 @@ var suites_1 = {
                                                                                                                     hd: [
                                                                                                                       "setUTCSeconds",
                                                                                                                       (function (param) {
-                                                                                                                          var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                                          let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                                           d.setUTCSeconds(36);
                                                                                                                           return {
                                                                                                                                   TAG: "Eq",
@@ -932,7 +932,7 @@ var suites_1 = {
                                                                                                                       hd: [
                                                                                                                         "setUTCSecondsMs",
                                                                                                                         (function (param) {
-                                                                                                                            var d = new Date("1976-03-08T12:34:56.789+01:23");
+                                                                                                                            let d = new Date("1976-03-08T12:34:56.789+01:23");
                                                                                                                             d.setUTCSeconds(36, 420);
                                                                                                                             return {
                                                                                                                                     TAG: "Eq",
@@ -1017,9 +1017,9 @@ var suites_1 = {
                                                                                                                                     hd: [
                                                                                                                                       "eq",
                                                                                                                                       (function (param) {
-                                                                                                                                          var a = new Date("2013-03-01T01:10:00");
-                                                                                                                                          var b = new Date("2013-03-01T01:10:00");
-                                                                                                                                          var c = new Date("2013-03-01T01:10:01");
+                                                                                                                                          let a = new Date("2013-03-01T01:10:00");
+                                                                                                                                          let b = new Date("2013-03-01T01:10:00");
+                                                                                                                                          let c = new Date("2013-03-01T01:10:01");
                                                                                                                                           return {
                                                                                                                                                   TAG: "Ok",
                                                                                                                                                   _0: Caml_obj.equal(a, b) && Caml_obj.notequal(b, c) && Caml_obj.greaterthan(c, b)
@@ -1094,14 +1094,14 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };
 
 Mt.from_pair_suites("Js_date_test", suites);
 
-var N;
+let N;
 
 exports.N = N;
 exports.date = date;

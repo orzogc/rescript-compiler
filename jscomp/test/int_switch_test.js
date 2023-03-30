@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -20,7 +20,7 @@ function b(loc, x) {
 }
 
 function f(x) {
-  var match = Curry._1(x, undefined);
+  let match = Curry._1(x, undefined);
   switch (match) {
     case 1 :
         return /* 'a' */97;
@@ -34,7 +34,7 @@ function f(x) {
 }
 
 function f22(x) {
-  var match = Curry._1(x, undefined);
+  let match = Curry._1(x, undefined);
   switch (match) {
     case 1 :
         return /* 'a' */97;
@@ -48,7 +48,7 @@ function f22(x) {
 }
 
 function f33(x) {
-  var match = Curry._1(x, undefined);
+  let match = Curry._1(x, undefined);
   switch (match) {
     case "A" :
         return /* 'a' */97;

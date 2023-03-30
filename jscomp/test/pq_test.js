@@ -1,6 +1,6 @@
 'use strict';
 
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
 function insert(queue, prio, elt) {
   if (typeof queue !== "object") {
@@ -12,10 +12,10 @@ function insert(queue, prio, elt) {
             _3: "Empty"
           };
   }
-  var right = queue._3;
-  var left = queue._2;
-  var e = queue._1;
-  var p = queue._0;
+  let right = queue._3;
+  let left = queue._2;
+  let e = queue._1;
+  let p = queue._0;
   if (prio <= p) {
     return {
             TAG: "Node",
@@ -35,7 +35,7 @@ function insert(queue, prio, elt) {
   }
 }
 
-var Queue_is_empty = /* @__PURE__ */Caml_exceptions.create("Pq_test.PrioQueue.Queue_is_empty");
+let Queue_is_empty = /* @__PURE__ */Caml_exceptions.create("Pq_test.PrioQueue.Queue_is_empty");
 
 function remove_top(param) {
   if (typeof param !== "object") {
@@ -44,17 +44,17 @@ function remove_top(param) {
           Error: new Error()
         };
   }
-  var left = param._2;
-  var tmp = param._3;
+  let left = param._2;
+  let tmp = param._3;
   if (typeof tmp !== "object") {
     return left;
   }
   if (typeof left !== "object") {
     return param._3;
   }
-  var right = param._3;
-  var rprio = right._0;
-  var lprio = left._0;
+  let right = param._3;
+  let rprio = right._0;
+  let lprio = left._0;
   if (lprio <= rprio) {
     return {
             TAG: "Node",
@@ -88,7 +88,7 @@ function extract(queue) {
       };
 }
 
-var PrioQueue = {
+let PrioQueue = {
   empty: "Empty",
   insert: insert,
   Queue_is_empty: Queue_is_empty,

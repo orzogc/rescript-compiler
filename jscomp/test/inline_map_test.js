@@ -1,8 +1,8 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml = require("../../lib/js/caml.js");
-var List = require("../../lib/js/list.js");
+let Mt = require("./mt.js");
+let Caml = require("../../lib/js/caml.js");
+let List = require("../../lib/js/list.js");
 
 function height(param) {
   if (typeof param !== "object") {
@@ -13,8 +13,8 @@ function height(param) {
 }
 
 function create(l, x, d, r) {
-  var hl = height(l);
-  var hr = height(r);
+  let hl = height(l);
+  let hr = height(r);
   return {
           TAG: "Node",
           _0: l,
@@ -26,9 +26,9 @@ function create(l, x, d, r) {
 }
 
 function bal(l, x, d, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l._4;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r._4;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
@@ -38,10 +38,10 @@ function bal(l, x, d, r) {
             Error: new Error()
           };
     }
-    var lr = l._3;
-    var ld = l._2;
-    var lv = l._1;
-    var ll = l._0;
+    let lr = l._3;
+    let ld = l._2;
+    let lv = l._1;
+    let ll = l._0;
     if (height(ll) >= height(lr)) {
       return create(ll, lv, ld, create(lr, x, d, r));
     }
@@ -71,10 +71,10 @@ function bal(l, x, d, r) {
           Error: new Error()
         };
   }
-  var rr = r._3;
-  var rd = r._2;
-  var rv = r._1;
-  var rl = r._0;
+  let rr = r._3;
+  let rd = r._2;
+  let rv = r._1;
+  let rl = r._0;
   if (height(rr) >= height(rl)) {
     return create(create(l, x, d, rl), rv, rd, rr);
   }
@@ -99,11 +99,11 @@ function add(x, data, param) {
             _4: 1
           };
   }
-  var r = param._3;
-  var d = param._2;
-  var v = param._1;
-  var l = param._0;
-  var c = Caml.int_compare(x, v);
+  let r = param._3;
+  let d = param._2;
+  let v = param._1;
+  let l = param._0;
+  let c = Caml.int_compare(x, v);
   if (c === 0) {
     return {
             TAG: "Node",
@@ -122,14 +122,14 @@ function add(x, data, param) {
 
 function find(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var c = Caml.int_compare(x, param._1);
+    let c = Caml.int_compare(x, param._1);
     if (c === 0) {
       return param._2;
     }
@@ -138,7 +138,7 @@ function find(x, _param) {
   };
 }
 
-var m = List.fold_left((function (acc, param) {
+let m = List.fold_left((function (acc, param) {
         return add(param[0], param[1], acc);
       }), "Empty", {
       hd: [

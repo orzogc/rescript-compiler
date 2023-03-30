@@ -1,9 +1,9 @@
 'use strict';
 
-var Belt_List = require("../../lib/js/belt_List.js");
-var Belt_Array = require("../../lib/js/belt_Array.js");
+let Belt_List = require("../../lib/js/belt_List.js");
+let Belt_Array = require("../../lib/js/belt_Array.js");
 
-var N = {};
+let N = {};
 
 function f(X, xs) {
   X.forEach(xs, {
@@ -22,9 +22,9 @@ Belt_List.forEachU({
         console.log(x.x);
       }));
 
-var Foo = {};
+let Foo = {};
 
-var bar = [{
+let bar = [{
     foo: "bar"
   }];
 

@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_vector = require("../../lib/js/js_vector.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Mt = require("./mt.js");
+let Js_vector = require("../../lib/js/js_vector.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
-var suites_0 = [
+let suites_0 = [
   "File \"js_array_test.ml\", line 3, characters 4-11",
   (function (param) {
-      var x = [
+      let x = [
         1,
         2,
         3,
@@ -27,11 +27,11 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "File \"js_array_test.ml\", line 11, characters 4-11",
     (function (param) {
-        var x = [
+        let x = [
           1,
           2,
           3,
@@ -355,13 +355,13 @@ var suites_1 = {
                                         hd: [
                                           "spliceInPlace",
                                           (function (param) {
-                                              var arr = [
+                                              let arr = [
                                                 1,
                                                 2,
                                                 3,
                                                 4
                                               ];
-                                              var removed = arr.splice(2, 0, 5);
+                                              let removed = arr.splice(2, 0, 5);
                                               return {
                                                       TAG: "Eq",
                                                       _0: [
@@ -385,13 +385,13 @@ var suites_1 = {
                                           hd: [
                                             "removeFromInPlace",
                                             (function (param) {
-                                                var arr = [
+                                                let arr = [
                                                   1,
                                                   2,
                                                   3,
                                                   4
                                                 ];
-                                                var removed = arr.splice(2);
+                                                let removed = arr.splice(2);
                                                 return {
                                                         TAG: "Eq",
                                                         _0: [
@@ -415,13 +415,13 @@ var suites_1 = {
                                             hd: [
                                               "removeCountInPlace",
                                               (function (param) {
-                                                  var arr = [
+                                                  let arr = [
                                                     1,
                                                     2,
                                                     3,
                                                     4
                                                   ];
-                                                  var removed = arr.splice(2, 1);
+                                                  let removed = arr.splice(2, 1);
                                                   return {
                                                           TAG: "Eq",
                                                           _0: [
@@ -931,7 +931,7 @@ var suites_1 = {
                                                                                                     hd: [
                                                                                                       "forEach",
                                                                                                       (function (param) {
-                                                                                                          var sum = {
+                                                                                                          let sum = {
                                                                                                             contents: 0
                                                                                                           };
                                                                                                           [
@@ -952,7 +952,7 @@ var suites_1 = {
                                                                                                       hd: [
                                                                                                         "forEachi",
                                                                                                         (function (param) {
-                                                                                                            var sum = {
+                                                                                                            let sum = {
                                                                                                               contents: 0
                                                                                                             };
                                                                                                             [
@@ -1184,7 +1184,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

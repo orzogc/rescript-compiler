@@ -20,7 +20,7 @@ function bar(x) {
   }
 }
 
-var s = "😀";
+let s = "😀";
 
 exports.foo = foo;
 exports.s = s;

@@ -1,8 +1,8 @@
 'use strict';
 
-var $$Set = require("../../lib/js/set.js");
-var Caml = require("../../lib/js/caml.js");
-var Curry = require("../../lib/js/curry.js");
+let $$Set = require("../../lib/js/set.js");
+let Caml = require("../../lib/js/caml.js");
+let Curry = require("../../lib/js/curry.js");
 
 function compare(t1, t2) {
   if (t1.TAG === "Leaf") {
@@ -18,21 +18,21 @@ function compare(t1, t2) {
   }
 }
 
-var A = {
+let A = {
   compare: compare
 };
 
-var ASet = $$Set.Make(A);
+let ASet = $$Set.Make(A);
 
-var X0 = {};
+let X0 = {};
 
-var Y0 = {};
+let Y0 = {};
 
 function f(x) {
   return x + 1 | 0;
 }
 
-var X1 = {
+let X1 = {
   f: f
 };
 
@@ -40,11 +40,11 @@ function f$1(x) {
   return x + 2 | 0;
 }
 
-var Y1 = {
+let Y1 = {
   f: f$1
 };
 
-var X;
+let X;
 
 exports.A = A;
 exports.ASet = ASet;

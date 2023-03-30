@@ -1,8 +1,8 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites_0 = [
+let suites_0 = [
   "toExponential",
   (function (param) {
       return {
@@ -13,7 +13,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "toExponentialWithPrecision - digits:2",
     (function (param) {
@@ -238,7 +238,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

@@ -1,9 +1,9 @@
 'use strict';
 
 
-var $$__esModule = false;
+let $$__esModule = false;
 
-var $$default = 4;
+let $$default = 4;
 
 exports.$$__esModule = $$__esModule;
 exports.$$default = $$default;

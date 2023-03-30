@@ -1,15 +1,15 @@
 'use strict';
 
-var Caml_string = require("../../lib/js/caml_string.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Caml_string = require("../../lib/js/caml_string.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var hh;
+let hh;
 
 try {
   hh = Caml_string.get("ghsogh", -3);
 }
 catch (raw_e){
-  var e = Caml_js_exceptions.internalToOCamlException(raw_e);
+  let e = Caml_js_exceptions.internalToOCamlException(raw_e);
   if (e.RE_EXN_ID === "Invalid_argument") {
     console.log(e._1);
     hh = /* 'a' */97;
@@ -18,7 +18,7 @@ catch (raw_e){
   }
 }
 
-var f = /* 'o' */111;
+let f = /* 'o' */111;
 
 exports.f = f;
 exports.hh = hh;

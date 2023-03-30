@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -31,7 +31,7 @@ function fib(n, k) {
   }
 }
 
-var u = fib(10, (function (x) {
+let u = fib(10, (function (x) {
         return {
                 TAG: "Continue",
                 _0: x
@@ -40,7 +40,7 @@ var u = fib(10, (function (x) {
 
 function iter(_bounce) {
   while(true) {
-    var bounce = _bounce;
+    let bounce = _bounce;
     if (bounce.TAG === "Continue") {
       return bounce._0;
     }

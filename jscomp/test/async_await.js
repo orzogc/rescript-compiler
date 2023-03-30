@@ -1,6 +1,6 @@
 'use strict';
 
-var Caml_array = require("../../lib/js/caml_array.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
 function next(n) {
   return n + 1 | 0;
@@ -11,7 +11,7 @@ async function useNext(param) {
 }
 
 function Make(I) {
-  var get = async function (key) {
+  let get = async function (key) {
     return await I.get(key);
   };
   return {
@@ -23,15 +23,15 @@ async function topFoo(param) {
   return 1;
 }
 
-var arr = [
+let arr = [
   1,
   2,
   3
 ];
 
-var toplevelAwait = await topFoo(undefined);
+let toplevelAwait = await topFoo(undefined);
 
-var toplevelAwait2 = Caml_array.get(arr, await topFoo(undefined));
+let toplevelAwait2 = Caml_array.get(arr, await topFoo(undefined));
 
 exports.next = next;
 exports.useNext = useNext;

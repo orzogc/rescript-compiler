@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var $$Array = require("../../lib/js/array.js");
-var Caml_int64 = require("../../lib/js/caml_int64.js");
-var Pervasives = require("../../lib/js/pervasives.js");
-var Caml_format = require("../../lib/js/caml_format.js");
+let Mt = require("./mt.js");
+let $$Array = require("../../lib/js/array.js");
+let Caml_int64 = require("../../lib/js/caml_int64.js");
+let Pervasives = require("../../lib/js/pervasives.js");
+let Caml_format = require("../../lib/js/caml_format.js");
 
-var of_string = [
+let of_string = [
   [
     0,
     "0"
@@ -85,8 +85,8 @@ function from_float_of_string(xs) {
 
 function from_of_string(xs) {
   return $$Array.to_list($$Array.mapi((function (i, param) {
-                    var b = param[1];
-                    var a = param[0];
+                    let b = param[1];
+                    let a = param[0];
                     return [
                             "of_string " + String(i),
                             (function (param) {
@@ -100,9 +100,9 @@ function from_of_string(xs) {
                   }), of_string));
 }
 
-var to_str = Caml_format.int_of_string;
+let to_str = Caml_format.int_of_string;
 
-var pairs = [
+let pairs = [
   [
     "FP_infinite",
     "infinity"
@@ -125,7 +125,7 @@ var pairs = [
   ]
 ];
 
-var pairs$1 = [
+let pairs$1 = [
   [
     3232,
     "32_32.0"
@@ -140,7 +140,7 @@ var pairs$1 = [
   ]
 ];
 
-var suites = Pervasives.$at(from_of_string(of_string), Pervasives.$at({
+let suites = Pervasives.$at(from_of_string(of_string), Pervasives.$at({
           hd: [
             "isnan_of_string",
             (function (param) {
@@ -153,8 +153,8 @@ var suites = Pervasives.$at(from_of_string(of_string), Pervasives.$at({
           ],
           tl: /* [] */0
         }, Pervasives.$at($$Array.to_list($$Array.mapi((function (i, param) {
-                        var b = param[1];
-                        var a = param[0];
+                        let b = param[1];
+                        let a = param[0];
                         return [
                                 "infinity_of_string " + String(i),
                                 (function (param) {
@@ -191,8 +191,8 @@ var suites = Pervasives.$at(from_of_string(of_string), Pervasives.$at({
                     tl: /* [] */0
                   }
                 }, $$Array.to_list($$Array.mapi((function (i, param) {
-                            var b = param[1];
-                            var a = param[0];
+                            let b = param[1];
+                            let a = param[0];
                             return [
                                     "normal_float_of_string " + String(i),
                                     (function (param) {
@@ -209,7 +209,7 @@ function ff(param) {
   return Caml_format.format_int("%32d", param);
 }
 
-var float_data = [
+let float_data = [
   [
     "%f",
     32,
@@ -317,7 +317,7 @@ var float_data = [
   ]
 ];
 
-var int64_suites_0 = [
+let int64_suites_0 = [
   "i64_simple7",
   (function (param) {
       return {
@@ -331,7 +331,7 @@ var int64_suites_0 = [
     })
 ];
 
-var int64_suites_1 = {
+let int64_suites_1 = {
   hd: [
     "i64_simple15",
     (function (param) {
@@ -360,12 +360,12 @@ var int64_suites_1 = {
   }
 };
 
-var int64_suites = {
+let int64_suites = {
   hd: int64_suites_0,
   tl: int64_suites_1
 };
 
-var of_string_data = [
+let of_string_data = [
   [
     Caml_int64.zero,
     "0"
@@ -423,9 +423,9 @@ var of_string_data = [
 ];
 
 Mt.from_pair_suites("Caml_format_test", Pervasives.$at(suites, Pervasives.$at($$Array.to_list($$Array.mapi((function (i, param) {
-                        var str_result = param[2];
-                        var f = param[1];
-                        var fmt = param[0];
+                        let str_result = param[2];
+                        let f = param[1];
+                        let fmt = param[0];
                         return [
                                 "loat_format " + String(i),
                                 (function (param) {
@@ -437,8 +437,8 @@ Mt.from_pair_suites("Caml_format_test", Pervasives.$at(suites, Pervasives.$at($$
                                   })
                               ];
                       }), float_data)), Pervasives.$at(int64_suites, $$Array.to_list($$Array.mapi((function (i, param) {
-                            var b = param[1];
-                            var a = param[0];
+                            let b = param[1];
+                            let a = param[0];
                             return [
                                     "int64_of_string " + String(i) + " ",
                                     (function (param) {
@@ -451,17 +451,17 @@ Mt.from_pair_suites("Caml_format_test", Pervasives.$at(suites, Pervasives.$at($$
                                   ];
                           }), of_string_data))))));
 
-var float_suites = {
+let float_suites = {
   hd: "float_nan",
   tl: /* [] */0
 };
 
-var hh = [
+let hh = [
   214748364,
   3435973836
 ];
 
-var hhh = [
+let hhh = [
   268435456,
   0
 ];

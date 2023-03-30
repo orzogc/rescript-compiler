@@ -1,9 +1,9 @@
 'use strict';
 
-var Demo$Liba = require("liba/src/demo.bs.js");
-var Demo$Libb = require("libb/src/demo.bs.js");
+let Demo$Liba = require("liba/src/demo.bs.js");
+let Demo$Libb = require("libb/src/demo.bs.js");
 
-var v = Demo$Liba.v + Demo$Libb.v | 0;
+let v = Demo$Liba.v + Demo$Libb.v | 0;
 
 exports.v = v;
 /* No side effect */

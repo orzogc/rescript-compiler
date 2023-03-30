@@ -1,10 +1,10 @@
 'use strict';
 
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var A = /* @__PURE__ */Caml_exceptions.create("Test_exception_escape.N.A");
+let A = /* @__PURE__ */Caml_exceptions.create("Test_exception_escape.N.A");
 
-var f;
+let f;
 
 try {
   throw {
@@ -17,7 +17,7 @@ catch (exn){
   f = 3;
 }
 
-var N = {
+let N = {
   f: f
 };
 

@@ -1,9 +1,9 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_math = require("../../lib/js/js_math.js");
+let Mt = require("./mt.js");
+let Js_math = require("../../lib/js/js_math.js");
 
-var suites_0 = [
+let suites_0 = [
   "_E",
   (function (param) {
       return {
@@ -15,7 +15,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "_LN2",
     (function (param) {
@@ -516,7 +516,7 @@ var suites_1 = {
                                                                                         hd: [
                                                                                           "random",
                                                                                           (function (param) {
-                                                                                              var a = Math.random();
+                                                                                              let a = Math.random();
                                                                                               return {
                                                                                                       TAG: "Ok",
                                                                                                       _0: a >= 0 && a < 1
@@ -527,7 +527,7 @@ var suites_1 = {
                                                                                           hd: [
                                                                                             "random_int",
                                                                                             (function (param) {
-                                                                                                var a = Js_math.random_int(1, 3);
+                                                                                                let a = Js_math.random_int(1, 3);
                                                                                                 return {
                                                                                                         TAG: "Ok",
                                                                                                         _0: a >= 1 && a < 3
@@ -730,7 +730,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

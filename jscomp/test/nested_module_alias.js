@@ -1,6 +1,6 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
+let List = require("../../lib/js/list.js");
 
 function v(x) {
   return [
@@ -9,7 +9,7 @@ function v(x) {
         ];
 }
 
-var L;
+let L;
 
 exports.L = L;
 exports.v = v;

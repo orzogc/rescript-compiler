@@ -1,11 +1,11 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml = require("../../lib/js/caml.js");
-var List = require("../../lib/js/list.js");
-var $$Array = require("../../lib/js/array.js");
+let Mt = require("./mt.js");
+let Caml = require("../../lib/js/caml.js");
+let List = require("../../lib/js/list.js");
+let $$Array = require("../../lib/js/array.js");
 
-var list_suites_0 = [
+let list_suites_0 = [
   "length",
   (function (param) {
       return {
@@ -25,7 +25,7 @@ var list_suites_0 = [
     })
 ];
 
-var list_suites_1 = {
+let list_suites_1 = {
   hd: [
     "length2",
     (function (param) {
@@ -170,7 +170,7 @@ var list_suites_1 = {
   }
 };
 
-var list_suites = {
+let list_suites = {
   hd: list_suites_0,
   tl: list_suites_1
 };

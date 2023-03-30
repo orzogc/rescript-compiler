@@ -1,16 +1,16 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Sys = require("../../lib/js/sys.js");
-var Caml_sys = require("../../lib/js/caml_sys.js");
-var Node_process = require("../../lib/js/node_process.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Sys = require("../../lib/js/sys.js");
+let Caml_sys = require("../../lib/js/caml_sys.js");
+let Node_process = require("../../lib/js/node_process.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -33,25 +33,25 @@ function eq(loc, x, y) {
 
 Node_process.putEnvVar("Caml_sys_poly_fill_test", "X");
 
-var v = Caml_sys.sys_getenv("Caml_sys_poly_fill_test");
+let v = Caml_sys.sys_getenv("Caml_sys_poly_fill_test");
 
 eq("File \"caml_sys_poly_fill_test.ml\", line 11, characters 5-12", "X", (Node_process.deleteEnvVar("Caml_sys_poly_fill_test"), v));
 
 Node_process.putEnvVar("Caml_sys_poly_fill_test", "Y");
 
-var v$1 = Caml_sys.sys_getenv("Caml_sys_poly_fill_test");
+let v$1 = Caml_sys.sys_getenv("Caml_sys_poly_fill_test");
 
 eq("File \"caml_sys_poly_fill_test.ml\", line 17, characters 5-12", "Y", (Node_process.deleteEnvVar("Caml_sys_poly_fill_test"), v$1));
 
 Node_process.deleteEnvVar("Caml_sys_poly_fill_test");
 
-var tmp;
+let tmp;
 
 try {
   tmp = Caml_sys.sys_getenv("Caml_sys_poly_fill_test");
 }
 catch (raw_exn){
-  var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+  let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
   if (exn.RE_EXN_ID === "Not_found") {
     tmp = "Z";
   } else {

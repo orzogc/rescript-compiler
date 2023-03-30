@@ -1,9 +1,9 @@
 'use strict';
 
-var $$Node = require("../../lib/js/node.js");
+let $$Node = require("../../lib/js/node.js");
 
 function f(str) {
-  var match = $$Node.test(str);
+  let match = $$Node.test(str);
   if (match[0] === "String") {
     console.log([
           "string",

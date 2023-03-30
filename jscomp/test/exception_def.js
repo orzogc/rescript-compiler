@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Mt = require("./mt.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -15,60 +15,60 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var A = /* @__PURE__ */Caml_exceptions.create("Exception_def.A");
+let A = /* @__PURE__ */Caml_exceptions.create("Exception_def.A");
 
-var A$1 = /* @__PURE__ */Caml_exceptions.create("Exception_def.U.A");
+let A$1 = /* @__PURE__ */Caml_exceptions.create("Exception_def.U.A");
 
-var U = {
+let U = {
   A: A$1
 };
 
-var H = {};
+let H = {};
 
-var Bx = /* @__PURE__ */Caml_exceptions.create("Exception_def.Bx");
+let Bx = /* @__PURE__ */Caml_exceptions.create("Exception_def.Bx");
 
-var u = {
+let u = {
   RE_EXN_ID: Bx
 };
 
-var Ax = /* @__PURE__ */Caml_exceptions.create("Exception_def.Ax");
+let Ax = /* @__PURE__ */Caml_exceptions.create("Exception_def.Ax");
 
-var XXX = /* @__PURE__ */Caml_exceptions.create("Exception_def.XXX");
+let XXX = /* @__PURE__ */Caml_exceptions.create("Exception_def.XXX");
 
-var Aa = "Match_failure";
+let Aa = "Match_failure";
 
-var v_1 = [
+let v_1 = [
   "",
   0,
   0
 ];
 
-var v = {
+let v = {
   RE_EXN_ID: Aa,
   _1: v_1
 };
 
-var H0 = "Not_found";
+let H0 = "Not_found";
 
-var H1 = /* @__PURE__ */Caml_exceptions.create("Exception_def.H1");
+let H1 = /* @__PURE__ */Caml_exceptions.create("Exception_def.H1");
 
-var H2 = /* @__PURE__ */Caml_exceptions.create("Exception_def.H2");
+let H2 = /* @__PURE__ */Caml_exceptions.create("Exception_def.H2");
 
-var h2 = {
+let h2 = {
   RE_EXN_ID: H2
 };
 
-var h3 = {
+let h3 = {
   RE_EXN_ID: H2
 };
 
-var h4 = {
+let h4 = {
   RE_EXN_ID: H0
 };
 
-var H4 = "Invalid_argument";
+let H4 = "Invalid_argument";
 
-var h5 = {
+let h5 = {
   RE_EXN_ID: H4,
   _1: "xx"
 };
@@ -114,9 +114,9 @@ eq("File \"exception_def.ml\", line 55, characters 6-13", p({
 
 Mt.from_pair_suites("exception_def.ml", suites.contents);
 
-var a = 3;
+let a = 3;
 
-var H3 = H2;
+let H3 = H2;
 
 exports.suites = suites;
 exports.test_id = test_id;

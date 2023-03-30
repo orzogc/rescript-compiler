@@ -1,7 +1,7 @@
 'use strict';
 
 
-var f = {
+let f = {
   x: {
     y: {
       z: 3
@@ -9,7 +9,7 @@ var f = {
   }
 };
 
-var f2_0 = {
+let f2_0 = {
   hd: {
     x: {
       y: {
@@ -29,7 +29,7 @@ var f2_0 = {
   }
 };
 
-var f2_1 = [
+let f2_1 = [
   {
     x: {
       y: {
@@ -46,12 +46,12 @@ var f2_1 = [
   }
 ];
 
-var f2 = [
+let f2 = [
   f2_0,
   f2_1
 ];
 
-var f3 = {
+let f3 = {
   x: {
     y: {
       z: 3
@@ -59,7 +59,7 @@ var f3 = {
   }
 };
 
-var f_record = {
+let f_record = {
   x: {
     y: {
       z: 3

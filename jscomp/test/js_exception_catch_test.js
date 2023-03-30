@@ -1,22 +1,22 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
-var Js_exn = require("../../lib/js/js_exn.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
+let Js_exn = require("../../lib/js/js_exn.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var counter = {
+let counter = {
   contents: 0
 };
 
 function add_test(loc, test) {
   counter.contents = counter.contents + 1 | 0;
-  var id = loc + (" id " + String(counter.contents));
+  let id = loc + (" id " + String(counter.contents));
   suites.contents = {
     hd: [
       id,
@@ -54,16 +54,16 @@ function true_(loc) {
         }));
 }
 
-var exit = 0;
+let exit = 0;
 
-var e;
+let e;
 
 try {
   e = JSON.parse(" {\"x\"}");
   exit = 1;
 }
 catch (raw_x){
-  var x = Caml_js_exceptions.internalToOCamlException(raw_x);
+  let x = Caml_js_exceptions.internalToOCamlException(raw_x);
   if (x.RE_EXN_ID === Js_exn.$$Error) {
     add_test("File \"js_exception_catch_test.ml\", line 21, characters 10-17", (function (param) {
             return {
@@ -85,11 +85,11 @@ if (exit === 1) {
         }));
 }
 
-var A = /* @__PURE__ */Caml_exceptions.create("Js_exception_catch_test.A");
+let A = /* @__PURE__ */Caml_exceptions.create("Js_exception_catch_test.A");
 
-var B = /* @__PURE__ */Caml_exceptions.create("Js_exception_catch_test.B");
+let B = /* @__PURE__ */Caml_exceptions.create("Js_exception_catch_test.B");
 
-var C = /* @__PURE__ */Caml_exceptions.create("Js_exception_catch_test.C");
+let C = /* @__PURE__ */Caml_exceptions.create("Js_exception_catch_test.C");
 
 function test(f) {
   try {
@@ -97,7 +97,7 @@ function test(f) {
     return "No_error";
   }
   catch (raw_e){
-    var e = Caml_js_exceptions.internalToOCamlException(raw_e);
+    let e = Caml_js_exceptions.internalToOCamlException(raw_e);
     if (e.RE_EXN_ID === "Not_found") {
       return "Not_found";
     } else if (e.RE_EXN_ID === "Invalid_argument") {

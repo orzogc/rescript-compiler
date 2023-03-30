@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
 function is_block(x) {
   return typeof x !== "number";
 }
 
-var suites_0 = [
+let suites_0 = [
   "is_block_test1",
   (function (param) {
       return {
@@ -17,7 +17,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "is_block_test2",
     (function (param) {
@@ -58,7 +58,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

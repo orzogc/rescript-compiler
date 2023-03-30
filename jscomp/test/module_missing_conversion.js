@@ -1,14 +1,14 @@
 'use strict';
 
-var $$Array = require("../../lib/js/array.js");
-var $$String = require("../../lib/js/string.js");
-var MoreLabels = require("../../lib/js/moreLabels.js");
+let $$Array = require("../../lib/js/array.js");
+let $$String = require("../../lib/js/string.js");
+let MoreLabels = require("../../lib/js/moreLabels.js");
 
 function f(x) {
   return x;
 }
 
-var XX = {
+let XX = {
   make_float: $$Array.make_float,
   init: $$Array.init,
   make_matrix: $$Array.make_matrix,
@@ -40,11 +40,11 @@ var XX = {
   f: f
 };
 
-var u = [$$String];
+let u = [$$String];
 
-var ghh = MoreLabels.Hashtbl.create(undefined, 30);
+let ghh = MoreLabels.Hashtbl.create(undefined, 30);
 
-var hh = 1;
+let hh = 1;
 
 exports.XX = XX;
 exports.u = u;

@@ -1,11 +1,11 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var List = require("../../lib/js/list.js");
-var Stack = require("../../lib/js/stack.js");
+let Mt = require("./mt.js");
+let List = require("../../lib/js/list.js");
+let Stack = require("../../lib/js/stack.js");
 
 function to_list(v) {
-  var acc = /* [] */0;
+  let acc = /* [] */0;
   while(v.c !== /* [] */0) {
     acc = {
       hd: Stack.pop(v),
@@ -16,7 +16,7 @@ function to_list(v) {
 }
 
 function v(param) {
-  var v$1 = {
+  let v$1 = {
     c: /* [] */0,
     len: 0
   };
@@ -26,7 +26,7 @@ function v(param) {
   return to_list(v$1);
 }
 
-var suites_0 = [
+let suites_0 = [
   "push_test",
   (function (param) {
       return {
@@ -46,7 +46,7 @@ var suites_0 = [
     })
 ];
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: /* [] */0
 };

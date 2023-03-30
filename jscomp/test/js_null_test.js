@@ -1,10 +1,10 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_null = require("../../lib/js/js_null.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Mt = require("./mt.js");
+let Js_null = require("../../lib/js/js_null.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
-var suites_0 = [
+let suites_0 = [
   "toOption - empty",
   (function (param) {
       return {
@@ -15,7 +15,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "toOption - 'a",
     (function (param) {
@@ -89,7 +89,7 @@ var suites_1 = {
               hd: [
                 "iter - empty",
                 (function (param) {
-                    var hit = {
+                    let hit = {
                       contents: false
                     };
                     Js_null.iter(null, (function (param) {
@@ -106,7 +106,7 @@ var suites_1 = {
                 hd: [
                   "iter - 'a",
                   (function (param) {
-                      var hit = {
+                      let hit = {
                         contents: 0
                       };
                       Js_null.iter(2, (function (v) {
@@ -153,7 +153,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

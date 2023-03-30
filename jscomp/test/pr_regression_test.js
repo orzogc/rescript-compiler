@@ -1,15 +1,15 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
 
-var v = {
+let v = {
   contents: 3
 };
 
 function f(h) {
   v.contents = v.contents + 1 | 0;
-  var partial_arg = 3;
+  let partial_arg = 3;
   return function (param) {
     return Curry._2(h, partial_arg, param);
   };
@@ -23,15 +23,15 @@ f(function (prim0, prim1) {
       return prim0 + prim1 | 0;
     });
 
-var a = v.contents;
+let a = v.contents;
 
-var v$1 = {
+let v$1 = {
   contents: 3
 };
 
 function f$1(h) {
   v$1.contents = v$1.contents + 1 | 0;
-  var partial_arg = 3;
+  let partial_arg = 3;
   return function (param) {
     return Curry._2(h, partial_arg, param);
   };
@@ -45,9 +45,9 @@ f$1(function (prim0, prim1) {
       return prim0 + prim1 | 0;
     });
 
-var b = v$1.contents;
+let b = v$1.contents;
 
-var v$2 = {
+let v$2 = {
   contents: 3
 };
 
@@ -63,15 +63,15 @@ f$2(function (prim0, prim1) {
       return prim0 + prim1 | 0;
     });
 
-var c = v$2.contents;
+let c = v$2.contents;
 
-var v$3 = {
+let v$3 = {
   contents: 3
 };
 
 function f$3(h, g) {
   v$3.contents = v$3.contents + 1 | 0;
-  var partial_arg = 9;
+  let partial_arg = 9;
   return function (param) {
     return Curry._2(h, partial_arg, param);
   };
@@ -85,7 +85,7 @@ f$3((function (prim0, prim1) {
         return prim0 + prim1 | 0;
       }), 3);
 
-var d = v$3.contents;
+let d = v$3.contents;
 
 Mt.from_pair_suites("Pr_regression_test", {
       hd: [

@@ -10,7 +10,7 @@ function ff(x) {
 }
 
 function fff(x) {
-  var x$1 = {
+  let x$1 = {
     TAG: "A",
     _0: x
   };
@@ -39,7 +39,7 @@ function hh(param) {
   return 3;
 }
 
-var g = h("A");
+let g = h("A");
 
 exports.f = f;
 exports.ff = ff;

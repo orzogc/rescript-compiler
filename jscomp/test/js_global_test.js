@@ -1,11 +1,11 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites_0 = [
+let suites_0 = [
   "setTimeout/clearTimeout sanity check",
   (function (param) {
-      var handle = setTimeout((function (param) {
+      let handle = setTimeout((function (param) {
               
             }), 0);
       clearTimeout(handle);
@@ -16,11 +16,11 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "setInerval/clearInterval sanity check",
     (function (param) {
-        var handle = setInterval((function (param) {
+        let handle = setInterval((function (param) {
                 
               }), 0);
         clearInterval(handle);
@@ -81,7 +81,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 
-var u = 3;
+let u = 3;
 
 function f(param) {
   throw {

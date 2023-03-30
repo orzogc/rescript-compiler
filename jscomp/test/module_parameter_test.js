@@ -1,15 +1,15 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var $$String = require("../../lib/js/string.js");
+let Mt = require("./mt.js");
+let $$String = require("../../lib/js/string.js");
 
 function u(v) {
   return v;
 }
 
-var s = $$String;
+let s = $$String;
 
-var N = {
+let N = {
   s: s
 };
 
@@ -17,7 +17,7 @@ function v(x) {
   return x.length;
 }
 
-var suites_0 = [
+let suites_0 = [
   "const",
   (function (param) {
       return {
@@ -28,7 +28,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "other",
     (function (param) {
@@ -42,14 +42,14 @@ var suites_1 = {
   tl: /* [] */0
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };
 
 Mt.from_pair_suites("Module_parameter_test", suites);
 
-var v0 = 1;
+let v0 = 1;
 
 exports.u = u;
 exports.N = N;

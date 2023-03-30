@@ -1,12 +1,12 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
-var xx = document();
+let xx = document();
 
 alert("hehha");
 
-var b = Curry._1(ff("x"), 3);
+let b = Curry._1(ff("x"), 3);
 
 exports.xx = xx;
 exports.b = b;

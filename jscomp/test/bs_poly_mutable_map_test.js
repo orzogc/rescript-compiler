@@ -1,19 +1,19 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml = require("../../lib/js/caml.js");
-var Belt_Id = require("../../lib/js/belt_Id.js");
-var Belt_Set = require("../../lib/js/belt_Set.js");
-var Belt_Array = require("../../lib/js/belt_Array.js");
-var Array_data_util = require("./array_data_util.js");
-var Belt_MutableMap = require("../../lib/js/belt_MutableMap.js");
-var Belt_internalAVLtree = require("../../lib/js/belt_internalAVLtree.js");
+let Mt = require("./mt.js");
+let Caml = require("../../lib/js/caml.js");
+let Belt_Id = require("../../lib/js/belt_Id.js");
+let Belt_Set = require("../../lib/js/belt_Set.js");
+let Belt_Array = require("../../lib/js/belt_Array.js");
+let Array_data_util = require("./array_data_util.js");
+let Belt_MutableMap = require("../../lib/js/belt_MutableMap.js");
+let Belt_internalAVLtree = require("../../lib/js/belt_internalAVLtree.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -25,7 +25,7 @@ function b(loc, v) {
   Mt.bool_suites(test_id, suites, loc, v);
 }
 
-var Icmp = Belt_Id.comparable(Caml.int_compare);
+let Icmp = Belt_Id.comparable(Caml.int_compare);
 
 function f(x) {
   return Belt_MutableMap.fromArray(x, Icmp);
@@ -44,7 +44,7 @@ function randomRange(i, j) {
               }));
 }
 
-var a0 = Belt_MutableMap.fromArray(randomRange(0, 10), Icmp);
+let a0 = Belt_MutableMap.fromArray(randomRange(0, 10), Icmp);
 
 Belt_MutableMap.set(a0, 3, 33);
 
@@ -73,7 +73,7 @@ Belt_MutableMap.removeMany(a0, Array_data_util.randomRange(0, 100));
 
 b("File \"bs_poly_mutable_map_test.ml\", line 33, characters 4-11", Belt_MutableMap.isEmpty(a0));
 
-var a0$1 = Belt_MutableMap.fromArray(randomRange(0, 10000), Icmp);
+let a0$1 = Belt_MutableMap.fromArray(randomRange(0, 10000), Icmp);
 
 Belt_MutableMap.set(a0$1, 2000, 33);
 
@@ -102,13 +102,13 @@ eq("File \"bs_poly_mutable_map_test.ml\", line 41, characters 6-13", Belt_intern
 
 Mt.from_pair_suites("Bs_poly_mutable_map_test", suites.contents);
 
-var M;
+let M;
 
-var N;
+let N;
 
-var A;
+let A;
 
-var I;
+let I;
 
 exports.suites = suites;
 exports.test_id = test_id;

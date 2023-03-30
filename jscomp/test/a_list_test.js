@@ -1,9 +1,9 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Ext_list_test = require("./ext_list_test.js");
+let Mt = require("./mt.js");
+let Ext_list_test = require("./ext_list_test.js");
 
-var suites_0 = [
+let suites_0 = [
   "drop",
   (function (param) {
       return {
@@ -23,7 +23,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "drop1",
     (function (param) {
@@ -103,7 +103,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

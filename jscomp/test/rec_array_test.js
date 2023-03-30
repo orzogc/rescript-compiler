@@ -1,10 +1,10 @@
 'use strict';
 
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
-var vicky = {};
+let vicky = {};
 
-var teacher = {};
+let teacher = {};
 
 Caml_obj.update_dummy(vicky, {
       taughtBy: teacher

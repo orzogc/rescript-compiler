@@ -1,8 +1,8 @@
 'use strict';
 
-var Sys = require("../../lib/js/sys.js");
+let Sys = require("../../lib/js/sys.js");
 
-var match;
+let match;
 
 switch (Sys.os_type) {
   case "Cygwin" :
@@ -19,9 +19,9 @@ switch (Sys.os_type) {
     ];
 }
 
-var a = match[0];
+let a = match[0];
 
-var b = match[1];
+let b = match[1];
 
 exports.a = a;
 exports.b = b;

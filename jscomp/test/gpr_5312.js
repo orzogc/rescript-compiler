@@ -5,7 +5,7 @@ function someFunction(arg1, arg2, obj) {
   obj.someFunction(arg1, arg2);
 }
 
-var MyModule = {
+let MyModule = {
   someFunction: someFunction
 };
 

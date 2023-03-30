@@ -1,15 +1,15 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Arg = require("../../lib/js/arg.js");
-var List = require("../../lib/js/list.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Mt = require("./mt.js");
+let Arg = require("../../lib/js/arg.js");
+let List = require("../../lib/js/list.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
-var current = {
+let current = {
   contents: 0
 };
 
-var accum = {
+let accum = {
   contents: /* [] */0
 };
 
@@ -28,11 +28,11 @@ function f_bool(b) {
   record("bool(" + b + ")");
 }
 
-var r_set = {
+let r_set = {
   contents: false
 };
 
-var r_clear = {
+let r_clear = {
   contents: true
 };
 
@@ -40,7 +40,7 @@ function f_string(s) {
   record("string(" + s + ")");
 }
 
-var r_string = {
+let r_string = {
   contents: ""
 };
 
@@ -48,7 +48,7 @@ function f_int(i) {
   record("int(" + i + ")");
 }
 
-var r_int = {
+let r_int = {
   contents: 0
 };
 
@@ -56,7 +56,7 @@ function f_float(f) {
   record("float(" + f + ")");
 }
 
-var r_float = {
+let r_float = {
   contents: 0.0
 };
 
@@ -72,7 +72,7 @@ function f_anon(s) {
   record("anon(" + s + ")");
 }
 
-var spec_0 = [
+let spec_0 = [
   "-u",
   {
     TAG: "Unit",
@@ -81,7 +81,7 @@ var spec_0 = [
   "Unit (0)"
 ];
 
-var spec_1 = {
+let spec_1 = {
   hd: [
     "-b",
     {
@@ -231,12 +231,12 @@ var spec_1 = {
   }
 };
 
-var spec = {
+let spec = {
   hd: spec_0,
   tl: spec_1
 };
 
-var args1 = [
+let args1 = [
   "prog",
   "anon1",
   "-u",
@@ -270,7 +270,7 @@ var args1 = [
   "r2"
 ];
 
-var args2 = [
+let args2 = [
   "prog",
   "anon1",
   "-u",
@@ -316,8 +316,8 @@ function test(argv) {
   r_float.contents = 0.0;
   accum.contents = /* [] */0;
   Arg.parse_argv(current, argv, spec, f_anon, "usage");
-  var result = List.rev(accum.contents);
-  var reference = {
+  let result = List.rev(accum.contents);
+  let reference = {
     hd: "anon(anon1)",
     tl: {
       hd: "unit()",
@@ -364,7 +364,7 @@ function test(argv) {
     }
   };
   if (Caml_obj.notequal(result, reference)) {
-    var f = function (x, y) {
+    let f = function (x, y) {
       console.log(x, y);
     };
     List.iter2(f, result, reference);
@@ -382,7 +382,7 @@ test(args2);
 
 Mt.from_pair_suites("Libarg_test", /* [] */0);
 
-var suites = /* [] */0;
+let suites = /* [] */0;
 
 exports.current = current;
 exports.accum = accum;

@@ -1,9 +1,9 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml = require("../../lib/js/caml.js");
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
+let Mt = require("./mt.js");
+let Caml = require("../../lib/js/caml.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
 
 function height(param) {
   if (typeof param !== "object") {
@@ -14,8 +14,8 @@ function height(param) {
 }
 
 function create(l, x, d, r) {
-  var hl = height(l);
-  var hr = height(r);
+  let hl = height(l);
+  let hr = height(r);
   return {
           TAG: "Node",
           l: l,
@@ -27,9 +27,9 @@ function create(l, x, d, r) {
 }
 
 function bal(l, x, d, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l.h;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r.h;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
@@ -39,10 +39,10 @@ function bal(l, x, d, r) {
             Error: new Error()
           };
     }
-    var lr = l.r;
-    var ld = l.d;
-    var lv = l.v;
-    var ll = l.l;
+    let lr = l.r;
+    let ld = l.d;
+    let lv = l.v;
+    let ll = l.l;
     if (height(ll) >= height(lr)) {
       return create(ll, lv, ld, create(lr, x, d, r));
     }
@@ -72,10 +72,10 @@ function bal(l, x, d, r) {
           Error: new Error()
         };
   }
-  var rr = r.r;
-  var rd = r.d;
-  var rv = r.v;
-  var rl = r.l;
+  let rr = r.r;
+  let rd = r.d;
+  let rv = r.v;
+  let rl = r.l;
   if (height(rr) >= height(rl)) {
     return create(create(l, x, d, rl), rv, rd, rr);
   }
@@ -100,11 +100,11 @@ function add(x, data, m) {
             h: 1
           };
   }
-  var r = m.r;
-  var d = m.d;
-  var v = m.v;
-  var l = m.l;
-  var c = Caml.int_compare(x, v);
+  let r = m.r;
+  let d = m.d;
+  let v = m.v;
+  let l = m.l;
+  let c = Caml.int_compare(x, v);
   if (c === 0) {
     if (d === data) {
       return m;
@@ -120,14 +120,14 @@ function add(x, data, m) {
     }
   }
   if (c < 0) {
-    var ll = add(x, data, l);
+    let ll = add(x, data, l);
     if (l === ll) {
       return m;
     } else {
       return bal(ll, v, d, r);
     }
   }
-  var rr = add(x, data, r);
+  let rr = add(x, data, r);
   if (r === rr) {
     return m;
   } else {
@@ -137,8 +137,8 @@ function add(x, data, m) {
 
 function cons_enum(_m, _e) {
   while(true) {
-    var e = _e;
-    var m = _m;
+    let e = _e;
+    let m = _m;
     if (typeof m !== "object") {
       return e;
     }
@@ -155,11 +155,11 @@ function cons_enum(_m, _e) {
 }
 
 function compare(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, "End");
-  var _e2 = cons_enum(m2, "End");
+  let _e1 = cons_enum(m1, "End");
+  let _e2 = cons_enum(m2, "End");
   while(true) {
-    var e2 = _e2;
-    var e1 = _e1;
+    let e2 = _e2;
+    let e1 = _e1;
     if (typeof e1 !== "object") {
       if (typeof e2 !== "object") {
         return 0;
@@ -170,11 +170,11 @@ function compare(cmp, m1, m2) {
     if (typeof e2 !== "object") {
       return 1;
     }
-    var c = Caml.int_compare(e1._0, e2._0);
+    let c = Caml.int_compare(e1._0, e2._0);
     if (c !== 0) {
       return c;
     }
-    var c$1 = Curry._2(cmp, e1._1, e2._1);
+    let c$1 = Curry._2(cmp, e1._1, e2._1);
     if (c$1 !== 0) {
       return c$1;
     }
@@ -185,11 +185,11 @@ function compare(cmp, m1, m2) {
 }
 
 function equal(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, "End");
-  var _e2 = cons_enum(m2, "End");
+  let _e1 = cons_enum(m1, "End");
+  let _e2 = cons_enum(m2, "End");
   while(true) {
-    var e2 = _e2;
-    var e1 = _e1;
+    let e2 = _e2;
+    let e1 = _e1;
     if (typeof e1 !== "object") {
       if (typeof e2 !== "object") {
         return true;
@@ -229,8 +229,8 @@ function height$1(param) {
 }
 
 function create$1(l, x, d, r) {
-  var hl = height$1(l);
-  var hr = height$1(r);
+  let hl = height$1(l);
+  let hr = height$1(r);
   return {
           TAG: "Node",
           l: l,
@@ -242,9 +242,9 @@ function create$1(l, x, d, r) {
 }
 
 function bal$1(l, x, d, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l.h;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r.h;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
@@ -254,10 +254,10 @@ function bal$1(l, x, d, r) {
             Error: new Error()
           };
     }
-    var lr = l.r;
-    var ld = l.d;
-    var lv = l.v;
-    var ll = l.l;
+    let lr = l.r;
+    let ld = l.d;
+    let lv = l.v;
+    let ll = l.l;
     if (height$1(ll) >= height$1(lr)) {
       return create$1(ll, lv, ld, create$1(lr, x, d, r));
     }
@@ -287,10 +287,10 @@ function bal$1(l, x, d, r) {
           Error: new Error()
         };
   }
-  var rr = r.r;
-  var rd = r.d;
-  var rv = r.v;
-  var rl = r.l;
+  let rr = r.r;
+  let rd = r.d;
+  let rv = r.v;
+  let rl = r.l;
   if (height$1(rr) >= height$1(rl)) {
     return create$1(create$1(l, x, d, rl), rv, rd, rr);
   }
@@ -315,11 +315,11 @@ function add$1(x, data, m) {
             h: 1
           };
   }
-  var r = m.r;
-  var d = m.d;
-  var v = m.v;
-  var l = m.l;
-  var c = Caml.string_compare(x, v);
+  let r = m.r;
+  let d = m.d;
+  let v = m.v;
+  let l = m.l;
+  let c = Caml.string_compare(x, v);
   if (c === 0) {
     if (d === data) {
       return m;
@@ -335,14 +335,14 @@ function add$1(x, data, m) {
     }
   }
   if (c < 0) {
-    var ll = add$1(x, data, l);
+    let ll = add$1(x, data, l);
     if (l === ll) {
       return m;
     } else {
       return bal$1(ll, v, d, r);
     }
   }
-  var rr = add$1(x, data, r);
+  let rr = add$1(x, data, r);
   if (r === rr) {
     return m;
   } else {
@@ -352,14 +352,14 @@ function add$1(x, data, m) {
 
 function find(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var c = Caml.string_compare(x, param.v);
+    let c = Caml.string_compare(x, param.v);
     if (c === 0) {
       return param.d;
     }
@@ -374,10 +374,10 @@ function of_list(kvs) {
               }), "Empty", kvs);
 }
 
-var int_map_suites_0 = [
+let int_map_suites_0 = [
   "add",
   (function (param) {
-      var v = of_list({
+      let v = of_list({
             hd: [
               1,
               /* '1' */49
@@ -404,11 +404,11 @@ var int_map_suites_0 = [
     })
 ];
 
-var int_map_suites_1 = {
+let int_map_suites_1 = {
   hd: [
     "equal",
     (function (param) {
-        var v = of_list({
+        let v = of_list({
               hd: [
                 1,
                 /* '1' */49
@@ -427,7 +427,7 @@ var int_map_suites_1 = {
                 }
               }
             });
-        var u = of_list({
+        let u = of_list({
               hd: [
                 2,
                 /* '3' */51
@@ -457,7 +457,7 @@ var int_map_suites_1 = {
     hd: [
       "equal2",
       (function (param) {
-          var v = of_list({
+          let v = of_list({
                 hd: [
                   1,
                   /* '1' */49
@@ -476,7 +476,7 @@ var int_map_suites_1 = {
                   }
                 }
               });
-          var u = of_list({
+          let u = of_list({
                 hd: [
                   2,
                   /* '3' */51
@@ -508,12 +508,12 @@ var int_map_suites_1 = {
       hd: [
         "iteration",
         (function (param) {
-            var m = "Empty";
-            for(var i = 0; i <= 10000; ++i){
+            let m = "Empty";
+            for(let i = 0; i <= 10000; ++i){
               m = add$1(String(i), String(i), m);
             }
-            var v = -1;
-            for(var i$1 = 0; i$1 <= 10000; ++i$1){
+            let v = -1;
+            for(let i$1 = 0; i$1 <= 10000; ++i$1){
               if (find(String(i$1), m) !== String(i$1)) {
                 v = i$1;
               }
@@ -531,7 +531,7 @@ var int_map_suites_1 = {
   }
 };
 
-var int_map_suites = {
+let int_map_suites = {
   hd: int_map_suites_0,
   tl: int_map_suites_1
 };

@@ -1,11 +1,11 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
-var Offset = require("./offset.js");
-var Mt_global = require("./mt_global.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
+let Offset = require("./offset.js");
+let Mt_global = require("./mt_global.js");
 
-var count = {
+let count = {
   contents: 0
 };
 
@@ -15,11 +15,11 @@ function test(set) {
 
 test(Curry._1(Offset.M.$$Set.singleton, "42"));
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 

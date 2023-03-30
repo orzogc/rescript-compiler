@@ -1,12 +1,12 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
+let List = require("../../lib/js/list.js");
 
-var a0 = {
+let a0 = {
   RE_EXN_ID: "Not_found"
 };
 
-var b = List.length({
+let b = List.length({
       hd: 1,
       tl: {
         hd: 2,
@@ -14,7 +14,7 @@ var b = List.length({
       }
     });
 
-var List$1 = {
+let List$1 = {
   compare_lengths: List.compare_lengths,
   compare_length_with: List.compare_length_with,
   cons: List.cons,
@@ -70,15 +70,15 @@ var List$1 = {
   length: 3
 };
 
-var a1 = a0;
+let a1 = a0;
 
-var a2 = a0;
+let a2 = a0;
 
-var a3 = a0;
+let a3 = a0;
 
-var a4 = a0;
+let a4 = a0;
 
-var a5 = a0;
+let a5 = a0;
 
 exports.a0 = a0;
 exports.a1 = a1;

@@ -1,6 +1,6 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
 function f(x) {
   if (x) {
@@ -26,11 +26,11 @@ function f4(x) {
   }
 }
 
-var u = 1;
+let u = 1;
 
-var v = true;
+let v = true;
 
-var suites_0 = [
+let suites_0 = [
   "?bool_eq_caml_bool",
   (function (param) {
       return {
@@ -41,7 +41,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "js_bool_eq_js_bool",
     (function (param) {
@@ -67,7 +67,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };
@@ -113,7 +113,7 @@ function bb(x) {
         ];
 }
 
-var consts = [
+let consts = [
   false,
   false,
   true,
@@ -124,14 +124,14 @@ var consts = [
   true
 ];
 
-var bool_array = [
+let bool_array = [
   true,
   false
 ];
 
 Mt.from_pair_suites("Js_bool_test", suites);
 
-var f3 = true;
+let f3 = true;
 
 exports.f = f;
 exports.f2 = f2;

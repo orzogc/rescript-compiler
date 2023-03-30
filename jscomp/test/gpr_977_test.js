@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Int32 = require("../../lib/js/int32.js");
+let Mt = require("./mt.js");
+let Int32 = require("../../lib/js/int32.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -29,20 +29,20 @@ function eq(loc, x, y) {
 }
 
 function f(x) {
-  for(var i = 0; i <= 100; ++i){
+  for(let i = 0; i <= 100; ++i){
     console.log(".");
   }
   return -x | 0;
 }
 
 function int32_f(x) {
-  for(var i = 0; i <= 100; ++i){
+  for(let i = 0; i <= 100; ++i){
     console.log(".");
   }
   return -x | 0;
 }
 
-var u = f(-2147483648);
+let u = f(-2147483648);
 
 eq("File \"gpr_977_test.ml\", line 32, characters 5-12", -2147483648, u);
 
@@ -50,7 +50,7 @@ eq("File \"gpr_977_test.ml\", line 33, characters 5-12", Int32.min_int, int32_f(
 
 Mt.from_pair_suites("Gpr_977_test", suites.contents);
 
-var min_32_int = -2147483648;
+let min_32_int = -2147483648;
 
 exports.suites = suites;
 exports.test_id = test_id;

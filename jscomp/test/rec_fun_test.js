@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -29,13 +29,13 @@ function eq(loc, x, y) {
   };
 }
 
-var called = {
+let called = {
   contents: 0
 };
 
 function g(param) {
-  var v = {};
-  var next = function (i, b) {
+  let v = {};
+  let next = function (i, b) {
     called.contents = called.contents + 1 | 0;
     if (b) {
       Curry._2(v.contents, i, false);
@@ -50,9 +50,9 @@ function g(param) {
 
 g(undefined);
 
-var x = {};
+let x = {};
 
-var y = {};
+let y = {};
 
 Caml_obj.update_dummy(x, {
       hd: 1,

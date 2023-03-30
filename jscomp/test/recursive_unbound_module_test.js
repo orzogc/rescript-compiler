@@ -1,12 +1,12 @@
 'use strict';
 
-var Caml_module = require("../../lib/js/caml_module.js");
+let Caml_module = require("../../lib/js/caml_module.js");
 
 function Make(X) {
-  var f = function (param) {
+  let f = function (param) {
     
   };
-  var M = {
+  let M = {
     f: f
   };
   return {
@@ -14,7 +14,7 @@ function Make(X) {
         };
 }
 
-var B = Caml_module.init_mod([
+let B = Caml_module.init_mod([
       "recursive_unbound_module_test.ml",
       18,
       0
@@ -36,7 +36,7 @@ function f(param) {
   
 }
 
-var M = {
+let M = {
   f: f
 };
 
@@ -56,7 +56,7 @@ Caml_module.update_mod({
       M: M
     });
 
-var A;
+let A;
 
 exports.Make = Make;
 exports.A = A;

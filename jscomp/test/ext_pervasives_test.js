@@ -1,12 +1,12 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Caml_string = require("../../lib/js/caml_string.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_string = require("../../lib/js/caml_string.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
 function $$finally(v, action, f) {
-  var e;
+  let e;
   try {
     e = Curry._1(f, v);
   }
@@ -19,13 +19,13 @@ function $$finally(v, action, f) {
 }
 
 function is_pos_pow(n) {
-  var E = /* @__PURE__ */Caml_exceptions.create("E");
+  let E = /* @__PURE__ */Caml_exceptions.create("E");
   try {
-    var _c = 0;
-    var _n = n;
+    let _c = 0;
+    let _n = n;
     while(true) {
-      var n$1 = _n;
-      var c = _c;
+      let n$1 = _n;
+      let c = _c;
       if (n$1 <= 0) {
         return -2;
       }
@@ -44,7 +44,7 @@ function is_pos_pow(n) {
     };
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === E) {
       return -1;
     }
@@ -53,13 +53,13 @@ function is_pos_pow(n) {
 }
 
 function is_pos_pow_2(n) {
-  var E = /* @__PURE__ */Caml_exceptions.create("E");
+  let E = /* @__PURE__ */Caml_exceptions.create("E");
   try {
-    var _c = 0;
-    var _n = n;
+    let _c = 0;
+    let _n = n;
     while(true) {
-      var n$1 = _n;
-      var c = _c;
+      let n$1 = _n;
+      let c = _c;
       if (n$1 <= 0) {
         return -2;
       }
@@ -78,7 +78,7 @@ function is_pos_pow_2(n) {
     };
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === E) {
       return -1;
     }
@@ -87,8 +87,8 @@ function is_pos_pow_2(n) {
 }
 
 function hash_variant(s) {
-  var accu = 0;
-  for(var i = 0 ,i_finish = s.length; i < i_finish; ++i){
+  let accu = 0;
+  for(let i = 0 ,i_finish = s.length; i < i_finish; ++i){
     accu = Math.imul(223, accu) + Caml_string.get(s, i) | 0;
   }
   accu = accu & 2147483647;
@@ -99,7 +99,7 @@ function hash_variant(s) {
   }
 }
 
-var LargeFile = {
+let LargeFile = {
   u: 3
 };
 

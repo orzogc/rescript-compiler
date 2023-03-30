@@ -1,18 +1,18 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
+let Mt = require("./mt.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
 
-var x = {};
+let x = {};
 
 x.hd = 1;
 
 x.tl = x;
 
-var x0 = {};
+let x0 = {};
 
 Caml_obj.update_dummy(x0, {
       NAME: "Cons",
@@ -22,18 +22,18 @@ Caml_obj.update_dummy(x0, {
       ]
     });
 
-var y0 = {};
+let y0 = {};
 
 Caml_obj.update_dummy(y0, {
       NAME: "Cons",
       VAL: y0
     });
 
-var a = {};
+let a = {};
 
-var b = {};
+let b = {};
 
-var c = {};
+let c = {};
 
 Caml_obj.update_dummy(a, {
       hd: 2,
@@ -50,7 +50,7 @@ Caml_obj.update_dummy(c, {
       tl: a
     });
 
-var xx = {};
+let xx = {};
 
 xx.hd = 1;
 
@@ -64,20 +64,20 @@ function naive(n) {
   }
 }
 
-var four = {
+let four = {
   contents: 2
 };
 
-var three = {
+let three = {
   contents: 3
 };
 
-var h = {
+let h = {
   LAZY_DONE: true,
   VAL: fib
 };
 
-var v = {
+let v = {
   contents: (function (param) {
       throw {
             RE_EXN_ID: "Assert_failure",
@@ -111,12 +111,12 @@ function zs(param) {
   return List.hd(xs[0]);
 }
 
-var xs_0 = {
+let xs_0 = {
   hd: 2,
   tl: /* [] */0
 };
 
-var xs = [
+let xs = [
   xs_0,
   zs
 ];
@@ -129,7 +129,7 @@ function fib2(n) {
   }
 }
 
-var two = 2;
+let two = 2;
 
 function fib3(n) {
   if (n === 0 || n === 1) {
@@ -143,7 +143,7 @@ function even(n) {
   if (n === 0) {
     return true;
   } else {
-    var n$1 = n - 1 | 0;
+    let n$1 = n - 1 | 0;
     if (n$1 === 1) {
       return true;
     } else {
@@ -154,7 +154,7 @@ function even(n) {
 
 function even2(_n) {
   while(true) {
-    var n = _n;
+    let n = _n;
     if (n === 0) {
       return true;
     }
@@ -163,7 +163,7 @@ function even2(_n) {
   };
 }
 
-var lazy_v = {
+let lazy_v = {
   LAZY_DONE: true,
   VAL: (function (param) {
       CamlinternalLazy.force(lazy_v);
@@ -172,8 +172,8 @@ var lazy_v = {
 
 function sum(_acc, _n) {
   while(true) {
-    var n = _n;
-    var acc = _acc;
+    let n = _n;
+    let acc = _acc;
     if (n <= 0) {
       return acc;
     }
@@ -183,7 +183,7 @@ function sum(_acc, _n) {
   };
 }
 
-var fake_v = {
+let fake_v = {
   hd: 1,
   tl: {
     hd: 2,
@@ -191,7 +191,7 @@ var fake_v = {
   }
 };
 
-var fake_y = {
+let fake_y = {
   hd: 2,
   tl: {
     hd: 3,
@@ -199,12 +199,12 @@ var fake_y = {
   }
 };
 
-var fake_z = {
+let fake_z = {
   hd: 1,
   tl: fake_y
 };
 
-var fake_y2 = {
+let fake_y2 = {
   hd: 2,
   tl: {
     hd: 3,
@@ -212,12 +212,12 @@ var fake_y2 = {
   }
 };
 
-var fake_z2_1 = {
+let fake_z2_1 = {
   hd: sum(0, 10),
   tl: fake_y2
 };
 
-var fake_z2 = {
+let fake_z2 = {
   hd: 1,
   tl: fake_z2_1
 };
@@ -226,7 +226,7 @@ function rec_variant_b_1(param) {
   return rec_variant_a;
 }
 
-var rec_variant_b = {
+let rec_variant_b = {
   TAG: "B",
   _0: "gho",
   _1: rec_variant_b_1
@@ -236,7 +236,7 @@ function rec_variant_a_1(param) {
   return rec_variant_b;
 }
 
-var rec_variant_a = {
+let rec_variant_a = {
   TAG: "A",
   _0: 3,
   _1: rec_variant_a_1
@@ -294,7 +294,7 @@ function ptl(l) {
       };
 }
 
-var y00 = {};
+let y00 = {};
 
 Caml_obj.update_dummy(y00, {
       TAG: "C1",
@@ -310,7 +310,7 @@ function xtl(h) {
   return h.tail;
 }
 
-var suites_0 = [
+let suites_0 = [
   "File \"rec_value_test.ml\", line 126, characters 2-9",
   (function (param) {
       return {
@@ -321,7 +321,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "File \"rec_value_test.ml\", line 128, characters 2-9",
     (function (param) {
@@ -347,9 +347,9 @@ var suites_1 = {
       hd: [
         "mutual",
         (function (param) {
-            var tmp;
+            let tmp;
             if (a) {
-              var match = a.tl;
+              let match = a.tl;
               if (match) {
                 tmp = match.hd;
               } else {
@@ -555,7 +555,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };
@@ -565,17 +565,17 @@ function fake_minus(n) {
   return n + 1 | 0;
 }
 
-var fake_odd = fake_minus;
+let fake_odd = fake_minus;
 
 function fake_inline_minus(n) {
   return n + 1 | 0;
 }
 
-var fake_inline = fake_inline_minus;
+let fake_inline = fake_inline_minus;
 
-var fake_inline_inlie2 = fake_inline_minus(3);
+let fake_inline_inlie2 = fake_inline_minus(3);
 
-var u = [];
+let u = [];
 
 Caml_obj.update_dummy(u, [
       1,
@@ -584,7 +584,7 @@ Caml_obj.update_dummy(u, [
 
 Mt.from_pair_suites("Rec_value_test", suites);
 
-var v$1 = 3;
+let v$1 = 3;
 
 exports.x = x;
 exports.x0 = x0;

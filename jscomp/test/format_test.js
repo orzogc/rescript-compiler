@@ -1,16 +1,16 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var List = require("../../lib/js/list.js");
-var Bytes = require("../../lib/js/bytes.js");
-var Pervasives = require("../../lib/js/pervasives.js");
-var Caml_format = require("../../lib/js/caml_format.js");
+let Mt = require("./mt.js");
+let List = require("../../lib/js/list.js");
+let Bytes = require("../../lib/js/bytes.js");
+let Pervasives = require("../../lib/js/pervasives.js");
+let Caml_format = require("../../lib/js/caml_format.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -37,7 +37,7 @@ function eq3(loc, a, b, c) {
   eq(loc, a, c);
 }
 
-var M = {};
+let M = {};
 
 eq("File \"format_test.ml\", line 28, characters 5-12", 7.875, 7.875);
 
@@ -111,12 +111,12 @@ function aux_list(loc, ls) {
         }), ls);
 }
 
-var literals_0 = [
+let literals_0 = [
   7.875,
   "0x1.f8p+2"
 ];
 
-var literals_1 = {
+let literals_1 = {
   hd: [
     0.3,
     "0x1.3333333333333p-2"
@@ -166,14 +166,14 @@ var literals_1 = {
   }
 };
 
-var literals = {
+let literals = {
   hd: literals_0,
   tl: literals_1
 };
 
 aux_list("File \"format_test.ml\", line 109, characters 11-18", literals);
 
-var s = Caml_format.hexstring_of_float(7.875, -1, /* '-' */45);
+let s = Caml_format.hexstring_of_float(7.875, -1, /* '-' */45);
 
 eq("File \"format_test.ml\", line 112, characters 5-12", Bytes.unsafe_to_string(Bytes.uppercase_ascii(Bytes.unsafe_of_string(s))), "0X1.F8P+2");
 
@@ -189,7 +189,7 @@ List.iter((function (param) {
         scan_float("File \"format_test.ml\", line 122, characters 13-20", param[1], param[0]);
       }), literals);
 
-var f1 = - -9.9;
+let f1 = - -9.9;
 
 eq("File \"format_test.ml\", line 128, characters 5-12", f1, 9.9);
 

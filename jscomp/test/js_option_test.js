@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_option = require("../../lib/js/js_option.js");
+let Mt = require("./mt.js");
+let Js_option = require("../../lib/js/js_option.js");
 
 function simpleEq(a, b) {
   return a === b;
 }
 
-var option_suites_0 = [
+let option_suites_0 = [
   "option_isSome_Some",
   (function (param) {
       return {
@@ -18,7 +18,7 @@ var option_suites_0 = [
     })
 ];
 
-var option_suites_1 = {
+let option_suites_1 = {
   hd: [
     "option_isSome_None",
     (function (param) {
@@ -298,7 +298,7 @@ var option_suites_1 = {
   }
 };
 
-var option_suites = {
+let option_suites = {
   hd: option_suites_0,
   tl: option_suites_1
 };

@@ -1,15 +1,15 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Int64 = require("../../lib/js/int64.js");
-var Belt_List = require("../../lib/js/belt_List.js");
-var Caml_int64 = require("../../lib/js/caml_int64.js");
+let Mt = require("./mt.js");
+let Int64 = require("../../lib/js/int64.js");
+let Belt_List = require("../../lib/js/belt_List.js");
+let Caml_int64 = require("../../lib/js/caml_int64.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -17,7 +17,7 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var v = Caml_int64.to_string(Int64.max_int);
+let v = Caml_int64.to_string(Int64.max_int);
 
 eq("File \"int64_string_test.ml\", line 9, characters 6-13", v, "9223372036854775807");
 
@@ -25,7 +25,7 @@ function f(a, b) {
   eq("File \"int64_string_test.ml\", line 11, characters 5-12", Caml_int64.to_string(a), b);
 }
 
-var hh = Caml_int64.add(Int64.min_int, [
+let hh = Caml_int64.add(Int64.min_int, [
       0,
       100
     ]);
@@ -54,33 +54,33 @@ f([
       2764472320
     ], "1000000000000000");
 
-for(var i = 0; i <= 8; ++i){
+for(let i = 0; i <= 8; ++i){
   eq("File \"int64_string_test.ml\", line 25, characters 5-12", Caml_int64.to_string(Caml_int64.add(Int64.min_int, Caml_int64.of_int32(i))), "-922337203685477580" + String(8 - i | 0));
 }
 
-for(var i$1 = 0; i$1 <= 8; ++i$1){
+for(let i$1 = 0; i$1 <= 8; ++i$1){
   eq("File \"int64_string_test.ml\", line 29, characters 5-12", Caml_int64.to_string(Caml_int64.add(Int64.min_int, Caml_int64.of_int32(100 + i$1 | 0))), "-922337203685477570" + String(8 - i$1 | 0));
 }
 
-for(var i$2 = 0; i$2 <= 8; ++i$2){
+for(let i$2 = 0; i$2 <= 8; ++i$2){
   eq("File \"int64_string_test.ml\", line 33, characters 5-12", Caml_int64.to_string(Caml_int64.add(Int64.min_int, Caml_int64.of_int32(1000000 + i$2 | 0))), "-922337203685377580" + String(8 - i$2 | 0));
 }
 
-var u = [
+let u = [
   2097151,
   4294957295
 ];
 
-for(var i$3 = 0; i$3 <= 6; ++i$3){
+for(let i$3 = 0; i$3 <= 6; ++i$3){
   eq("File \"int64_string_test.ml\", line 42, characters 5-12", Caml_int64.to_string(Caml_int64.add(u, Caml_int64.of_int32(Math.imul(i$3, 10000)))), "90071992547" + (String(3 + i$3 | 0) + "0991"));
 }
 
-var v$1 = [
+let v$1 = [
   -2097153,
   4294917297
 ];
 
-for(var i$4 = 0; i$4 <= 9; ++i$4){
+for(let i$4 = 0; i$4 <= 9; ++i$4){
   eq("File \"int64_string_test.ml\", line 49, characters 5-12", Caml_int64.to_string(Caml_int64.add(v$1, Caml_int64.of_int32(Math.imul(i$4, 10000)))), "-90071992547" + (String(9 - i$4 | 0) + "0991"));
 }
 
@@ -101,7 +101,7 @@ eq("File \"int64_string_test.ml\", line 54, characters 6-13", Caml_int64.to_stri
 
 eq("File \"int64_string_test.ml\", line 55, characters 6-13", Caml_int64.to_string(Caml_int64.max_int), "9223372036854775807");
 
-var random_data = {
+let random_data = {
   hd: {
     hd: [
       [
@@ -1316,7 +1316,7 @@ Belt_List.forEach(random_data, (function (u) {
                   Error: new Error()
                 };
           }
-          var match = u.hd;
+          let match = u.hd;
           return eq("File \"int64_string_test.ml\", line 160, characters 21-28", Caml_int64.to_string(match[0]), match[1]);
         }
         throw {

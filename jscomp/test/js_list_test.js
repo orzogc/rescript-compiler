@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_list = require("../../lib/js/js_list.js");
-var Js_vector = require("../../lib/js/js_vector.js");
+let Mt = require("./mt.js");
+let Js_list = require("../../lib/js/js_list.js");
+let Js_vector = require("../../lib/js/js_vector.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -176,13 +176,13 @@ function f(i) {
   return i;
 }
 
-var v = Js_vector.toList(Js_vector.init(100000, f));
+let v = Js_vector.toList(Js_vector.init(100000, f));
 
 eq("File \"js_list_test.ml\", line 23, characters 7-14", Js_list.countBy((function (x) {
             return x % 2 === 0;
           }), v), 50000);
 
-var vv = Js_list.foldRight((function (x, y) {
+let vv = Js_list.foldRight((function (x, y) {
         return {
                 hd: x,
                 tl: y
@@ -193,7 +193,7 @@ eq("File \"js_list_test.ml\", line 27, characters 7-14", true, Js_list.equal((fu
             return x === y;
           }), v, vv));
 
-var vvv = Js_list.filter((function (x) {
+let vvv = Js_list.filter((function (x) {
         return x % 10 === 0;
       }), vv);
 

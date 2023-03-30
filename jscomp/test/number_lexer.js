@@ -1,13 +1,13 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Lexing = require("../../lib/js/lexing.js");
+let Curry = require("../../lib/js/curry.js");
+let Lexing = require("../../lib/js/lexing.js");
 
 function l(prim) {
   console.log(prim);
 }
 
-var __ocaml_lex_tables = {
+let __ocaml_lex_tables = {
   lex_base: "\0\0\xf6\xff\xf7\xff\xf8\xff\xf9\xff\xfa\xff\xfb\xff\xfc\xff:\0\x85\0\xff\xff",
   lex_backtrk: "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x02\0\x01\0\xff\xff",
   lex_default: "\xff\xff\0\0\0\0\0\0\0\0\0\0\0\0\0\0\xff\xff\xff\xff\0\0",
@@ -23,8 +23,8 @@ var __ocaml_lex_tables = {
 
 function __ocaml_lex_token_rec(l, lexbuf, ___ocaml_lex_state) {
   while(true) {
-    var __ocaml_lex_state = ___ocaml_lex_state;
-    var __ocaml_lex_state$1 = Lexing.engine(__ocaml_lex_tables, __ocaml_lex_state, lexbuf);
+    let __ocaml_lex_state = ___ocaml_lex_state;
+    let __ocaml_lex_state$1 = Lexing.engine(__ocaml_lex_tables, __ocaml_lex_state, lexbuf);
     switch (__ocaml_lex_state$1) {
       case 0 :
           Curry._1(l, "new line");

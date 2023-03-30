@@ -1,6 +1,6 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
 function f(x) {
   x.case = 3;

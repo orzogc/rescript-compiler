@@ -1,19 +1,19 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var $$Array = require("../../lib/js/array.js");
-var Int32 = require("../../lib/js/int32.js");
-var Int64 = require("../../lib/js/int64.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_int64 = require("../../lib/js/caml_int64.js");
-var Pervasives = require("../../lib/js/pervasives.js");
-var Ext_array_test = require("./ext_array_test.js");
+let Mt = require("./mt.js");
+let $$Array = require("../../lib/js/array.js");
+let Int32 = require("../../lib/js/int32.js");
+let Int64 = require("../../lib/js/int64.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_int64 = require("../../lib/js/caml_int64.js");
+let Pervasives = require("../../lib/js/pervasives.js");
+let Ext_array_test = require("./ext_array_test.js");
 
-var v = Caml_int64.add(Caml_int64.of_int32(Int32.max_int), Int64.one);
+let v = Caml_int64.add(Caml_int64.of_int32(Int32.max_int), Int64.one);
 
-var h = Caml_int64.neg(v);
+let h = Caml_int64.neg(v);
 
-var a = [
+let a = [
   0,
   2147483647
 ];
@@ -32,13 +32,13 @@ function commutative_add(result, a, b) {
         };
 }
 
-var generic_compare = Caml_obj.compare;
+let generic_compare = Caml_obj.compare;
 
-var shift_left_tests_0 = $$Array.map((function (i) {
+let shift_left_tests_0 = $$Array.map((function (i) {
         return Caml_int64.lsl_(Caml_int64.one, i);
       }), Ext_array_test.range(0, 63));
 
-var shift_left_tests_1 = [
+let shift_left_tests_1 = [
   Caml_int64.one,
   [
     0,
@@ -291,16 +291,16 @@ var shift_left_tests_1 = [
   Caml_int64.min_int
 ];
 
-var shift_left_tests = [
+let shift_left_tests = [
   shift_left_tests_0,
   shift_left_tests_1
 ];
 
-var shift_right_tests_0 = $$Array.map((function (i) {
+let shift_right_tests_0 = $$Array.map((function (i) {
         return Caml_int64.asr_(Caml_int64.min_int, i);
       }), Ext_array_test.range(0, 63));
 
-var shift_right_tests_1 = [
+let shift_right_tests_1 = [
   Caml_int64.min_int,
   [
     -1073741824,
@@ -553,16 +553,16 @@ var shift_right_tests_1 = [
   Caml_int64.neg_one
 ];
 
-var shift_right_tests = [
+let shift_right_tests = [
   shift_right_tests_0,
   shift_right_tests_1
 ];
 
-var shift_right_logical_suites_0 = $$Array.map((function (i) {
+let shift_right_logical_suites_0 = $$Array.map((function (i) {
         return Caml_int64.lsr_(Caml_int64.min_int, i);
       }), Ext_array_test.range(0, 63));
 
-var shift_right_logical_suites_1 = [
+let shift_right_logical_suites_1 = [
   Caml_int64.min_int,
   [
     1073741824,
@@ -815,16 +815,16 @@ var shift_right_logical_suites_1 = [
   Caml_int64.one
 ];
 
-var shift_right_logical_suites = [
+let shift_right_logical_suites = [
   shift_right_logical_suites_0,
   shift_right_logical_suites_1
 ];
 
 function fib(_n, _a, _b) {
   while(true) {
-    var b = _b;
-    var a = _a;
-    var n = _n;
+    let b = _b;
+    let a = _a;
+    let n = _n;
     if (n === 0) {
       return a;
     }
@@ -837,8 +837,8 @@ function fib(_n, _a, _b) {
 
 function fac(_n, _acc) {
   while(true) {
-    var acc = _acc;
-    var n = _n;
+    let acc = _acc;
+    let n = _n;
     if (n === 0) {
       return acc;
     }
@@ -848,7 +848,7 @@ function fac(_n, _acc) {
   };
 }
 
-var suites = Pervasives.$at({
+let suites = Pervasives.$at({
       hd: [
         "add_one",
         (function (param) {
@@ -2132,11 +2132,11 @@ var suites = Pervasives.$at({
                               ];
                       }), shift_right_logical_suites_0, shift_right_logical_suites_1)))));
 
-var suites$1 = {
+let suites$1 = {
   contents: suites
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -2145,8 +2145,8 @@ function eq(loc, x, y) {
 }
 
 function id(loc, x) {
-  var float_value = Caml_int64.float_of_bits(x);
-  var match = Pervasives.classify_float(float_value);
+  let float_value = Caml_int64.float_of_bits(x);
+  let match = Pervasives.classify_float(float_value);
   if (match === "FP_nan") {
     return ;
   } else {

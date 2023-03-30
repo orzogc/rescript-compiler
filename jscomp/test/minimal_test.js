@@ -1,7 +1,7 @@
 'use strict';
 
 
-var fake_y = {
+let fake_y = {
   hd: 2,
   tl: {
     hd: 3,
@@ -9,7 +9,7 @@ var fake_y = {
   }
 };
 
-var fake_z = {
+let fake_z = {
   hd: 1,
   tl: fake_y
 };

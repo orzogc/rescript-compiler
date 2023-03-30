@@ -1,10 +1,10 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_option = require("../../lib/js/caml_option.js");
-var Js_null_undefined = require("../../lib/js/js_null_undefined.js");
+let Mt = require("./mt.js");
+let Caml_option = require("../../lib/js/caml_option.js");
+let Js_null_undefined = require("../../lib/js/js_null_undefined.js");
 
-var suites_0 = [
+let suites_0 = [
   "toOption - null",
   (function (param) {
       return {
@@ -15,7 +15,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "toOption - undefined",
     (function (param) {
@@ -159,7 +159,7 @@ var suites_1 = {
                           hd: [
                             "iter - null",
                             (function (param) {
-                                var hit = {
+                                let hit = {
                                   contents: false
                                 };
                                 Js_null_undefined.iter(null, (function (param) {
@@ -176,7 +176,7 @@ var suites_1 = {
                             hd: [
                               "iter - undefined",
                               (function (param) {
-                                  var hit = {
+                                  let hit = {
                                     contents: false
                                   };
                                   Js_null_undefined.iter(undefined, (function (param) {
@@ -193,7 +193,7 @@ var suites_1 = {
                               hd: [
                                 "iter - empty",
                                 (function (param) {
-                                    var hit = {
+                                    let hit = {
                                       contents: false
                                     };
                                     Js_null_undefined.iter(undefined, (function (param) {
@@ -210,7 +210,7 @@ var suites_1 = {
                                 hd: [
                                   "iter - 'a",
                                   (function (param) {
-                                      var hit = {
+                                      let hit = {
                                         contents: 0
                                       };
                                       Js_null_undefined.iter(2, (function (v) {
@@ -309,7 +309,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

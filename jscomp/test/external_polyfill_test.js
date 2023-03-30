@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
+let Mt = require("./mt.js");
+let Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -20,7 +20,7 @@ require('../../lib/js/caml_external_polyfill.js').register("fancy_add", function
 })
 ;
 
-var h = Caml_external_polyfill.resolve("fancy_add")(1, 2);
+let h = Caml_external_polyfill.resolve("fancy_add")(1, 2);
 
 eq("File \"external_polyfill_test.ml\", line 19, characters 5-12", h, 12);
 

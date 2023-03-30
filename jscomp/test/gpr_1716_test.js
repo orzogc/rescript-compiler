@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Mt = require("./mt.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -28,9 +28,9 @@ function eq(loc, x, y) {
   };
 }
 
-var a = {};
+let a = {};
 
-var b = {};
+let b = {};
 
 Caml_obj.update_dummy(a, {
       b: b

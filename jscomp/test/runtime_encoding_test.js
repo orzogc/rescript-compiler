@@ -1,7 +1,7 @@
 'use strict';
 
 
-var v = [
+let v = [
   0,
   1
 ];

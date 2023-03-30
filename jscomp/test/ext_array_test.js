@@ -1,17 +1,17 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var $$Array = require("../../lib/js/array.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_array = require("../../lib/js/caml_array.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let List = require("../../lib/js/list.js");
+let $$Array = require("../../lib/js/array.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_array = require("../../lib/js/caml_array.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 function reverse_range(a, i, len) {
   if (len === 0) {
     return ;
   }
-  for(var k = 0 ,k_finish = (len - 1 | 0) / 2 | 0; k <= k_finish; ++k){
-    var t = a[i + k | 0];
+  for(let k = 0 ,k_finish = (len - 1 | 0) / 2 | 0; k <= k_finish; ++k){
+    let t = a[i + k | 0];
     a[i + k | 0] = a[((i + len | 0) - 1 | 0) - k | 0];
     a[((i + len | 0) - 1 | 0) - k | 0] = t;
   }
@@ -22,12 +22,12 @@ function reverse_in_place(a) {
 }
 
 function reverse(a) {
-  var b_len = a.length;
+  let b_len = a.length;
   if (b_len === 0) {
     return [];
   }
-  var b = $$Array.copy(a);
-  for(var i = 0; i < b_len; ++i){
+  let b = $$Array.copy(a);
+  for(let i = 0; i < b_len; ++i){
     b[i] = a[(b_len - 1 | 0) - i | 0];
   }
   return b;
@@ -37,13 +37,13 @@ function reverse_of_list(l) {
   if (!l) {
     return [];
   }
-  var len = List.length(l);
-  var a = Caml_array.make(len, l.hd);
-  var _i = 0;
-  var _param = l.tl;
+  let len = List.length(l);
+  let a = Caml_array.make(len, l.hd);
+  let _i = 0;
+  let _param = l.tl;
   while(true) {
-    var param = _param;
-    var i = _i;
+    let param = _param;
+    let i = _i;
     if (!param) {
       return a;
     }
@@ -55,16 +55,16 @@ function reverse_of_list(l) {
 }
 
 function filter(f, a) {
-  var arr_len = a.length;
-  var _acc = /* [] */0;
-  var _i = 0;
+  let arr_len = a.length;
+  let _acc = /* [] */0;
+  let _i = 0;
   while(true) {
-    var i = _i;
-    var acc = _acc;
+    let i = _i;
+    let acc = _acc;
     if (i === arr_len) {
       return reverse_of_list(acc);
     }
-    var v = a[i];
+    let v = a[i];
     if (Curry._1(f, v)) {
       _i = i + 1 | 0;
       _acc = {
@@ -79,17 +79,17 @@ function filter(f, a) {
 }
 
 function filter_map(f, a) {
-  var arr_len = a.length;
-  var _acc = /* [] */0;
-  var _i = 0;
+  let arr_len = a.length;
+  let _acc = /* [] */0;
+  let _i = 0;
   while(true) {
-    var i = _i;
-    var acc = _acc;
+    let i = _i;
+    let acc = _acc;
     if (i === arr_len) {
       return reverse_of_list(acc);
     }
-    var v = a[i];
-    var v$1 = Curry._1(f, v);
+    let v = a[i];
+    let v$1 = Curry._1(f, v);
     if (v$1 !== undefined) {
       _i = i + 1 | 0;
       _acc = {
@@ -117,7 +117,7 @@ function range(from, to_) {
 }
 
 function map2i(f, a, b) {
-  var len = a.length;
+  let len = a.length;
   if (len !== b.length) {
     throw {
           RE_EXN_ID: "Invalid_argument",
@@ -132,13 +132,13 @@ function map2i(f, a, b) {
 
 function tolist_aux(a, f, _i, _res) {
   while(true) {
-    var res = _res;
-    var i = _i;
+    let res = _res;
+    let i = _i;
     if (i < 0) {
       return res;
     }
-    var v = a[i];
-    var v$1 = Curry._1(f, v);
+    let v = a[i];
+    let v$1 = Curry._1(f, v);
     _res = v$1 !== undefined ? ({
           hd: Caml_option.valFromOption(v$1),
           tl: res
@@ -160,15 +160,15 @@ function of_list_map(f, a) {
   if (!a) {
     return [];
   }
-  var tl = a.tl;
-  var hd = Curry._1(f, a.hd);
-  var len = List.length(tl) + 1 | 0;
-  var arr = Caml_array.make(len, hd);
-  var _i = 1;
-  var _param = tl;
+  let tl = a.tl;
+  let hd = Curry._1(f, a.hd);
+  let len = List.length(tl) + 1 | 0;
+  let arr = Caml_array.make(len, hd);
+  let _i = 1;
+  let _param = tl;
   while(true) {
-    var param = _param;
-    var i = _i;
+    let param = _param;
+    let i = _i;
     if (!param) {
       return arr;
     }
@@ -180,10 +180,10 @@ function of_list_map(f, a) {
 }
 
 function rfind_with_index(arr, cmp, v) {
-  var len = arr.length;
-  var _i = len - 1 | 0;
+  let len = arr.length;
+  let _i = len - 1 | 0;
   while(true) {
-    var i = _i;
+    let i = _i;
     if (i < 0) {
       return i;
     }
@@ -196,7 +196,7 @@ function rfind_with_index(arr, cmp, v) {
 }
 
 function rfind_and_split(arr, cmp, v) {
-  var i = rfind_with_index(arr, cmp, v);
+  let i = rfind_with_index(arr, cmp, v);
   if (i < 0) {
     return "No_split";
   } else {
@@ -211,10 +211,10 @@ function rfind_and_split(arr, cmp, v) {
 }
 
 function find_with_index(arr, cmp, v) {
-  var len = arr.length;
-  var _i = 0;
+  let len = arr.length;
+  let _i = 0;
   while(true) {
-    var i = _i;
+    let i = _i;
     if (i >= len) {
       return -1;
     }
@@ -227,7 +227,7 @@ function find_with_index(arr, cmp, v) {
 }
 
 function find_and_split(arr, cmp, v) {
-  var i = find_with_index(arr, cmp, v);
+  let i = find_with_index(arr, cmp, v);
   if (i < 0) {
     return "No_split";
   } else {
@@ -242,10 +242,10 @@ function find_and_split(arr, cmp, v) {
 }
 
 function exists(p, a) {
-  var n = a.length;
-  var _i = 0;
+  let n = a.length;
+  let _i = 0;
   while(true) {
-    var i = _i;
+    let i = _i;
     if (i === n) {
       return false;
     }
@@ -263,7 +263,7 @@ function is_empty(arr) {
 
 function unsafe_loop(_index, len, p, xs, ys) {
   while(true) {
-    var index = _index;
+    let index = _index;
     if (index >= len) {
       return true;
     }
@@ -276,8 +276,8 @@ function unsafe_loop(_index, len, p, xs, ys) {
 }
 
 function for_all2_no_exn(p, xs, ys) {
-  var len_xs = xs.length;
-  var len_ys = ys.length;
+  let len_xs = xs.length;
+  let len_ys = ys.length;
   if (len_xs === len_ys) {
     return unsafe_loop(0, len_xs, p, xs, ys);
   } else {

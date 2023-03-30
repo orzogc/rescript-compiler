@@ -1,9 +1,9 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
 
-var result = {
+let result = {
   contents: ""
 };
 
@@ -11,12 +11,12 @@ function log(x) {
   result.contents = x;
 }
 
-var Xx = {
+let Xx = {
   log: log
 };
 
 function compilerBug(a, b, c, f) {
-  var exit = 0;
+  let exit = 0;
   if (a !== "x") {
     exit = 2;
   }
@@ -46,11 +46,11 @@ function compilerBug(a, b, c, f) {
   }
 }
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 

@@ -1,10 +1,10 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var React = require("react");
+let Curry = require("../../lib/js/curry.js");
+let React = require("react");
 
 function createDomElement(s, props, children) {
-  var vararg = [
+  let vararg = [
       s,
       props
     ].concat(children);
@@ -56,22 +56,22 @@ function basicComponent(debugName) {
         };
 }
 
-var statelessComponent = basicComponent;
+let statelessComponent = basicComponent;
 
-var statelessComponentWithRetainedProps = basicComponent;
+let statelessComponentWithRetainedProps = basicComponent;
 
-var reducerComponent = basicComponent;
+let reducerComponent = basicComponent;
 
-var reducerComponentWithRetainedProps = basicComponent;
+let reducerComponentWithRetainedProps = basicComponent;
 
 function element(keyOpt, refOpt, component) {
-  var key = keyOpt !== undefined ? keyOpt : undefined;
-  var ref = refOpt !== undefined ? refOpt : undefined;
-  var element$1 = {
+  let key = keyOpt !== undefined ? keyOpt : undefined;
+  let ref = refOpt !== undefined ? refOpt : undefined;
+  let element$1 = {
     TAG: "Element",
     _0: component
   };
-  var jsElementWrapped = component.jsElementWrapped;
+  let jsElementWrapped = component.jsElementWrapped;
   if (jsElementWrapped !== undefined) {
     return Curry._2(jsElementWrapped, key, ref);
   } else {
@@ -84,20 +84,20 @@ function element(keyOpt, refOpt, component) {
 }
 
 function wrapReasonForJs(component, jsPropsToReason) {
-  var uncurriedJsPropsToReason = Curry.__1(jsPropsToReason);
+  let uncurriedJsPropsToReason = Curry.__1(jsPropsToReason);
   component.reactClassInternal.prototype.jsPropsToReason = uncurriedJsPropsToReason;
   return component.reactClassInternal;
 }
 
-var dummyInteropComponent = basicComponent("interop");
+let dummyInteropComponent = basicComponent("interop");
 
 function wrapJsForReason(reactClass, props, children) {
-  var jsElementWrapped = (function (param, param$1) {
-      var props$1 = Object.assign(Object.assign({}, props), {
+  let jsElementWrapped = (function (param, param$1) {
+      let props$1 = Object.assign(Object.assign({}, props), {
             ref: param$1,
             key: param
           });
-      var varargs = [
+      let varargs = [
           reactClass,
           props$1
         ].concat(children);
@@ -121,7 +121,7 @@ function wrapJsForReason(reactClass, props, children) {
         };
 }
 
-var Router;
+let Router;
 
 exports.statelessComponent = statelessComponent;
 exports.statelessComponentWithRetainedProps = statelessComponentWithRetainedProps;

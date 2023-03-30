@@ -1,10 +1,10 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
-var Stream = require("../../lib/js/stream.js");
-var Caml_bytes = require("../../lib/js/caml_bytes.js");
+let Mt = require("./mt.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
+let Stream = require("../../lib/js/stream.js");
+let Caml_bytes = require("../../lib/js/caml_bytes.js");
 
 function classify(chr) {
   if ((chr & 128) === 0) {
@@ -54,12 +54,12 @@ function classify(chr) {
 
 function utf8_decode(strm) {
   return Stream.slazy(function (param) {
-              var chr = Stream.peek(strm);
+              let chr = Stream.peek(strm);
               if (chr === undefined) {
                 return ;
               }
               Stream.junk(strm);
-              var c = classify(chr);
+              let c = classify(chr);
               if (typeof c !== "object") {
                 throw {
                       RE_EXN_ID: Stream.$$Error,
@@ -77,14 +77,14 @@ function utf8_decode(strm) {
                           Error: new Error()
                         };
                 case "Leading" :
-                    var follow = function (strm, _n, _c) {
+                    let follow = function (strm, _n, _c) {
                       while(true) {
-                        var c = _c;
-                        var n = _n;
+                        let c = _c;
+                        let n = _n;
                         if (n === 0) {
                           return c;
                         }
-                        var cc = classify(Stream.next(strm));
+                        let cc = classify(Stream.next(strm));
                         if (typeof cc !== "object") {
                           throw {
                                 RE_EXN_ID: Stream.$$Error,
@@ -111,7 +111,7 @@ function utf8_decode(strm) {
 }
 
 function to_list(xs) {
-  var v = {
+  let v = {
     contents: /* [] */0
   };
   Stream.iter((function (x) {
@@ -128,7 +128,7 @@ function utf8_list(s) {
 }
 
 function decode(bytes, offset) {
-  var c = classify(Caml_bytes.get(bytes, offset));
+  let c = classify(Caml_bytes.get(bytes, offset));
   if (typeof c !== "object") {
     throw {
           RE_EXN_ID: "Invalid_argument",
@@ -149,20 +149,20 @@ function decode(bytes, offset) {
               Error: new Error()
             };
     case "Leading" :
-        var _n = c._0;
-        var _c = c._1;
-        var _offset = offset + 1 | 0;
+        let _n = c._0;
+        let _c = c._1;
+        let _offset = offset + 1 | 0;
         while(true) {
-          var offset$1 = _offset;
-          var c$1 = _c;
-          var n = _n;
+          let offset$1 = _offset;
+          let c$1 = _c;
+          let n = _n;
           if (n === 0) {
             return [
                     c$1,
                     offset$1
                   ];
           }
-          var cc = classify(Caml_bytes.get(bytes, offset$1));
+          let cc = classify(Caml_bytes.get(bytes, offset$1));
           if (typeof cc !== "object") {
             throw {
                   RE_EXN_ID: "Invalid_argument",
@@ -188,8 +188,8 @@ function decode(bytes, offset) {
 
 function eq_list(cmp, _xs, _ys) {
   while(true) {
-    var ys = _ys;
-    var xs = _xs;
+    let ys = _ys;
+    let xs = _xs;
     if (!xs) {
       if (ys) {
         return false;
@@ -209,17 +209,17 @@ function eq_list(cmp, _xs, _ys) {
   };
 }
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
 function eq(loc, param) {
-  var y = param[1];
-  var x = param[0];
+  let y = param[1];
+  let x = param[0];
   test_id.contents = test_id.contents + 1 | 0;
   console.log([
         x,

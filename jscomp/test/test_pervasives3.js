@@ -1,9 +1,9 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Pervasives = require("../../lib/js/pervasives.js");
+let List = require("../../lib/js/list.js");
+let Pervasives = require("../../lib/js/pervasives.js");
 
-var Pervasives$1 = {
+let Pervasives$1 = {
   Jsx: Pervasives.Jsx,
   JsxEvent: Pervasives.JsxEvent,
   JsxDOM: Pervasives.JsxDOM,
@@ -92,7 +92,7 @@ var Pervasives$1 = {
   merge: List.merge
 };
 
-var v = Pervasives.$at;
+let v = Pervasives.$at;
 
 exports.Pervasives = Pervasives$1;
 exports.v = v;

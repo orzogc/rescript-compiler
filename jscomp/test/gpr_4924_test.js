@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -74,9 +74,9 @@ function u6(b) {
 
 Mt.from_pair_suites("File \"gpr_4924_test.ml\", line 49, characters 20-27", suites.contents);
 
-var from_pair_suites = Mt.from_pair_suites;
+let from_pair_suites = Mt.from_pair_suites;
 
-var eq_suites = Mt.eq_suites;
+let eq_suites = Mt.eq_suites;
 
 exports.from_pair_suites = from_pair_suites;
 exports.eq_suites = eq_suites;

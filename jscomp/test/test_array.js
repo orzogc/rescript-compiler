@@ -1,15 +1,15 @@
 'use strict';
 
-var $$Array = require("../../lib/js/array.js");
-var Caml_array = require("../../lib/js/caml_array.js");
+let $$Array = require("../../lib/js/array.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
-var v = Caml_array.make(6, 5);
+let v = Caml_array.make(6, 5);
 
 Caml_array.make_float(30);
 
-var h = $$Array.sub(v, 0, 2);
+let h = $$Array.sub(v, 0, 2);
 
-var hhh = $$Array.append([
+let hhh = $$Array.append([
       1,
       2,
       3,
@@ -21,7 +21,7 @@ var hhh = $$Array.append([
       5
     ]);
 
-var u = Caml_array.concat({
+let u = Caml_array.concat({
       hd: [
         1,
         2
@@ -41,7 +41,7 @@ var u = Caml_array.concat({
       }
     });
 
-var hh = $$Array.blit;
+let hh = $$Array.blit;
 
 exports.v = v;
 exports.h = h;

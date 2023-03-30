@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -41,9 +41,9 @@ eq("File \"dollar_escape_test.ml\", line 21, characters 6-13", 3, 3);
 
 Mt.from_pair_suites("Dollar_escape_test", suites.contents);
 
-var v = 3;
+let v = 3;
 
-var u = 3;
+let u = 3;
 
 exports.suites = suites;
 exports.test_id = test_id;

@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -14,9 +14,9 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var _map = {"a":"x","u":"hi","b":"你","c":"我"};
+let _map = {"a":"x","u":"hi","b":"你","c":"我"};
 
-var _revMap = {"x":"a","hi":"u","你":"b","我":"c"};
+let _revMap = {"x":"a","hi":"u","你":"b","我":"c"};
 
 function tToJs(param) {
   return _map[param];
@@ -46,9 +46,9 @@ eq("File \"gpr_3142_test.res\", line 26, characters 3-10", tFromJs("xx"), undefi
 
 Mt.from_pair_suites("Gpr_3142_test", suites.contents);
 
-var v = tToJs;
+let v = tToJs;
 
-var u = tFromJs;
+let u = tFromJs;
 
 exports.suites = suites;
 exports.test_id = test_id;

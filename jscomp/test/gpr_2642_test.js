@@ -3,7 +3,7 @@
 
 function isfree(id, _id$p) {
   while(true) {
-    var id$p = _id$p;
+    let id$p = _id$p;
     switch (id$p.TAG) {
       case "Pident" :
           return id === id$p._0;

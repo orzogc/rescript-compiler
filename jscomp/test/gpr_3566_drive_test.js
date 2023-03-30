@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_option = require("../../lib/js/caml_option.js");
-var Gpr_3566_test = require("./gpr_3566_test.js");
+let Mt = require("./mt.js");
+let Caml_option = require("../../lib/js/caml_option.js");
+let Gpr_3566_test = require("./gpr_3566_test.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -16,11 +16,11 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var H = Gpr_3566_test.Test({});
+let H = Gpr_3566_test.Test({});
 
 eq("File \"gpr_3566_drive_test.ml\", line 8, characters 5-12", H.b, true);
 
-var Caml_option$1 = {};
+let Caml_option$1 = {};
 
 function f(x) {
   return Caml_option.some(x);

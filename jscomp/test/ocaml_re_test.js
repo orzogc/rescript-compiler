@@ -1,28 +1,28 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml = require("../../lib/js/caml.js");
-var Char = require("../../lib/js/char.js");
-var List = require("../../lib/js/list.js");
-var $$Array = require("../../lib/js/array.js");
-var Bytes = require("../../lib/js/bytes.js");
-var Curry = require("../../lib/js/curry.js");
-var $$String = require("../../lib/js/string.js");
-var Hashtbl = require("../../lib/js/hashtbl.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_array = require("../../lib/js/caml_array.js");
-var Caml_bytes = require("../../lib/js/caml_bytes.js");
-var Pervasives = require("../../lib/js/pervasives.js");
-var Caml_option = require("../../lib/js/caml_option.js");
-var Caml_string = require("../../lib/js/caml_string.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Caml = require("../../lib/js/caml.js");
+let Char = require("../../lib/js/char.js");
+let List = require("../../lib/js/list.js");
+let $$Array = require("../../lib/js/array.js");
+let Bytes = require("../../lib/js/bytes.js");
+let Curry = require("../../lib/js/curry.js");
+let $$String = require("../../lib/js/string.js");
+let Hashtbl = require("../../lib/js/hashtbl.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_array = require("../../lib/js/caml_array.js");
+let Caml_bytes = require("../../lib/js/caml_bytes.js");
+let Pervasives = require("../../lib/js/pervasives.js");
+let Caml_option = require("../../lib/js/caml_option.js");
+let Caml_string = require("../../lib/js/caml_string.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -45,22 +45,22 @@ function eq(loc, x, y) {
 
 function union(_l, _l$p) {
   while(true) {
-    var l$p = _l$p;
-    var l = _l;
+    let l$p = _l$p;
+    let l = _l;
     if (!l$p) {
       return l;
     }
     if (!l) {
       return l$p;
     }
-    var r$p = l$p.tl;
-    var match = l$p.hd;
-    var c2$p = match[1];
-    var c1$p = match[0];
-    var r = l.tl;
-    var match$1 = l.hd;
-    var c2 = match$1[1];
-    var c1 = match$1[0];
+    let r$p = l$p.tl;
+    let match = l$p.hd;
+    let c2$p = match[1];
+    let c1$p = match[0];
+    let r = l.tl;
+    let match$1 = l.hd;
+    let c2 = match$1[1];
+    let c1 = match$1[0];
     if ((c2 + 1 | 0) < c1$p) {
       return {
               hd: [
@@ -104,22 +104,22 @@ function union(_l, _l$p) {
 
 function inter(_l, _l$p) {
   while(true) {
-    var l$p = _l$p;
-    var l = _l;
+    let l$p = _l$p;
+    let l = _l;
     if (!l$p) {
       return /* [] */0;
     }
     if (!l) {
       return /* [] */0;
     }
-    var r$p = l$p.tl;
-    var match = l$p.hd;
-    var c2$p = match[1];
-    var c1$p = match[0];
-    var r = l.tl;
-    var match$1 = l.hd;
-    var c2 = match$1[1];
-    var c1 = match$1[0];
+    let r$p = l$p.tl;
+    let match = l$p.hd;
+    let c2$p = match[1];
+    let c1$p = match[0];
+    let r = l.tl;
+    let match$1 = l.hd;
+    let c2 = match$1[1];
+    let c1 = match$1[0];
     if (Caml_obj.lessthan(c2, c1$p)) {
       _l = r;
       continue ;
@@ -150,22 +150,22 @@ function inter(_l, _l$p) {
 
 function diff(_l, _l$p) {
   while(true) {
-    var l$p = _l$p;
-    var l = _l;
+    let l$p = _l$p;
+    let l = _l;
     if (!l$p) {
       return l;
     }
     if (!l) {
       return /* [] */0;
     }
-    var r$p = l$p.tl;
-    var match = l$p.hd;
-    var c2$p = match[1];
-    var c1$p = match[0];
-    var r = l.tl;
-    var match$1 = l.hd;
-    var c2 = match$1[1];
-    var c1 = match$1[0];
+    let r$p = l$p.tl;
+    let match = l$p.hd;
+    let c2$p = match[1];
+    let c1$p = match[0];
+    let r = l.tl;
+    let match$1 = l.hd;
+    let c2 = match$1[1];
+    let c1 = match$1[0];
     if (c2 < c1$p) {
       return {
               hd: [
@@ -179,7 +179,7 @@ function diff(_l, _l$p) {
       _l$p = r$p;
       continue ;
     }
-    var r$p$p = c2$p < c2 ? ({
+    let r$p$p = c2$p < c2 ? ({
           hd: [
             c2$p + 1 | 0,
             c2
@@ -235,7 +235,7 @@ function offset(o, l) {
   if (!l) {
     return /* [] */0;
   }
-  var match = l.hd;
+  let match = l.hd;
   return {
           hd: [
             match[0] + o | 0,
@@ -247,11 +247,11 @@ function offset(o, l) {
 
 function mem(c, _s) {
   while(true) {
-    var s = _s;
+    let s = _s;
     if (!s) {
       return false;
     }
-    var match = s.hd;
+    let match = s.hd;
     if (c <= match[1]) {
       return c >= match[0];
     }
@@ -264,7 +264,7 @@ function hash_rec(param) {
   if (!param) {
     return 0;
   }
-  var match = param.hd;
+  let match = param.hd;
   return (match[0] + Math.imul(13, match[1]) | 0) + Math.imul(257, hash_rec(param.tl)) | 0;
 }
 
@@ -275,8 +275,8 @@ function one_char(param) {
   if (param.tl) {
     return ;
   }
-  var match = param.hd;
-  var i = match[0];
+  let match = param.hd;
+  let i = match[0];
   if (Caml_obj.equal(i, match[1])) {
     return Caml_option.some(i);
   }
@@ -284,7 +284,7 @@ function one_char(param) {
 }
 
 function compare(param, param$1) {
-  var c = Caml_obj.compare(param[0], param$1[0]);
+  let c = Caml_obj.compare(param[0], param$1[0]);
   if (c !== 0) {
     return c;
   } else {
@@ -301,8 +301,8 @@ function height(param) {
 }
 
 function create(l, x, d, r) {
-  var hl = height(l);
-  var hr = height(r);
+  let hl = height(l);
+  let hr = height(r);
   return {
           TAG: "Node",
           l: l,
@@ -314,9 +314,9 @@ function create(l, x, d, r) {
 }
 
 function bal(l, x, d, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l.h;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r.h;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
@@ -326,10 +326,10 @@ function bal(l, x, d, r) {
             Error: new Error()
           };
     }
-    var lr = l.r;
-    var ld = l.d;
-    var lv = l.v;
-    var ll = l.l;
+    let lr = l.r;
+    let ld = l.d;
+    let lv = l.v;
+    let ll = l.l;
     if (height(ll) >= height(lr)) {
       return create(ll, lv, ld, create(lr, x, d, r));
     }
@@ -359,10 +359,10 @@ function bal(l, x, d, r) {
           Error: new Error()
         };
   }
-  var rr = r.r;
-  var rd = r.d;
-  var rv = r.v;
-  var rl = r.l;
+  let rr = r.r;
+  let rd = r.d;
+  let rv = r.v;
+  let rl = r.l;
   if (height(rr) >= height(rl)) {
     return create(create(l, x, d, rl), rv, rd, rr);
   }
@@ -387,11 +387,11 @@ function add(x, data, m) {
             h: 1
           };
   }
-  var r = m.r;
-  var d = m.d;
-  var v = m.v;
-  var l = m.l;
-  var c = compare(x, v);
+  let r = m.r;
+  let d = m.d;
+  let v = m.v;
+  let l = m.l;
+  let c = compare(x, v);
   if (c === 0) {
     if (d === data) {
       return m;
@@ -407,14 +407,14 @@ function add(x, data, m) {
     }
   }
   if (c < 0) {
-    var ll = add(x, data, l);
+    let ll = add(x, data, l);
     if (l === ll) {
       return m;
     } else {
       return bal(ll, v, d, r);
     }
   }
-  var rr = add(x, data, r);
+  let rr = add(x, data, r);
   if (r === rr) {
     return m;
   } else {
@@ -422,7 +422,7 @@ function add(x, data, m) {
   }
 }
 
-var cany = {
+let cany = {
   hd: [
     0,
     255
@@ -497,9 +497,9 @@ function height$1(param) {
 }
 
 function create$1(l, v, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l.h;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r.h;
   return {
           TAG: "Node",
@@ -511,9 +511,9 @@ function create$1(l, v, r) {
 }
 
 function bal$1(l, v, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l.h;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r.h;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
@@ -523,9 +523,9 @@ function bal$1(l, v, r) {
             Error: new Error()
           };
     }
-    var lr = l.r;
-    var lv = l.v;
-    var ll = l.l;
+    let lr = l.r;
+    let lv = l.v;
+    let ll = l.l;
     if (height$1(ll) >= height$1(lr)) {
       return create$1(ll, lv, create$1(lr, v, r));
     }
@@ -554,9 +554,9 @@ function bal$1(l, v, r) {
           Error: new Error()
         };
   }
-  var rr = r.r;
-  var rv = r.v;
-  var rl = r.l;
+  let rr = r.r;
+  let rv = r.v;
+  let rl = r.l;
   if (height$1(rr) >= height$1(rl)) {
     return create$1(create$1(l, v, rl), rv, rr);
   }
@@ -580,22 +580,22 @@ function add$1(x, t) {
             h: 1
           };
   }
-  var r = t.r;
-  var v = t.v;
-  var l = t.l;
-  var c = Caml.int_compare(x, v);
+  let r = t.r;
+  let v = t.v;
+  let l = t.l;
+  let c = Caml.int_compare(x, v);
   if (c === 0) {
     return t;
   }
   if (c < 0) {
-    var ll = add$1(x, l);
+    let ll = add$1(x, l);
     if (l === ll) {
       return t;
     } else {
       return bal$1(ll, v, r);
     }
   }
-  var rr = add$1(x, r);
+  let rr = add$1(x, r);
   if (r === rr) {
     return t;
   } else {
@@ -607,21 +607,21 @@ function hash_combine(h, accu) {
   return Math.imul(accu, 65599) + h | 0;
 }
 
-var empty = {
+let empty = {
   marks: /* [] */0,
   pmarks: "Empty"
 };
 
 function hash(m, accu) {
-  var _l = m.marks;
-  var _accu = hash_combine(Hashtbl.hash(m.pmarks), accu);
+  let _l = m.marks;
+  let _accu = hash_combine(Hashtbl.hash(m.pmarks), accu);
   while(true) {
-    var accu$1 = _accu;
-    var l = _l;
+    let accu$1 = _accu;
+    let l = _l;
     if (!l) {
       return accu$1;
     }
-    var match = l.hd;
+    let match = l.hd;
     _accu = hash_combine(match[0], hash_combine(match[1], accu$1));
     _l = l.tl;
     continue ;
@@ -632,7 +632,7 @@ function marks_set_idx(idx, marks) {
   if (!marks) {
     return marks;
   }
-  var match = marks.hd;
+  let match = marks.hd;
   if (match[1] !== -1) {
     return marks;
   } else {
@@ -655,11 +655,11 @@ function marks_set_idx$1(marks, idx) {
 
 function first(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return ;
     }
-    var res = Curry._1(f, param.hd);
+    let res = Curry._1(f, param.hd);
     if (res !== undefined) {
       return res;
     }
@@ -668,7 +668,7 @@ function first(f, _param) {
   };
 }
 
-var eps_expr = {
+let eps_expr = {
   id: 0,
   def: "Eps"
 };
@@ -714,9 +714,9 @@ function alt(ids, l) {
 }
 
 function seq$1(ids, kind, x, y) {
-  var match = x.def;
-  var match$1 = y.def;
-  var exit = 0;
+  let match = x.def;
+  let match$1 = y.def;
+  let exit = 0;
   if (typeof match !== "object") {
     return y;
   }
@@ -748,7 +748,7 @@ function seq$1(ids, kind, x, y) {
 }
 
 function is_eps(expr) {
-  var match = expr.def;
+  let match = expr.def;
   if (typeof match !== "object") {
     return true;
   } else {
@@ -774,7 +774,7 @@ function erase(ids, m, m$p) {
 }
 
 function rename(ids, x) {
-  var l = x.def;
+  let l = x.def;
   if (typeof l !== "object") {
     return mk_expr(ids, x.def);
   }
@@ -807,8 +807,8 @@ function rename(ids, x) {
 
 function equal(_l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (!l1) {
       if (l2) {
         return false;
@@ -816,13 +816,13 @@ function equal(_l1, _l2) {
         return true;
       }
     }
-    var marks1 = l1.hd;
+    let marks1 = l1.hd;
     switch (marks1.TAG) {
       case "TSeq" :
           if (!l2) {
             return false;
           }
-          var match = l2.hd;
+          let match = l2.hd;
           switch (match.TAG) {
             case "TSeq" :
                 if (marks1._1.id !== match._1.id) {
@@ -843,7 +843,7 @@ function equal(_l1, _l2) {
           if (!l2) {
             return false;
           }
-          var match$1 = l2.hd;
+          let match$1 = l2.hd;
           switch (match$1.TAG) {
             case "TExp" :
                 if (marks1._1.id !== match$1._1.id) {
@@ -864,7 +864,7 @@ function equal(_l1, _l2) {
           if (!l2) {
             return false;
           }
-          var marks2 = l2.hd;
+          let marks2 = l2.hd;
           switch (marks2.TAG) {
             case "TSeq" :
             case "TExp" :
@@ -885,12 +885,12 @@ function equal(_l1, _l2) {
 
 function hash$1(_l, _accu) {
   while(true) {
-    var accu = _accu;
-    var l = _l;
+    let accu = _accu;
+    let l = _l;
     if (!l) {
       return accu;
     }
-    var marks = l.hd;
+    let marks = l.hd;
     switch (marks.TAG) {
       case "TSeq" :
           _accu = hash_combine(388635598, hash_combine(marks._1.id, hash$1(marks._0, accu)));
@@ -913,10 +913,10 @@ function tseq(kind, x, y, rem) {
   if (!x) {
     return rem;
   }
-  var match = x.hd;
+  let match = x.hd;
   switch (match.TAG) {
     case "TExp" :
-        var tmp = match._1.def;
+        let tmp = match._1.def;
         if (typeof tmp !== "object" && !x.tl) {
           return {
                   hd: {
@@ -944,7 +944,7 @@ function tseq(kind, x, y, rem) {
         };
 }
 
-var dummy = {
+let dummy = {
   idx: -1,
   category: -1,
   desc: /* [] */0,
@@ -989,7 +989,7 @@ function hash$3(t) {
   return t.hash;
 }
 
-var Table = Hashtbl.Make({
+let Table = Hashtbl.Make({
       equal: equal$1,
       hash: hash$3
     });
@@ -1010,7 +1010,7 @@ function mark_used_indices(tbl) {
                     
                   }
                   List.iter((function (param) {
-                          var i = param[1];
+                          let i = param[1];
                           if (i >= 0) {
                             return Caml_array.set(tbl, i, true);
                           }
@@ -1022,7 +1022,7 @@ function mark_used_indices(tbl) {
 
 function find_free(tbl, _idx, len) {
   while(true) {
-    var idx = _idx;
+    let idx = _idx;
     if (idx === len || !Caml_array.get(tbl, idx)) {
       return idx;
     }
@@ -1032,18 +1032,18 @@ function find_free(tbl, _idx, len) {
 }
 
 function free_index(tbl_ref, l) {
-  var tbl = tbl_ref.contents;
+  let tbl = tbl_ref.contents;
   reset_table(tbl);
   mark_used_indices(tbl)(l);
-  var len = tbl.length;
-  var idx = find_free(tbl, 0, len);
+  let len = tbl.length;
+  let idx = find_free(tbl, 0, len);
   if (idx === len) {
     tbl_ref.contents = Caml_array.make((len << 1), false);
   }
   return idx;
 }
 
-var remove_matches = List.filter(function (param) {
+let remove_matches = List.filter(function (param) {
       switch (param.TAG) {
         case "TSeq" :
         case "TExp" :
@@ -1056,10 +1056,10 @@ var remove_matches = List.filter(function (param) {
 
 function split_at_match_rec(_l$p, _param) {
   while(true) {
-    var param = _param;
-    var l$p = _l$p;
+    let param = _param;
+    let l$p = _l$p;
     if (param) {
-      var x = param.hd;
+      let x = param.hd;
       switch (x.TAG) {
         case "TSeq" :
         case "TExp" :
@@ -1092,33 +1092,33 @@ function split_at_match_rec(_l$p, _param) {
 
 function remove_duplicates(prev, _l, y) {
   while(true) {
-    var l = _l;
+    let l = _l;
     if (!l) {
       return [
               /* [] */0,
               prev
             ];
     }
-    var x = l.hd;
+    let x = l.hd;
     switch (x.TAG) {
       case "TSeq" :
-          var x$1 = x._1;
-          var match = remove_duplicates(prev, x._0, x$1);
-          var match$1 = remove_duplicates(match[1], l.tl, y);
+          let x$1 = x._1;
+          let match = remove_duplicates(prev, x._0, x$1);
+          let match$1 = remove_duplicates(match[1], l.tl, y);
           return [
                   tseq(x._2, match[0], x$1, match$1[0]),
                   match$1[1]
                 ];
       case "TExp" :
-          var x$2 = x._1;
-          var tmp = x$2.def;
+          let x$2 = x._1;
+          let tmp = x$2.def;
           if (typeof tmp !== "object") {
-            var r = l.tl;
+            let r = l.tl;
             if (List.memq(y.id, prev)) {
               _l = r;
               continue ;
             }
-            var match$2 = remove_duplicates({
+            let match$2 = remove_duplicates({
                   hd: y.id,
                   tl: prev
                 }, r, y);
@@ -1130,12 +1130,12 @@ function remove_duplicates(prev, _l, y) {
                     match$2[1]
                   ];
           }
-          var r$1 = l.tl;
+          let r$1 = l.tl;
           if (List.memq(x$2.id, prev)) {
             _l = r$1;
             continue ;
           }
-          var match$3 = remove_duplicates({
+          let match$3 = remove_duplicates({
                 hd: x$2.id,
                 tl: prev
               }, r$1, y);
@@ -1163,7 +1163,7 @@ function set_idx(idx, param) {
   if (!param) {
     return /* [] */0;
   }
-  var marks = param.hd;
+  let marks = param.hd;
   switch (marks.TAG) {
     case "TSeq" :
         return {
@@ -1199,7 +1199,7 @@ function set_idx(idx, param) {
 function filter_marks(b, e, marks) {
   return {
           marks: List.filter(function (param) {
-                  var i = param[0];
+                  let i = param[0];
                   if (i < b) {
                     return true;
                   } else {
@@ -1211,7 +1211,7 @@ function filter_marks(b, e, marks) {
 }
 
 function delta_1(marks, c, next_cat, prev_cat, x, rem) {
-  var s = x.def;
+  let s = x.def;
   if (typeof s !== "object") {
     return {
             hd: {
@@ -1238,12 +1238,12 @@ function delta_1(marks, c, next_cat, prev_cat, x, rem) {
     case "Alt" :
         return delta_2(marks, c, next_cat, prev_cat, s._0, rem);
     case "Seq" :
-        var y$p = delta_1(marks, c, next_cat, prev_cat, s._1, /* [] */0);
+        let y$p = delta_1(marks, c, next_cat, prev_cat, s._1, /* [] */0);
         return delta_seq(c, next_cat, prev_cat, s._0, y$p, s._2, rem);
     case "Rep" :
-        var kind = s._1;
-        var y$p$1 = delta_1(marks, c, next_cat, prev_cat, s._2, /* [] */0);
-        var marks$p = first((function (marks) {
+        let kind = s._1;
+        let y$p$1 = delta_1(marks, c, next_cat, prev_cat, s._2, /* [] */0);
+        let marks$p = first((function (marks) {
                 switch (marks.TAG) {
                   case "TSeq" :
                   case "TExp" :
@@ -1253,14 +1253,14 @@ function delta_1(marks, c, next_cat, prev_cat, x, rem) {
                   
                 }
               }), y$p$1);
-        var match = marks$p !== undefined ? [
+        let match = marks$p !== undefined ? [
             Curry._1(remove_matches, y$p$1),
             marks$p
           ] : [
             y$p$1,
             marks
           ];
-        var y$p$p = match[0];
+        let y$p$p = match[0];
         if (s._0 === "Non_greedy") {
           return {
                   hd: {
@@ -1279,16 +1279,16 @@ function delta_1(marks, c, next_cat, prev_cat, x, rem) {
                     });
         }
     case "Mark" :
-        var i = s._0;
-        var marks_marks = {
+        let i = s._0;
+        let marks_marks = {
           hd: [
             i,
             -1
           ],
           tl: List.remove_assq(i, marks.marks)
         };
-        var marks_pmarks = marks.pmarks;
-        var marks$1 = {
+        let marks_pmarks = marks.pmarks;
+        let marks$1 = {
           marks: marks_marks,
           pmarks: marks_pmarks
         };
@@ -1332,9 +1332,9 @@ function delta_1(marks, c, next_cat, prev_cat, x, rem) {
           return rem;
         }
     case "Pmark" :
-        var marks_marks$1 = marks.marks;
-        var marks_pmarks$1 = add$1(s._0, marks.pmarks);
-        var marks$2 = {
+        let marks_marks$1 = marks.marks;
+        let marks_pmarks$1 = add$1(s._0, marks.pmarks);
+        let marks$2 = {
           marks: marks_marks$1,
           pmarks: marks_pmarks$1
         };
@@ -1358,7 +1358,7 @@ function delta_2(marks, c, next_cat, prev_cat, l, rem) {
 }
 
 function delta_seq(c, next_cat, prev_cat, kind, y, z, rem) {
-  var marks = first((function (marks) {
+  let marks = first((function (marks) {
           switch (marks.TAG) {
             case "TSeq" :
             case "TExp" :
@@ -1377,17 +1377,17 @@ function delta_seq(c, next_cat, prev_cat, kind, y, z, rem) {
   if (kind !== "First") {
     return delta_1(marks, c, next_cat, prev_cat, z, tseq(kind, Curry._1(remove_matches, y), z, rem));
   }
-  var match = split_at_match_rec(/* [] */0, y);
+  let match = split_at_match_rec(/* [] */0, y);
   return tseq(kind, match[0], z, delta_1(marks, c, next_cat, prev_cat, z, tseq(kind, match[1], z, rem)));
 }
 
 function delta_4(c, next_cat, prev_cat, l, rem) {
   if (l) {
-    var x = l.hd;
-    var rem$1 = delta_4(c, next_cat, prev_cat, l.tl, rem);
+    let x = l.hd;
+    let rem$1 = delta_4(c, next_cat, prev_cat, l.tl, rem);
     switch (x.TAG) {
       case "TSeq" :
-          var y$p = delta_4(c, next_cat, prev_cat, x._0, /* [] */0);
+          let y$p = delta_4(c, next_cat, prev_cat, x._0, /* [] */0);
           return delta_seq(c, next_cat, prev_cat, x._2, y$p, x._1, rem$1);
       case "TExp" :
           return delta_1(x._0, c, next_cat, prev_cat, x._1, rem$1);
@@ -1404,19 +1404,19 @@ function delta_4(c, next_cat, prev_cat, l, rem) {
 }
 
 function delta(tbl_ref, next_cat, $$char, st) {
-  var prev_cat = st.category;
-  var match = remove_duplicates(/* [] */0, delta_4($$char, next_cat, prev_cat, st.desc, /* [] */0), eps_expr);
-  var expr$p = match[0];
-  var idx = free_index(tbl_ref, expr$p);
-  var expr$p$p = set_idx(idx, expr$p);
+  let prev_cat = st.category;
+  let match = remove_duplicates(/* [] */0, delta_4($$char, next_cat, prev_cat, st.desc, /* [] */0), eps_expr);
+  let expr$p = match[0];
+  let idx = free_index(tbl_ref, expr$p);
+  let expr$p$p = set_idx(idx, expr$p);
   return mk(idx, next_cat, expr$p$p);
 }
 
 function flatten_match(m) {
-  var ma = List.fold_left((function (ma, param) {
+  let ma = List.fold_left((function (ma, param) {
           return Caml.int_max(ma, param[0]);
         }), -1, m);
-  var res = Caml_array.make(ma + 1 | 0, -1);
+  let res = Caml_array.make(ma + 1 | 0, -1);
   List.iter((function (param) {
           Caml_array.set(res, param[0], param[1]);
         }), m);
@@ -1424,21 +1424,21 @@ function flatten_match(m) {
 }
 
 function status(s) {
-  var st = s.status;
+  let st = s.status;
   if (st !== undefined) {
     return st;
   }
-  var match = s.desc;
-  var st$1;
+  let match = s.desc;
+  let st$1;
   if (match) {
-    var m = match.hd;
+    let m = match.hd;
     switch (m.TAG) {
       case "TSeq" :
       case "TExp" :
           st$1 = "Running";
           break;
       case "TMatch" :
-          var m$1 = m._0;
+          let m$1 = m._0;
           st$1 = {
             TAG: "Match",
             _0: flatten_match(m$1.marks),
@@ -1454,7 +1454,7 @@ function status(s) {
   return st$1;
 }
 
-var Re_automata_Category = {
+let Re_automata_Category = {
   $plus$plus: $plus$plus,
   from_char: from_char,
   inexistant: 1,
@@ -1465,7 +1465,7 @@ var Re_automata_Category = {
   search_boundary: 32
 };
 
-var Re_automata_State = {
+let Re_automata_State = {
   dummy: dummy,
   create: create$2,
   Table: Table
@@ -1473,8 +1473,8 @@ var Re_automata_State = {
 
 function iter(_n, f, _v) {
   while(true) {
-    var v = _v;
-    var n = _n;
+    let v = _v;
+    let n = _n;
     if (n === 0) {
       return v;
     }
@@ -1494,9 +1494,9 @@ function category(re, c) {
   }
 }
 
-var dummy_next = [];
+let dummy_next = [];
 
-var unknown_state = {
+let unknown_state = {
   idx: -2,
   real_idx: 0,
   next: dummy_next,
@@ -1505,8 +1505,8 @@ var unknown_state = {
 };
 
 function mk_state(ncol, desc) {
-  var match = status(desc);
-  var break_state;
+  let match = status(desc);
+  let break_state;
   break_state = typeof match !== "object" && match !== "Failed" ? false : true;
   return {
           idx: break_state ? -3 : desc.idx,
@@ -1522,9 +1522,9 @@ function find_state(re, desc) {
     return Curry._2(Re_automata_State.Table.find, re.states, desc);
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === "Not_found") {
-      var st = mk_state(re.ncol, desc);
+      let st = mk_state(re.ncol, desc);
       Curry._3(Re_automata_State.Table.add, re.states, desc, st);
       return st;
     }
@@ -1533,10 +1533,10 @@ function find_state(re, desc) {
 }
 
 function delta$1(info, cat, c, st) {
-  var desc = delta(info.re.tbl, cat, c, st.desc);
-  var len = info.positions.length;
+  let desc = delta(info.re.tbl, cat, c, st.desc);
+  let len = info.positions.length;
   if (desc.idx === len && len > 0) {
-    var pos = info.positions;
+    let pos = info.positions;
     info.positions = Caml_array.make((len << 1), 0);
     $$Array.blit(pos, 0, info.positions, 0, len);
   }
@@ -1544,10 +1544,10 @@ function delta$1(info, cat, c, st) {
 }
 
 function validate(info, s, pos, st) {
-  var c = Caml_bytes.get(info.i_cols, Caml_string.get(s, pos));
-  var cat = category(info.re, c);
-  var desc$p = delta$1(info, cat, c, st);
-  var st$p = find_state(info.re, desc$p);
+  let c = Caml_bytes.get(info.i_cols, Caml_string.get(s, pos));
+  let cat = category(info.re, c);
+  let desc$p = delta$1(info, cat, c, st);
+  let st$p = find_state(info.re, desc$p);
   Caml_array.set(st.next, c, st$p);
 }
 
@@ -1555,14 +1555,14 @@ function loop(info, s, pos, st) {
   if (pos >= info.last) {
     return st;
   }
-  var st$p = Caml_array.get(st.next, Caml_bytes.get(info.i_cols, Caml_string.get(s, pos)));
-  var _pos = pos;
-  var _st = st;
-  var _st$p = st$p;
+  let st$p = Caml_array.get(st.next, Caml_bytes.get(info.i_cols, Caml_string.get(s, pos)));
+  let _pos = pos;
+  let _st = st;
+  let _st$p = st$p;
   while(true) {
-    var st$p$1 = _st$p;
-    var st$1 = _st;
-    var pos$1 = _pos;
+    let st$p$1 = _st$p;
+    let st$1 = _st;
+    let pos$1 = _pos;
     if (st$p$1.idx < 0) {
       if (st$p$1.idx === -3) {
         Caml_array.set(info.positions, st$p$1.real_idx, pos$1 + 1 | 0);
@@ -1572,9 +1572,9 @@ function loop(info, s, pos, st) {
         return loop(info, s, pos$1, st$1);
       }
     }
-    var pos$2 = pos$1 + 1 | 0;
+    let pos$2 = pos$1 + 1 | 0;
     if (pos$2 < info.last) {
-      var st$p$p = Caml_array.get(st$p$1.next, Caml_bytes.get(info.i_cols, Caml_string.get(s, pos$2)));
+      let st$p$p = Caml_array.get(st$p$1.next, Caml_bytes.get(info.i_cols, Caml_string.get(s, pos$2)));
       Caml_array.set(info.positions, st$p$1.idx, pos$2);
       _st$p = st$p$p;
       _st = st$p$1;
@@ -1591,12 +1591,12 @@ function $$final(info, st, cat) {
     return List.assq(cat, st.final);
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === "Not_found") {
-      var st$p = delta$1(info, cat, -1, st);
-      var res_0 = st$p.idx;
-      var res_1 = status(st$p);
-      var res = [
+      let st$p = delta$1(info, cat, -1, st);
+      let res_0 = st$p.idx;
+      let res_1 = status(st$p);
+      let res = [
         res_0,
         res_1
       ];
@@ -1618,9 +1618,9 @@ function find_initial_state(re, cat) {
     return List.assq(cat, re.initial_states);
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === "Not_found") {
-      var st = find_state(re, Curry._2(Re_automata_State.create, cat, re.initial));
+      let st = find_state(re, Curry._2(Re_automata_State.create, cat, re.initial));
       re.initial_states = {
         hd: [
           cat,
@@ -1638,7 +1638,7 @@ function get_color(re, s, pos) {
   if (pos < 0) {
     return -1;
   }
-  var slen = s.length;
+  let slen = s.length;
   if (pos >= slen) {
     return -1;
   } else if (pos === (slen - 1 | 0) && re.lnl !== -1 && Caml_string.get(s, pos) === /* '\n' */10) {
@@ -1649,21 +1649,21 @@ function get_color(re, s, pos) {
 }
 
 function scan_str(info, s, initial_state, groups) {
-  var pos = info.pos;
-  var last = info.last;
+  let pos = info.pos;
+  let last = info.last;
   if (!(last === s.length && info.re.lnl !== -1 && last > pos && Caml_string.get(s, last - 1 | 0) === /* '\n' */10)) {
     if (groups) {
       return loop(info, s, pos, initial_state);
     } else {
-      var _pos = pos;
-      var _st = initial_state;
+      let _pos = pos;
+      let _st = initial_state;
       while(true) {
-        var st = _st;
-        var pos$1 = _pos;
+        let st = _st;
+        let pos$1 = _pos;
         if (pos$1 >= last) {
           return st;
         }
-        var st$p = Caml_array.get(st.next, Caml_bytes.get(info.i_cols, Caml_string.get(s, pos$1)));
+        let st$p = Caml_array.get(st.next, Caml_bytes.get(info.i_cols, Caml_string.get(s, pos$1)));
         if (st$p.idx >= 0) {
           _st = st$p;
           _pos = pos$1 + 1 | 0;
@@ -1677,20 +1677,20 @@ function scan_str(info, s, initial_state, groups) {
       };
     }
   }
-  var info$1 = {
+  let info$1 = {
     re: info.re,
     i_cols: info.i_cols,
     positions: info.positions,
     pos: info.pos,
     last: last - 1 | 0
   };
-  var st$1 = scan_str(info$1, s, initial_state, groups);
+  let st$1 = scan_str(info$1, s, initial_state, groups);
   if (st$1.idx === -3) {
     return st$1;
   } else {
-    var pos$2 = last - 1 | 0;
+    let pos$2 = last - 1 | 0;
     while(true) {
-      var st$p$1 = Caml_array.get(st$1.next, info$1.re.lnl);
+      let st$p$1 = Caml_array.get(st$1.next, info$1.re.lnl);
       if (st$p$1.idx >= 0) {
         if (groups) {
           Caml_array.set(info$1.positions, st$p$1.idx, pos$2 + 1 | 0);
@@ -1703,11 +1703,11 @@ function scan_str(info, s, initial_state, groups) {
         }
         return st$p$1;
       }
-      var c = info$1.re.lnl;
-      var real_c = Caml_bytes.get(info$1.i_cols, /* '\n' */10);
-      var cat = category(info$1.re, c);
-      var desc$p = delta$1(info$1, cat, real_c, st$1);
-      var st$p$2 = find_state(info$1.re, desc$p);
+      let c = info$1.re.lnl;
+      let real_c = Caml_bytes.get(info$1.i_cols, /* '\n' */10);
+      let cat = category(info$1.re, c);
+      let desc$p = delta$1(info$1, cat, real_c, st$1);
+      let st$p$2 = find_state(info$1.re, desc$p);
       Caml_array.set(st$1.next, c, st$p$2);
       continue ;
     };
@@ -1719,26 +1719,26 @@ function cadd(c, s) {
 }
 
 function trans_set(cache, cm, s) {
-  var i = one_char(s);
+  let i = one_char(s);
   if (i !== undefined) {
     return single(Caml_bytes.get(cm, i));
   }
-  var v_0 = hash_rec(s);
-  var v = [
+  let v_0 = hash_rec(s);
+  let v = [
     v_0,
     s
   ];
   try {
-    var _param = cache.contents;
+    let _param = cache.contents;
     while(true) {
-      var param = _param;
+      let param = _param;
       if (typeof param !== "object") {
         throw {
               RE_EXN_ID: "Not_found",
               Error: new Error()
             };
       }
-      var c = compare(v, param.v);
+      let c = compare(v, param.v);
       if (c === 0) {
         return param.d;
       }
@@ -1747,9 +1747,9 @@ function trans_set(cache, cm, s) {
     };
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === "Not_found") {
-      var l = List.fold_right((function (param, l) {
+      let l = List.fold_right((function (param, l) {
               return union(seq(Caml_bytes.get(cm, param[0]), Caml_bytes.get(cm, param[1])), l);
             }), s, /* [] */0);
       cache.contents = add(v, l, cache.contents);
@@ -1761,7 +1761,7 @@ function trans_set(cache, cm, s) {
 
 function is_charset(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return false;
     }
@@ -1794,28 +1794,28 @@ function is_charset(_param) {
 }
 
 function split(s, cm) {
-  var _t = s;
-  var f = function (i, j) {
+  let _t = s;
+  let f = function (i, j) {
     Caml_bytes.set(cm, i, /* '\001' */1);
     Caml_bytes.set(cm, j + 1 | 0, /* '\001' */1);
   };
   while(true) {
-    var t = _t;
+    let t = _t;
     if (!t) {
       return ;
     }
-    var match = t.hd;
+    let match = t.hd;
     Curry._2(f, match[0], match[1]);
     _t = t.tl;
     continue ;
   };
 }
 
-var cupper = union(seq(/* 'A' */65, /* 'Z' */90), union(seq(/* '\192' */192, /* '\214' */214), seq(/* '\216' */216, /* '\222' */222)));
+let cupper = union(seq(/* 'A' */65, /* 'Z' */90), union(seq(/* '\192' */192, /* '\214' */214), seq(/* '\216' */216, /* '\222' */222)));
 
-var clower = offset(32, cupper);
+let clower = offset(32, cupper);
 
-var calpha = List.fold_right(cadd, {
+let calpha = List.fold_right(cadd, {
       hd: /* '\170' */170,
       tl: {
         hd: /* '\181' */181,
@@ -1832,11 +1832,11 @@ var calpha = List.fold_right(cadd, {
       }
     }, union(clower, cupper));
 
-var cdigit = seq(/* '0' */48, /* '9' */57);
+let cdigit = seq(/* '0' */48, /* '9' */57);
 
-var calnum = union(calpha, cdigit);
+let calnum = union(calpha, cdigit);
 
-var cword = union({
+let cword = union({
       hd: [
         /* '_' */95,
         /* '_' */95
@@ -1845,12 +1845,12 @@ var cword = union({
     }, calnum);
 
 function colorize(c, regexp) {
-  var lnl = {
+  let lnl = {
     contents: false
   };
-  var colorize$1 = function (_regexp) {
+  let colorize$1 = function (_regexp) {
     while(true) {
-      var regexp = _regexp;
+      let regexp = _regexp;
       if (typeof regexp !== "object") {
         switch (regexp) {
           case "Beg_of_line" :
@@ -1913,12 +1913,12 @@ function colorize(c, regexp) {
 }
 
 function flatten_cmap(cm) {
-  var c = Caml_bytes.create(256);
-  var col_repr = Caml_bytes.create(256);
-  var v = 0;
+  let c = Caml_bytes.create(256);
+  let col_repr = Caml_bytes.create(256);
+  let v = 0;
   Caml_bytes.set(c, 0, /* '\000' */0);
   Caml_bytes.set(col_repr, 0, /* '\000' */0);
-  for(var i = 1; i <= 255; ++i){
+  for(let i = 1; i <= 255; ++i){
     if (Caml_bytes.get(cm, i) !== /* '\000' */0) {
       v = v + 1 | 0;
     }
@@ -1934,8 +1934,8 @@ function flatten_cmap(cm) {
 
 function equal$2(_x1, _x2) {
   while(true) {
-    var x2 = _x2;
-    var x1 = _x1;
+    let x2 = _x2;
+    let x1 = _x1;
     if (typeof x1 !== "object") {
       switch (x1) {
         case "Beg_of_line" :
@@ -2150,8 +2150,8 @@ function equal$2(_x1, _x2) {
 
 function eq_list(_l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (!l1) {
       if (l2) {
         return false;
@@ -2184,26 +2184,26 @@ function sequence(l) {
 
 function merge_sequences(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return /* [] */0;
     }
-    var l$p = param.hd;
+    let l$p = param.hd;
     if (typeof l$p === "object") {
       switch (l$p.TAG) {
         case "Sequence" :
-            var match = l$p._0;
+            let match = l$p._0;
             if (match) {
-              var y = match.tl;
-              var x = match.hd;
-              var r$p = merge_sequences(param.tl);
-              var exit = 0;
+              let y = match.tl;
+              let x = match.hd;
+              let r$p = merge_sequences(param.tl);
+              let exit = 0;
               if (r$p) {
-                var match$1 = r$p.hd;
+                let match$1 = r$p.hd;
                 if (typeof match$1 !== "object" || match$1.TAG !== "Sequence") {
                   exit = 2;
                 } else {
-                  var match$2 = match$1._0;
+                  let match$2 = match$1._0;
                   if (match$2) {
                     if (equal$2(x, match$2.hd)) {
                       return {
@@ -2276,13 +2276,13 @@ function enforce_kind(ids, kind, kind$p, cr) {
 
 function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) {
   while(true) {
-    var s = _s;
-    var greedy = _greedy;
-    var ign_group = _ign_group;
+    let s = _s;
+    let greedy = _greedy;
+    let ign_group = _ign_group;
     if (typeof s !== "object") {
       switch (s) {
         case "Beg_of_line" :
-            var c$1 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.newline);
+            let c$1 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.newline);
             return [
                     mk_expr(ids, {
                           TAG: "After",
@@ -2291,7 +2291,7 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
                     kind
                   ];
         case "End_of_line" :
-            var c$2 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.newline);
+            let c$2 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.newline);
             return [
                     mk_expr(ids, {
                           TAG: "Before",
@@ -2300,8 +2300,8 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
                     kind
                   ];
         case "Beg_of_word" :
-            var c$3 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.not_letter);
-            var c$4 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.letter);
+            let c$3 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.not_letter);
+            let c$4 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.letter);
             return [
                     seq$1(ids, "First", mk_expr(ids, {
                               TAG: "After",
@@ -2313,8 +2313,8 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
                     kind
                   ];
         case "End_of_word" :
-            var c$5 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.letter);
-            var c$6 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.not_letter);
+            let c$5 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.letter);
+            let c$6 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.not_letter);
             return [
                     seq$1(ids, "First", mk_expr(ids, {
                               TAG: "After",
@@ -2365,7 +2365,7 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
                     kind
                   ];
         case "Last_end_of_line" :
-            var c$7 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.lastnewline);
+            let c$7 = Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.inexistant, Re_automata_Category.lastnewline);
             return [
                     mk_expr(ids, {
                           TAG: "Before",
@@ -2404,9 +2404,9 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
                     kind
                   ];
         case "Alternative" :
-            var merged_sequences = merge_sequences(s._0);
+            let merged_sequences = merge_sequences(s._0);
             if (merged_sequences && !merged_sequences.tl) {
-              var match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, merged_sequences.hd);
+              let match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, merged_sequences.hd);
               return [
                       enforce_kind(ids, kind, match[1], match[0]),
                       kind
@@ -2415,21 +2415,21 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
             return [
                     alt(ids, List.map((function(ign_group,greedy){
                             return function (r$p) {
-                              var match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r$p);
+                              let match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r$p);
                               return enforce_kind(ids, kind, match[1], match[0]);
                             }
                             }(ign_group,greedy)), merged_sequences)),
                     kind
                   ];
         case "Repeat" :
-            var j = s._2;
-            var i = s._1;
-            var match$1 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, s._0);
-            var kind$p = match$1[1];
-            var cr = match$1[0];
-            var rem;
+            let j = s._2;
+            let i = s._1;
+            let match$1 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, s._0);
+            let kind$p = match$1[1];
+            let cr = match$1[0];
+            let rem;
             if (j !== undefined) {
-              var f = greedy === "Non_greedy" ? (function(cr,kind$p){
+              let f = greedy === "Non_greedy" ? (function(cr,kind$p){
                 return function (rem) {
                   return alt(ids, {
                               hd: mk_expr(ids, "Eps"),
@@ -2463,8 +2463,8 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
                     kind
                   ];
         case "Sem" :
-            var kind$p$1 = s._0;
-            var match$2 = translate(ids, kind$p$1, ign_group, ign_case, greedy, pos, cache, c, s._1);
+            let kind$p$1 = s._0;
+            let match$2 = translate(ids, kind$p$1, ign_group, ign_case, greedy, pos, cache, c, s._1);
             return [
                     enforce_kind(ids, kind$p$1, match$2[1], match$2[0]),
                     kind$p$1
@@ -2474,14 +2474,14 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
             _greedy = s._0;
             continue ;
         case "Group" :
-            var r$p = s._0;
+            let r$p = s._0;
             if (ign_group) {
               _s = r$p;
               continue ;
             }
-            var p = pos.contents;
+            let p = pos.contents;
             pos.contents = pos.contents + 2 | 0;
-            var match$3 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r$p);
+            let match$3 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r$p);
             return [
                     seq$1(ids, "First", mk_expr(ids, {
                               TAG: "Mark",
@@ -2497,11 +2497,11 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
             _ign_group = true;
             continue ;
         case "Nest" :
-            var b = pos.contents;
-            var match$4 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, s._0);
-            var kind$p$2 = match$4[1];
-            var cr$1 = match$4[0];
-            var e = pos.contents - 1 | 0;
+            let b = pos.contents;
+            let match$4 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, s._0);
+            let kind$p$2 = match$4[1];
+            let cr$1 = match$4[0];
+            let e = pos.contents - 1 | 0;
             if (e < b) {
               return [
                       cr$1,
@@ -2514,7 +2514,7 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _s) 
                     ];
             }
         case "Pmark" :
-            var match$5 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, s._1);
+            let match$5 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, s._1);
             return [
                     seq$1(ids, "First", mk_expr(ids, {
                               TAG: "Pmark",
@@ -2541,12 +2541,12 @@ function trans_seq(ids, kind, ign_group, ign_case, greedy, pos, cache, c, param)
   if (!param) {
     return mk_expr(ids, "Eps");
   }
-  var rem = param.tl;
-  var r = param.hd;
+  let rem = param.tl;
+  let r = param.hd;
   if (rem) {
-    var match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r);
-    var cr$p = match[0];
-    var cr$p$p = trans_seq(ids, kind, ign_group, ign_case, greedy, pos, cache, c, rem);
+    let match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r);
+    let cr$p = match[0];
+    let cr$p$p = trans_seq(ids, kind, ign_group, ign_case, greedy, pos, cache, c, rem);
     if (is_eps(cr$p$p)) {
       return cr$p;
     } else if (is_eps(cr$p)) {
@@ -2555,7 +2555,7 @@ function trans_seq(ids, kind, ign_group, ign_case, greedy, pos, cache, c, param)
       return seq$1(ids, match[1], cr$p, cr$p$p);
     }
   }
-  var match$1 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r);
+  let match$1 = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r);
   return enforce_kind(ids, kind, match$1[1], match$1[0]);
 }
 
@@ -2591,14 +2591,14 @@ function as_set(s) {
 
 function handle_case(_ign_case, _s) {
   while(true) {
-    var s = _s;
-    var ign_case = _ign_case;
+    let s = _s;
+    let ign_case = _ign_case;
     if (typeof s !== "object") {
       return s;
     }
     switch (s.TAG) {
       case "Set" :
-          var s$1 = s._0;
+          let s$1 = s._0;
           return {
                   TAG: "Set",
                   _0: ign_case ? case_insens(s$1) : s$1
@@ -2613,7 +2613,7 @@ function handle_case(_ign_case, _s) {
                       }(ign_case)), s._0)
                 };
       case "Alternative" :
-          var l$p = List.map((function(ign_case){
+          let l$p = List.map((function(ign_case){
               return function (param) {
                 return handle_case(ign_case, param);
               }
@@ -2642,7 +2642,7 @@ function handle_case(_ign_case, _s) {
                   _2: s._2
                 };
       case "Sem" :
-          var r$p = handle_case(ign_case, s._1);
+          let r$p = handle_case(ign_case, s._1);
           if (is_charset(r$p)) {
             return r$p;
           } else {
@@ -2653,7 +2653,7 @@ function handle_case(_ign_case, _s) {
                   };
           }
       case "Sem_greedy" :
-          var r$p$1 = handle_case(ign_case, s._1);
+          let r$p$1 = handle_case(ign_case, s._1);
           if (is_charset(r$p$1)) {
             return r$p$1;
           } else {
@@ -2669,7 +2669,7 @@ function handle_case(_ign_case, _s) {
                   _0: handle_case(ign_case, s._0)
                 };
       case "No_group" :
-          var r$p$2 = handle_case(ign_case, s._0);
+          let r$p$2 = handle_case(ign_case, s._0);
           if (is_charset(r$p$2)) {
             return r$p$2;
           } else {
@@ -2679,7 +2679,7 @@ function handle_case(_ign_case, _s) {
                   };
           }
       case "Nest" :
-          var r$p$3 = handle_case(ign_case, s._0);
+          let r$p$3 = handle_case(ign_case, s._0);
           if (is_charset(r$p$3)) {
             return r$p$3;
           } else {
@@ -2697,7 +2697,7 @@ function handle_case(_ign_case, _s) {
           _ign_case = true;
           continue ;
       case "Intersection" :
-          var l$p$1 = List.map((function(ign_case){
+          let l$p$1 = List.map((function(ign_case){
               return function (r) {
                 return handle_case(ign_case, r);
               }
@@ -2709,7 +2709,7 @@ function handle_case(_ign_case, _s) {
                         }), cany, l$p$1)
                 };
       case "Complement" :
-          var l$p$2 = List.map((function(ign_case){
+          let l$p$2 = List.map((function(ign_case){
               return function (r) {
                 return handle_case(ign_case, r);
               }
@@ -2738,7 +2738,7 @@ function handle_case(_ign_case, _s) {
 
 function anchored(_l) {
   while(true) {
-    var l = _l;
+    let l = _l;
     if (typeof l !== "object") {
       switch (l) {
         case "Beg_of_str" :
@@ -2800,7 +2800,7 @@ function seq$2(l) {
   }
 }
 
-var epsilon = {
+let epsilon = {
   TAG: "Sequence",
   _0: /* [] */0
 };
@@ -2829,8 +2829,8 @@ function repn(r, i, j) {
 }
 
 function set(str) {
-  var s = /* [] */0;
-  for(var i = 0 ,i_finish = str.length; i < i_finish; ++i){
+  let s = /* [] */0;
+  for(let i = 0 ,i_finish = str.length; i < i_finish; ++i){
     s = union(single(Caml_string.get(str, i)), s);
   }
   return {
@@ -2840,7 +2840,7 @@ function set(str) {
 }
 
 function compl(l) {
-  var r = {
+  let r = {
     TAG: "Complement",
     _0: l
   };
@@ -2854,12 +2854,12 @@ function compl(l) {
       };
 }
 
-var any = {
+let any = {
   TAG: "Set",
   _0: cany
 };
 
-var notnl = {
+let notnl = {
   TAG: "Set",
   _0: diff(cany, {
         hd: [
@@ -2870,7 +2870,7 @@ var notnl = {
       })
 };
 
-var lower = alt$1({
+let lower = alt$1({
       hd: {
         TAG: "Set",
         _0: seq(/* 'a' */97, /* 'z' */122)
@@ -2902,7 +2902,7 @@ var lower = alt$1({
       }
     });
 
-var upper = alt$1({
+let upper = alt$1({
       hd: {
         TAG: "Set",
         _0: seq(/* 'A' */65, /* 'Z' */90)
@@ -2922,7 +2922,7 @@ var upper = alt$1({
       }
     });
 
-var alpha = alt$1({
+let alpha = alt$1({
       hd: lower,
       tl: {
         hd: upper,
@@ -2954,12 +2954,12 @@ var alpha = alt$1({
       }
     });
 
-var digit = {
+let digit = {
   TAG: "Set",
   _0: seq(/* '0' */48, /* '9' */57)
 };
 
-var alnum = alt$1({
+let alnum = alt$1({
       hd: alpha,
       tl: {
         hd: digit,
@@ -2967,7 +2967,7 @@ var alnum = alt$1({
       }
     });
 
-var wordc = alt$1({
+let wordc = alt$1({
       hd: alnum,
       tl: {
         hd: {
@@ -2984,14 +2984,14 @@ var wordc = alt$1({
       }
     });
 
-var ascii = {
+let ascii = {
   TAG: "Set",
   _0: seq(/* '\000' */0, /* '\127' */127)
 };
 
-var blank = set("\t ");
+let blank = set("\t ");
 
-var cntrl = alt$1({
+let cntrl = alt$1({
       hd: {
         TAG: "Set",
         _0: seq(/* '\000' */0, /* '\031' */31)
@@ -3005,7 +3005,7 @@ var cntrl = alt$1({
       }
     });
 
-var graph = alt$1({
+let graph = alt$1({
       hd: {
         TAG: "Set",
         _0: seq(/* '!' */33, /* '~' */126)
@@ -3019,7 +3019,7 @@ var graph = alt$1({
       }
     });
 
-var print = alt$1({
+let print = alt$1({
       hd: {
         TAG: "Set",
         _0: seq(/* ' ' */32, /* '~' */126)
@@ -3033,7 +3033,7 @@ var print = alt$1({
       }
     });
 
-var punct = alt$1({
+let punct = alt$1({
       hd: {
         TAG: "Set",
         _0: seq(/* '!' */33, /* '/' */47)
@@ -3107,7 +3107,7 @@ var punct = alt$1({
       }
     });
 
-var space = alt$1({
+let space = alt$1({
       hd: {
         TAG: "Set",
         _0: {
@@ -3127,7 +3127,7 @@ var space = alt$1({
       }
     });
 
-var xdigit = alt$1({
+let xdigit = alt$1({
       hd: digit,
       tl: {
         hd: {
@@ -3145,7 +3145,7 @@ var xdigit = alt$1({
     });
 
 function compile(r) {
-  var regexp = anchored(r) ? ({
+  let regexp = anchored(r) ? ({
         TAG: "Group",
         _0: r
       }) : seq$2({
@@ -3162,26 +3162,26 @@ function compile(r) {
             tl: /* [] */0
           }
         });
-  var regexp$1 = handle_case(false, regexp);
-  var c = Bytes.make(257, /* '\000' */0);
-  var need_lnl = colorize(c, regexp$1);
-  var match = flatten_cmap(c);
-  var ncol = match[2];
-  var col = match[0];
-  var lnl = need_lnl ? ncol : -1;
-  var ncol$1 = need_lnl ? ncol + 1 | 0 : ncol;
-  var ids = {
+  let regexp$1 = handle_case(false, regexp);
+  let c = Bytes.make(257, /* '\000' */0);
+  let need_lnl = colorize(c, regexp$1);
+  let match = flatten_cmap(c);
+  let ncol = match[2];
+  let col = match[0];
+  let lnl = need_lnl ? ncol : -1;
+  let ncol$1 = need_lnl ? ncol + 1 | 0 : ncol;
+  let ids = {
     contents: 0
   };
-  var pos = {
+  let pos = {
     contents: 0
   };
-  var match$1 = translate(ids, "First", false, false, "Greedy", pos, {
+  let match$1 = translate(ids, "First", false, false, "Greedy", pos, {
         contents: "Empty"
       }, col, regexp$1);
-  var r$1 = enforce_kind(ids, "First", match$1[1], match$1[0]);
-  var col_repr = match[1];
-  var group_count = pos.contents / 2 | 0;
+  let r$1 = enforce_kind(ids, "First", match$1[1], match$1[0]);
+  let col_repr = match[1];
+  let group_count = pos.contents / 2 | 0;
   return {
           initial: r$1,
           initial_states: /* [] */0,
@@ -3198,8 +3198,8 @@ function compile(r) {
 }
 
 function exec_internal(name, posOpt, lenOpt, groups, re, s) {
-  var pos = posOpt !== undefined ? posOpt : 0;
-  var len = lenOpt !== undefined ? lenOpt : -1;
+  let pos = posOpt !== undefined ? posOpt : 0;
+  let len = lenOpt !== undefined ? lenOpt : -1;
   if (pos < 0 || len < -1 || (pos + len | 0) > s.length) {
     throw {
           RE_EXN_ID: "Invalid_argument",
@@ -3207,12 +3207,12 @@ function exec_internal(name, posOpt, lenOpt, groups, re, s) {
           Error: new Error()
         };
   }
-  var partial = false;
-  var slen = s.length;
-  var last = len === -1 ? slen : pos + len | 0;
-  var tmp;
+  let partial = false;
+  let slen = s.length;
+  let last = len === -1 ? slen : pos + len | 0;
+  let tmp;
   if (groups) {
-    var n = re.tbl.contents.length + 1 | 0;
+    let n = re.tbl.contents.length + 1 | 0;
     tmp = n <= 10 ? [
         0,
         0,
@@ -3228,22 +3228,22 @@ function exec_internal(name, posOpt, lenOpt, groups, re, s) {
   } else {
     tmp = [];
   }
-  var info = {
+  let info = {
     re: re,
     i_cols: re.cols,
     positions: tmp,
     pos: pos,
     last: last
   };
-  var initial_cat = pos === 0 ? Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, Re_automata_Category.inexistant) : Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, category(re, get_color(re, s, pos - 1 | 0)));
-  var initial_state = find_initial_state(re, initial_cat);
-  var st = scan_str(info, s, initial_state, groups);
-  var res;
+  let initial_cat = pos === 0 ? Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, Re_automata_Category.inexistant) : Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, category(re, get_color(re, s, pos - 1 | 0)));
+  let initial_state = find_initial_state(re, initial_cat);
+  let st = scan_str(info, s, initial_state, groups);
+  let res;
   if (st.idx === -3 || partial) {
     res = status(st.desc);
   } else {
-    var final_cat = last === slen ? Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, Re_automata_Category.inexistant) : Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, category(re, get_color(re, s, last)));
-    var match = $$final(info, st, final_cat);
+    let final_cat = last === slen ? Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, Re_automata_Category.inexistant) : Curry._2(Re_automata_Category.$plus$plus, Re_automata_Category.search_boundary, category(re, get_color(re, s, last)));
+    let match = $$final(info, st, final_cat);
     if (groups) {
       Caml_array.set(info.positions, match[0], last + 1 | 0);
     }
@@ -3276,15 +3276,15 @@ function offset$1(t, i) {
           Error: new Error()
         };
   }
-  var m1 = Caml_array.get(t.marks, (i << 1));
+  let m1 = Caml_array.get(t.marks, (i << 1));
   if (m1 === -1) {
     throw {
           RE_EXN_ID: "Not_found",
           Error: new Error()
         };
   }
-  var p1 = Caml_array.get(t.gpos, m1) - 1 | 0;
-  var p2 = Caml_array.get(t.gpos, Caml_array.get(t.marks, (i << 1) + 1 | 0)) - 1 | 0;
+  let p1 = Caml_array.get(t.gpos, m1) - 1 | 0;
+  let p2 = Caml_array.get(t.gpos, Caml_array.get(t.marks, (i << 1) + 1 | 0)) - 1 | 0;
   return [
           p1,
           p2
@@ -3292,14 +3292,14 @@ function offset$1(t, i) {
 }
 
 function get(t, i) {
-  var match = offset$1(t, i);
-  var p1 = match[0];
+  let match = offset$1(t, i);
+  let p1 = match[0];
   return $$String.sub(t.s, p1, match[1] - p1 | 0);
 }
 
-var Parse_error = /* @__PURE__ */Caml_exceptions.create("Parse_error");
+let Parse_error = /* @__PURE__ */Caml_exceptions.create("Parse_error");
 
-var Not_supported = /* @__PURE__ */Caml_exceptions.create("Not_supported");
+let Not_supported = /* @__PURE__ */Caml_exceptions.create("Not_supported");
 
 function posix_class_of_string(class_) {
   switch (class_) {
@@ -3330,7 +3330,7 @@ function posix_class_of_string(class_) {
     case "xdigit" :
         return xdigit;
     default:
-      var s = "Invalid pcre class: " + class_;
+      let s = "Invalid pcre class: " + class_;
       throw {
             RE_EXN_ID: "Invalid_argument",
             _1: s,
@@ -3340,28 +3340,28 @@ function posix_class_of_string(class_) {
 }
 
 function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
-  var i = {
+  let i = {
     contents: 0
   };
-  var l = s.length;
-  var test = function (c) {
+  let l = s.length;
+  let test = function (c) {
     if (i.contents !== l) {
       return Caml_string.get(s, i.contents) === c;
     } else {
       return false;
     }
   };
-  var accept = function (c) {
-    var r = test(c);
+  let accept = function (c) {
+    let r = test(c);
     if (r) {
       i.contents = i.contents + 1 | 0;
     }
     return r;
   };
-  var accept_s = function (s$p) {
-    var len = s$p.length;
+  let accept_s = function (s$p) {
+    let len = s$p.length;
     try {
-      for(var j = 0; j < len; ++j){
+      for(let j = 0; j < len; ++j){
         try {
           if (Caml_string.get(s$p, j) !== Caml_string.get(s, i.contents + j | 0)) {
             throw {
@@ -3382,21 +3382,21 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       return true;
     }
     catch (raw_exn){
-      var exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn);
+      let exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn);
       if (exn$1.RE_EXN_ID === Pervasives.Exit) {
         return false;
       }
       throw exn$1;
     }
   };
-  var get = function (param) {
-    var r = Caml_string.get(s, i.contents);
+  let get = function (param) {
+    let r = Caml_string.get(s, i.contents);
     i.contents = i.contents + 1 | 0;
     return r;
   };
-  var greedy_mod = function (r) {
-    var gr = accept(/* '?' */63);
-    var gr$1 = ungreedy ? !gr : gr;
+  let greedy_mod = function (r) {
+    let gr = accept(/* '?' */63);
+    let gr$1 = ungreedy ? !gr : gr;
     if (gr$1) {
       return {
               TAG: "Sem_greedy",
@@ -3411,9 +3411,9 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
             };
     }
   };
-  var regexp$p = function (_left) {
+  let regexp$p = function (_left) {
     while(true) {
-      var left = _left;
+      let left = _left;
       if (!accept(/* '|' */124)) {
         return left;
       }
@@ -3427,9 +3427,9 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       continue ;
     };
   };
-  var branch$p = function (_left) {
+  let branch$p = function (_left) {
     while(true) {
-      var left = _left;
+      let left = _left;
       if (i.contents === l || test(/* '|' */124) || test(/* ')' */41)) {
         return seq$2(List.rev(left));
       }
@@ -3440,14 +3440,14 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       continue ;
     };
   };
-  var $$char = function (param) {
+  let $$char = function (param) {
     if (i.contents === l) {
       throw {
             RE_EXN_ID: Parse_error,
             Error: new Error()
           };
     }
-    var c = get(undefined);
+    let c = get(undefined);
     if (c === /* '[' */91) {
       if (accept(/* '=' */61)) {
         throw {
@@ -3456,8 +3456,8 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
             };
       }
       if (accept(/* ':' */58)) {
-        var compl$1 = accept(/* '^' */94);
-        var cls;
+        let compl$1 = accept(/* '^' */94);
+        let cls;
         try {
           cls = List.find(accept_s, {
                 hd: "alnum",
@@ -3501,7 +3501,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
               });
         }
         catch (raw_exn){
-          var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+          let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
           if (exn.RE_EXN_ID === "Not_found") {
             throw {
                   RE_EXN_ID: Parse_error,
@@ -3516,8 +3516,8 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
                 Error: new Error()
               };
         }
-        var posix_class = posix_class_of_string(cls);
-        var re = compl$1 ? compl({
+        let posix_class = posix_class_of_string(cls);
+        let re = compl$1 ? compl({
                 hd: posix_class,
                 tl: /* [] */0
               }) : posix_class;
@@ -3538,7 +3538,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
               Error: new Error()
             };
       }
-      var c$1 = get(undefined);
+      let c$1 = get(undefined);
       if (!accept(/* '.' */46)) {
         throw {
               RE_EXN_ID: Not_supported,
@@ -3562,7 +3562,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
               VAL: c
             };
     }
-    var c$2 = get(undefined);
+    let c$2 = get(undefined);
     if (c$2 >= 58) {
       if (c$2 >= 123) {
         return {
@@ -3735,15 +3735,15 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
             };
     }
   };
-  var bracket = function (_s) {
+  let bracket = function (_s) {
     while(true) {
-      var s = _s;
+      let s = _s;
       if (s !== /* [] */0 && accept(/* ']' */93)) {
         return s;
       }
-      var match = $$char(undefined);
+      let match = $$char(undefined);
       if (match.NAME === "Char") {
-        var c = match.VAL;
+        let c = match.VAL;
         if (accept(/* '-' */45)) {
           if (accept(/* ']' */93)) {
             return {
@@ -3766,7 +3766,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
                     }
                   };
           }
-          var match$1 = $$char(undefined);
+          let match$1 = $$char(undefined);
           if (match$1.NAME !== "Char") {
             return {
                     hd: {
@@ -3816,8 +3816,8 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       continue ;
     };
   };
-  var piece = function (param) {
-    var r = atom(undefined);
+  let piece = function (param) {
+    let r = atom(undefined);
     if (accept(/* '*' */42)) {
       return greedy_mod(repn(r, 0, undefined));
     }
@@ -3830,9 +3830,9 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
     if (!accept(/* '{' */123)) {
       return r;
     }
-    var i$1 = integer(undefined);
+    let i$1 = integer(undefined);
     if (i$1 !== undefined) {
-      var j = accept(/* ',' */44) ? integer(undefined) : i$1;
+      let j = accept(/* ',' */44) ? integer(undefined) : i$1;
       if (!accept(/* '}' */125)) {
         throw {
               RE_EXN_ID: Parse_error,
@@ -3850,27 +3850,27 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
     i.contents = i.contents - 1 | 0;
     return r;
   };
-  var integer = function (param) {
+  let integer = function (param) {
     if (i.contents === l) {
       return ;
     }
-    var d = get(undefined);
+    let d = get(undefined);
     if (d > 57 || d < 48) {
       i.contents = i.contents - 1 | 0;
       return ;
     } else {
-      var _i = d - /* '0' */48 | 0;
+      let _i = d - /* '0' */48 | 0;
       while(true) {
-        var i$1 = _i;
+        let i$1 = _i;
         if (i.contents === l) {
           return i$1;
         }
-        var d$1 = get(undefined);
+        let d$1 = get(undefined);
         if (d$1 > 57 || d$1 < 48) {
           i.contents = i.contents - 1 | 0;
           return i$1;
         }
-        var i$p = Math.imul(10, i$1) + (d$1 - /* '0' */48 | 0) | 0;
+        let i$p = Math.imul(10, i$1) + (d$1 - /* '0' */48 | 0) | 0;
         if (i$p < i$1) {
           throw {
                 RE_EXN_ID: Parse_error,
@@ -3882,7 +3882,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       };
     }
   };
-  var atom = function (param) {
+  let atom = function (param) {
     if (accept(/* '.' */46)) {
       if (dotall) {
         return any;
@@ -3893,7 +3893,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
     if (accept(/* '(' */40)) {
       if (accept(/* '?' */63)) {
         if (accept(/* ':' */58)) {
-          var r = regexp$p(branch$p(/* [] */0));
+          let r = regexp$p(branch$p(/* [] */0));
           if (!accept(/* ')' */41)) {
             throw {
                   RE_EXN_ID: Parse_error,
@@ -3903,7 +3903,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
           return r;
         }
         if (accept(/* '#' */35)) {
-          var _param;
+          let _param;
           while(true) {
             if (accept(/* ')' */41)) {
               return epsilon;
@@ -3918,7 +3918,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
               Error: new Error()
             };
       }
-      var r$1 = regexp$p(branch$p(/* [] */0));
+      let r$1 = regexp$p(branch$p(/* [] */0));
       if (!accept(/* ')' */41)) {
         throw {
               RE_EXN_ID: Parse_error,
@@ -3960,7 +3960,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
               Error: new Error()
             };
       }
-      var c = get(undefined);
+      let c = get(undefined);
       switch (c) {
         case 48 :
         case 49 :
@@ -4116,7 +4116,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
               Error: new Error()
             };
       }
-      var c$1 = get(undefined);
+      let c$1 = get(undefined);
       if (c$1 >= 64) {
         if (c$1 !== 92) {
           if (c$1 !== 123) {
@@ -4159,7 +4159,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
             };
     }
   };
-  var res = regexp$p(branch$p(/* [] */0));
+  let res = regexp$p(branch$p(/* [] */0));
   if (i.contents !== l) {
     throw {
           RE_EXN_ID: Parse_error,
@@ -4170,8 +4170,8 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
 }
 
 function re(flagsOpt, pat) {
-  var flags = flagsOpt !== undefined ? flagsOpt : /* [] */0;
-  var opts = List.map((function (param) {
+  let flags = flagsOpt !== undefined ? flagsOpt : /* [] */0;
+  let opts = List.map((function (param) {
           if (param === "CASELESS") {
             return "Caseless";
           } else if (param === "ANCHORED") {
@@ -4180,10 +4180,10 @@ function re(flagsOpt, pat) {
             return "Multiline";
           }
         }), flags);
-  var optsOpt = opts;
-  var opts$1 = optsOpt !== undefined ? optsOpt : /* [] */0;
-  var r = parse(List.memq("Multiline", opts$1), List.memq("Dollar_endonly", opts$1), List.memq("Dotall", opts$1), List.memq("Ungreedy", opts$1), pat);
-  var r$1 = List.memq("Anchored", opts$1) ? seq$2({
+  let optsOpt = opts;
+  let opts$1 = optsOpt !== undefined ? optsOpt : /* [] */0;
+  let r = parse(List.memq("Multiline", opts$1), List.memq("Dollar_endonly", opts$1), List.memq("Dotall", opts$1), List.memq("Ungreedy", opts$1), pat);
+  let r$1 = List.memq("Anchored", opts$1) ? seq$2({
           hd: "Start",
           tl: {
             hd: r,
@@ -4201,8 +4201,8 @@ function re(flagsOpt, pat) {
 }
 
 function exec(rex, pos, s) {
-  var len;
-  var substr = exec_internal("Re.exec", pos, len, true, rex, s);
+  let len;
+  let substr = exec_internal("Re.exec", pos, len, true, rex, s);
   if (typeof substr === "object") {
     return substr._0;
   }
@@ -4218,7 +4218,7 @@ function exec(rex, pos, s) {
       };
 }
 
-var s = "a".repeat(1048575) + "b";
+let s = "a".repeat(1048575) + "b";
 
 eq("File \"ocaml_re_test.ml\", line 3292, characters 3-10", get(exec(compile(re(undefined, "aa?b")), undefined, s), 0), "aab");
 

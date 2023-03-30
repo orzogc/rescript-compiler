@@ -5,17 +5,17 @@ function foo(x, y) {
   return x + y | 0;
 }
 
-var z = 7;
+let z = 7;
 
 function bar(x, y) {
   return x + y | 0;
 }
 
-var b = 7;
+let b = 7;
 
-var w = 7;
+let w = 7;
 
-var a = 7;
+let a = 7;
 
 console.log(a);
 

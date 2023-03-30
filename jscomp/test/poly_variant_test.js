@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -47,13 +47,13 @@ function hey_int (option){
  }
 ;
 
-var uu = [
+let uu = [
   hey_string("on_open"),
   hey_string("on_closed"),
   hey_string("in")
 ];
 
-var vv = [
+let vv = [
   hey_int(3),
   hey_int(0),
   hey_int(4)

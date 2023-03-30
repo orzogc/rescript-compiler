@@ -1,18 +1,18 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var counter = {
+let counter = {
   contents: 0
 };
 
 function add_test(loc, test) {
   counter.contents = counter.contents + 1 | 0;
-  var id = loc + (" id " + String(counter.contents));
+  let id = loc + (" id " + String(counter.contents));
   suites.contents = {
     hd: [
       id,

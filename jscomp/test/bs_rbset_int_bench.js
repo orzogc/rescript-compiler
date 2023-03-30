@@ -1,16 +1,16 @@
 'use strict';
 
-var Rbset = require("./rbset.js");
+let Rbset = require("./rbset.js");
 
 function bench(param) {
-  var data = "Empty";
+  let data = "Empty";
   console.time("bs_rbset_int_bench.ml 7");
-  for(var i = 0; i <= 1000000; ++i){
+  for(let i = 0; i <= 1000000; ++i){
     data = Rbset.add(i, data);
   }
   console.timeEnd("bs_rbset_int_bench.ml 7");
   console.time("bs_rbset_int_bench.ml 11");
-  for(var i$1 = 0; i$1 <= 1000000; ++i$1){
+  for(let i$1 = 0; i$1 <= 1000000; ++i$1){
     if (!Rbset.mem(i$1, data)) {
       throw {
             RE_EXN_ID: "Assert_failure",
@@ -26,7 +26,7 @@ function bench(param) {
   }
   console.timeEnd("bs_rbset_int_bench.ml 11");
   console.time("bs_rbset_int_bench.ml 14");
-  for(var i$2 = 0; i$2 <= 1000000; ++i$2){
+  for(let i$2 = 0; i$2 <= 1000000; ++i$2){
     data = Rbset.remove(i$2, data);
   }
   console.timeEnd("bs_rbset_int_bench.ml 14");
@@ -50,9 +50,9 @@ bench(undefined);
 
 console.timeEnd("bs_rbset_int_bench.ml 21");
 
-var count = 1000000;
+let count = 1000000;
 
-var V;
+let V;
 
 exports.count = count;
 exports.V = V;

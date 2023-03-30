@@ -1,6 +1,6 @@
 'use strict';
 
-var Foo_class = require("xx/foo_class");
+let Foo_class = require("xx/foo_class");
 
 function f(param) {
   return new Foo_class(3);

@@ -1,24 +1,24 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml = require("../../lib/js/caml.js");
-var List = require("../../lib/js/list.js");
-var $$Array = require("../../lib/js/array.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_array = require("../../lib/js/caml_array.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Caml = require("../../lib/js/caml.js");
+let List = require("../../lib/js/list.js");
+let $$Array = require("../../lib/js/array.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_array = require("../../lib/js/caml_array.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
 function starts_with(xs, prefix, p) {
-  var H = /* @__PURE__ */Caml_exceptions.create("H");
-  var len1 = xs.length;
-  var len2 = prefix.length;
+  let H = /* @__PURE__ */Caml_exceptions.create("H");
+  let len1 = xs.length;
+  let len2 = prefix.length;
   if (len2 > len1) {
     return false;
   }
   try {
-    for(var i = 0; i < len2; ++i){
+    for(let i = 0; i < len2; ++i){
       if (!Curry._2(p, Caml_array.get(xs, i), Caml_array.get(prefix, i))) {
         throw {
               RE_EXN_ID: H,
@@ -30,7 +30,7 @@ function starts_with(xs, prefix, p) {
     return true;
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === H) {
       return false;
     }
@@ -39,10 +39,10 @@ function starts_with(xs, prefix, p) {
 }
 
 function is_sorted(x) {
-  var len = x.length;
-  var _i = 0;
+  let len = x.length;
+  let _i = 0;
   while(true) {
-    var i = _i;
+    let i = _i;
     if (i >= (len - 1 | 0)) {
       return true;
     }
@@ -54,7 +54,7 @@ function is_sorted(x) {
   };
 }
 
-var array_suites_0 = [
+let array_suites_0 = [
   "init",
   (function (param) {
       return {
@@ -73,11 +73,11 @@ var array_suites_0 = [
     })
 ];
 
-var array_suites_1 = {
+let array_suites_1 = {
   hd: [
     "toList",
     (function (param) {
-        var aux = function (xs) {
+        let aux = function (xs) {
           return List.fold_left((function (acc, param) {
                         return {
                                 hd: [
@@ -88,7 +88,7 @@ var array_suites_1 = {
                               };
                       }), /* [] */0, xs);
         };
-        var match = List.split(aux({
+        let match = List.split(aux({
                   hd: [
                     [],
                     /* [] */0
@@ -184,12 +184,12 @@ var array_suites_1 = {
           hd: [
             "blit",
             (function (param) {
-                var u = [
+                let u = [
                   100,
                   0,
                   0
                 ];
-                var v = $$Array.init(3, (function (x) {
+                let v = $$Array.init(3, (function (x) {
                         return (x << 1);
                       }));
                 $$Array.blit(v, 1, u, 1, 2);
@@ -218,7 +218,7 @@ var array_suites_1 = {
             hd: [
               "File \"array_test.ml\", line 63, characters 2-9",
               (function (param) {
-                  var a0 = $$Array.init(100, (function (i) {
+                  let a0 = $$Array.init(100, (function (i) {
                           return (i << 0);
                         }));
                   $$Array.blit(a0, 10, a0, 5, 20);
@@ -260,7 +260,7 @@ var array_suites_1 = {
               hd: [
                 "File \"array_test.ml\", line 72, characters 2-9",
                 (function (param) {
-                    var a0 = $$Array.init(100, (function (i) {
+                    let a0 = $$Array.init(100, (function (i) {
                             return (i << 0);
                           }));
                     $$Array.blit(a0, 5, a0, 10, 20);
@@ -318,7 +318,7 @@ var array_suites_1 = {
                   hd: [
                     "sort",
                     (function (param) {
-                        var u = [
+                        let u = [
                           3,
                           0,
                           1
@@ -339,7 +339,7 @@ var array_suites_1 = {
                     hd: [
                       "sort_large",
                       (function (param) {
-                          var v = $$Array.init(4, (function (i) {
+                          let v = $$Array.init(4, (function (i) {
                                   return i % 17;
                                 }));
                           $$Array.sort(Caml.int_compare, v);
@@ -362,7 +362,7 @@ var array_suites_1 = {
   }
 };
 
-var array_suites = {
+let array_suites = {
   hd: array_suites_0,
   tl: array_suites_1
 };

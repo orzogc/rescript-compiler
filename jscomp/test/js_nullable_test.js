@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -28,7 +28,7 @@ function eq(loc, x, y) {
 }
 
 function test(dom) {
-  var elem = dom.getElementById("haha");
+  let elem = dom.getElementById("haha");
   if (elem == null) {
     return 1;
   } else {

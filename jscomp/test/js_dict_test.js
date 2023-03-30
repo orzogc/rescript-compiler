@@ -1,7 +1,7 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_dict = require("../../lib/js/js_dict.js");
+let Mt = require("./mt.js");
+let Js_dict = require("../../lib/js/js_dict.js");
 
 function obj(param) {
   return {
@@ -10,7 +10,7 @@ function obj(param) {
         };
 }
 
-var suites_0 = [
+let suites_0 = [
   "empty",
   (function (param) {
       return {
@@ -21,7 +21,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "get",
     (function (param) {
@@ -67,7 +67,7 @@ var suites_1 = {
         hd: [
           "set",
           (function (param) {
-              var o = {
+              let o = {
                 foo: 43,
                 bar: 86
               };
@@ -252,7 +252,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

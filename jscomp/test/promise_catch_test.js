@@ -1,16 +1,16 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_exn = require("../../lib/js/js_exn.js");
-var Js_option = require("../../lib/js/js_option.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Js_exn = require("../../lib/js/js_exn.js");
+let Js_option = require("../../lib/js/js_option.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -68,16 +68,16 @@ function f(x) {
   return x.catch(handler);
 }
 
-var exit = 0;
+let exit = 0;
 
-var val;
+let val;
 
 try {
   val = JSON.parse(" 1. +  ");
   exit = 1;
 }
 catch (raw_e){
-  var e = Caml_js_exceptions.internalToOCamlException(raw_e);
+  let e = Caml_js_exceptions.internalToOCamlException(raw_e);
   eq("File \"promise_catch_test.ml\", line 36, characters 7-14", true, Js_option.isSomeValue((function (xxx, y) {
               return xxx === y;
             }), 2, myHandler(e)));

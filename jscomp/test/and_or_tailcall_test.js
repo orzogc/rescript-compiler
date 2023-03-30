@@ -1,10 +1,10 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
 function f(b, x, _n) {
   while(true) {
-    var n = _n;
+    let n = _n;
     if (n > 100000) {
       return false;
     }
@@ -18,7 +18,7 @@ function f(b, x, _n) {
 
 function or_f(b, x, _n) {
   while(true) {
-    var n = _n;
+    let n = _n;
     if (n > 100000) {
       return false;
     }
@@ -30,7 +30,7 @@ function or_f(b, x, _n) {
   };
 }
 
-var suites_0 = [
+let suites_0 = [
   "and_tail",
   (function (param) {
       return {
@@ -41,7 +41,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "or_tail",
     (function (param) {
@@ -55,7 +55,7 @@ var suites_1 = {
   tl: /* [] */0
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

@@ -1,8 +1,8 @@
 'use strict';
 
-var Caml_module = require("../../lib/js/caml_module.js");
+let Caml_module = require("../../lib/js/caml_module.js");
 
-var Point = Caml_module.init_mod([
+let Point = Caml_module.init_mod([
       "gpr_1539_test.ml",
       10,
       6
@@ -26,9 +26,9 @@ Caml_module.update_mod({
         })
     });
 
-var CRS;
+let CRS;
 
-var Layer;
+let Layer;
 
 exports.CRS = CRS;
 exports.Layer = Layer;

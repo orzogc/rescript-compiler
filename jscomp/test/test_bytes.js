@@ -1,10 +1,10 @@
 'use strict';
 
-var Bytes = require("../../lib/js/bytes.js");
+let Bytes = require("../../lib/js/bytes.js");
 
-var f = Bytes.unsafe_to_string;
+let f = Bytes.unsafe_to_string;
 
-var ff = Bytes.to_string;
+let ff = Bytes.to_string;
 
 exports.f = f;
 exports.ff = ff;

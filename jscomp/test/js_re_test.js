@@ -1,22 +1,22 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_array = require("../../lib/js/caml_array.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Mt = require("./mt.js");
+let Caml_array = require("../../lib/js/caml_array.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
-var suites_0 = [
+let suites_0 = [
   "captures",
   (function (param) {
-      var re = /(\d+)-(?:(\d+))?/g;
-      var result = re.exec("3-");
+      let re = /(\d+)-(?:(\d+))?/g;
+      let result = re.exec("3-");
       if (result === null) {
         return {
                 TAG: "Fail",
                 _0: undefined
               };
       }
-      var defined = Caml_array.get(result, 1);
-      var $$undefined = Caml_array.get(result, 2);
+      let defined = Caml_array.get(result, 1);
+      let $$undefined = Caml_array.get(result, 2);
       return {
               TAG: "Eq",
               _0: [
@@ -31,12 +31,12 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "fromString",
     (function (param) {
-        var contentOf = function (tag, xmlString) {
-          var result = new RegExp("<" + (tag + (">(.*?)<\\/" + (tag + ">")))).exec(xmlString);
+        let contentOf = function (tag, xmlString) {
+          let result = new RegExp("<" + (tag + (">(.*?)<\\/" + (tag + ">")))).exec(xmlString);
           if (result !== null) {
             return Caml_option.nullable_to_opt(Caml_array.get(result, 1));
           }
@@ -53,7 +53,7 @@ var suites_1 = {
     hd: [
       "exec_literal",
       (function (param) {
-          var res = /[^.]+/.exec("http://xxx.domain.com");
+          let res = /[^.]+/.exec("http://xxx.domain.com");
           if (res !== null) {
             return {
                     TAG: "Eq",
@@ -72,7 +72,7 @@ var suites_1 = {
       hd: [
         "exec_no_match",
         (function (param) {
-            var match = /https:\/\/(.*)/.exec("http://xxx.domain.com");
+            let match = /https:\/\/(.*)/.exec("http://xxx.domain.com");
             if (match !== null) {
               return {
                       TAG: "FailWith",
@@ -90,7 +90,7 @@ var suites_1 = {
         hd: [
           "test_str",
           (function (param) {
-              var res = new RegExp("foo").test("#foo#");
+              let res = new RegExp("foo").test("#foo#");
               return {
                       TAG: "Eq",
                       _0: true,
@@ -102,7 +102,7 @@ var suites_1 = {
           hd: [
             "fromStringWithFlags",
             (function (param) {
-                var res = new RegExp("foo", "g");
+                let res = new RegExp("foo", "g");
                 return {
                         TAG: "Eq",
                         _0: true,
@@ -114,7 +114,7 @@ var suites_1 = {
             hd: [
               "result_index",
               (function (param) {
-                  var res = new RegExp("zbar").exec("foobarbazbar");
+                  let res = new RegExp("zbar").exec("foobarbazbar");
                   if (res !== null) {
                     return {
                             TAG: "Eq",
@@ -133,8 +133,8 @@ var suites_1 = {
               hd: [
                 "result_input",
                 (function (param) {
-                    var input = "foobar";
-                    var res = /foo/g.exec(input);
+                    let input = "foobar";
+                    let res = /foo/g.exec(input);
                     if (res !== null) {
                       return {
                               TAG: "Eq",
@@ -186,7 +186,7 @@ var suites_1 = {
                       hd: [
                         "t_lastIndex",
                         (function (param) {
-                            var re = /na/g;
+                            let re = /na/g;
                             re.exec("banana");
                             return {
                                     TAG: "Eq",
@@ -199,10 +199,10 @@ var suites_1 = {
                         hd: [
                           "t_setLastIndex",
                           (function (param) {
-                              var re = /na/g;
-                              var before = re.lastIndex;
+                              let re = /na/g;
+                              let before = re.lastIndex;
                               re.lastIndex = 42;
-                              var after = re.lastIndex;
+                              let after = re.lastIndex;
                               return {
                                       TAG: "Eq",
                                       _0: [
@@ -278,7 +278,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

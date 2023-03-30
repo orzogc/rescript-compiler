@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require("react");
-var ReactDom = require("react-dom");
+let React = require("react");
+let ReactDom = require("react-dom");
 
 function renderToElementWithClassName(reactElement, className) {
-  var elements = document.getElementsByClassName(className);
+  let elements = document.getElementsByClassName(className);
   if (elements.length !== 0) {
     ReactDom.render(reactElement, elements[0]);
   } else {
@@ -13,7 +13,7 @@ function renderToElementWithClassName(reactElement, className) {
 }
 
 function renderToElementWithId(reactElement, id) {
-  var element = document.getElementById(id);
+  let element = document.getElementById(id);
   if (element == null) {
     console.error("ReactDOMRe.renderToElementWithId : no element of id " + (id + " found in the HTML."));
   } else {
@@ -22,7 +22,7 @@ function renderToElementWithId(reactElement, id) {
 }
 
 function createRootWithClassName(className) {
-  var elements = document.getElementsByClassName(className);
+  let elements = document.getElementsByClassName(className);
   if (elements.length !== 0) {
     return {
             TAG: "Ok",
@@ -37,7 +37,7 @@ function createRootWithClassName(className) {
 }
 
 function createRootWithId(id) {
-  var element = document.getElementById(id);
+  let element = document.getElementById(id);
   if (element == null) {
     return {
             TAG: "Error",
@@ -51,13 +51,13 @@ function createRootWithId(id) {
   }
 }
 
-var Experimental = {
+let Experimental = {
   createRootWithClassName: createRootWithClassName,
   createRootWithId: createRootWithId
 };
 
 function hydrateToElementWithClassName(reactElement, className) {
-  var elements = document.getElementsByClassName(className);
+  let elements = document.getElementsByClassName(className);
   if (elements.length !== 0) {
     ReactDom.hydrate(reactElement, elements[0]);
   } else {
@@ -66,7 +66,7 @@ function hydrateToElementWithClassName(reactElement, className) {
 }
 
 function hydrateToElementWithId(reactElement, id) {
-  var element = document.getElementById(id);
+  let element = document.getElementById(id);
   if (element == null) {
     throw {
           RE_EXN_ID: "Invalid_argument",
@@ -77,10 +77,10 @@ function hydrateToElementWithId(reactElement, id) {
   ReactDom.hydrate(reactElement, element);
 }
 
-var Ref = {};
+let Ref = {};
 
 function createElementVariadic(domClassName, props, children) {
-  var variadicArguments = [
+  let variadicArguments = [
       domClassName,
       props
     ].concat(children);
@@ -88,12 +88,12 @@ function createElementVariadic(domClassName, props, children) {
 }
 
 function unsafeAddProp(style, key, value) {
-  var dict = {};
+  let dict = {};
   dict[key] = value;
   return Object.assign({}, style, dict);
 }
 
-var Style = {
+let Style = {
   unsafeAddProp: unsafeAddProp
 };
 

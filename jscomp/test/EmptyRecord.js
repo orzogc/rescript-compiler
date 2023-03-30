@@ -11,7 +11,7 @@ function construct(b) {
   }
 }
 
-var er = {};
+let er = {};
 
 exports.construct = construct;
 exports.er = er;

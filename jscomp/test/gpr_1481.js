@@ -1,6 +1,6 @@
 'use strict';
 
-var Moduleid = require("#moduleid");
+let Moduleid = require("#moduleid");
 
 function f(param) {
   return Moduleid.name;

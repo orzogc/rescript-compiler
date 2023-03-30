@@ -1,12 +1,12 @@
 'use strict';
 
 
-var a = {
+let a = {
   TAG: "Color",
   _0: "#ffff"
 };
 
-var c;
+let c;
 
 c = typeof a !== "object" ? "orange" : "white";
 

@@ -1,8 +1,8 @@
 'use strict';
 
-var External_ppxGen = require("./external_ppx.gen");
+let External_ppxGen = require("./external_ppx.gen");
 
-var u = {
+let u = {
   hi: 2,
   lo: 3,
   lo2: {hi:-3 },

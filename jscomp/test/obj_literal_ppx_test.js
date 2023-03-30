@@ -1,7 +1,7 @@
 'use strict';
 
 
-var a = {
+let a = {
   x: 3,
   y: {
     hd: 1,

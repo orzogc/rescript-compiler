@@ -1,7 +1,7 @@
 'use strict';
 
-var Bytes = require("../../lib/js/bytes.js");
-var Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
+let Bytes = require("../../lib/js/bytes.js");
+let Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
 
 function to_buffer(buff, ofs, len, v, flags) {
   if (ofs < 0 || len < 0 || ofs > (buff.length - len | 0)) {
@@ -37,7 +37,7 @@ function from_bytes(buff, ofs) {
           Error: new Error()
         };
   }
-  var len = Caml_external_polyfill.resolve("marshal_data_size")(buff, ofs);
+  let len = Caml_external_polyfill.resolve("marshal_data_size")(buff, ofs);
   if (ofs > (buff.length - (20 + len | 0) | 0)) {
     throw {
           RE_EXN_ID: "Invalid_argument",
@@ -52,7 +52,7 @@ function from_string(buff, ofs) {
   return from_bytes(Bytes.unsafe_of_string(buff), ofs);
 }
 
-var header_size = 20;
+let header_size = 20;
 
 exports.to_buffer = to_buffer;
 exports.header_size = header_size;

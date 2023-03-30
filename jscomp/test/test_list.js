@@ -1,14 +1,14 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Pervasives = require("../../lib/js/pervasives.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Pervasives = require("../../lib/js/pervasives.js");
 
 function length_aux(_len, _param) {
   while(true) {
-    var param = _param;
-    var len = _len;
+    let param = _param;
+    let len = _len;
     if (!param) {
       return len;
     }
@@ -52,11 +52,11 @@ function nth(l, n) {
           Error: new Error()
         };
   }
-  var _l = l;
-  var _n = n;
+  let _l = l;
+  let _n = n;
   while(true) {
-    var n$1 = _n;
-    var l$1 = _l;
+    let n$1 = _n;
+    let l$1 = _l;
     if (l$1) {
       if (n$1 === 0) {
         return l$1.hd;
@@ -75,8 +75,8 @@ function nth(l, n) {
 
 function rev_append(_l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (!l1) {
       return l2;
     }
@@ -105,7 +105,7 @@ function map(f, param) {
   if (!param) {
     return /* [] */0;
   }
-  var r = Curry._1(f, param.hd);
+  let r = Curry._1(f, param.hd);
   return {
           hd: r,
           tl: map(f, param.tl)
@@ -116,7 +116,7 @@ function mapi(i, f, param) {
   if (!param) {
     return /* [] */0;
   }
-  var r = Curry._2(f, i, param.hd);
+  let r = Curry._2(f, i, param.hd);
   return {
           hd: r,
           tl: mapi(i + 1 | 0, f, param.tl)
@@ -128,11 +128,11 @@ function mapi$1(f, l) {
 }
 
 function rev_map(f, l) {
-  var _accu = /* [] */0;
-  var _param = l;
+  let _accu = /* [] */0;
+  let _param = l;
   while(true) {
-    var param = _param;
-    var accu = _accu;
+    let param = _param;
+    let accu = _accu;
     if (!param) {
       return accu;
     }
@@ -147,7 +147,7 @@ function rev_map(f, l) {
 
 function iter(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return ;
     }
@@ -158,11 +158,11 @@ function iter(f, _param) {
 }
 
 function iteri(f, l) {
-  var _i = 0;
-  var _param = l;
+  let _i = 0;
+  let _param = l;
   while(true) {
-    var param = _param;
-    var i = _i;
+    let param = _param;
+    let i = _i;
     if (!param) {
       return ;
     }
@@ -175,8 +175,8 @@ function iteri(f, l) {
 
 function fold_left(f, _accu, _l) {
   while(true) {
-    var l = _l;
-    var accu = _accu;
+    let l = _l;
+    let accu = _accu;
     if (!l) {
       return accu;
     }
@@ -197,7 +197,7 @@ function fold_right(f, l, accu) {
 function map2(f, l1, l2) {
   if (l1) {
     if (l2) {
-      var r = Curry._2(f, l1.hd, l2.hd);
+      let r = Curry._2(f, l1.hd, l2.hd);
       return {
               hd: r,
               tl: map2(f, l1.tl, l2.tl)
@@ -220,13 +220,13 @@ function map2(f, l1, l2) {
 }
 
 function rev_map2(f, l1, l2) {
-  var _accu = /* [] */0;
-  var _l1 = l1;
-  var _l2 = l2;
+  let _accu = /* [] */0;
+  let _l1 = l1;
+  let _l2 = l2;
   while(true) {
-    var l2$1 = _l2;
-    var l1$1 = _l1;
-    var accu = _accu;
+    let l2$1 = _l2;
+    let l1$1 = _l1;
+    let accu = _accu;
     if (l1$1) {
       if (l2$1) {
         _l2 = l2$1.tl;
@@ -256,8 +256,8 @@ function rev_map2(f, l1, l2) {
 
 function iter2(f, _l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (l1) {
       if (l2) {
         Curry._2(f, l1.hd, l2.hd);
@@ -284,9 +284,9 @@ function iter2(f, _l1, _l2) {
 
 function fold_left2(f, _accu, _l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
-    var accu = _accu;
+    let l2 = _l2;
+    let l1 = _l1;
+    let accu = _accu;
     if (l1) {
       if (l2) {
         _l2 = l2.tl;
@@ -334,7 +334,7 @@ function fold_right2(f, l1, l2, accu) {
 
 function for_all(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return true;
     }
@@ -348,7 +348,7 @@ function for_all(p, _param) {
 
 function exists(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return false;
     }
@@ -362,8 +362,8 @@ function exists(p, _param) {
 
 function for_all2(p, _l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (l1) {
       if (l2) {
         if (!Curry._2(p, l1.hd, l2.hd)) {
@@ -392,8 +392,8 @@ function for_all2(p, _l1, _l2) {
 
 function exists2(p, _l1, _l2) {
   while(true) {
-    var l2 = _l2;
-    var l1 = _l1;
+    let l2 = _l2;
+    let l1 = _l1;
     if (l1) {
       if (l2) {
         if (Curry._2(p, l1.hd, l2.hd)) {
@@ -422,7 +422,7 @@ function exists2(p, _l1, _l2) {
 
 function mem(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return false;
     }
@@ -436,7 +436,7 @@ function mem(x, _param) {
 
 function memq(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return false;
     }
@@ -450,9 +450,9 @@ function memq(x, _param) {
 
 function assoc(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (param) {
-      var match = param.hd;
+      let match = param.hd;
       if (Caml_obj.equal(match[0], x)) {
         return match[1];
       }
@@ -468,9 +468,9 @@ function assoc(x, _param) {
 
 function assq(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (param) {
-      var match = param.hd;
+      let match = param.hd;
       if (match[0] === x) {
         return match[1];
       }
@@ -486,7 +486,7 @@ function assq(x, _param) {
 
 function mem_assoc(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return false;
     }
@@ -500,7 +500,7 @@ function mem_assoc(x, _param) {
 
 function mem_assq(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (!param) {
       return false;
     }
@@ -516,8 +516,8 @@ function remove_assoc(x, param) {
   if (!param) {
     return /* [] */0;
   }
-  var l = param.tl;
-  var pair = param.hd;
+  let l = param.tl;
+  let pair = param.hd;
   if (Caml_obj.equal(pair[0], x)) {
     return l;
   } else {
@@ -532,8 +532,8 @@ function remove_assq(x, param) {
   if (!param) {
     return /* [] */0;
   }
-  var l = param.tl;
-  var pair = param.hd;
+  let l = param.tl;
+  let pair = param.hd;
   if (pair[0] === x) {
     return l;
   } else {
@@ -546,9 +546,9 @@ function remove_assq(x, param) {
 
 function find(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (param) {
-      var x = param.hd;
+      let x = param.hd;
       if (Curry._1(p, x)) {
         return x;
       }
@@ -564,16 +564,16 @@ function find(p, _param) {
 
 function find_all(p) {
   return function (param) {
-    var _accu = /* [] */0;
-    var _param = param;
+    let _accu = /* [] */0;
+    let _param = param;
     while(true) {
-      var param$1 = _param;
-      var accu = _accu;
+      let param$1 = _param;
+      let accu = _accu;
       if (!param$1) {
         return rev_append(accu, /* [] */0);
       }
-      var l = param$1.tl;
-      var x = param$1.hd;
+      let l = param$1.tl;
+      let x = param$1.hd;
       if (Curry._1(p, x)) {
         _param = l;
         _accu = {
@@ -589,21 +589,21 @@ function find_all(p) {
 }
 
 function partition(p, l) {
-  var _yes = /* [] */0;
-  var _no = /* [] */0;
-  var _param = l;
+  let _yes = /* [] */0;
+  let _no = /* [] */0;
+  let _param = l;
   while(true) {
-    var param = _param;
-    var no = _no;
-    var yes = _yes;
+    let param = _param;
+    let no = _no;
+    let yes = _yes;
     if (!param) {
       return [
               rev_append(yes, /* [] */0),
               rev_append(no, /* [] */0)
             ];
     }
-    var l$1 = param.tl;
-    var x = param.hd;
+    let l$1 = param.tl;
+    let x = param.hd;
     if (Curry._1(p, x)) {
       _param = l$1;
       _yes = {
@@ -628,8 +628,8 @@ function split(param) {
             /* [] */0
           ];
   }
-  var match = param.hd;
-  var match$1 = split(param.tl);
+  let match = param.hd;
+  let match$1 = split(param.tl);
   return [
           {
             hd: match[0],
@@ -676,8 +676,8 @@ function merge(cmp, l1, l2) {
   if (!l2) {
     return l1;
   }
-  var h2 = l2.hd;
-  var h1 = l1.hd;
+  let h2 = l2.hd;
+  let h1 = l1.hd;
   if (Curry._2(cmp, h1, h2) <= 0) {
     return {
             hd: h1,
@@ -693,8 +693,8 @@ function merge(cmp, l1, l2) {
 
 function chop(_k, _l) {
   while(true) {
-    var l = _l;
-    var k = _k;
+    let l = _l;
+    let k = _k;
     if (k === 0) {
       return l;
     }
@@ -716,16 +716,16 @@ function chop(_k, _l) {
 }
 
 function stable_sort(cmp, l) {
-  var sort = function (n, l) {
+  let sort = function (n, l) {
     if (n !== 2) {
       if (n === 3 && l) {
-        var match = l.tl;
+        let match = l.tl;
         if (match) {
-          var match$1 = match.tl;
+          let match$1 = match.tl;
           if (match$1) {
-            var x3 = match$1.hd;
-            var x2 = match.hd;
-            var x1 = l.hd;
+            let x3 = match$1.hd;
+            let x2 = match.hd;
+            let x1 = l.hd;
             if (Curry._2(cmp, x1, x2) <= 0) {
               if (Curry._2(cmp, x2, x3) <= 0) {
                 return {
@@ -802,10 +802,10 @@ function stable_sort(cmp, l) {
       }
       
     } else if (l) {
-      var match$2 = l.tl;
+      let match$2 = l.tl;
       if (match$2) {
-        var x2$1 = match$2.hd;
-        var x1$1 = l.hd;
+        let x2$1 = match$2.hd;
+        let x1$1 = l.hd;
         if (Curry._2(cmp, x1$1, x2$1) <= 0) {
           return {
                   hd: x1$1,
@@ -826,26 +826,26 @@ function stable_sort(cmp, l) {
       }
       
     }
-    var n1 = (n >> 1);
-    var n2 = n - n1 | 0;
-    var l2 = chop(n1, l);
-    var s1 = rev_sort(n1, l);
-    var s2 = rev_sort(n2, l2);
-    var _l1 = s1;
-    var _l2 = s2;
-    var _accu = /* [] */0;
+    let n1 = (n >> 1);
+    let n2 = n - n1 | 0;
+    let l2 = chop(n1, l);
+    let s1 = rev_sort(n1, l);
+    let s2 = rev_sort(n2, l2);
+    let _l1 = s1;
+    let _l2 = s2;
+    let _accu = /* [] */0;
     while(true) {
-      var accu = _accu;
-      var l2$1 = _l2;
-      var l1 = _l1;
+      let accu = _accu;
+      let l2$1 = _l2;
+      let l1 = _l1;
       if (!l1) {
         return rev_append(l2$1, accu);
       }
       if (!l2$1) {
         return rev_append(l1, accu);
       }
-      var h2 = l2$1.hd;
-      var h1 = l1.hd;
+      let h2 = l2$1.hd;
+      let h1 = l1.hd;
       if (Curry._2(cmp, h1, h2) > 0) {
         _accu = {
           hd: h1,
@@ -862,16 +862,16 @@ function stable_sort(cmp, l) {
       continue ;
     };
   };
-  var rev_sort = function (n, l) {
+  let rev_sort = function (n, l) {
     if (n !== 2) {
       if (n === 3 && l) {
-        var match = l.tl;
+        let match = l.tl;
         if (match) {
-          var match$1 = match.tl;
+          let match$1 = match.tl;
           if (match$1) {
-            var x3 = match$1.hd;
-            var x2 = match.hd;
-            var x1 = l.hd;
+            let x3 = match$1.hd;
+            let x2 = match.hd;
+            let x1 = l.hd;
             if (Curry._2(cmp, x1, x2) > 0) {
               if (Curry._2(cmp, x2, x3) > 0) {
                 return {
@@ -948,10 +948,10 @@ function stable_sort(cmp, l) {
       }
       
     } else if (l) {
-      var match$2 = l.tl;
+      let match$2 = l.tl;
       if (match$2) {
-        var x2$1 = match$2.hd;
-        var x1$1 = l.hd;
+        let x2$1 = match$2.hd;
+        let x1$1 = l.hd;
         if (Curry._2(cmp, x1$1, x2$1) > 0) {
           return {
                   hd: x1$1,
@@ -972,26 +972,26 @@ function stable_sort(cmp, l) {
       }
       
     }
-    var n1 = (n >> 1);
-    var n2 = n - n1 | 0;
-    var l2 = chop(n1, l);
-    var s1 = sort(n1, l);
-    var s2 = sort(n2, l2);
-    var _l1 = s1;
-    var _l2 = s2;
-    var _accu = /* [] */0;
+    let n1 = (n >> 1);
+    let n2 = n - n1 | 0;
+    let l2 = chop(n1, l);
+    let s1 = sort(n1, l);
+    let s2 = sort(n2, l2);
+    let _l1 = s1;
+    let _l2 = s2;
+    let _accu = /* [] */0;
     while(true) {
-      var accu = _accu;
-      var l2$1 = _l2;
-      var l1 = _l1;
+      let accu = _accu;
+      let l2$1 = _l2;
+      let l1 = _l1;
       if (!l1) {
         return rev_append(l2$1, accu);
       }
       if (!l2$1) {
         return rev_append(l1, accu);
       }
-      var h2 = l2$1.hd;
-      var h1 = l1.hd;
+      let h2 = l2$1.hd;
+      let h1 = l1.hd;
       if (Curry._2(cmp, h1, h2) <= 0) {
         _accu = {
           hd: h1,
@@ -1008,7 +1008,7 @@ function stable_sort(cmp, l) {
       continue ;
     };
   };
-  var len = length_aux(0, l);
+  let len = length_aux(0, l);
   if (len < 2) {
     return l;
   } else {
@@ -1017,19 +1017,19 @@ function stable_sort(cmp, l) {
 }
 
 function sort_uniq(cmp, l) {
-  var sort = function (n, l) {
+  let sort = function (n, l) {
     if (n !== 2) {
       if (n === 3 && l) {
-        var match = l.tl;
+        let match = l.tl;
         if (match) {
-          var match$1 = match.tl;
+          let match$1 = match.tl;
           if (match$1) {
-            var x3 = match$1.hd;
-            var x2 = match.hd;
-            var x1 = l.hd;
-            var c = Curry._2(cmp, x1, x2);
+            let x3 = match$1.hd;
+            let x2 = match.hd;
+            let x1 = l.hd;
+            let c = Curry._2(cmp, x1, x2);
             if (c === 0) {
-              var c$1 = Curry._2(cmp, x2, x3);
+              let c$1 = Curry._2(cmp, x2, x3);
               if (c$1 === 0) {
                 return {
                         hd: x2,
@@ -1054,7 +1054,7 @@ function sort_uniq(cmp, l) {
               }
             }
             if (c < 0) {
-              var c$2 = Curry._2(cmp, x2, x3);
+              let c$2 = Curry._2(cmp, x2, x3);
               if (c$2 === 0) {
                 return {
                         hd: x1,
@@ -1076,7 +1076,7 @@ function sort_uniq(cmp, l) {
                         }
                       };
               }
-              var c$3 = Curry._2(cmp, x1, x3);
+              let c$3 = Curry._2(cmp, x1, x3);
               if (c$3 === 0) {
                 return {
                         hd: x1,
@@ -1109,7 +1109,7 @@ function sort_uniq(cmp, l) {
                       };
               }
             }
-            var c$4 = Curry._2(cmp, x1, x3);
+            let c$4 = Curry._2(cmp, x1, x3);
             if (c$4 === 0) {
               return {
                       hd: x2,
@@ -1131,7 +1131,7 @@ function sort_uniq(cmp, l) {
                       }
                     };
             }
-            var c$5 = Curry._2(cmp, x2, x3);
+            let c$5 = Curry._2(cmp, x2, x3);
             if (c$5 === 0) {
               return {
                       hd: x2,
@@ -1170,11 +1170,11 @@ function sort_uniq(cmp, l) {
       }
       
     } else if (l) {
-      var match$2 = l.tl;
+      let match$2 = l.tl;
       if (match$2) {
-        var x2$1 = match$2.hd;
-        var x1$1 = l.hd;
-        var c$6 = Curry._2(cmp, x1$1, x2$1);
+        let x2$1 = match$2.hd;
+        let x1$1 = l.hd;
+        let c$6 = Curry._2(cmp, x1$1, x2$1);
         if (c$6 === 0) {
           return {
                   hd: x1$1,
@@ -1200,29 +1200,29 @@ function sort_uniq(cmp, l) {
       }
       
     }
-    var n1 = (n >> 1);
-    var n2 = n - n1 | 0;
-    var l2 = chop(n1, l);
-    var s1 = rev_sort(n1, l);
-    var s2 = rev_sort(n2, l2);
-    var _l1 = s1;
-    var _l2 = s2;
-    var _accu = /* [] */0;
+    let n1 = (n >> 1);
+    let n2 = n - n1 | 0;
+    let l2 = chop(n1, l);
+    let s1 = rev_sort(n1, l);
+    let s2 = rev_sort(n2, l2);
+    let _l1 = s1;
+    let _l2 = s2;
+    let _accu = /* [] */0;
     while(true) {
-      var accu = _accu;
-      var l2$1 = _l2;
-      var l1 = _l1;
+      let accu = _accu;
+      let l2$1 = _l2;
+      let l1 = _l1;
       if (!l1) {
         return rev_append(l2$1, accu);
       }
       if (!l2$1) {
         return rev_append(l1, accu);
       }
-      var t2 = l2$1.tl;
-      var h2 = l2$1.hd;
-      var t1 = l1.tl;
-      var h1 = l1.hd;
-      var c$7 = Curry._2(cmp, h1, h2);
+      let t2 = l2$1.tl;
+      let h2 = l2$1.hd;
+      let t1 = l1.tl;
+      let h1 = l1.hd;
+      let c$7 = Curry._2(cmp, h1, h2);
       if (c$7 === 0) {
         _accu = {
           hd: h1,
@@ -1248,19 +1248,19 @@ function sort_uniq(cmp, l) {
       continue ;
     };
   };
-  var rev_sort = function (n, l) {
+  let rev_sort = function (n, l) {
     if (n !== 2) {
       if (n === 3 && l) {
-        var match = l.tl;
+        let match = l.tl;
         if (match) {
-          var match$1 = match.tl;
+          let match$1 = match.tl;
           if (match$1) {
-            var x3 = match$1.hd;
-            var x2 = match.hd;
-            var x1 = l.hd;
-            var c = Curry._2(cmp, x1, x2);
+            let x3 = match$1.hd;
+            let x2 = match.hd;
+            let x1 = l.hd;
+            let c = Curry._2(cmp, x1, x2);
             if (c === 0) {
-              var c$1 = Curry._2(cmp, x2, x3);
+              let c$1 = Curry._2(cmp, x2, x3);
               if (c$1 === 0) {
                 return {
                         hd: x2,
@@ -1285,7 +1285,7 @@ function sort_uniq(cmp, l) {
               }
             }
             if (c > 0) {
-              var c$2 = Curry._2(cmp, x2, x3);
+              let c$2 = Curry._2(cmp, x2, x3);
               if (c$2 === 0) {
                 return {
                         hd: x1,
@@ -1307,7 +1307,7 @@ function sort_uniq(cmp, l) {
                         }
                       };
               }
-              var c$3 = Curry._2(cmp, x1, x3);
+              let c$3 = Curry._2(cmp, x1, x3);
               if (c$3 === 0) {
                 return {
                         hd: x1,
@@ -1340,7 +1340,7 @@ function sort_uniq(cmp, l) {
                       };
               }
             }
-            var c$4 = Curry._2(cmp, x1, x3);
+            let c$4 = Curry._2(cmp, x1, x3);
             if (c$4 === 0) {
               return {
                       hd: x2,
@@ -1362,7 +1362,7 @@ function sort_uniq(cmp, l) {
                       }
                     };
             }
-            var c$5 = Curry._2(cmp, x2, x3);
+            let c$5 = Curry._2(cmp, x2, x3);
             if (c$5 === 0) {
               return {
                       hd: x2,
@@ -1401,11 +1401,11 @@ function sort_uniq(cmp, l) {
       }
       
     } else if (l) {
-      var match$2 = l.tl;
+      let match$2 = l.tl;
       if (match$2) {
-        var x2$1 = match$2.hd;
-        var x1$1 = l.hd;
-        var c$6 = Curry._2(cmp, x1$1, x2$1);
+        let x2$1 = match$2.hd;
+        let x1$1 = l.hd;
+        let c$6 = Curry._2(cmp, x1$1, x2$1);
         if (c$6 === 0) {
           return {
                   hd: x1$1,
@@ -1431,29 +1431,29 @@ function sort_uniq(cmp, l) {
       }
       
     }
-    var n1 = (n >> 1);
-    var n2 = n - n1 | 0;
-    var l2 = chop(n1, l);
-    var s1 = sort(n1, l);
-    var s2 = sort(n2, l2);
-    var _l1 = s1;
-    var _l2 = s2;
-    var _accu = /* [] */0;
+    let n1 = (n >> 1);
+    let n2 = n - n1 | 0;
+    let l2 = chop(n1, l);
+    let s1 = sort(n1, l);
+    let s2 = sort(n2, l2);
+    let _l1 = s1;
+    let _l2 = s2;
+    let _accu = /* [] */0;
     while(true) {
-      var accu = _accu;
-      var l2$1 = _l2;
-      var l1 = _l1;
+      let accu = _accu;
+      let l2$1 = _l2;
+      let l1 = _l1;
       if (!l1) {
         return rev_append(l2$1, accu);
       }
       if (!l2$1) {
         return rev_append(l1, accu);
       }
-      var t2 = l2$1.tl;
-      var h2 = l2$1.hd;
-      var t1 = l1.tl;
-      var h1 = l1.hd;
-      var c$7 = Curry._2(cmp, h1, h2);
+      let t2 = l2$1.tl;
+      let h2 = l2$1.hd;
+      let t1 = l1.tl;
+      let h1 = l1.hd;
+      let c$7 = Curry._2(cmp, h1, h2);
       if (c$7 === 0) {
         _accu = {
           hd: h1,
@@ -1479,7 +1479,7 @@ function sort_uniq(cmp, l) {
       continue ;
     };
   };
-  var len = length_aux(0, l);
+  let len = length_aux(0, l);
   if (len < 2) {
     return l;
   } else {
@@ -1487,17 +1487,17 @@ function sort_uniq(cmp, l) {
   }
 }
 
-var u = List.length;
+let u = List.length;
 
-var append = Pervasives.$at;
+let append = Pervasives.$at;
 
-var concat = flatten;
+let concat = flatten;
 
-var filter = find_all;
+let filter = find_all;
 
-var sort = stable_sort;
+let sort = stable_sort;
 
-var fast_sort = stable_sort;
+let fast_sort = stable_sort;
 
 exports.u = u;
 exports.length_aux = length_aux;

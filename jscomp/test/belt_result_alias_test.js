@@ -1,6 +1,6 @@
 'use strict';
 
-var Belt_Result = require("../../lib/js/belt_Result.js");
+let Belt_Result = require("../../lib/js/belt_Result.js");
 
 Belt_Result.map({
       TAG: "Ok",

@@ -1,6 +1,6 @@
 'use strict';
 
-var Path = require("path");
+let Path = require("path");
 
 console.log(Path.join(".", "Node_path_test"));
 

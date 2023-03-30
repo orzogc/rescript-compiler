@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Mt = require("./mt.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -15,7 +15,7 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var v = {
+let v = {
   a: 3,
   b: {
     xx: 2,
@@ -23,34 +23,34 @@ var v = {
   }
 };
 
-var u_a = 2;
+let u_a = 2;
 
-var u_b = {
+let u_b = {
   xx: 2,
   yy: 3
 };
 
-var u = {
+let u = {
   a: u_a,
   b: u_b
 };
 
-var A = /* @__PURE__ */Caml_exceptions.create("Record_debug_test.A");
+let A = /* @__PURE__ */Caml_exceptions.create("Record_debug_test.A");
 
-var B = /* @__PURE__ */Caml_exceptions.create("Record_debug_test.B");
+let B = /* @__PURE__ */Caml_exceptions.create("Record_debug_test.B");
 
-var v0 = {
+let v0 = {
   RE_EXN_ID: A,
   _1: 3
 };
 
-var v1 = {
+let v1 = {
   RE_EXN_ID: B,
   _1: 3,
   _2: 2
 };
 
-var N = {
+let N = {
   a: 0,
   b: 1
 };
@@ -59,7 +59,7 @@ function N0_f(prim) {
   return prim;
 }
 
-var N0 = {
+let N0 = {
   a: 0,
   b: 1,
   f: N0_f
@@ -67,7 +67,7 @@ var N0 = {
 
 console.log("hei", v);
 
-var a = [
+let a = [
   1,
   2,
   2,
@@ -75,7 +75,7 @@ var a = [
   3
 ];
 
-var c = [
+let c = [
   1,
   2,
   3,
@@ -95,7 +95,7 @@ eq("File \"record_debug_test.ml\", line 64, characters 3-10", [
 
 Mt.from_pair_suites("record_debug_test.ml", suites.contents);
 
-var h = {
+let h = {
   hd: 1,
   tl: {
     hd: 2,
@@ -109,12 +109,12 @@ var h = {
   }
 };
 
-var v2 = {
+let v2 = {
   NAME: "C",
   VAL: 2
 };
 
-var v3 = {
+let v3 = {
   NAME: "C",
   VAL: [
     2,

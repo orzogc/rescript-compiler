@@ -1,15 +1,15 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
 function f(param) {
-  var v = {
+  let v = {
     contents: 0
   };
-  var acc = {
+  let acc = {
     contents: 0
   };
-  var n = 10;
+  let n = 10;
   while(true) {
     if (v.contents > n) {
       return acc.contents;
@@ -20,7 +20,7 @@ function f(param) {
   };
 }
 
-var suites_0 = [
+let suites_0 = [
   "sum",
   (function (param) {
       return {
@@ -31,7 +31,7 @@ var suites_0 = [
     })
 ];
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: /* [] */0
 };

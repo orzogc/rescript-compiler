@@ -3,7 +3,7 @@
 
 console.log("hello");
 
-var v = 0;
+let v = 0;
 
 exports.v = v;
 /*  Not a pure module */

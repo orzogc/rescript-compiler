@@ -1,12 +1,12 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Caml_array = require("../../lib/js/caml_array.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
 function f(_n, _acc) {
   while(true) {
-    var acc = _acc;
-    var n = _n;
+    let acc = _acc;
+    let n = _n;
     if (n === 0) {
       return Curry._1(acc, undefined);
     }
@@ -22,10 +22,10 @@ function f(_n, _acc) {
 }
 
 function test_closure(param) {
-  var arr = Caml_array.make(6, (function (x) {
+  let arr = Caml_array.make(6, (function (x) {
           return x;
         }));
-  for(var i = 0; i <= 6; ++i){
+  for(let i = 0; i <= 6; ++i){
     Caml_array.set(arr, i, (function(i){
         return function (param) {
           return i;

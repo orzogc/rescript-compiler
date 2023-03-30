@@ -1,13 +1,13 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
 function test(g) {
   g.xx(22, 3, "xxx", 1, 2, 3);
 }
 
 function test_hi(x) {
-  var y = x.hi(1, 2, 3);
+  let y = x.hi(1, 2, 3);
   if (y !== null) {
     console.log(y);
     return 2;
@@ -17,7 +17,7 @@ function test_hi(x) {
 }
 
 function test_hi__2(x) {
-  var match = x.hi__2();
+  let match = x.hi__2();
   if (match == null) {
     return 1;
   } else {

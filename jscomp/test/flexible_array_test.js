@@ -1,14 +1,14 @@
 'use strict';
 
-var $$Array = require("../../lib/js/array.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_array = require("../../lib/js/caml_array.js");
+let $$Array = require("../../lib/js/array.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
 function sub(_tr, _k) {
   while(true) {
-    var k = _k;
-    var tr = _tr;
+    let k = _k;
+    let tr = _tr;
     if (typeof tr !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
@@ -44,8 +44,8 @@ function update(tr, k, w) {
           Error: new Error()
         };
   }
-  var r = tr._2;
-  var l = tr._1;
+  let r = tr._2;
+  let l = tr._1;
   if (k === 1) {
     return {
             TAG: "Br",
@@ -54,7 +54,7 @@ function update(tr, k, w) {
             _2: r
           };
   }
-  var v = tr._0;
+  let v = tr._0;
   if (k % 2 === 0) {
     return {
             TAG: "Br",
@@ -82,9 +82,9 @@ function $$delete(tr, n) {
   if (n === 1) {
     return "Lf";
   }
-  var r = tr._2;
-  var l = tr._1;
-  var v = tr._0;
+  let r = tr._2;
+  let l = tr._1;
+  let v = tr._0;
   if (n % 2 === 0) {
     return {
             TAG: "Br",
@@ -127,7 +127,7 @@ function lorem(tr) {
           Error: new Error()
         };
   }
-  var l = tr._1;
+  let l = tr._1;
   if (typeof l === "object") {
     return {
             TAG: "Br",
@@ -136,7 +136,7 @@ function lorem(tr) {
             _2: lorem(l)
           };
   }
-  var tmp = tr._2;
+  let tmp = tr._2;
   if (typeof tmp !== "object") {
     return "Lf";
   }
@@ -151,7 +151,7 @@ function lorem(tr) {
       };
 }
 
-var empty = [
+let empty = [
   "Lf",
   0
 ];
@@ -172,7 +172,7 @@ function get(param, i) {
 }
 
 function set(param, i, v) {
-  var k = param[1];
+  let k = param[1];
   if (i >= 0 && i < k) {
     return [
             update(param[0], i + 1 | 0, v),
@@ -194,7 +194,7 @@ function push_front(param, v) {
 }
 
 function pop_front(param) {
-  var k = param[1];
+  let k = param[1];
   if (k > 0) {
     return [
             lorem(param[0]),
@@ -209,7 +209,7 @@ function pop_front(param) {
 }
 
 function push_back(param, v) {
-  var k = param[1];
+  let k = param[1];
   return [
           update(param[0], k + 1 | 0, v),
           k + 1 | 0
@@ -217,7 +217,7 @@ function push_back(param, v) {
 }
 
 function pop_back(param) {
-  var k = param[1];
+  let k = param[1];
   if (k > 0) {
     return [
             $$delete(param[0], k),
@@ -232,9 +232,9 @@ function pop_back(param) {
 }
 
 function filter_from(i, p, s) {
-  var u = empty;
-  for(var i$1 = i ,i_finish = length(s); i$1 < i_finish; ++i$1){
-    var ele = get(s, i$1);
+  let u = empty;
+  for(let i$1 = i ,i_finish = length(s); i$1 < i_finish; ++i$1){
+    let ele = get(s, i$1);
     if (Curry._1(p, ele)) {
       u = push_back(u, ele);
     }
@@ -244,42 +244,42 @@ function filter_from(i, p, s) {
 }
 
 function append(a, b) {
-  var empty$1 = empty;
-  for(var i = 0 ,i_finish = length(a); i < i_finish; ++i){
+  let empty$1 = empty;
+  for(let i = 0 ,i_finish = length(a); i < i_finish; ++i){
     empty$1 = push_back(empty$1, get(a, i));
   }
-  for(var i$1 = 0 ,i_finish$1 = length(b); i$1 < i_finish$1; ++i$1){
+  for(let i$1 = 0 ,i_finish$1 = length(b); i$1 < i_finish$1; ++i$1){
     empty$1 = push_back(empty$1, get(b, i$1));
   }
   return empty$1;
 }
 
 function sort(s) {
-  var size = length(s);
+  let size = length(s);
   if (size <= 1) {
     return s;
   }
-  var head = get(s, 0);
-  var larger = sort(filter_from(1, (function (x) {
+  let head = get(s, 0);
+  let larger = sort(filter_from(1, (function (x) {
               return Caml_obj.greaterthan(x, head);
             }), s));
-  var smaller = sort(filter_from(1, (function (x) {
+  let smaller = sort(filter_from(1, (function (x) {
               return Caml_obj.lessequal(x, head);
             }), s));
   return append(smaller, push_front(larger, head));
 }
 
 function of_array(arr) {
-  var v = empty;
-  for(var i = 0 ,i_finish = arr.length; i < i_finish; ++i){
+  let v = empty;
+  for(let i = 0 ,i_finish = arr.length; i < i_finish; ++i){
     v = push_back(v, Caml_array.get(arr, i));
   }
   return v;
 }
 
-var equal = Caml_obj.equal;
+let equal = Caml_obj.equal;
 
-var Int_array = {
+let Int_array = {
   empty: empty,
   get: get,
   set: set,
@@ -297,7 +297,7 @@ function $eq$tilde(x, y) {
   return Caml_obj.equal(x, of_array(y));
 }
 
-var u = of_array([
+let u = of_array([
       1,
       2,
       2,
@@ -306,7 +306,7 @@ var u = of_array([
       6
     ]);
 
-var x = sort(u);
+let x = sort(u);
 
 if (!Caml_obj.equal(x, of_array([
             1,
@@ -327,15 +327,15 @@ if (!Caml_obj.equal(x, of_array([
       };
 }
 
-var v = $$Array.init(500, (function (i) {
+let v = $$Array.init(500, (function (i) {
         return 500 - i | 0;
       }));
 
-var y = $$Array.init(500, (function (i) {
+let y = $$Array.init(500, (function (i) {
         return i + 1 | 0;
       }));
 
-var x$1 = sort(of_array(v));
+let x$1 = sort(of_array(v));
 
 Caml_obj.equal(x$1, of_array(y));
 

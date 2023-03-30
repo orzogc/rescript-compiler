@@ -1,6 +1,6 @@
 'use strict';
 
-var Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
+let Caml_external_polyfill = require("../../lib/js/caml_external_polyfill.js");
 
 function to_buffer(buff, ofs, len, v, flags) {
   if (ofs < 0 || len < 0 || ofs > (buff.length - len | 0)) {

@@ -1,6 +1,6 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
 function f(value) {
   if (value == null) {
@@ -11,7 +11,7 @@ function f(value) {
 }
 
 function fxx(v) {
-  var match = Curry._1(v, undefined);
+  let match = Curry._1(v, undefined);
   switch (match) {
     case 1 :
         return /* 'a' */97;

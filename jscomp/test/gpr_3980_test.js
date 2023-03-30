@@ -1,8 +1,8 @@
 'use strict';
 
-var Js_math = require("../../lib/js/js_math.js");
+let Js_math = require("../../lib/js/js_math.js");
 
-var match = 1;
+let match = 1;
 
 if (match !== undefined) {
   if (match !== 1) {
@@ -16,7 +16,7 @@ if (match !== undefined) {
           Error: new Error()
         };
   }
-  var match$1 = 1;
+  let match$1 = 1;
   if (match$1 !== 1) {
     if (match$1 !== 2) {
       throw {

@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Belt_Int = require("../../lib/js/belt_Int.js");
+let Mt = require("./mt.js");
+let Belt_Int = require("../../lib/js/belt_Int.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -84,7 +84,7 @@ eq("File \"bs_int_test.ml\", line 43, characters 5-12", 0, 0);
 
 Mt.from_pair_suites("File \"bs_int_test.ml\", line 45, characters 23-30", suites.contents);
 
-var I;
+let I;
 
 exports.suites = suites;
 exports.test_id = test_id;

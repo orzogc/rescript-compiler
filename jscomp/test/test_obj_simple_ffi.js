@@ -2,7 +2,7 @@
 
 
 function v(displayName, param) {
-  var tmp = {
+  let tmp = {
     test: 3,
     config: 3,
     hi: "ghos"
@@ -13,13 +13,13 @@ function v(displayName, param) {
   return tmp;
 }
 
-var v2 = {
+let v2 = {
   test: 3,
   config: 3,
   hi: "ghos"
 };
 
-var v3 = {
+let v3 = {
   displayName: "display",
   test: 3,
   config: 3,

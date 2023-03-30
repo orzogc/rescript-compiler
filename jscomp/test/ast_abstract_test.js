@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Js_mapperRt = require("../../lib/js/js_mapperRt.js");
+let Mt = require("./mt.js");
+let Js_mapperRt = require("../../lib/js/js_mapperRt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -44,19 +44,19 @@ function tFromJs(param) {
         };
 }
 
-var v0 = {
+let v0 = {
   x: 3,
   y: false,
   z: false
 };
 
-var v1 = {
+let v1 = {
   x: 3,
   y: false,
   z: ""
 };
 
-var _map = {"a":"a","b":"b","c":"c"};
+let _map = {"a":"a","b":"b","c":"c"};
 
 function xToJs(param) {
   return param;
@@ -78,9 +78,9 @@ idx("c");
 
 Mt.from_pair_suites("Ast_abstract_test", suites.contents);
 
-var x0 = "a";
+let x0 = "a";
 
-var x1 = "b";
+let x1 = "b";
 
 exports.suites = suites;
 exports.test_id = test_id;

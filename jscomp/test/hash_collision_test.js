@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -30,7 +30,7 @@ function f1(x) {
   }
 }
 
-var hi = [
+let hi = [
   "Eric_Cooper",
   "azdwbie"
 ];

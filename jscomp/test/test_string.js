@@ -1,7 +1,7 @@
 'use strict';
 
-var Caml_bytes = require("../../lib/js/caml_bytes.js");
-var Caml_string = require("../../lib/js/caml_string.js");
+let Caml_bytes = require("../../lib/js/caml_bytes.js");
+let Caml_string = require("../../lib/js/caml_string.js");
 
 function f(param) {
   switch (param) {
@@ -42,7 +42,7 @@ function h(s, b) {
   }
 }
 
-var v = 2;
+let v = 2;
 
 exports.f = f;
 exports.a = a;

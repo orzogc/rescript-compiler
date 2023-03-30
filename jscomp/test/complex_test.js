@@ -1,9 +1,9 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Complex = require("../../lib/js/complex.js");
+let Mt = require("./mt.js");
+let Complex = require("../../lib/js/complex.js");
 
-var suites_0 = [
+let suites_0 = [
   "basic_add",
   (function (param) {
       return {
@@ -17,7 +17,7 @@ var suites_0 = [
     })
 ];
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: /* [] */0
 };

@@ -1,14 +1,14 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
-var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
+let Mt = require("./mt.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -18,7 +18,7 @@ function eq(loc, x, y) {
 
 eq("File \"406_primitive_test.ml\", line 18, characters 6-13", 32, 32);
 
-var backend_type = {
+let backend_type = {
   TAG: "Other",
   _0: "BS"
 };
@@ -29,9 +29,9 @@ eq("File \"406_primitive_test.ml\", line 29, characters 6-13", backend_type, {
     });
 
 function f(param) {
-  var A = /* @__PURE__ */Caml_exceptions.create("A");
+  let A = /* @__PURE__ */Caml_exceptions.create("A");
   try {
-    for(var i = 0; i <= 200; ++i){
+    for(let i = 0; i <= 200; ++i){
       if (i === 10) {
         throw {
               RE_EXN_ID: A,
@@ -44,7 +44,7 @@ function f(param) {
     return ;
   }
   catch (raw_exn){
-    var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+    let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn.RE_EXN_ID === A) {
       return ;
     }
@@ -54,9 +54,9 @@ function f(param) {
 
 Mt.from_pair_suites("406_primitive_test", suites.contents);
 
-var v = 32;
+let v = 32;
 
-var max_array_length = /* Max_wosize */2147483647;
+let max_array_length = /* Max_wosize */2147483647;
 
 exports.suites = suites;
 exports.test_id = test_id;

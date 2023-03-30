@@ -31,11 +31,11 @@ function is_empty(param) {
 
 function mem(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return false;
     }
-    var y = param._2;
+    let y = param._2;
     if (x === y) {
       return true;
     }
@@ -49,19 +49,19 @@ function mem(x, _param) {
 }
 
 function balance_left(l, x, r) {
-  var exit = 0;
-  var a;
-  var x$1;
-  var b;
-  var y;
-  var c;
-  var z;
-  var d;
+  let exit = 0;
+  let a;
+  let x$1;
+  let b;
+  let y;
+  let c;
+  let z;
+  let d;
   if (typeof l !== "object" || l._0 === "Black") {
     exit = 1;
   } else {
-    var a$1 = l._1;
-    var exit$1 = 0;
+    let a$1 = l._1;
+    let exit$1 = 0;
     if (typeof a$1 !== "object" || a$1._0 === "Black") {
       exit$1 = 3;
     } else {
@@ -75,7 +75,7 @@ function balance_left(l, x, r) {
       exit = 2;
     }
     if (exit$1 === 3) {
-      var match = l._3;
+      let match = l._3;
       if (typeof match !== "object" || match._0 === "Black") {
         exit = 1;
       } else {
@@ -125,19 +125,19 @@ function balance_left(l, x, r) {
 }
 
 function balance_right(l, x, r) {
-  var exit = 0;
-  var a;
-  var x$1;
-  var b;
-  var y;
-  var c;
-  var z;
-  var d;
+  let exit = 0;
+  let a;
+  let x$1;
+  let b;
+  let y;
+  let c;
+  let z;
+  let d;
   if (typeof r !== "object" || r._0 === "Black") {
     exit = 1;
   } else {
-    var b$1 = r._1;
-    var exit$1 = 0;
+    let b$1 = r._1;
+    let exit$1 = 0;
     if (typeof b$1 !== "object" || b$1._0 === "Black") {
       exit$1 = 3;
     } else {
@@ -151,7 +151,7 @@ function balance_right(l, x, r) {
       exit = 2;
     }
     if (exit$1 === 3) {
-      var match = r._3;
+      let match = r._3;
       if (typeof match !== "object" || match._0 === "Black") {
         exit = 1;
       } else {
@@ -213,7 +213,7 @@ function singleton(x) {
 function unbalanced_left(param) {
   if (typeof param === "object") {
     if (param._0 === "Black") {
-      var match = param._1;
+      let match = param._1;
       if (typeof match === "object") {
         if (match._0 === "Black") {
           return [
@@ -227,7 +227,7 @@ function unbalanced_left(param) {
                   true
                 ];
         }
-        var match$1 = match._3;
+        let match$1 = match._3;
         if (typeof match$1 === "object" && match$1._0 === "Black") {
           return [
                   {
@@ -250,7 +250,7 @@ function unbalanced_left(param) {
       }
       
     } else {
-      var match$2 = param._1;
+      let match$2 = param._1;
       if (typeof match$2 === "object" && match$2._0 === "Black") {
         return [
                 balance_left({
@@ -280,9 +280,9 @@ function unbalanced_left(param) {
 function unbalanced_right(param) {
   if (typeof param === "object") {
     if (param._0 === "Black") {
-      var match = param._3;
-      var x = param._2;
-      var a = param._1;
+      let match = param._3;
+      let x = param._2;
+      let a = param._1;
       if (typeof match === "object") {
         if (match._0 === "Black") {
           return [
@@ -296,7 +296,7 @@ function unbalanced_right(param) {
                   true
                 ];
         }
-        var match$1 = match._1;
+        let match$1 = match._1;
         if (typeof match$1 === "object" && match$1._0 === "Black") {
           return [
                   {
@@ -319,7 +319,7 @@ function unbalanced_right(param) {
       }
       
     } else {
-      var match$2 = param._3;
+      let match$2 = param._3;
       if (typeof match$2 === "object" && match$2._0 === "Black") {
         return [
                 balance_right(param._1, param._2, {
@@ -365,8 +365,8 @@ function lbalance(x1, x2, x3) {
             _3: x3
           };
   }
-  var r = x1._3;
-  var l = x1._1;
+  let r = x1._3;
+  let l = x1._1;
   if (typeof l === "object" && l._0 !== "Black") {
     return {
             TAG: "Node",
@@ -406,7 +406,7 @@ function lbalance(x1, x2, x3) {
             _3: x3
           };
   }
-  var y = r._2;
+  let y = r._2;
   return {
           TAG: "Node",
           _0: "Red",
@@ -430,8 +430,8 @@ function lbalance(x1, x2, x3) {
 
 function rbalance(x1, x2, x3) {
   if (typeof x3 === "object" && x3._0 !== "Black") {
-    var b = x3._1;
-    var exit = 0;
+    let b = x3._1;
+    let exit = 0;
     if (typeof b !== "object") {
       exit = 2;
     } else {
@@ -459,7 +459,7 @@ function rbalance(x1, x2, x3) {
       exit = 2;
     }
     if (exit === 2) {
-      var match = x3._3;
+      let match = x3._3;
       if (typeof match === "object" && match._0 !== "Black") {
         return {
                 TAG: "Node",
@@ -505,24 +505,24 @@ function ins(x, s) {
           };
   }
   if (s._0 === "Black") {
-    var y = s._2;
+    let y = s._2;
     if (x === y) {
       return s;
     }
-    var b = s._3;
-    var a = s._1;
+    let b = s._3;
+    let a = s._1;
     if (x < y) {
       return lbalance(ins(x, a), y, b);
     } else {
       return rbalance(a, y, ins(x, b));
     }
   }
-  var y$1 = s._2;
+  let y$1 = s._2;
   if (x === y$1) {
     return s;
   }
-  var b$1 = s._3;
-  var a$1 = s._1;
+  let b$1 = s._3;
+  let a$1 = s._1;
   if (x < y$1) {
     return {
             TAG: "Node",
@@ -543,7 +543,7 @@ function ins(x, s) {
 }
 
 function add(x, s) {
-  var s$1 = ins(x, s);
+  let s$1 = ins(x, s);
   if (typeof s$1 !== "object" || s$1._0 === "Black") {
     return s$1;
   } else {
@@ -569,12 +569,12 @@ function remove_min(param) {
           Error: new Error()
         };
   }
-  var c = param._0;
+  let c = param._0;
   if (c === "Black") {
-    var tmp = param._1;
+    let tmp = param._1;
     if (typeof tmp !== "object") {
-      var match = param._3;
-      var x = param._2;
+      let match = param._3;
+      let x = param._2;
       if (typeof match !== "object") {
         return [
                 "Empty",
@@ -607,7 +607,7 @@ function remove_min(param) {
     }
     
   } else {
-    var tmp$1 = param._1;
+    let tmp$1 = param._1;
     if (typeof tmp$1 !== "object") {
       return [
               param._3,
@@ -617,12 +617,12 @@ function remove_min(param) {
     }
     
   }
-  var match$1 = remove_min(param._1);
-  var y = match$1[1];
-  var s_1 = match$1[0];
-  var s_2 = param._2;
-  var s_3 = param._3;
-  var s = {
+  let match$1 = remove_min(param._1);
+  let y = match$1[1];
+  let s_1 = match$1[0];
+  let s_2 = param._2;
+  let s_3 = param._3;
+  let s = {
     TAG: "Node",
     _0: c,
     _1: s_1,
@@ -636,7 +636,7 @@ function remove_min(param) {
             false
           ];
   }
-  var match$2 = unbalanced_right(s);
+  let match$2 = unbalanced_right(s);
   return [
           match$2[0],
           y,
@@ -651,10 +651,10 @@ function remove_aux(x, n) {
             false
           ];
   }
-  var r = n._3;
-  var y = n._2;
-  var l = n._1;
-  var c = n._0;
+  let r = n._3;
+  let y = n._2;
+  let l = n._1;
+  let c = n._0;
   if (x === y) {
     if (typeof r !== "object") {
       if (c === "Red") {
@@ -666,10 +666,10 @@ function remove_aux(x, n) {
         return blackify(l);
       }
     }
-    var match = remove_min(r);
-    var n_2 = match[1];
-    var n_3 = match[0];
-    var n$1 = {
+    let match = remove_min(r);
+    let n_2 = match[1];
+    let n_3 = match[0];
+    let n$1 = {
       TAG: "Node",
       _0: c,
       _1: l,
@@ -686,9 +686,9 @@ function remove_aux(x, n) {
     }
   }
   if (x < y) {
-    var match$1 = remove_aux(x, l);
-    var n_1 = match$1[0];
-    var n$2 = {
+    let match$1 = remove_aux(x, l);
+    let n_1 = match$1[0];
+    let n$2 = {
       TAG: "Node",
       _0: c,
       _1: n_1,
@@ -704,9 +704,9 @@ function remove_aux(x, n) {
             ];
     }
   }
-  var match$2 = remove_aux(x, r);
-  var n_3$1 = match$2[0];
-  var n$3 = {
+  let match$2 = remove_aux(x, r);
+  let n_3$1 = match$2[0];
+  let n$3 = {
     TAG: "Node",
     _0: c,
     _1: l,
@@ -735,7 +735,7 @@ function cardinal(param) {
   }
 }
 
-var empty = "Empty";
+let empty = "Empty";
 
 exports.blackify = blackify;
 exports.empty = empty;

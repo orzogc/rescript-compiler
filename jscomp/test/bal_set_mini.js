@@ -10,8 +10,8 @@ function height(param) {
 }
 
 function create(l, v, r) {
-  var hl = height(l);
-  var hr = height(r);
+  let hl = height(l);
+  let hr = height(r);
   return {
           TAG: "Node",
           _0: l,
@@ -22,15 +22,15 @@ function create(l, v, r) {
 }
 
 function bal(l, v, r) {
-  var hl = height(l);
-  var hr = height(r);
+  let hl = height(l);
+  let hr = height(r);
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
       return "Empty";
     }
-    var lr = l._2;
-    var lv = l._1;
-    var ll = l._0;
+    let lr = l._2;
+    let lv = l._1;
+    let ll = l._0;
     if (height(ll) >= height(lr)) {
       return create(ll, lv, create(lr, v, r));
     } else if (typeof lr !== "object") {
@@ -51,9 +51,9 @@ function bal(l, v, r) {
   if (typeof r !== "object") {
     return "Empty";
   }
-  var rr = r._2;
-  var rv = r._1;
-  var rl = r._0;
+  let rr = r._2;
+  let rv = r._1;
+  let rl = r._0;
   if (height(rr) >= height(rl)) {
     return create(create(l, v, rl), rv, rr);
   } else if (typeof rl !== "object") {
@@ -83,10 +83,10 @@ function add(x, t) {
             _3: 1
           };
   }
-  var r = t._2;
-  var v = t._1;
-  var l = t._0;
-  var c = compare_int(x, v);
+  let r = t._2;
+  let v = t._1;
+  let l = t._0;
+  let c = compare_int(x, v);
   if (c === 0) {
     return t;
   } else if (c < 0) {
@@ -98,12 +98,12 @@ function add(x, t) {
 
 function min_elt(_def, _param) {
   while(true) {
-    var param = _param;
-    var def = _def;
+    let param = _param;
+    let def = _def;
     if (typeof param !== "object") {
       return def;
     }
-    var l = param._0;
+    let l = param._0;
     if (typeof l !== "object") {
       return param._1;
     }
@@ -128,7 +128,7 @@ function internal_merge(l, r) {
   if (typeof r !== "object") {
     return l;
   }
-  var rv = r._1;
+  let rv = r._1;
   return bal(l, min_elt(rv, r), remove_min_elt(r._0, rv, r._2));
 }
 
@@ -136,10 +136,10 @@ function remove(x, tree) {
   if (typeof tree !== "object") {
     return "Empty";
   }
-  var r = tree._2;
-  var v = tree._1;
-  var l = tree._0;
-  var c = compare_int(x, v);
+  let r = tree._2;
+  let v = tree._1;
+  let l = tree._0;
+  let c = compare_int(x, v);
   if (c === 0) {
     return internal_merge(l, r);
   } else if (c < 0) {
@@ -151,11 +151,11 @@ function remove(x, tree) {
 
 function mem(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return false;
     }
-    var c = compare_int(x, param._1);
+    let c = compare_int(x, param._1);
     if (c === 0) {
       return true;
     }
@@ -164,24 +164,24 @@ function mem(x, _param) {
   };
 }
 
-var v = "Empty";
+let v = "Empty";
 
-for(var i = 0; i <= 100000; ++i){
+for(let i = 0; i <= 100000; ++i){
   v = add(i, v);
 }
 
-for(var i$1 = 0; i$1 <= 100000; ++i$1){
+for(let i$1 = 0; i$1 <= 100000; ++i$1){
   if (!mem(i$1, v)) {
     console.log("impossible");
   }
   
 }
 
-for(var i$2 = 0; i$2 <= 100000; ++i$2){
+for(let i$2 = 0; i$2 <= 100000; ++i$2){
   v = remove(i$2, v);
 }
 
-var match = v;
+let match = v;
 
 if (typeof match === "object") {
   console.log("impossible");

@@ -1,26 +1,26 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Path = require("path");
-var $$Array = require("../../lib/js/array.js");
-var Curry = require("../../lib/js/curry.js");
-var Assert = require("assert");
-var Process = require("process");
+let List = require("../../lib/js/list.js");
+let Path = require("path");
+let $$Array = require("../../lib/js/array.js");
+let Curry = require("../../lib/js/curry.js");
+let Assert = require("assert");
+let Process = require("process");
 
 function assert_fail(msg) {
   Assert.fail(undefined, undefined, msg, "");
 }
 
 function is_mocha(param) {
-  var match = $$Array.to_list(Process.argv);
+  let match = $$Array.to_list(Process.argv);
   if (!match) {
     return false;
   }
-  var match$1 = match.tl;
+  let match$1 = match.tl;
   if (!match$1) {
     return false;
   }
-  var exec = Path.basename(match$1.hd);
+  let exec = Path.basename(match$1.hd);
   if (exec === "mocha") {
     return true;
   } else {
@@ -29,11 +29,11 @@ function is_mocha(param) {
 }
 
 function from_suites(name, suite) {
-  var match = $$Array.to_list(Process.argv);
+  let match = $$Array.to_list(Process.argv);
   if (match && is_mocha(undefined)) {
     describe(name, (function () {
             return List.iter((function (param) {
-                          var partial_arg = param[1];
+                          let partial_arg = param[1];
                           it(param[0], (function () {
                                   return Curry._1(partial_arg, undefined);
                                 }));
@@ -45,7 +45,7 @@ function from_suites(name, suite) {
 }
 
 function close_enough(thresholdOpt, a, b) {
-  var threshold = thresholdOpt !== undefined ? thresholdOpt : 0.0000001;
+  let threshold = thresholdOpt !== undefined ? thresholdOpt : 0.0000001;
   return Math.abs(a - b) < threshold;
 }
 
@@ -67,8 +67,8 @@ function handleCode(spec) {
         Assert.ok(spec._0);
         return ;
     case "Approx" :
-        var b = spec._1;
-        var a = spec._0;
+        let b = spec._1;
+        let a = spec._0;
         if (!close_enough(undefined, a, b)) {
           Assert.deepEqual(a, b);
           return ;
@@ -76,8 +76,8 @@ function handleCode(spec) {
           return ;
         }
     case "ApproxThreshold" :
-        var b$1 = spec._2;
-        var a$1 = spec._1;
+        let b$1 = spec._2;
+        let a$1 = spec._1;
         if (!close_enough(spec._0, a$1, b$1)) {
           Assert.deepEqual(a$1, b$1);
           return ;
@@ -96,12 +96,12 @@ function handleCode(spec) {
 }
 
 function from_pair_suites(name, suites) {
-  var match = $$Array.to_list(Process.argv);
+  let match = $$Array.to_list(Process.argv);
   if (match) {
     if (is_mocha(undefined)) {
       describe(name, (function () {
               return List.iter((function (param) {
-                            var code = param[1];
+                            let code = param[1];
                             it(param[0], (function () {
                                     return handleCode(Curry._1(code, undefined));
                                   }));
@@ -114,8 +114,8 @@ function from_pair_suites(name, suites) {
             "testing"
           ]);
       return List.iter((function (param) {
-                    var name = param[0];
-                    var fn = Curry._1(param[1], undefined);
+                    let name = param[0];
+                    let fn = Curry._1(param[1], undefined);
                     switch (fn.TAG) {
                       case "Eq" :
                           console.log([
@@ -191,17 +191,17 @@ function from_pair_suites(name, suites) {
   
 }
 
-var val_unit = Promise.resolve(undefined);
+let val_unit = Promise.resolve(undefined);
 
 function from_promise_suites(name, suites) {
-  var match = $$Array.to_list(Process.argv);
+  let match = $$Array.to_list(Process.argv);
   if (match) {
     if (is_mocha(undefined)) {
       describe(name, (function () {
               return List.iter((function (param) {
-                            var code = param[1];
+                            let code = param[1];
                             it(param[0], (function () {
-                                    var arg1 = function (x) {
+                                    let arg1 = function (x) {
                                       handleCode(x);
                                       return val_unit;
                                     };

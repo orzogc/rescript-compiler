@@ -1,8 +1,8 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
-var v = {
+let v = {
   contents: 0
 };
 
@@ -11,23 +11,23 @@ function gen(param) {
   return v.contents;
 }
 
-var h = {
+let h = {
   contents: 0
 };
 
-var a = 0;
+let a = 0;
 
-var c = {
+let c = {
   contents: 0
 };
 
-var not_real_escape = a;
+let not_real_escape = a;
 
 function real_escape(f, v) {
   return Curry._1(f, c);
 }
 
-var u = h;
+let u = h;
 
 exports.u = u;
 exports.gen = gen;

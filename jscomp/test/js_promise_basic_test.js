@@ -1,16 +1,16 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var List = require("../../lib/js/list.js");
-var Caml_array = require("../../lib/js/caml_array.js");
-var Js_promise = require("../../lib/js/js_promise.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Mt = require("./mt.js");
+let List = require("../../lib/js/list.js");
+let Caml_array = require("../../lib/js/caml_array.js");
+let Js_promise = require("../../lib/js/js_promise.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -55,29 +55,29 @@ function fail(param) {
 }
 
 function thenTest(param) {
-  var p = Promise.resolve(4);
-  var arg1 = function (x) {
+  let p = Promise.resolve(4);
+  let arg1 = function (x) {
     return Promise.resolve(assert_bool(x === 4));
   };
   return p.then(arg1);
 }
 
 function andThenTest(param) {
-  var p = Promise.resolve(6);
-  var arg1 = function (param) {
+  let p = Promise.resolve(6);
+  let arg1 = function (param) {
     return Promise.resolve(12);
   };
-  var obj = p.then(arg1);
-  var arg1$1 = function (y) {
+  let obj = p.then(arg1);
+  let arg1$1 = function (y) {
     return Promise.resolve(assert_bool(y === 12));
   };
   return obj.then(arg1$1);
 }
 
-var h = Promise.resolve(undefined);
+let h = Promise.resolve(undefined);
 
 function assertIsNotFound(x) {
-  var match = Caml_exceptions.is_extension(x) && x.RE_EXN_ID === "Not_found" ? 0 : undefined;
+  let match = Caml_exceptions.is_extension(x) && x.RE_EXN_ID === "Not_found" ? 0 : undefined;
   if (match !== undefined) {
     return h;
   }
@@ -93,85 +93,85 @@ function assertIsNotFound(x) {
 }
 
 function catchTest(param) {
-  var p = Promise.reject({
+  let p = Promise.reject({
         RE_EXN_ID: "Not_found"
       });
-  var obj = p.then(fail);
-  var arg1 = assertIsNotFound;
+  let obj = p.then(fail);
+  let arg1 = assertIsNotFound;
   return obj.catch(arg1);
 }
 
 function orResolvedTest(param) {
-  var p = Promise.resolve(42);
-  var arg1 = function (param) {
+  let p = Promise.resolve(42);
+  let arg1 = function (param) {
     return Promise.resolve(22);
   };
-  var obj = p.catch(arg1);
-  var arg1$1 = function (value) {
+  let obj = p.catch(arg1);
+  let arg1$1 = function (value) {
     return Promise.resolve(assert_bool(value === 42));
   };
-  var obj$1 = obj.then(arg1$1);
+  let obj$1 = obj.then(arg1$1);
   return obj$1.catch(fail);
 }
 
 function orRejectedTest(param) {
-  var p = Promise.reject({
+  let p = Promise.reject({
         RE_EXN_ID: "Not_found"
       });
-  var arg1 = function (param) {
+  let arg1 = function (param) {
     return Promise.resolve(22);
   };
-  var obj = p.catch(arg1);
-  var arg1$1 = function (value) {
+  let obj = p.catch(arg1);
+  let arg1$1 = function (value) {
     return Promise.resolve(assert_bool(value === 22));
   };
-  var obj$1 = obj.then(arg1$1);
+  let obj$1 = obj.then(arg1$1);
   return obj$1.catch(fail);
 }
 
 function orElseResolvedTest(param) {
-  var p = Promise.resolve(42);
-  var arg1 = function (param) {
+  let p = Promise.resolve(42);
+  let arg1 = function (param) {
     return Promise.resolve(22);
   };
-  var obj = p.catch(arg1);
-  var arg1$1 = function (value) {
+  let obj = p.catch(arg1);
+  let arg1$1 = function (value) {
     return Promise.resolve(assert_bool(value === 42));
   };
-  var obj$1 = obj.then(arg1$1);
+  let obj$1 = obj.then(arg1$1);
   return obj$1.catch(fail);
 }
 
 function orElseRejectedResolveTest(param) {
-  var p = Promise.reject({
+  let p = Promise.reject({
         RE_EXN_ID: "Not_found"
       });
-  var arg1 = function (param) {
+  let arg1 = function (param) {
     return Promise.resolve(22);
   };
-  var obj = p.catch(arg1);
-  var arg1$1 = function (value) {
+  let obj = p.catch(arg1);
+  let arg1$1 = function (value) {
     return Promise.resolve(assert_bool(value === 22));
   };
-  var obj$1 = obj.then(arg1$1);
+  let obj$1 = obj.then(arg1$1);
   return obj$1.catch(fail);
 }
 
-var Stack_overflow = /* @__PURE__ */Caml_exceptions.create("Js_promise_basic_test.Stack_overflow");
+let Stack_overflow = /* @__PURE__ */Caml_exceptions.create("Js_promise_basic_test.Stack_overflow");
 
 function orElseRejectedRejectTest(param) {
-  var p = Promise.reject({
+  let p = Promise.reject({
         RE_EXN_ID: "Not_found"
       });
-  var arg1 = function (param) {
+  let arg1 = function (param) {
     return Promise.reject({
                 RE_EXN_ID: Stack_overflow
               });
   };
-  var obj = p.catch(arg1);
-  var obj$1 = obj.then(fail);
-  var arg1$1 = function (error) {
-    var match = Caml_exceptions.is_extension(error) && error.RE_EXN_ID === Stack_overflow ? 0 : undefined;
+  let obj = p.catch(arg1);
+  let obj$1 = obj.then(fail);
+  let arg1$1 = function (error) {
+    let match = Caml_exceptions.is_extension(error) && error.RE_EXN_ID === Stack_overflow ? 0 : undefined;
     if (match !== undefined) {
       return h;
     }
@@ -189,50 +189,50 @@ function orElseRejectedRejectTest(param) {
 }
 
 function resolveTest(param) {
-  var p1 = Promise.resolve(10);
-  var arg1 = function (x) {
+  let p1 = Promise.resolve(10);
+  let arg1 = function (x) {
     return Promise.resolve(assert_bool(x === 10));
   };
   return p1.then(arg1);
 }
 
 function rejectTest(param) {
-  var p = Promise.reject({
+  let p = Promise.reject({
         RE_EXN_ID: "Not_found"
       });
-  var arg1 = assertIsNotFound;
+  let arg1 = assertIsNotFound;
   return p.catch(arg1);
 }
 
 function thenCatchChainResolvedTest(param) {
-  var p = Promise.resolve(20);
-  var arg1 = function (value) {
+  let p = Promise.resolve(20);
+  let arg1 = function (value) {
     return Promise.resolve(assert_bool(value === 20));
   };
-  var obj = p.then(arg1);
+  let obj = p.then(arg1);
   return obj.catch(fail);
 }
 
 function thenCatchChainRejectedTest(param) {
-  var p = Promise.reject({
+  let p = Promise.reject({
         RE_EXN_ID: "Not_found"
       });
-  var obj = p.then(fail);
-  var arg1 = assertIsNotFound;
+  let obj = p.then(fail);
+  let arg1 = assertIsNotFound;
   return obj.catch(arg1);
 }
 
 function allResolvedTest(param) {
-  var p1 = Promise.resolve(1);
-  var p2 = Promise.resolve(2);
-  var p3 = Promise.resolve(3);
-  var promises = [
+  let p1 = Promise.resolve(1);
+  let p2 = Promise.resolve(2);
+  let p3 = Promise.resolve(3);
+  let promises = [
     p1,
     p2,
     p3
   ];
-  var obj = Promise.all(promises);
-  var arg1 = function (resolved) {
+  let obj = Promise.all(promises);
+  let arg1 = function (resolved) {
     assert_bool(Caml_array.get(resolved, 0) === 1);
     assert_bool(Caml_array.get(resolved, 1) === 2);
     assert_bool(Caml_array.get(resolved, 2) === 3);
@@ -246,19 +246,19 @@ function is_not_found(error) {
 }
 
 function allRejectTest(param) {
-  var p1 = Promise.resolve(1);
-  var p2 = Promise.resolve(3);
-  var p3 = Promise.reject({
+  let p1 = Promise.resolve(1);
+  let p2 = Promise.resolve(3);
+  let p3 = Promise.reject({
         RE_EXN_ID: "Not_found"
       });
-  var promises = [
+  let promises = [
     p1,
     p2,
     p3
   ];
-  var obj = Promise.all(promises);
-  var obj$1 = obj.then(fail);
-  var arg1 = function (error) {
+  let obj = Promise.all(promises);
+  let obj$1 = obj.then(fail);
+  let arg1 = function (error) {
     assert_bool(error.RE_EXN_ID === "Not_found");
     return h;
   };
@@ -266,29 +266,29 @@ function allRejectTest(param) {
 }
 
 function raceTest(param) {
-  var p1 = Promise.resolve("first");
-  var p2 = Promise.resolve("second");
-  var p3 = Promise.resolve("third");
-  var promises = [
+  let p1 = Promise.resolve("first");
+  let p2 = Promise.resolve("second");
+  let p3 = Promise.resolve("third");
+  let promises = [
     p1,
     p2,
     p3
   ];
-  var obj = Promise.race(promises);
-  var arg1 = function (resolved) {
+  let obj = Promise.race(promises);
+  let arg1 = function (resolved) {
     return h;
   };
-  var obj$1 = obj.then(arg1);
+  let obj$1 = obj.then(arg1);
   return obj$1.catch(fail);
 }
 
 function createPromiseRejectTest(param) {
-  var obj = new Promise((function (resolve, reject) {
+  let obj = new Promise((function (resolve, reject) {
           reject({
                 RE_EXN_ID: "Not_found"
               });
         }));
-  var arg1 = function (error) {
+  let arg1 = function (error) {
     assert_bool(error.RE_EXN_ID === "Not_found");
     return h;
   };
@@ -296,14 +296,14 @@ function createPromiseRejectTest(param) {
 }
 
 function createPromiseFulfillTest(param) {
-  var obj = new Promise((function (resolve, param) {
+  let obj = new Promise((function (resolve, param) {
           resolve("success");
         }));
-  var arg1 = function (resolved) {
+  let arg1 = function (resolved) {
     assert_bool(resolved === "success");
     return h;
   };
-  var obj$1 = obj.then(arg1);
+  let obj$1 = obj.then(arg1);
   return obj$1.catch(fail);
 }
 
@@ -337,7 +337,7 @@ createPromiseRejectTest(undefined);
 
 createPromiseFulfillTest(undefined);
 
-var obj = Promise.all([
+let obj = Promise.all([
       Promise.resolve(2),
       Promise.resolve(3)
     ]);
@@ -361,7 +361,7 @@ console.log("hey");
 
 Mt.from_pair_suites("Js_promise_basic_test", suites.contents);
 
-var twop = Promise.resolve(2);
+let twop = Promise.resolve(2);
 
 function re(prim) {
   return Promise.resolve(prim);
@@ -393,7 +393,7 @@ Mt.from_promise_suites("Js_promise_basic_test", {
       }
     });
 
-var then_ = Js_promise.then_;
+let then_ = Js_promise.then_;
 
 exports.suites = suites;
 exports.test_id = test_id;

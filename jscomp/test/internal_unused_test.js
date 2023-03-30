@@ -1,10 +1,10 @@
 'use strict';
 
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
 console.log(3);
 
-var A = /* @__PURE__ */Caml_exceptions.create("Internal_unused_test.P1.A");
+let A = /* @__PURE__ */Caml_exceptions.create("Internal_unused_test.P1.A");
 
 function f(param) {
   throw {
@@ -13,19 +13,19 @@ function f(param) {
       };
 }
 
-var c = 5;
+let c = 5;
 
-var h1 = 2;
+let h1 = 2;
 
-var h2 = h1 + 1 | 0;
+let h2 = h1 + 1 | 0;
 
-var h4 = 2;
+let h4 = 2;
 
-var h5 = h4 + 1 | 0;
+let h5 = h4 + 1 | 0;
 
-var b = 5;
+let b = 5;
 
-var N = {
+let N = {
   b: b
 };
 

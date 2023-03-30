@@ -1,7 +1,7 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
 
 function h0(x) {
   return x();
@@ -34,7 +34,7 @@ function h34(x) {
 }
 
 function ocaml_run(b, c) {
-  var x = 1;
+  let x = 1;
   return (x + b | 0) + c | 0;
 }
 
@@ -62,7 +62,7 @@ function xx(param) {
   };
 }
 
-var test_as = List.map;
+let test_as = List.map;
 
 exports.h0 = h0;
 exports.h00 = h00;

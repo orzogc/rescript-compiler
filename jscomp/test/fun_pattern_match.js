@@ -1,7 +1,7 @@
 'use strict';
 
-var Caml = require("../../lib/js/caml.js");
-var Curry = require("../../lib/js/curry.js");
+let Caml = require("../../lib/js/caml.js");
+let Curry = require("../../lib/js/curry.js");
 
 function f(param, v) {
   return ((((param.x0 + param.x1 | 0) + param.x2 | 0) + param.x3 | 0) + param.x4 | 0) + v | 0;
@@ -12,9 +12,9 @@ function f2(param, param$1) {
 }
 
 function f3(param) {
-  var lhs = param.rank;
+  let lhs = param.rank;
   return function (param) {
-    var rhs = param.rank;
+    let rhs = param.rank;
     if (typeof lhs !== "object") {
       lhs === "Uninitialized";
     } else {
@@ -36,9 +36,9 @@ function f3(param) {
 }
 
 function f4(param) {
-  var lhs = param.rank;
+  let lhs = param.rank;
   return function (param) {
-    var rhs = param.rank;
+    let rhs = param.rank;
     if (typeof lhs !== "object") {
       lhs === "Uninitialized";
     } else {
@@ -59,7 +59,7 @@ function f4(param) {
   };
 }
 
-var x = {
+let x = {
   NAME: "A",
   VAL: r
 };
@@ -68,9 +68,9 @@ function r(param) {
   return x;
 }
 
-var match = r(undefined);
+let match = r(undefined);
 
-var v = Curry._1(match.VAL, undefined);
+let v = Curry._1(match.VAL, undefined);
 
 console.log(v);
 

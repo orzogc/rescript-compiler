@@ -1,8 +1,8 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
+let List = require("../../lib/js/list.js");
 
-var b = List.length({
+let b = List.length({
       hd: 1,
       tl: {
         hd: 2,
@@ -13,7 +13,7 @@ var b = List.length({
       }
     });
 
-var a = b - 1 | 0;
+let a = b - 1 | 0;
 
 console.log("hello, res");
 
@@ -35,9 +35,9 @@ console.log([
       1
     ]);
 
-var to = 3;
+let to = 3;
 
-var downto = 1;
+let downto = 1;
 
 exports.a = a;
 exports.to = to;

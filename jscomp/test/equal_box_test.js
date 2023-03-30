@@ -1,20 +1,20 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_int64 = require("../../lib/js/caml_int64.js");
+let Mt = require("./mt.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_int64 = require("../../lib/js/caml_int64.js");
 
-var aa = Caml_obj.equal_null;
+let aa = Caml_obj.equal_null;
 
-var bb = Caml_obj.equal_undefined;
+let bb = Caml_obj.equal_undefined;
 
-var cc = Caml_obj.equal_nullable;
+let cc = Caml_obj.equal_nullable;
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -58,7 +58,7 @@ b("File \"equal_box_test.ml\", line 34, characters 4-11", true);
 
 b("File \"equal_box_test.ml\", line 35, characters 4-11", !Caml_obj.equal_null(3, undefined));
 
-var v = null;
+let v = null;
 
 b("File \"equal_box_test.ml\", line 39, characters 4-11", 3 !== v);
 

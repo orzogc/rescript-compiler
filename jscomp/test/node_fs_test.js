@@ -1,8 +1,8 @@
 'use strict';
 
-var Fs = require("fs");
+let Fs = require("fs");
 
-var f = typeof __filename === "undefined" ? undefined : __filename;
+let f = typeof __filename === "undefined" ? undefined : __filename;
 
 if (f !== undefined) {
   console.log(Fs.readFileSync(f, "utf8"));

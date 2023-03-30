@@ -1,20 +1,20 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml = require("../../lib/js/caml.js");
-var Curry = require("../../lib/js/curry.js");
-var Js_list = require("../../lib/js/js_list.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Belt_List = require("../../lib/js/belt_List.js");
-var Js_vector = require("../../lib/js/js_vector.js");
-var Belt_Array = require("../../lib/js/belt_Array.js");
-var Caml_array = require("../../lib/js/caml_array.js");
+let Mt = require("./mt.js");
+let Caml = require("../../lib/js/caml.js");
+let Curry = require("../../lib/js/curry.js");
+let Js_list = require("../../lib/js/js_list.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Belt_List = require("../../lib/js/belt_List.js");
+let Js_vector = require("../../lib/js/js_vector.js");
+let Belt_Array = require("../../lib/js/belt_Array.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -64,7 +64,7 @@ console.log([
             return x + y | 0;
           }), 0));
 
-var v = [
+let v = [
   1,
   2
 ];
@@ -97,7 +97,7 @@ $$throw("File \"bs_array_test.ml\", line 32, characters 8-15", (function (param)
             ], 2);
       }));
 
-var partial_arg = [
+let partial_arg = [
   0,
   1
 ];
@@ -133,7 +133,7 @@ b("File \"bs_array_test.ml\", line 36, characters 4-11", !Belt_Array.set([
           2
         ], 2, 0));
 
-var v$1 = [
+let v$1 = [
   1,
   2
 ];
@@ -152,7 +152,7 @@ if (!Belt_Array.set(v$1, 0, 0)) {
 
 b("File \"bs_array_test.ml\", line 37, characters 4-11", Belt_Array.getExn(v$1, 0) === 0);
 
-var v$2 = [
+let v$2 = [
   1,
   2
 ];
@@ -171,14 +171,14 @@ if (!Belt_Array.set(v$2, 1, 0)) {
 
 b("File \"bs_array_test.ml\", line 38, characters 4-11", Belt_Array.getExn(v$2, 1) === 0);
 
-var v$3 = [
+let v$3 = [
   1,
   2
 ];
 
 b("File \"bs_array_test.ml\", line 39, characters 4-11", (Belt_Array.setExn(v$3, 0, 0), Belt_Array.getExn(v$3, 0) === 0));
 
-var v$4 = [
+let v$4 = [
   1,
   2
 ];
@@ -224,7 +224,7 @@ eq("File \"bs_array_test.ml\", line 51, characters 5-12", Caml_array.make(5, 3),
       3
     ]);
 
-var a = Js_vector.init(5, (function (i) {
+let a = Js_vector.init(5, (function (i) {
         return i + 1 | 0;
       }));
 
@@ -235,7 +235,7 @@ eq("File \"bs_array_test.ml\", line 53, characters 5-12", (Js_vector.filterInPla
       4
     ]);
 
-var a$1 = Js_vector.init(5, (function (i) {
+let a$1 = Js_vector.init(5, (function (i) {
         return i + 1 | 0;
       }));
 
@@ -299,11 +299,11 @@ function add(x, y) {
   return x + y | 0;
 }
 
-var v$5 = Belt_Array.makeBy(3000, (function (i) {
+let v$5 = Belt_Array.makeBy(3000, (function (i) {
         return i;
       }));
 
-var u = Belt_Array.shuffle(v$5);
+let u = Belt_Array.shuffle(v$5);
 
 neq("File \"bs_array_test.ml\", line 80, characters 6-13", u, v$5);
 
@@ -401,10 +401,10 @@ function makeMatrixExn(sx, sy, init) {
           Error: new Error()
         };
   }
-  var res = new Array(sx);
-  for(var x = 0; x < sx; ++x){
-    var initY = new Array(sy);
-    for(var y = 0; y < sy; ++y){
+  let res = new Array(sx);
+  for(let x = 0; x < sx; ++x){
+    let initY = new Array(sy);
+    for(let y = 0; y < sy; ++y){
       initY[y] = init;
     }
     res[x] = initY;
@@ -540,19 +540,19 @@ eq("File \"bs_array_test.ml\", line 143, characters 5-12", Belt_List.toArray({
       3
     ]);
 
-var v$6 = Belt_Array.makeBy(10, (function (i) {
+let v$6 = Belt_Array.makeBy(10, (function (i) {
         return i;
       }));
 
-var v0 = Belt_Array.keep(v$6, (function (x) {
+let v0 = Belt_Array.keep(v$6, (function (x) {
         return x % 2 === 0;
       }));
 
-var v1 = Belt_Array.keep(v$6, (function (x) {
+let v1 = Belt_Array.keep(v$6, (function (x) {
         return x % 3 === 0;
       }));
 
-var v2 = Belt_Array.keepMap(v$6, (function (x) {
+let v2 = Belt_Array.keepMap(v$6, (function (x) {
         if (x % 2 === 0) {
           return x + 1 | 0;
         }
@@ -582,7 +582,7 @@ eq("File \"bs_array_test.ml\", line 152, characters 5-12", v2, [
       9
     ]);
 
-var a$2 = [
+let a$2 = [
   1,
   2,
   3,
@@ -590,7 +590,7 @@ var a$2 = [
   5
 ];
 
-var match = Belt_Array.partition(a$2, (function (x) {
+let match = Belt_Array.partition(a$2, (function (x) {
         return x % 2 === 0;
       }));
 
@@ -605,7 +605,7 @@ eq("File \"bs_array_test.ml\", line 158, characters 5-12", match[1], [
       5
     ]);
 
-var match$1 = Belt_Array.partition(a$2, (function (x) {
+let match$1 = Belt_Array.partition(a$2, (function (x) {
         return x === 2;
       }));
 
@@ -618,7 +618,7 @@ eq("File \"bs_array_test.ml\", line 161, characters 5-12", match$1[1], [
       5
     ]);
 
-var match$2 = Belt_Array.partition([], (function (x) {
+let match$2 = Belt_Array.partition([], (function (x) {
         return false;
       }));
 
@@ -626,7 +626,7 @@ eq("File \"bs_array_test.ml\", line 163, characters 5-12", match$2[0], []);
 
 eq("File \"bs_array_test.ml\", line 164, characters 5-12", match$2[1], []);
 
-var a$3 = [
+let a$3 = [
   1,
   2,
   3,
@@ -708,7 +708,7 @@ eq("File \"bs_array_test.ml\", line 182, characters 5-12", Belt_Array.slice(a$3,
 
 eq("File \"bs_array_test.ml\", line 183, characters 5-12", Belt_Array.slice(a$3, 0, -1), []);
 
-var a$4 = [
+let a$4 = [
   1,
   2,
   3,
@@ -745,7 +745,7 @@ eq("File \"bs_array_test.ml\", line 192, characters 5-12", Belt_Array.sliceToEnd
 
 eq("File \"bs_array_test.ml\", line 193, characters 5-12", Belt_Array.sliceToEnd(a$4, 6), []);
 
-var a$5 = Belt_Array.makeBy(10, (function (x) {
+let a$5 = Belt_Array.makeBy(10, (function (x) {
         return x;
       }));
 
@@ -892,7 +892,7 @@ Belt_Array.fill(a$5, 0, -1, 2);
 
 eq("File \"bs_array_test.ml\", line 217, characters 5-12", a$5.slice(0), Belt_Array.make(10, 7));
 
-var b$1 = [
+let b$1 = [
   1,
   2,
   3
@@ -914,11 +914,11 @@ eq("File \"bs_array_test.ml\", line 222, characters 5-12", b$1, [
       3
     ]);
 
-var a0 = Belt_Array.makeBy(10, (function (x) {
+let a0 = Belt_Array.makeBy(10, (function (x) {
         return x;
       }));
 
-var b0 = Belt_Array.make(10, 3);
+let b0 = Belt_Array.make(10, 3);
 
 Belt_Array.blit(a0, 1, b0, 2, 5);
 
@@ -988,7 +988,7 @@ Belt_Array.blit(a0, -11, b0, -11, 2);
 
 eq("File \"bs_array_test.ml\", line 242, characters 5-12", b0.slice(0), a0);
 
-var aa = Belt_Array.makeBy(10, (function (x) {
+let aa = Belt_Array.makeBy(10, (function (x) {
         return x;
       }));
 
@@ -1056,7 +1056,7 @@ eq("File \"bs_array_test.ml\", line 252, characters 5-12", Belt_Array.make(0, 3)
 
 eq("File \"bs_array_test.ml\", line 253, characters 5-12", Belt_Array.make(-1, 3), []);
 
-var c = [
+let c = [
   0,
   1,
   2
@@ -1181,7 +1181,7 @@ eq("File \"bs_array_test.ml\", line 263, characters 5-12", Belt_Array.unzip([
     ]);
 
 function sumUsingForEach(xs) {
-  var v = {
+  let v = {
     contents: 0
   };
   Belt_Array.forEach(xs, (function (x) {
@@ -1232,7 +1232,7 @@ b("File \"bs_array_test.ml\", line 277, characters 4-11", !Belt_Array.eq([
             return prim0 === prim1;
           })));
 
-var c$1 = {
+let c$1 = {
   contents: 0
 };
 
@@ -1245,7 +1245,7 @@ b("File \"bs_array_test.ml\", line 278, characters 4-11", (Belt_Array.forEachWit
             })), c$1.contents === 6));
 
 function id$1(loc, x) {
-  var u = x.slice(0);
+  let u = x.slice(0);
   eq("File \"bs_array_test.ml\", line 288, characters 5-12", Belt_Array.reverse(x), (Belt_Array.reverseInPlace(u), u));
 }
 
@@ -1272,16 +1272,16 @@ id$1("File \"bs_array_test.ml\", line 297, characters 5-12", [
     ]);
 
 function every2(xs, ys) {
-  var partial_arg = Belt_List.toArray(ys);
-  var partial_arg$1 = Belt_List.toArray(xs);
+  let partial_arg = Belt_List.toArray(ys);
+  let partial_arg$1 = Belt_List.toArray(xs);
   return function (param) {
     return Belt_Array.every2(partial_arg$1, partial_arg, param);
   };
 }
 
 function some2(xs, ys) {
-  var partial_arg = Belt_List.toArray(ys);
-  var partial_arg$1 = Belt_List.toArray(xs);
+  let partial_arg = Belt_List.toArray(ys);
+  let partial_arg$1 = Belt_List.toArray(xs);
   return function (param) {
     return Belt_Array.some2(partial_arg$1, partial_arg, param);
   };
@@ -1594,7 +1594,7 @@ eq("File \"bs_array_test.ml\", line 342, characters 5-12", Belt_Array.getIndexBy
             return x > 3;
           })), undefined);
 
-var arr = [];
+let arr = [];
 
 arr.push(3);
 
@@ -1610,9 +1610,9 @@ eq("File \"bs_array_test.ml\", line 351, characters 5-12", arr, [
 
 Mt.from_pair_suites("File \"bs_array_test.ml\", line 353, characters 23-30", suites.contents);
 
-var A;
+let A;
 
-var L;
+let L;
 
 exports.suites = suites;
 exports.test_id = test_id;

@@ -1,20 +1,20 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var v = {
+let v = {
   RE_EXN_ID: "Not_found"
 };
 
-var u = {
+let u = {
   RE_EXN_ID: "Not_found"
 };
 
-var s = {
+let s = {
   RE_EXN_ID: "End_of_file"
 };
 
-var suites_0 = [
+let suites_0 = [
   "not_found_equal",
   (function (param) {
       return {
@@ -25,7 +25,7 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "not_found_not_equal_end_of_file",
     (function (param) {
@@ -39,7 +39,7 @@ var suites_1 = {
   tl: /* [] */0
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

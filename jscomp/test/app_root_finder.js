@@ -1,17 +1,17 @@
 'use strict';
 
-var Fs = require("fs");
-var Path = require("path");
+let Fs = require("fs");
+let Path = require("path");
 
-var package_json = "package.json";
+let package_json = "package.json";
 
 function find_package_json(_dir) {
   while(true) {
-    var dir = _dir;
+    let dir = _dir;
     if (Fs.existsSync(Path.join(dir, package_json))) {
       return dir;
     }
-    var new_dir = Path.dirname(dir);
+    let new_dir = Path.dirname(dir);
     if (new_dir === dir) {
       throw {
             RE_EXN_ID: "Not_found",
@@ -23,7 +23,7 @@ function find_package_json(_dir) {
   };
 }
 
-var x = typeof __dirname === "undefined" ? undefined : __dirname;
+let x = typeof __dirname === "undefined" ? undefined : __dirname;
 
 if (x !== undefined) {
   console.log(find_package_json(x));

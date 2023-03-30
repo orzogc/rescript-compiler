@@ -1,24 +1,24 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var React = require("react");
+let Curry = require("../../lib/js/curry.js");
+let React = require("react");
 
 async function willBeInlined(param) {
   return 3;
 }
 
-var inlined = willBeInlined(undefined);
+let inlined = willBeInlined(undefined);
 
 function wrapSomethingAsync(param) {
   ((async function (param) {
-          var test = await Promise.resolve("Test");
+          let test = await Promise.resolve("Test");
           console.log(test);
         })(777));
 }
 
 function wrapSomethingAsync2(param) {
   ((async function (param) {
-          var test = await Promise.resolve("Test");
+          let test = await Promise.resolve("Test");
           console.log(test);
         })(undefined));
 }
@@ -27,9 +27,9 @@ async function doSomethingAsync(someAsyncFunction) {
   return await Curry._1(someAsyncFunction, undefined);
 }
 
-var broken = doSomethingAsync;
+let broken = doSomethingAsync;
 
-var M = {
+let M = {
   broken: broken
 };
 
@@ -37,7 +37,7 @@ async function broken$1(someAsyncFunction) {
   return await Curry._1(someAsyncFunction, undefined);
 }
 
-var broken$2 = broken$1;
+let broken$2 = broken$1;
 
 function curriedId(x) {
   return x;
@@ -55,11 +55,11 @@ async function uncurriedIdAsync(x) {
   return x;
 }
 
-var tcia = curriedIdAsync(3);
+let tcia = curriedIdAsync(3);
 
-var tui = 3;
+let tui = 3;
 
-var tuia = uncurriedIdAsync(3);
+let tuia = uncurriedIdAsync(3);
 
 function nested1(param) {
   return async function (y) {
@@ -79,7 +79,7 @@ function onSubmit(param) {
             });
 }
 
-var tci = 3;
+let tci = 3;
 
 exports.willBeInlined = willBeInlined;
 exports.inlined = inlined;

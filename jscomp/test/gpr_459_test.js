@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -27,17 +27,17 @@ function eq(loc, x, y) {
   };
 }
 
-var uu = {
+let uu = {
   "'x": 3
 };
 
-var uu2 = {
+let uu2 = {
   then: 1,
   catch: 2,
   "'x": 3
 };
 
-var hh = uu["'x"];
+let hh = uu["'x"];
 
 eq("File \"gpr_459_test.ml\", line 25, characters 12-19", hh, 3);
 

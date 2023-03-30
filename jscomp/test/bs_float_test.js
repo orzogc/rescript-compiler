@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Belt_Float = require("../../lib/js/belt_Float.js");
+let Mt = require("./mt.js");
+let Belt_Float = require("../../lib/js/belt_Float.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -86,7 +86,7 @@ eq("File \"bs_float_test.ml\", line 44, characters 5-12", 3.0 / 2.0, 1.5);
 
 Mt.from_pair_suites("File \"bs_float_test.ml\", line 46, characters 23-30", suites.contents);
 
-var F;
+let F;
 
 exports.suites = suites;
 exports.test_id = test_id;

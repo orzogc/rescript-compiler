@@ -1,8 +1,8 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Bytes = require("../../lib/js/bytes.js");
-var Caml_bytes = require("../../lib/js/caml_bytes.js");
+let Mt = require("./mt.js");
+let Bytes = require("../../lib/js/bytes.js");
+let Caml_bytes = require("../../lib/js/caml_bytes.js");
 
 function fib(n) {
   if (n !== 1 && n !== 23) {
@@ -13,9 +13,9 @@ function fib(n) {
 }
 
 function escaped(s) {
-  var n = 0;
-  for(var i = 0 ,i_finish = s.length; i < i_finish; ++i){
-    var match = s[i];
+  let n = 0;
+  for(let i = 0 ,i_finish = s.length; i < i_finish; ++i){
+    let match = s[i];
     n = n + (
       match >= 32 ? (
           match > 92 || match < 34 ? (
@@ -35,11 +35,11 @@ function escaped(s) {
   if (n === s.length) {
     return Bytes.copy(s);
   }
-  var s$p = Caml_bytes.create(n);
+  let s$p = Caml_bytes.create(n);
   n = 0;
-  for(var i$1 = 0 ,i_finish$1 = s.length; i$1 < i_finish$1; ++i$1){
-    var c = s[i$1];
-    var exit = 0;
+  for(let i$1 = 0 ,i_finish$1 = s.length; i$1 < i_finish$1; ++i$1){
+    let c = s[i$1];
+    let exit = 0;
     if (c >= 35) {
       if (c !== 92) {
         if (c >= 127) {
@@ -121,7 +121,7 @@ function string_escaped(s) {
   return Bytes.to_string(escaped(Bytes.of_string(s)));
 }
 
-var suites_0 = [
+let suites_0 = [
   "complete_escape",
   (function (param) {
       return {
@@ -132,7 +132,7 @@ var suites_0 = [
     })
 ];
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: /* [] */0
 };

@@ -1,8 +1,8 @@
 'use strict';
 
-var Sys = require("../../lib/js/sys.js");
+let Sys = require("../../lib/js/sys.js");
 
-var os_version;
+let os_version;
 
 switch (Sys.os_type) {
   case "Cygwin" :

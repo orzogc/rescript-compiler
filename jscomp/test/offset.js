@@ -1,10 +1,10 @@
 'use strict';
 
-var Caml = require("../../lib/js/caml.js");
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
-var $$String = require("../../lib/js/string.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Caml = require("../../lib/js/caml.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
+let $$String = require("../../lib/js/string.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 function height(param) {
   if (typeof param !== "object") {
@@ -15,9 +15,9 @@ function height(param) {
 }
 
 function create(l, v, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l.h;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r.h;
   return {
           TAG: "Node",
@@ -29,9 +29,9 @@ function create(l, v, r) {
 }
 
 function bal(l, v, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l.h;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r.h;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
@@ -41,9 +41,9 @@ function bal(l, v, r) {
             Error: new Error()
           };
     }
-    var lr = l.r;
-    var lv = l.v;
-    var ll = l.l;
+    let lr = l.r;
+    let lv = l.v;
+    let ll = l.l;
     if (height(ll) >= height(lr)) {
       return create(ll, lv, create(lr, v, r));
     }
@@ -72,9 +72,9 @@ function bal(l, v, r) {
           Error: new Error()
         };
   }
-  var rr = r.r;
-  var rv = r.v;
-  var rl = r.l;
+  let rr = r.r;
+  let rv = r.v;
+  let rl = r.l;
   if (height(rr) >= height(rl)) {
     return create(create(l, v, rl), rv, rr);
   }
@@ -98,22 +98,22 @@ function add(x, t) {
             h: 1
           };
   }
-  var r = t.r;
-  var v = t.v;
-  var l = t.l;
-  var c = Caml.string_compare(x, v);
+  let r = t.r;
+  let v = t.v;
+  let l = t.l;
+  let c = Caml.string_compare(x, v);
   if (c === 0) {
     return t;
   }
   if (c < 0) {
-    var ll = add(x, l);
+    let ll = add(x, l);
     if (l === ll) {
       return t;
     } else {
       return bal(ll, v, r);
     }
   }
-  var rr = add(x, r);
+  let rr = add(x, r);
   if (r === rr) {
     return t;
   } else {
@@ -151,11 +151,11 @@ function join(l, v, r) {
   if (typeof l !== "object") {
     return add_min_element(v, r);
   }
-  var lh = l.h;
+  let lh = l.h;
   if (typeof r !== "object") {
     return add_max_element(v, l);
   }
-  var rh = r.h;
+  let rh = r.h;
   if (lh > (rh + 2 | 0)) {
     return bal(l.l, l.v, join(l.r, v, r));
   } else if (rh > (lh + 2 | 0)) {
@@ -167,14 +167,14 @@ function join(l, v, r) {
 
 function min_elt(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var l = param.l;
+    let l = param.l;
     if (typeof l !== "object") {
       return param.v;
     }
@@ -185,11 +185,11 @@ function min_elt(_param) {
 
 function min_elt_opt(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return ;
     }
-    var l = param.l;
+    let l = param.l;
     if (typeof l !== "object") {
       return Caml_option.some(param.v);
     }
@@ -200,14 +200,14 @@ function min_elt_opt(_param) {
 
 function max_elt(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var r = param.r;
+    let r = param.r;
     if (typeof r !== "object") {
       return param.v;
     }
@@ -218,11 +218,11 @@ function max_elt(_param) {
 
 function max_elt_opt(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return ;
     }
-    var r = param.r;
+    let r = param.r;
     if (typeof r !== "object") {
       return Caml_option.some(param.v);
     }
@@ -239,7 +239,7 @@ function remove_min_elt(param) {
           Error: new Error()
         };
   }
-  var l = param.l;
+  let l = param.l;
   if (typeof l !== "object") {
     return param.r;
   } else {
@@ -265,10 +265,10 @@ function split(x, param) {
             "Empty"
           ];
   }
-  var r = param.r;
-  var v = param.v;
-  var l = param.l;
-  var c = Caml.string_compare(x, v);
+  let r = param.r;
+  let v = param.v;
+  let l = param.l;
+  let c = Caml.string_compare(x, v);
   if (c === 0) {
     return [
             l,
@@ -277,14 +277,14 @@ function split(x, param) {
           ];
   }
   if (c < 0) {
-    var match = split(x, l);
+    let match = split(x, l);
     return [
             match[0],
             match[1],
             join(match[2], v, r)
           ];
   }
-  var match$1 = split(x, r);
+  let match$1 = split(x, r);
   return [
           join(l, v, match$1[0]),
           match$1[1],
@@ -302,11 +302,11 @@ function is_empty(param) {
 
 function mem(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return false;
     }
-    var c = Caml.string_compare(x, param.v);
+    let c = Caml.string_compare(x, param.v);
     if (c === 0) {
       return true;
     }
@@ -319,10 +319,10 @@ function remove(x, t) {
   if (typeof t !== "object") {
     return "Empty";
   }
-  var r = t.r;
-  var v = t.v;
-  var l = t.l;
-  var c = Caml.string_compare(x, v);
+  let r = t.r;
+  let v = t.v;
+  let l = t.l;
+  let c = Caml.string_compare(x, v);
   if (c === 0) {
     if (typeof l !== "object") {
       return r;
@@ -333,14 +333,14 @@ function remove(x, t) {
     }
   }
   if (c < 0) {
-    var ll = remove(x, l);
+    let ll = remove(x, l);
     if (l === ll) {
       return t;
     } else {
       return bal(ll, v, r);
     }
   }
-  var rr = remove(x, r);
+  let rr = remove(x, r);
   if (r === rr) {
     return t;
   } else {
@@ -352,24 +352,24 @@ function union(s1, s2) {
   if (typeof s1 !== "object") {
     return s2;
   }
-  var h1 = s1.h;
-  var v1 = s1.v;
+  let h1 = s1.h;
+  let v1 = s1.v;
   if (typeof s2 !== "object") {
     return s1;
   }
-  var h2 = s2.h;
-  var v2 = s2.v;
+  let h2 = s2.h;
+  let v2 = s2.v;
   if (h1 >= h2) {
     if (h2 === 1) {
       return add(v2, s1);
     }
-    var match = split(v1, s2);
+    let match = split(v1, s2);
     return join(union(s1.l, match[0]), v1, union(s1.r, match[2]));
   }
   if (h1 === 1) {
     return add(v1, s2);
   }
-  var match$1 = split(v2, s1);
+  let match$1 = split(v2, s1);
   return join(union(match$1[0], s2.l), v2, union(match$1[2], s2.r));
 }
 
@@ -380,11 +380,11 @@ function inter(s1, s2) {
   if (typeof s2 !== "object") {
     return "Empty";
   }
-  var r1 = s1.r;
-  var v1 = s1.v;
-  var l1 = s1.l;
-  var match = split(v1, s2);
-  var l2 = match[0];
+  let r1 = s1.r;
+  let v1 = s1.v;
+  let l1 = s1.l;
+  let match = split(v1, s2);
+  let l2 = match[0];
   if (match[1]) {
     return join(inter(l1, l2), v1, inter(r1, match[2]));
   } else {
@@ -399,11 +399,11 @@ function diff(s1, s2) {
   if (typeof s2 !== "object") {
     return s1;
   }
-  var r1 = s1.r;
-  var v1 = s1.v;
-  var l1 = s1.l;
-  var match = split(v1, s2);
-  var l2 = match[0];
+  let r1 = s1.r;
+  let v1 = s1.v;
+  let l1 = s1.l;
+  let match = split(v1, s2);
+  let l2 = match[0];
   if (match[1]) {
     return concat(diff(l1, l2), diff(r1, match[2]));
   } else {
@@ -413,8 +413,8 @@ function diff(s1, s2) {
 
 function cons_enum(_s, _e) {
   while(true) {
-    var e = _e;
-    var s = _s;
+    let e = _e;
+    let s = _s;
     if (typeof s !== "object") {
       return e;
     }
@@ -430,11 +430,11 @@ function cons_enum(_s, _e) {
 }
 
 function compare(s1, s2) {
-  var _e1 = cons_enum(s1, "End");
-  var _e2 = cons_enum(s2, "End");
+  let _e1 = cons_enum(s1, "End");
+  let _e2 = cons_enum(s2, "End");
   while(true) {
-    var e2 = _e2;
-    var e1 = _e1;
+    let e2 = _e2;
+    let e1 = _e1;
     if (typeof e1 !== "object") {
       if (typeof e2 !== "object") {
         return 0;
@@ -445,7 +445,7 @@ function compare(s1, s2) {
     if (typeof e2 !== "object") {
       return 1;
     }
-    var c = Caml.string_compare(e1._0, e2._0);
+    let c = Caml.string_compare(e1._0, e2._0);
     if (c !== 0) {
       return c;
     }
@@ -461,20 +461,20 @@ function equal(s1, s2) {
 
 function subset(_s1, _s2) {
   while(true) {
-    var s2 = _s2;
-    var s1 = _s1;
+    let s2 = _s2;
+    let s1 = _s1;
     if (typeof s1 !== "object") {
       return true;
     }
-    var r1 = s1.r;
-    var v1 = s1.v;
-    var l1 = s1.l;
+    let r1 = s1.r;
+    let v1 = s1.v;
+    let l1 = s1.l;
     if (typeof s2 !== "object") {
       return false;
     }
-    var r2 = s2.r;
-    var l2 = s2.l;
-    var c = Caml.string_compare(v1, s2.v);
+    let r2 = s2.r;
+    let l2 = s2.l;
+    let c = Caml.string_compare(v1, s2.v);
     if (c === 0) {
       if (!subset(l1, l2)) {
         return false;
@@ -512,7 +512,7 @@ function subset(_s1, _s2) {
 
 function iter(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return ;
     }
@@ -525,8 +525,8 @@ function iter(f, _param) {
 
 function fold(f, _s, _accu) {
   while(true) {
-    var accu = _accu;
-    var s = _s;
+    let accu = _accu;
+    let s = _s;
     if (typeof s !== "object") {
       return accu;
     }
@@ -538,7 +538,7 @@ function fold(f, _s, _accu) {
 
 function for_all(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return true;
     }
@@ -555,7 +555,7 @@ function for_all(p, _param) {
 
 function exists(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return false;
     }
@@ -574,12 +574,12 @@ function filter(p, t) {
   if (typeof t !== "object") {
     return "Empty";
   }
-  var r = t.r;
-  var v = t.v;
-  var l = t.l;
-  var l$p = filter(p, l);
-  var pv = Curry._1(p, v);
-  var r$p = filter(p, r);
+  let r = t.r;
+  let v = t.v;
+  let l = t.l;
+  let l$p = filter(p, l);
+  let pv = Curry._1(p, v);
+  let r$p = filter(p, r);
   if (pv) {
     if (l === l$p && r === r$p) {
       return t;
@@ -598,14 +598,14 @@ function partition(p, param) {
             "Empty"
           ];
   }
-  var v = param.v;
-  var match = partition(p, param.l);
-  var lf = match[1];
-  var lt = match[0];
-  var pv = Curry._1(p, v);
-  var match$1 = partition(p, param.r);
-  var rf = match$1[1];
-  var rt = match$1[0];
+  let v = param.v;
+  let match = partition(p, param.l);
+  let lf = match[1];
+  let lt = match[0];
+  let pv = Curry._1(p, v);
+  let match$1 = partition(p, param.r);
+  let rf = match$1[1];
+  let rt = match$1[0];
   if (pv) {
     return [
             join(lt, v, rt),
@@ -629,8 +629,8 @@ function cardinal(param) {
 
 function elements_aux(_accu, _param) {
   while(true) {
-    var param = _param;
-    var accu = _accu;
+    let param = _param;
+    let accu = _accu;
     if (typeof param !== "object") {
       return accu;
     }
@@ -649,15 +649,15 @@ function elements(s) {
 
 function find(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var v = param.v;
-    var c = Caml.string_compare(x, v);
+    let v = param.v;
+    let c = Caml.string_compare(x, v);
     if (c === 0) {
       return v;
     }
@@ -668,24 +668,24 @@ function find(x, _param) {
 
 function find_first(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var v = param.v;
+    let v = param.v;
     if (Curry._1(f, v)) {
-      var _v0 = v;
-      var _param$1 = param.l;
+      let _v0 = v;
+      let _param$1 = param.l;
       while(true) {
-        var param$1 = _param$1;
-        var v0 = _v0;
+        let param$1 = _param$1;
+        let v0 = _v0;
         if (typeof param$1 !== "object") {
           return v0;
         }
-        var v$1 = param$1.v;
+        let v$1 = param$1.v;
         if (Curry._1(f, v$1)) {
           _param$1 = param$1.l;
           _v0 = v$1;
@@ -702,21 +702,21 @@ function find_first(f, _param) {
 
 function find_first_opt(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return ;
     }
-    var v = param.v;
+    let v = param.v;
     if (Curry._1(f, v)) {
-      var _v0 = v;
-      var _param$1 = param.l;
+      let _v0 = v;
+      let _param$1 = param.l;
       while(true) {
-        var param$1 = _param$1;
-        var v0 = _v0;
+        let param$1 = _param$1;
+        let v0 = _v0;
         if (typeof param$1 !== "object") {
           return Caml_option.some(v0);
         }
-        var v$1 = param$1.v;
+        let v$1 = param$1.v;
         if (Curry._1(f, v$1)) {
           _param$1 = param$1.l;
           _v0 = v$1;
@@ -733,24 +733,24 @@ function find_first_opt(f, _param) {
 
 function find_last(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var v = param.v;
+    let v = param.v;
     if (Curry._1(f, v)) {
-      var _v0 = v;
-      var _param$1 = param.r;
+      let _v0 = v;
+      let _param$1 = param.r;
       while(true) {
-        var param$1 = _param$1;
-        var v0 = _v0;
+        let param$1 = _param$1;
+        let v0 = _v0;
         if (typeof param$1 !== "object") {
           return v0;
         }
-        var v$1 = param$1.v;
+        let v$1 = param$1.v;
         if (Curry._1(f, v$1)) {
           _param$1 = param$1.r;
           _v0 = v$1;
@@ -767,21 +767,21 @@ function find_last(f, _param) {
 
 function find_last_opt(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return ;
     }
-    var v = param.v;
+    let v = param.v;
     if (Curry._1(f, v)) {
-      var _v0 = v;
-      var _param$1 = param.r;
+      let _v0 = v;
+      let _param$1 = param.r;
       while(true) {
-        var param$1 = _param$1;
-        var v0 = _v0;
+        let param$1 = _param$1;
+        let v0 = _v0;
         if (typeof param$1 !== "object") {
           return Caml_option.some(v0);
         }
-        var v$1 = param$1.v;
+        let v$1 = param$1.v;
         if (Curry._1(f, v$1)) {
           _param$1 = param$1.r;
           _v0 = v$1;
@@ -798,12 +798,12 @@ function find_last_opt(f, _param) {
 
 function find_opt(x, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return ;
     }
-    var v = param.v;
-    var c = Caml.string_compare(x, v);
+    let v = param.v;
+    let c = Caml.string_compare(x, v);
     if (c === 0) {
       return Caml_option.some(v);
     }
@@ -816,12 +816,12 @@ function map(f, t) {
   if (typeof t !== "object") {
     return "Empty";
   }
-  var r = t.r;
-  var v = t.v;
-  var l = t.l;
-  var l$p = map(f, l);
-  var v$p = Curry._1(f, v);
-  var r$p = map(f, r);
+  let r = t.r;
+  let v = t.v;
+  let l = t.l;
+  let l$p = map(f, l);
+  let v$p = Curry._1(f, v);
+  let r$p = map(f, r);
   if (l === l$p && v === v$p && r === r$p) {
     return t;
   } else if ((l$p === "Empty" || Caml.string_compare(max_elt(l$p), v$p) < 0) && (r$p === "Empty" || Caml.string_compare(v$p, min_elt(r$p)) < 0)) {
@@ -835,27 +835,27 @@ function of_list(l) {
   if (!l) {
     return "Empty";
   }
-  var match = l.tl;
-  var x0 = l.hd;
+  let match = l.tl;
+  let x0 = l.hd;
   if (!match) {
     return singleton(x0);
   }
-  var match$1 = match.tl;
-  var x1 = match.hd;
+  let match$1 = match.tl;
+  let x1 = match.hd;
   if (!match$1) {
     return add(x1, singleton(x0));
   }
-  var match$2 = match$1.tl;
-  var x2 = match$1.hd;
+  let match$2 = match$1.tl;
+  let x2 = match$1.hd;
   if (!match$2) {
     return add(x2, add(x1, singleton(x0)));
   }
-  var match$3 = match$2.tl;
-  var x3 = match$2.hd;
+  let match$3 = match$2.tl;
+  let x3 = match$2.hd;
   if (match$3) {
     if (match$3.tl) {
-      var l$1 = List.sort_uniq($$String.compare, l);
-      var sub = function (n, l) {
+      let l$1 = List.sort_uniq($$String.compare, l);
+      let sub = function (n, l) {
         switch (n) {
           case 0 :
               return [
@@ -878,7 +878,7 @@ function of_list(l) {
               break;
           case 2 :
               if (l) {
-                var match = l.tl;
+                let match = l.tl;
                 if (match) {
                   return [
                           {
@@ -902,9 +902,9 @@ function of_list(l) {
               break;
           case 3 :
               if (l) {
-                var match$1 = l.tl;
+                let match$1 = l.tl;
                 if (match$1) {
-                  var match$2 = match$1.tl;
+                  let match$2 = match$1.tl;
                   if (match$2) {
                     return [
                             {
@@ -937,11 +937,11 @@ function of_list(l) {
           default:
             
         }
-        var nl = n / 2 | 0;
-        var match$3 = sub(nl, l);
-        var l$1 = match$3[1];
+        let nl = n / 2 | 0;
+        let match$3 = sub(nl, l);
+        let l$1 = match$3[1];
         if (l$1) {
-          var match$4 = sub((n - nl | 0) - 1 | 0, l$1.tl);
+          let match$4 = sub((n - nl | 0) - 1 | 0, l$1.tl);
           return [
                   create(match$3[0], l$1.hd, match$4[0]),
                   match$4[1]
@@ -966,7 +966,7 @@ function of_list(l) {
   }
 }
 
-var $$Set = {
+let $$Set = {
   empty: "Empty",
   is_empty: is_empty,
   mem: mem,
@@ -1004,12 +1004,12 @@ var $$Set = {
   of_list: of_list
 };
 
-var M = {
+let M = {
   x: 1,
   $$Set: $$Set
 };
 
-var x = 1;
+let x = 1;
 
 exports.M = M;
 exports.x = x;

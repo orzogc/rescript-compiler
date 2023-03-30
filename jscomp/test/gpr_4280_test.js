@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -14,28 +14,28 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var u = {
+let u = {
   contents: 0
 };
 
 function div(children, param) {
-  for(var i = 0; i <= 1; ++i){
+  for(let i = 0; i <= 1; ++i){
     u.contents = 300;
     console.log("nonline");
   }
 }
 
 function string(s) {
-  for(var i = 0; i <= 1; ++i){
+  for(let i = 0; i <= 1; ++i){
     u.contents = 200;
     console.log("no");
   }
 }
 
 function fn(authState, route) {
-  var onboardingRoute;
+  let onboardingRoute;
   if (typeof authState === "object") {
-    var exit = 0;
+    let exit = 0;
     if (typeof route === "object" && route.NAME === "Onboarding") {
       onboardingRoute = route.VAL;
     } else {
@@ -51,7 +51,7 @@ function fn(authState, route) {
     }
     
   } else {
-    var exit$1 = 0;
+    let exit$1 = 0;
     if (typeof route === "object") {
       if (route.NAME === "Onboarding") {
         onboardingRoute = route.VAL;

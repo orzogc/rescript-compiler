@@ -1,7 +1,7 @@
 'use strict';
 
-var Caml_obj = require("../../lib/js/caml_obj.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
 if (!Caml_obj.equal(Caml_option.nullable_to_opt(""), "")) {
   throw {

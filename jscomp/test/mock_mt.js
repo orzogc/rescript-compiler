@@ -1,7 +1,7 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
 
 function from_pair_suites(name, suites) {
   console.log([
@@ -9,8 +9,8 @@ function from_pair_suites(name, suites) {
         "testing"
       ]);
   List.iter((function (param) {
-          var name = param[0];
-          var fn = Curry._1(param[1], undefined);
+          let name = param[0];
+          let fn = Curry._1(param[1], undefined);
           switch (fn.TAG) {
             case "Eq" :
                 console.log([

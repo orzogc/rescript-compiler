@@ -1,12 +1,12 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -22,25 +22,25 @@ function get(x) {
   return x;
 }
 
-var x = "foo";
+let x = "foo";
 
 eq("File \"unboxed_attribute_test.ml\", line 18, characters 3-10", x, x);
 
-var x$1 = "foo";
+let x$1 = "foo";
 
 eq("File \"unboxed_attribute_test.ml\", line 26, characters 3-10", x$1, x$1);
 
-var x$2 = "foo";
+let x$2 = "foo";
 
 eq("File \"unboxed_attribute_test.ml\", line 33, characters 3-10", x$2, x$2);
 
-var y = {};
+let y = {};
 
 y._0 = y;
 
 Mt.from_pair_suites("unboxed_attribute_test.ml", suites.contents);
 
-var v0 = 3;
+let v0 = 3;
 
 exports.suites = suites;
 exports.test_id = test_id;

@@ -1,9 +1,9 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
 function f0(x) {
-  var tmp;
+  let tmp;
   if (x > 3) {
     tmp = (function (x) {
         return x + 1 | 0;
@@ -26,7 +26,7 @@ function f1(x) {
 }
 
 function f3(x) {
-  var tmp;
+  let tmp;
   switch (x) {
     case 0 :
         tmp = (function (x) {

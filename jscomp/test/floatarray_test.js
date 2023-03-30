@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_array = require("../../lib/js/caml_array.js");
+let Mt = require("./mt.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -15,9 +15,9 @@ function eq(loc, x, y) {
   Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var v = Caml_array.make_float(5);
+let v = Caml_array.make_float(5);
 
-for(var i = 0; i <= 4; ++i){
+for(let i = 0; i <= 4; ++i){
   v[i] = 0;
 }
 
@@ -35,7 +35,7 @@ eq("File \"floatarray_test.ml\", line 17, characters 5-12", [
 
 Mt.from_pair_suites("Floatarray_test", suites.contents);
 
-var K;
+let K;
 
 exports.suites = suites;
 exports.test_id = test_id;

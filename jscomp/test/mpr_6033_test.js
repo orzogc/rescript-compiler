@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
+let Mt = require("./mt.js");
+let CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -29,18 +29,18 @@ function eq(loc, x, y) {
 }
 
 function f(x) {
-  var y = CamlinternalLazy.force(x);
+  let y = CamlinternalLazy.force(x);
   return y + "abc";
 }
 
-var x = {
+let x = {
   LAZY_DONE: true,
   VAL: "def"
 };
 
 CamlinternalLazy.force(x);
 
-var u = f(x);
+let u = f(x);
 
 eq("File \"mpr_6033_test.ml\", line 20, characters 6-13", u, "defabc");
 

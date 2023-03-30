@@ -1,16 +1,16 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var $$Array = require("../../lib/js/array.js");
-var Curry = require("../../lib/js/curry.js");
-var String_set = require("./string_set.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Mt = require("./mt.js");
+let $$Array = require("../../lib/js/array.js");
+let Curry = require("../../lib/js/curry.js");
+let String_set = require("./string_set.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -31,9 +31,9 @@ function eq(loc, x, y) {
   };
 }
 
-var a = {};
+let a = {};
 
-var b = {
+let b = {
   foo: "42"
 };
 
@@ -45,11 +45,11 @@ function map(f, x) {
 }
 
 function make(foo) {
-  var partial_arg = map((function (prim) {
+  let partial_arg = map((function (prim) {
           return String(prim);
         }), foo);
   return function (param) {
-    var tmp = {};
+    let tmp = {};
     if (partial_arg !== undefined) {
       tmp.foo = partial_arg;
     }
@@ -57,9 +57,9 @@ function make(foo) {
   };
 }
 
-var a_ = make(undefined)(undefined);
+let a_ = make(undefined)(undefined);
 
-var b_ = make(42)(undefined);
+let b_ = make(42)(undefined);
 
 eq("File \"gpr_1409_test.ml\", line 30, characters 6-13", b_.foo, "42");
 
@@ -69,12 +69,12 @@ console.log(a, b, a_, b_);
 
 eq("File \"gpr_1409_test.ml\", line 36, characters 6-13", Object.keys(a_).length, 0);
 
-var test2 = {
+let test2 = {
   hi: 2
 };
 
 function test3(_open, xx__hi) {
-  var tmp = {
+  let tmp = {
     hi: 2
   };
   if (_open !== undefined) {
@@ -88,7 +88,7 @@ function test3(_open, xx__hi) {
 
 function test4(_open, xx__hi) {
   console.log("no inlin");
-  var tmp = {
+  let tmp = {
     open: _open,
     hi: 2
   };
@@ -100,14 +100,14 @@ function test4(_open, xx__hi) {
 
 function test5(f, x) {
   console.log("no inline");
-  var tmp = {
+  let tmp = {
     hi: 2
   };
-  var tmp$1 = Curry._1(f, x);
+  let tmp$1 = Curry._1(f, x);
   if (tmp$1 !== undefined) {
     tmp.open = tmp$1;
   }
-  var tmp$2 = Curry._1(f, x);
+  let tmp$2 = Curry._1(f, x);
   if (tmp$2 !== undefined) {
     tmp.xx = tmp$2;
   }
@@ -116,17 +116,17 @@ function test5(f, x) {
 
 function test6(f, x) {
   console.log("no inline");
-  var x$1 = {
+  let x$1 = {
     contents: 3
   };
-  var tmp = {
+  let tmp = {
     hi: 2
   };
-  var tmp$1 = (x$1.contents = x$1.contents + 1 | 0, x$1.contents);
+  let tmp$1 = (x$1.contents = x$1.contents + 1 | 0, x$1.contents);
   if (tmp$1 !== undefined) {
     tmp.open = tmp$1;
   }
-  var tmp$2 = f(x$1);
+  let tmp$2 = f(x$1);
   if (tmp$2 !== undefined) {
     tmp.xx = tmp$2;
   }

@@ -1,11 +1,11 @@
 'use strict';
 
-var C = require("c");
-var C$1 = require("b/c");
-var Xxx = require("xxx");
-var C$2 = require("a/b/c");
-var React = require("react");
-var ReactDom = require("react-dom");
+let C = require("c");
+let C$1 = require("b/c");
+let Xxx = require("xxx");
+let C$2 = require("a/b/c");
+let React = require("react");
+let ReactDom = require("react-dom");
 
 console.log(32);
 
@@ -29,9 +29,9 @@ function f(param) {
   C.y();
 }
 
-var v;
+let v;
 
-var u = 33;
+let u = 33;
 
 exports.v = v;
 exports.u = u;

@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Bytes = require("../../lib/js/bytes.js");
-var $$Buffer = require("../../lib/js/buffer.js");
-var Caml_bytes = require("../../lib/js/caml_bytes.js");
+let Mt = require("./mt.js");
+let Bytes = require("../../lib/js/bytes.js");
+let $$Buffer = require("../../lib/js/buffer.js");
+let Caml_bytes = require("../../lib/js/caml_bytes.js");
 
-var v = "gso";
+let v = "gso";
 
-var suites_0 = [
+let suites_0 = [
   "equal",
   (function (param) {
       return {
@@ -24,11 +24,11 @@ var suites_0 = [
     })
 ];
 
-var suites_1 = {
+let suites_1 = {
   hd: [
     "equal2",
     (function (param) {
-        var u = Bytes.make(3, /* 'a' */97);
+        let u = Bytes.make(3, /* 'a' */97);
         u[0] = /* 'b' */98;
         return {
                 TAG: "Eq",
@@ -47,8 +47,8 @@ var suites_1 = {
     hd: [
       "buffer",
       (function (param) {
-          var v = $$Buffer.create(30);
-          for(var i = 0; i <= 10; ++i){
+          let v = $$Buffer.create(30);
+          for(let i = 0; i <= 10; ++i){
             $$Buffer.add_string(v, String(i));
           }
           return {
@@ -62,7 +62,7 @@ var suites_1 = {
   }
 };
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: suites_1
 };

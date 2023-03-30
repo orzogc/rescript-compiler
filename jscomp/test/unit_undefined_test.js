@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Mt = require("./mt.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -41,13 +41,13 @@ function u0(x) {
   return Caml_option.some(x);
 }
 
-var u1 = Caml_option.some(undefined);
+let u1 = Caml_option.some(undefined);
 
 function u2(x) {
   return Caml_option.some(x);
 }
 
-var u3 = Caml_option.some(undefined);
+let u3 = Caml_option.some(undefined);
 
 eq("File \"unit_undefined_test.ml\", line 39, characters 6-13", Caml_option.some(undefined), Caml_option.some(undefined));
 
@@ -61,7 +61,7 @@ eq("File \"unit_undefined_test.ml\", line 43, characters 6-13", undefined, undef
 
 Mt.from_pair_suites("unit_undefined_test.ml", suites.contents);
 
-var u4;
+let u4;
 
 exports.suites = suites;
 exports.test_id = test_id;

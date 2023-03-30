@@ -1,6 +1,6 @@
 'use strict';
 
-var Caml_format = require("../../lib/js/caml_format.js");
+let Caml_format = require("../../lib/js/caml_format.js");
 
 function f(x) {
   return x;
@@ -19,7 +19,7 @@ function h(x) {
   return 3;
 }
 
-var a = u1(u);
+let a = u1(u);
 
 exports.f = f;
 exports.u = u;

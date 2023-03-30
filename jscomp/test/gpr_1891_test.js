@@ -1,6 +1,6 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
 function foo(x) {
   if (typeof x === "object" && x.NAME === "Foo" && x.VAL === 3) {

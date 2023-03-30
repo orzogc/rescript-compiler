@@ -1,10 +1,10 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Stack = require("../../lib/js/stack.js");
-var Pervasives = require("../../lib/js/pervasives.js");
+let List = require("../../lib/js/list.js");
+let Stack = require("../../lib/js/stack.js");
+let Pervasives = require("../../lib/js/pervasives.js");
 
-var List$1 = {
+let List$1 = {
   length: List.length,
   compare_lengths: List.compare_lengths,
   compare_length_with: List.compare_length_with,
@@ -93,7 +93,7 @@ var List$1 = {
   valid_float_lexem: Pervasives.valid_float_lexem
 };
 
-var U = {
+let U = {
   Empty: Stack.Empty,
   create: Stack.create,
   push: Stack.push,
@@ -141,11 +141,11 @@ var U = {
   valid_float_lexem: Pervasives.valid_float_lexem
 };
 
-var f = Pervasives.$at;
+let f = Pervasives.$at;
 
-var ff = List.length;
+let ff = List.length;
 
-var fff = Pervasives.$at;
+let fff = Pervasives.$at;
 
 exports.List = List$1;
 exports.U = U;

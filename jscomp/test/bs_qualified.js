@@ -1,9 +1,9 @@
 'use strict';
 
-var ZZ = require("X");
-var Z = require("z");
-var Vscode = require("vscode");
-var GlMatrix = require("gl-matrix");
+let ZZ = require("X");
+let Z = require("z");
+let Vscode = require("vscode");
+let GlMatrix = require("gl-matrix");
 
 function f(a, b, c) {
   Vscode.commands.executeCommands("hi", a, b, c);

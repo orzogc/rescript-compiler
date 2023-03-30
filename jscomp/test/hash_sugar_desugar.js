@@ -1,13 +1,13 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
+let Curry = require("../../lib/js/curry.js");
 
 function h1(u) {
   return u.p;
 }
 
 function h3(u) {
-  var f = u.hi;
+  let f = u.hi;
   return Curry._2(f, 1, 2);
 }
 
@@ -28,7 +28,7 @@ function h7(u) {
 }
 
 function h8(u) {
-  var f = u.hi;
+  let f = u.hi;
   return Curry._2(f, 1, 2);
 }
 

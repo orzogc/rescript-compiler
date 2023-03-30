@@ -1,7 +1,7 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Curry = require("../../lib/js/curry.js");
+let Mt = require("./mt.js");
+let Curry = require("../../lib/js/curry.js");
 
 function f(v) {
   if (v % 2 === 0) {
@@ -15,7 +15,7 @@ function f(v) {
   }
 }
 
-var v = [
+let v = [
     1,
     2,
     3
@@ -23,7 +23,7 @@ var v = [
       return f(a)(b);
     });
 
-var vv = [
+let vv = [
     1,
     2,
     3
@@ -31,7 +31,7 @@ var vv = [
       return a + b | 0;
     });
 
-var hh = [
+let hh = [
     "1",
     "2",
     "3"
@@ -43,7 +43,7 @@ function u() {
   return 3;
 }
 
-var vvv = {
+let vvv = {
   contents: 0
 };
 
@@ -63,7 +63,7 @@ function abc(x, y, z) {
   return (x + y | 0) + z | 0;
 }
 
-var abc_u = abc;
+let abc_u = abc;
 
 g();
 

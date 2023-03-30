@@ -1,7 +1,7 @@
 'use strict';
 
-var Curry = require("../../lib/js/curry.js");
-var Caml_obj = require("../../lib/js/caml_obj.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_obj = require("../../lib/js/caml_obj.js");
 
 function map_pair(r, param) {
   return [
@@ -19,7 +19,7 @@ map_pair(u, [
       true
     ]);
 
-var hi = [
+let hi = [
   3,
   2,
   "x"
@@ -29,14 +29,14 @@ console.log(3);
 
 console.log("x");
 
-var v0 = {};
+let v0 = {};
 
 Caml_obj.update_dummy(v0, {
       NAME: "A",
       VAL: v0
     });
 
-var v1 = {
+let v1 = {
   NAME: "A",
   VAL: "B"
 };

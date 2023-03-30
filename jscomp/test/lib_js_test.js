@@ -1,6 +1,6 @@
 'use strict';
 
-var Mt = require("./mt.js");
+let Mt = require("./mt.js");
 
 console.log(JSON.stringify({
           hd: 1,
@@ -15,7 +15,7 @@ console.log(JSON.stringify({
 
 console.log("hey");
 
-var suites_0 = [
+let suites_0 = [
   "anything_to_string",
   (function (param) {
       return {
@@ -26,7 +26,7 @@ var suites_0 = [
     })
 ];
 
-var suites = {
+let suites = {
   hd: suites_0,
   tl: /* [] */0
 };

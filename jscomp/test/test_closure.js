@@ -1,18 +1,18 @@
 'use strict';
 
-var $$Array = require("../../lib/js/array.js");
-var Curry = require("../../lib/js/curry.js");
-var Caml_array = require("../../lib/js/caml_array.js");
+let $$Array = require("../../lib/js/array.js");
+let Curry = require("../../lib/js/curry.js");
+let Caml_array = require("../../lib/js/caml_array.js");
 
-var v = {
+let v = {
   contents: 0
 };
 
 function f(param) {
-  var arr = Caml_array.make(10, (function (param) {
+  let arr = Caml_array.make(10, (function (param) {
           
         }));
-  for(var i = 0; i <= 9; ++i){
+  for(let i = 0; i <= 9; ++i){
     Caml_array.set(arr, i, (function(i){
         return function (param) {
           v.contents = v.contents + i | 0;
@@ -22,7 +22,7 @@ function f(param) {
   return arr;
 }
 
-var u = f(undefined);
+let u = f(undefined);
 
 $$Array.iter((function (x) {
         Curry._1(x, undefined);

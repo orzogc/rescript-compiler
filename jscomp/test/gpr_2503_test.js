@@ -1,13 +1,13 @@
 'use strict';
 
-var Mt = require("./mt.js");
-var Caml_option = require("../../lib/js/caml_option.js");
+let Mt = require("./mt.js");
+let Caml_option = require("../../lib/js/caml_option.js");
 
-var suites = {
+let suites = {
   contents: /* [] */0
 };
 
-var test_id = {
+let test_id = {
   contents: 0
 };
 
@@ -20,7 +20,7 @@ function b(loc, b$1) {
 }
 
 function makeWrapper(foo, param) {
-  var tmp = {};
+  let tmp = {};
   if (foo !== undefined) {
     tmp.foo = Caml_option.valFromOption(foo);
   }
@@ -37,7 +37,7 @@ makeWrapper2("a", undefined);
 
 function makeWrapper3(foo, param) {
   console.log(2);
-  var tmp = {};
+  let tmp = {};
   if (foo !== undefined) {
     tmp.foo = Caml_option.valFromOption(foo);
   }
@@ -46,8 +46,8 @@ function makeWrapper3(foo, param) {
 
 function makeWrapper4(foo, param) {
   console.log(2);
-  var tmp = {};
-  var tmp$1 = foo > 100 ? undefined : (
+  let tmp = {};
+  let tmp$1 = foo > 100 ? undefined : (
       foo > 10 ? "b" : "a"
     );
   if (tmp$1 !== undefined) {

@@ -1,14 +1,14 @@
 'use strict';
 
-var List = require("../../lib/js/list.js");
-var Curry = require("../../lib/js/curry.js");
-var Pervasives = require("../../lib/js/pervasives.js");
-var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
+let List = require("../../lib/js/list.js");
+let Curry = require("../../lib/js/curry.js");
+let Pervasives = require("../../lib/js/pervasives.js");
+let Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
 function cons_enum(_s, _e) {
   while(true) {
-    var e = _e;
-    var s = _s;
+    let e = _e;
+    let s = _s;
     if (typeof s !== "object") {
       return e;
     }
@@ -33,14 +33,14 @@ function height(param) {
 
 function min_elt(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var l = param._0;
+    let l = param._0;
     if (typeof l !== "object") {
       return param._1;
     }
@@ -51,14 +51,14 @@ function min_elt(_param) {
 
 function max_elt(_param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       throw {
             RE_EXN_ID: "Not_found",
             Error: new Error()
           };
     }
-    var r = param._2;
+    let r = param._2;
     if (typeof r !== "object") {
       return param._1;
     }
@@ -77,8 +77,8 @@ function is_empty(param) {
 
 function cardinal_aux(_acc, _param) {
   while(true) {
-    var param = _param;
-    var acc = _acc;
+    let param = _param;
+    let acc = _acc;
     if (typeof param !== "object") {
       return acc;
     }
@@ -94,8 +94,8 @@ function cardinal(s) {
 
 function elements_aux(_accu, _param) {
   while(true) {
-    var param = _param;
-    var accu = _accu;
+    let param = _param;
+    let accu = _accu;
     if (typeof param !== "object") {
       return accu;
     }
@@ -114,7 +114,7 @@ function elements(s) {
 
 function iter(f, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return ;
     }
@@ -127,8 +127,8 @@ function iter(f, _param) {
 
 function fold(f, _s, _accu) {
   while(true) {
-    var accu = _accu;
-    var s = _s;
+    let accu = _accu;
+    let s = _s;
     if (typeof s !== "object") {
       return accu;
     }
@@ -140,7 +140,7 @@ function fold(f, _s, _accu) {
 
 function for_all(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return true;
     }
@@ -157,7 +157,7 @@ function for_all(p, _param) {
 
 function exists(p, _param) {
   while(true) {
-    var param = _param;
+    let param = _param;
     if (typeof param !== "object") {
       return false;
     }
@@ -194,24 +194,24 @@ function max_int_2(a, b) {
   }
 }
 
-var Height_invariant_broken = /* @__PURE__ */Caml_exceptions.create("Set_gen.Height_invariant_broken");
+let Height_invariant_broken = /* @__PURE__ */Caml_exceptions.create("Set_gen.Height_invariant_broken");
 
-var Height_diff_borken = /* @__PURE__ */Caml_exceptions.create("Set_gen.Height_diff_borken");
+let Height_diff_borken = /* @__PURE__ */Caml_exceptions.create("Set_gen.Height_diff_borken");
 
 function check_height_and_diff(param) {
   if (typeof param !== "object") {
     return 0;
   }
-  var h = param._3;
-  var hl = check_height_and_diff(param._0);
-  var hr = check_height_and_diff(param._2);
+  let h = param._3;
+  let hl = check_height_and_diff(param._0);
+  let hr = check_height_and_diff(param._2);
   if (h !== (max_int_2(hl, hr) + 1 | 0)) {
     throw {
           RE_EXN_ID: Height_invariant_broken,
           Error: new Error()
         };
   }
-  var diff = Pervasives.abs(hl - hr | 0);
+  let diff = Pervasives.abs(hl - hr | 0);
   if (diff > 2) {
     throw {
           RE_EXN_ID: Height_diff_borken,
@@ -226,9 +226,9 @@ function check(tree) {
 }
 
 function create(l, v, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l._3;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r._3;
   return {
           TAG: "Node",
@@ -240,9 +240,9 @@ function create(l, v, r) {
 }
 
 function internal_bal(l, v, r) {
-  var hl;
+  let hl;
   hl = typeof l !== "object" ? 0 : l._3;
-  var hr;
+  let hr;
   hr = typeof r !== "object" ? 0 : r._3;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
@@ -256,9 +256,9 @@ function internal_bal(l, v, r) {
             Error: new Error()
           };
     }
-    var lr = l._2;
-    var lv = l._1;
-    var ll = l._0;
+    let lr = l._2;
+    let lv = l._1;
+    let ll = l._0;
     if (height(ll) >= height(lr)) {
       return create(ll, lv, create(lr, v, r));
     }
@@ -295,9 +295,9 @@ function internal_bal(l, v, r) {
           Error: new Error()
         };
   }
-  var rr = r._2;
-  var rv = r._1;
-  var rl = r._0;
+  let rr = r._2;
+  let rv = r._1;
+  let rl = r._0;
   if (height(rr) >= height(rl)) {
     return create(create(l, v, rl), rv, rr);
   }
@@ -323,7 +323,7 @@ function remove_min_elt(param) {
           Error: new Error()
         };
   }
-  var l = param._0;
+  let l = param._0;
   if (typeof l !== "object") {
     return param._2;
   } else {
@@ -371,11 +371,11 @@ function internal_join(l, v, r) {
   if (typeof l !== "object") {
     return add_min_element(v, r);
   }
-  var lh = l._3;
+  let lh = l._3;
   if (typeof r !== "object") {
     return add_max_element(v, l);
   }
-  var rh = r._3;
+  let rh = r._3;
   if (lh > (rh + 2 | 0)) {
     return internal_bal(l._0, l._1, internal_join(l._2, v, r));
   } else if (rh > (lh + 2 | 0)) {
@@ -399,10 +399,10 @@ function filter(p, param) {
   if (typeof param !== "object") {
     return "Empty";
   }
-  var v = param._1;
-  var l$p = filter(p, param._0);
-  var pv = Curry._1(p, v);
-  var r$p = filter(p, param._2);
+  let v = param._1;
+  let l$p = filter(p, param._0);
+  let pv = Curry._1(p, v);
+  let r$p = filter(p, param._2);
   if (pv) {
     return internal_join(l$p, v, r$p);
   } else {
@@ -417,14 +417,14 @@ function partition(p, param) {
             "Empty"
           ];
   }
-  var v = param._1;
-  var match = partition(p, param._0);
-  var lf = match[1];
-  var lt = match[0];
-  var pv = Curry._1(p, v);
-  var match$1 = partition(p, param._2);
-  var rf = match$1[1];
-  var rt = match$1[0];
+  let v = param._1;
+  let match = partition(p, param._0);
+  let lf = match[1];
+  let lt = match[0];
+  let pv = Curry._1(p, v);
+  let match$1 = partition(p, param._2);
+  let rf = match$1[1];
+  let rt = match$1[0];
   if (pv) {
     return [
             internal_join(lt, v, rt),
@@ -439,7 +439,7 @@ function partition(p, param) {
 }
 
 function of_sorted_list(l) {
-  var sub = function (n, l) {
+  let sub = function (n, l) {
     switch (n) {
       case 0 :
           return [
@@ -462,7 +462,7 @@ function of_sorted_list(l) {
           break;
       case 2 :
           if (l) {
-            var match = l.tl;
+            let match = l.tl;
             if (match) {
               return [
                       {
@@ -486,9 +486,9 @@ function of_sorted_list(l) {
           break;
       case 3 :
           if (l) {
-            var match$1 = l.tl;
+            let match$1 = l.tl;
             if (match$1) {
-              var match$2 = match$1.tl;
+              let match$2 = match$1.tl;
               if (match$2) {
                 return [
                         {
@@ -521,11 +521,11 @@ function of_sorted_list(l) {
       default:
         
     }
-    var nl = n / 2 | 0;
-    var match$3 = sub(nl, l);
-    var l$1 = match$3[1];
+    let nl = n / 2 | 0;
+    let match$3 = sub(nl, l);
+    let l$1 = match$3[1];
     if (l$1) {
-      var match$4 = sub((n - nl | 0) - 1 | 0, l$1.tl);
+      let match$4 = sub((n - nl | 0) - 1 | 0, l$1.tl);
       return [
               create(match$3[0], l$1.hd, match$4[0]),
               match$4[1]
@@ -545,12 +545,12 @@ function of_sorted_list(l) {
 }
 
 function of_sorted_array(l) {
-  var sub = function (start, n, l) {
+  let sub = function (start, n, l) {
     if (n === 0) {
       return "Empty";
     }
     if (n === 1) {
-      var x0 = l[start];
+      let x0 = l[start];
       return {
               TAG: "Node",
               _0: "Empty",
@@ -560,8 +560,8 @@ function of_sorted_array(l) {
             };
     }
     if (n === 2) {
-      var x0$1 = l[start];
-      var x1 = l[start + 1 | 0];
+      let x0$1 = l[start];
+      let x1 = l[start + 1 | 0];
       return {
               TAG: "Node",
               _0: {
@@ -577,9 +577,9 @@ function of_sorted_array(l) {
             };
     }
     if (n === 3) {
-      var x0$2 = l[start];
-      var x1$1 = l[start + 1 | 0];
-      var x2 = l[start + 2 | 0];
+      let x0$2 = l[start];
+      let x1$1 = l[start + 1 | 0];
+      let x2 = l[start + 2 | 0];
       return {
               TAG: "Node",
               _0: {
@@ -600,29 +600,29 @@ function of_sorted_array(l) {
               _3: 2
             };
     }
-    var nl = n / 2 | 0;
-    var left = sub(start, nl, l);
-    var mid = start + nl | 0;
-    var v = l[mid];
-    var right = sub(mid + 1 | 0, (n - nl | 0) - 1 | 0, l);
+    let nl = n / 2 | 0;
+    let left = sub(start, nl, l);
+    let mid = start + nl | 0;
+    let v = l[mid];
+    let right = sub(mid + 1 | 0, (n - nl | 0) - 1 | 0, l);
     return create(left, v, right);
   };
   return sub(0, l.length, l);
 }
 
 function is_ordered(cmp, tree) {
-  var is_ordered_min_max = function (tree) {
+  let is_ordered_min_max = function (tree) {
     if (typeof tree !== "object") {
       return "Empty";
     }
-    var r = tree._2;
-    var v = tree._1;
-    var match = is_ordered_min_max(tree._0);
+    let r = tree._2;
+    let v = tree._1;
+    let match = is_ordered_min_max(tree._0);
     if (typeof match === "object") {
-      var match$1 = match.VAL;
-      var max_v = match$1[1];
-      var min_v = match$1[0];
-      var match$2 = is_ordered_min_max(r);
+      let match$1 = match.VAL;
+      let max_v = match$1[1];
+      let min_v = match$1[0];
+      let match$2 = is_ordered_min_max(r);
       if (typeof match$2 !== "object") {
         if (match$2 === "Empty" && Curry._2(cmp, max_v, v) < 0) {
           return {
@@ -636,7 +636,7 @@ function is_ordered(cmp, tree) {
           return "No";
         }
       }
-      var match$3 = match$2.VAL;
+      let match$3 = match$2.VAL;
       if (Curry._2(cmp, max_v, match$3[0]) < 0) {
         return {
                 NAME: "V",
@@ -652,7 +652,7 @@ function is_ordered(cmp, tree) {
     if (match !== "Empty") {
       return "No";
     }
-    var match$4 = is_ordered_min_max(r);
+    let match$4 = is_ordered_min_max(r);
     if (typeof match$4 !== "object") {
       if (match$4 === "Empty") {
         return {
@@ -666,7 +666,7 @@ function is_ordered(cmp, tree) {
         return "No";
       }
     }
-    var match$5 = match$4.VAL;
+    let match$5 = match$4.VAL;
     if (Curry._2(cmp, v, match$5[0]) < 0) {
       return {
               NAME: "V",
@@ -689,8 +689,8 @@ function invariant(cmp, t) {
 
 function compare_aux(cmp, _e1, _e2) {
   while(true) {
-    var e2 = _e2;
-    var e1 = _e1;
+    let e2 = _e2;
+    let e1 = _e1;
     if (typeof e1 !== "object") {
       if (typeof e2 !== "object") {
         return 0;
@@ -701,7 +701,7 @@ function compare_aux(cmp, _e1, _e2) {
     if (typeof e2 !== "object") {
       return 1;
     }
-    var c = Curry._2(cmp, e1._0, e2._0);
+    let c = Curry._2(cmp, e1._0, e2._0);
     if (c !== 0) {
       return c;
     }
@@ -715,9 +715,9 @@ function compare(cmp, s1, s2) {
   return compare_aux(cmp, cons_enum(s1, "End"), cons_enum(s2, "End"));
 }
 
-var empty = "Empty";
+let empty = "Empty";
 
-var choose = min_elt;
+let choose = min_elt;
 
 exports.cons_enum = cons_enum;
 exports.height = height;

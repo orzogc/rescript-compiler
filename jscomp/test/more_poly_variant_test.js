@@ -5,7 +5,7 @@ function map(f, param) {
   if (typeof param !== "object") {
     return "Nil";
   }
-  var match = param.VAL;
+  let match = param.VAL;
   return {
           NAME: "Cons",
           VAL: [
