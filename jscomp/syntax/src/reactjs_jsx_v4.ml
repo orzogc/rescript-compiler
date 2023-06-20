@@ -964,6 +964,12 @@ let mapBinding ~config ~emptyLoc ~pstr_loc ~fileName ~recFlag binding =
         |> Ast_uncurried.uncurriedFun ~loc:fullExpression.pexp_loc ~arity:1
       else fullExpression
     in
+    (* making component abstract *)
+    let fullExpression =
+      Exp.apply
+        (Exp.ident (Location.mknoloc @@ Ldot (Lident "React", "component")))
+        [(Nolabel, fullExpression)]
+    in
     let fullExpression =
       match fullModuleName with
       | "" -> fullExpression
@@ -1146,7 +1152,7 @@ let transformStructureItem ~config item =
             (name, ptyp_attributes, returnValue.ptyp_loc, type_) :: types )
         | _ -> (fullType, types)
       in
-      let innerType, propTypes = getPropTypes [] pval_type in
+      let _, propTypes = getPropTypes [] pval_type in
       let namedTypeList = List.fold_left argToConcreteType [] propTypes in
       let retPropsType =
         Typ.constr ~loc:pstr_loc
@@ -1166,8 +1172,8 @@ let transformStructureItem ~config item =
       (* can't be an arrow because it will defensively uncurry *)
       let newExternalType =
         Ptyp_constr
-          ( {loc = pstr_loc; txt = Ldot (Lident "React", "componentLike")},
-            [retPropsType; innerType] )
+          ( {loc = pstr_loc; txt = Ldot (Lident "React", "component")},
+            [retPropsType] )
       in
       let newStructure =
         {
@@ -1257,7 +1263,7 @@ let transformSignatureItem ~config item =
           (returnValue, (name, attrs, returnValue.ptyp_loc, type_) :: types)
         | _ -> (fullType, types)
       in
-      let innerType, propTypes = getPropTypes [] pval_type in
+      let _, propTypes = getPropTypes [] pval_type in
       let namedTypeList = List.fold_left argToConcreteType [] propTypes in
       let retPropsType =
         Typ.constr
@@ -1281,8 +1287,8 @@ let transformSignatureItem ~config item =
       (* can't be an arrow because it will defensively uncurry *)
       let newExternalType =
         Ptyp_constr
-          ( {loc = psig_loc; txt = Ldot (Lident "React", "componentLike")},
-            [retPropsType; innerType] )
+          ( {loc = psig_loc; txt = Ldot (Lident "React", "component")},
+            [retPropsType] )
       in
       let newStructure =
         {
